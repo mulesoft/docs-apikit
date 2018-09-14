@@ -1,0 +1,42 @@
+= Testing the Policy
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+To test the policy:
+
+. Click the 1.0development version of the vending API.
++
+The API version details page for the vending API appears.
++
+. In the Status section click Configure Endpoint.
++
+The Configure endpoint dialog shows that the Autodiscovery process deployed the API to a basic endpoint. The implementation URI shows the URL of the endpoint, which contains your local IP address.
++
+image::apikit-tutorial-d664e.png[]
++
+. In a browser, go to the IP address and port shown in the implementation URI. For example:
++
+`+http://192.168.1.127:8081/remote-vending/api/*+`
++
+The following message appears because you added no logic other than APIkit simulation logic to the flow used by the vending API:
++
+`{ "message": "Resource not found" }`
++
+. Refresh the browser three times.
++
+The rate limiting policy is enforced, as indicated by the output:
++
+`API calls exceeded`
++
+. In a browser, go to the implementation URI for the test-policy API. For example:
++
+`+http://192.168.1.127:8081/remote-vending/test-policy+`
++
+`test policy` appears.
++
+. Refresh the browser three times.
++
+The rate limiting policy is enforced, as indicated by the output:
++
+`API calls exceeded`

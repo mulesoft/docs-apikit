@@ -1,0 +1,32 @@
+= To Generate a SOAP Fault
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In this procedure, you use the SoapUI tool to identify an operation you need to implement by making the API that fails. You use the OrderTshirt operation to create a request in SOAP UI to place an order for a large t-shirt for John. The API cannot handle this operation and a SOAP fault occurs.
+
+. Create a SoapUI project using the `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+` for the initial WSDL:
++
+image::soapui-new-project.png[]
++
+. In the SoapUI client, request a large t-shirt for John by entering some values into the request envelope. For example:
++
+* Enter *L* between the `<size>` tags.
++
+* Enter *John* between the `<name>` tags.
++
+. Submit the request.
++
+The result is the SOAP fault.
++
+[source,xml,linenums]
+----
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <soap:Fault xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+         <faultcode>soap:Server</faultcode>
+         <faultstring>Operation [OrderTshirt:/TshirtService/TshirtServicePort/api-config] not implemented</faultstring>
+      </soap:Fault>
+   </soap:Body>
+</soap:Envelope>
+----

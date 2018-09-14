@@ -1,0 +1,16 @@
+= To Expose API Console (Recommended)
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The recommended way to expose API Console is to create a flow dedicated to exposing the console. For example:
+
+----
+<flow name="api-console">
+   <http:listener config-ref="api-httpListenerConfig" path="/console/*" doc:name="HTTP"/>
+
+   <apikit:console config-ref="api-config" doc:name="APIkit Console"/>
+</flow>
+----
+
+This flow uses its own listener, so the path of the console is not a part of the api namespace. Using this method, you can apply policies to your api without affecting the console.

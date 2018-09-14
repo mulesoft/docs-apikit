@@ -1,0 +1,42 @@
+= To Get a SOAP Header
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In this procedure, you retrieve a SOAP header from the request. In the SoapUI, the request window shows the soap Envelope header.
+
+image::apikit-for-soap-53dc2.png[]
+
+. In the SoapUI, modify the OrderTshirt request by entering a value for the API key. For example, enter `987654321` between the `<apiKey>` tags.
+
+. In Studio, edit the DataWeave code to get the API key, which is an inbound property, from the header:
++
+[source,raml,linenums]
+----
+%dw 1.0
+%output application/xml
+%namespace ns0 http://mulesoft.org/tshirt-service
+---
+{
+  ns0#OrderTshirtResponse: {
+    orderId: "I got a request from "
+    ++ payload.ns0#OrderTshirt.name
+    ++ ", using the following auth header "
+    ++ inboundProperties['soap.AuthenticationHeader'].ns0#AuthenticationHeader.apiKey
+  }
+}
+----
++
+. Save and rerun the project.
+. In SoapUI, send a request, and check that the response changes to the following:
++
+[source,xml,linenums]
+----
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ns0:OrderTshirtResponse xmlns:ns0="http://mulesoft.org/tshirt-service">
+         <orderId>I got a request from John, using the following auth header 987654321</orderId>
+      </ns0:OrderTshirtResponse>
+   </soap:Body>
+</soap:Envelope>
+----

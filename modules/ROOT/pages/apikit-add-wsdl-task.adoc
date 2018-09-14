@@ -1,0 +1,17 @@
+= To Add APIkit Components to an Existing WSDL Design
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You can add APIkit components to an existing design, for example a legacy SOAP project that you want to update using WSDL and APIkit. This procedure generates backend flows that contain the core logic of the API and SOAP message templates for handling faults.
+
+. Define the WSDL using the editor in Studio.
+. Drag the following components from the Mule palette:
++
+* An HTTP (or Jetty) Listener
+* An APIkit Router or a SOAP Router
++
+. Generate SOAP Backend Flows: Click the project name, and select *Mule* > *Generate Flows from WSDL*
+. Using DataWeave, provide XML responses to the SOAP faults.
++
+image::apikit-using-ea7ad.png[]

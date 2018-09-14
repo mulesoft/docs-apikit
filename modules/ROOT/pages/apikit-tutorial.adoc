@@ -1,0 +1,19 @@
+= Workflow: Create, Run, and Test an APIkit Project
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: apikit, raml, tutorial, api, rest
+
+In this procedure, you build and deploy an APIkit project that imports a RAML. You run the API in Anypoint Studio, use API Console to simulate calls to the API, prepare the project for deployment, deploy the project to Anypoint Platform, and apply a policy to the API.
+
+Studio 6.0 or later is recommended for this procedure. The API you create covers two main tasks:
+
+* Updating vending machine data: to update the central database on each sale
+* Tracking inventory: to find out if a machine is low on stock
+
+. xref:apikit-create.adoc[Create a new project].
+. xref:apikit-run-test.adoc[Run and test the project].
+. xref:apikit-add-logic.adoc[Add logic to the project].
+. xref:apikit-deploy.adoc[Deploy the project].
+. xref:apikit-apply-policy.adoc[Apply a policy].
+. xref:apikit-test-policy.adoc[Test a Policy].

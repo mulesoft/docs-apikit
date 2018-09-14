@@ -1,0 +1,15 @@
+= About APIkit
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+APIkit is a tool for building Mule REST or SOAP APIs. You develop APIs based on one of the following modeling languages:
+
+* RESTful API Modeling Language (RAML) 1.0 and 0.8 versions
+* Web Service Description Language (WSDL)
+
+APIkit simplifies the design and implementation of REST APIs. APIkit generates minimal Mule flows based on either a RAML or WSDL that meet the communication operations required by a REST or web service contract, respectively.
+
+MuleSoft recommends Design Center for creating and sync-ing RAML code; however, Anypoint Studio includes a RAML editor that provides syntax validation and suggestions if you want to perform the entire development within Studio. For generating flows using APIkit, use Studio to automate the flow generation process, or you can create APIkit flows for Mule in an XML editor.
+
+APIkit projects can run onsite or on CloudHub. After generating the API, you can simulate calls using API Console.

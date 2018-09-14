@@ -1,0 +1,158 @@
+= APIkit XML Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: apikit, maven
+
+This reference contains dependency, namespace, and schema information for the following products:
+
+* APIkit
+* APIkit for SOAP
+
+Also included is a description of elements and attributes.
+
+== APIkit
+
+*APIkit Dependency Information*
+
+----
+<dependency>
+  <groupId>org.mule.modules</groupId>
+  <artifactId>mule-module-apikit</artifactId>
+  <version>3.8.1</version>
+</dependency>
+----
+
+*APIkit Namespace and Schema*
+
+----
+xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit"
+http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+----
+
+=== apikit Elements
+
+[%header,cols="30a,20a,8a,50a"]
+|===
+|Element Name |Description |Required |Content Model
+|*apikit:config* |APIkit configuration |Y |\((annotations?), (flow-mapping*, ((abstract-message-processor \| abstract-outbound-endpoint \| abstract-mixed-content-message-processor))*))
+|*apikit:console* |Message processor that exposes a rest console |N | (annotations?)
+|*apikit:exception* |The package name of an exception |Y |None
+|*apikit:mapping* |Maps status codes to an exception |Y |\((annotations?), (exception+, ((abstract-message-processor \| abstract-outbound-endpoint \| abstract-mixed-content-message-processor))*))
+|*apikit:mapping-exception-strategy* |Exception strategy used to map exceptions to http status codes |N |\((annotations?), (mapping))
+|*apikit:router* |A rest routing message processor nested in the flow element |Y |(annotations?)
+|===
+
+You can use the flow-mapping annotation as shown in this http://stackoverflow.com/a/40105031/2747300[StackOverflow answer].
+
+=== apikit:config Attributes
+
+[%header,cols="22a,10a,30a,38a"]
+|===
+|Attribute Name|Required |Data Type |Description
+|*consoleEnabled* |N |substitutableBoolean |Displays or hides APIkit consoles. Default = true
+|*docName* |N |NonBlankString |Used to identify the origin of the request or response
+|*keepRamlBaseUri* |N |NonBlankString |Rewrites (false) or does not rewrite (true) the baseUri in the RAML definition of the API.
+|*name* |Y |NonBlankString |Configuration name that other elements, such as apikit:router, reference
+|*raml* |Y |NonBlankString |Name of RAML file in src/main/api
+|===
+
+consoleEnabled enables/disables only the APIkit Consoles in the `api` namespace as xref:apikit-using.adoc#using-policies-with-apikit-console[described earlier].
+
+If you are using APIkit behind a reverse proxy, you can use APIkit Console if you set `keepRamlBaseUri` to true to put the URL of a proxy in the baseUri property.
+
+=== apikit:console Attributes
+
+[%header,cols="20a,10a,25a,45a"]
+|===
+|Attribute |Required |Data Type |Description
+|*docName* |N |NonBlankString |Used in the request or response for identification
+|*config-ref* |Y |NonBlankString |The router configuration
+|===
+
+=== apikit:exception Attributes
+
+This element, which is nested in apikit:mapping of type nonBlankString, has only a `value` attribute. The value is the package name of an exception.
+
+=== apikit:mapping Attributes
+
+This element has one required attribute of type substitutableInt, a `statusCode`, which is the https://en.wikipedia.org/wiki/List_of_HTTP_status_codes[HTTP status code] returned when the API throws nested exceptions.
+
+=== apikit:mapping-exception-strategy Attributes
+
+This element, which nests apikit:mapping and apikit:exception elements, has only a required `name` attribute of type substitutableName. The attribute is the name of the exception strategy that maps status codes to exceptions.
+
+=== apikit:router Attributes
+
+[%header,cols="33a,10a,33a,33a"]
+|===
+|Attribute |Required |Data Type |Description
+|*docName* |N |NonBlankString |Used in the request or response for identification
+|*config-ref* |Y |NonBlankString |The router configuration
+|===
+
+== APIkit for SOAP
+
+*APIkit for SOAP Dependency Information*
+
+----
+<dependency>
+  <groupId>org.mule.modules</groupId>
+  <artifactId>mule-module-apikit-soap</artifactId>
+  <version>1.0.0</version>
+</dependency>
+----
+
+*APIkit for SOAP Namespace and Schema*
+
+----
+xmlns:apikit-soap="http://www.mulesoft.org/schema/mule/apikit-soap"
+http://www.mulesoft.org/schema/mule/apikit-soap/current/mule-apikit-soap.xsd
+----
+
+=== apikit-soap Elements
+
+[%header,cols="25a,40a,10a,25a"]
+|===
+|Element Name |Description |Required |Content Model
+|*apikit-soap:config* |APIkit configuration |Y | (annotations?)
+|*apikit-soap:fault* |The package name of an exception |Y |(annotations?)
+|*apikit-soap:router* |A rest routing message processor nested in the flow element |Y |(annotations?)
+|===
+
+=== apikit-soap:config Attributes
+
+You can download the link:{attachmentsdir}/apikit-for-soap-tutorial.xml[configuration.xml] for the APIkit for SOAP tutorial. The APIkit for SOAP elements in the configuration.xml are:
+
+The following table lists the `apikit-soap:config` attributes:
+
+[%header,cols="20a,10a,15a,55a"]
+|===
+|Attribute |Required |Data Type |Description
+|*docName* |N |String |Used in the request or response for identification
+|*name* |Y |String |A name for the configuration that is referenced later by the router and fault.
+|*portName* |Y |String |The name of the port for accessing the web service
+|*serviceName* |Y |String |The WSDL service name
+|*wsdlUrl* |Y |String |The https://en.wikipedia.org/wiki/Web_Services_Description_Language[WSDL document] name
+|===
+
+=== apikit-soap:fault Attributes
+
+[%header,cols="20a,10a,15a,55a"]
+|===
+|Attribute |Required |Data Type |Description
+|*config-ref* |Y |String |Specifies the configuration to reference
+|*doc:name* |N |String |Used in the request or response for identification
+|*faultType* |Y |String |The name of the WSDL operation and WSDL fault name
+|===
+
+=== apikit-soap:router Attributes
+
+The following table lists the `apikit-soap:router` attributes:
+
+[%header,cols="20a,10a,15a,55a"]
+|===
+|Attribute |Required |Data Type |Description
+|*config-ref* |Y |String |Specifies the configuration to reference
+|*doc:name* |N |String |Used in the request or response for identification
+|===

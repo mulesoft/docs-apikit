@@ -1,0 +1,22 @@
+= Workflow: Implement a SOAP Interface
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: apikit, soap
+
+In this workflow, you create an API using Studio and APIkit for SOAP. APIkit for SOAP supports consuming a remote WSDL. This workflow, however, uses a local WSDL that you download. The SOAP interface you create accesses data resources and integrates the interface with backend processes that function as an API.
+
+. xref:apikit-soap-prerequisites-task.adoc[Meet prerequisites for using APIkit for SOAP]
+. xref:apikit-soap-project-task.adoc[Create an APIkit for SOAP project]
+. xref:apikit-soap-fault-task.adoc[Generate a SOAP fault]
+. xref:apikit-prevent-fault-task.adoc[Prevent the SOAP fault]
+. xref:apikit-get-header-task.adoc[To get a SOAP header]
+. xref:apikit-set-header-task.adoc[To set a SOAP header]
+. xref:apikit-display-fault-task.adoc[To display a typed fault]
+. xref:apikit-update-wsdl-task.adoc[To Update a WSDL]
+
+
+== See Also
+
+* xref:apikit-using.adoc[Using APIkit]
+* xref:apikit-reference.adoc[APIkit Reference]

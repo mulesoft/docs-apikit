@@ -1,0 +1,22 @@
+= To Create a New APIkit Project
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This procedure launches the new project and generates a Main flow with an HTTP Listener, an APIkit Router, and references to flows to handle errors. The project support REST resources and methods. These flows, aptly called skeleton flows, are the bare minimum needed to support the RAML specification. The RAML file imported by this procedure resides in `src/main/api`.
+
+. Download the example file to your local drive:
++
+`+link:{attachmentsdir}/api.raml[api.raml]+`.
+. Under the File menu, select New > Mule Project.
+. In the New Mule Project wizard, enter a Name, myproject for example, Mule Runtime 3.8.0.
++
+. Check Add APIkit Components. In the RAML File field, browse to and select the downloaded `api.raml` file.
++
+image::apikit-tutorial-3e0e4.png[height=633,width=600]
++
+. Click Finish.
+
+== See Also
+
+* xref:apikit-basic-anatomy.adoc#backend-flows[Backend flows]

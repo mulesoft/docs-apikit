@@ -1,0 +1,24 @@
+= To Define the RAML
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The following procedure describes how to define a RAML-based API in Studio. Alternatively, you can use any text editor to create the API definition, and then drag the file into the `src/main/api` folder of the Studio project. Using Design Center is recommended if you have the Crowd Release.
+
+. In the *Package Explorer*, right-click the project name, then select *New* > *RAML API Definition*.
++
+The *New RAML API Definition* dialog appears.
++
+. Accept the default location `src/main/api` and enter a name in *File Name*.
+. Enter RAML. Optionally, use the following keyboard shortcuts:
++
+* CTRL +spacebar to auto-complete RAML entries
+* Command+O (CTRL+O in Windows) to open an Outline View of the RAML Editor
++
+. Click *Finish*.
++
+Studio creates and opens a new file in the `src/main/api` folder in your project.
++
+image::new-raml.png[new_raml]
++
+. Add the https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md[RAML].

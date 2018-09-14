@@ -1,0 +1,28 @@
+= About APIkit and API Console Limitations
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The following limitations apply:
+
+* APIkit for SOAP works only on Mule EE runtime 3.8.0 or later.
+* APIkit for SOAP does not download protected resources from the web.
++
+For example, a WSDL file behind a schema model, such as Basic Authentication, is not supported. You need to manually download the WSDL file and all dependencies, such as XSD, and select those files locally.
+
+== Security, Protocol, and baseUriParameter Limitations
+
+APIkit 3.8.1 and later supports RAML 1.0. Mule 3.8.0 runtime limitations related to earlier versions of APIkit are covered in the RAML 1.0 early access document.
+
+In API Gateway Runtime 2.x and earlier, APIkit is designed to work very tightly with RAML interfaces, but does not automatically import the following items from the RAML definition:
+
+* securitySchemes
+* protocols
+* baseUriParameters
+
+The protocol, URI host, and path defined in the RAML file are disregarded in favor of the ones that you define in the APIkit project's HTTP Connector.
+
+
+== API Console Limitations
+
+APIkit does not support the Client Credentials and Resource Owner Password Credentials grant types in the embedded API Console. To use these grant types, access the APIkit Console from a web browser. APIkit Console does not support scopes.

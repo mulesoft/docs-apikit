@@ -1,0 +1,16 @@
+= To Update a WSDL
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In this procedure, you regenerate SOAP flows. After modifying a WSDL, such as adding an operation or editing a message, regeneration is required. Because modifying a WSDL is error-prone, before making a change, make a backup, change the attribute, and verify that the change worked.
+
+To update a WSDL file:
+
+. Download `+https://docs.mulesoft.com/apikit/v/3.x/_attachments/tshirt-modified.wsdl+`, copy the entire contents of the downloaded file, and paste it in tshirt2.wsdl, replacing the tshirt2.wsdl content.
++
+. In Package Explorer, right-click the project and select Mule > Generate SOAP Flows.
++
+A new flow named DeleteOrder:api-config appears.
++
+image::generate-sources.png[width="300"]

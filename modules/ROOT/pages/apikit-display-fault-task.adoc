@@ -1,0 +1,61 @@
+= To Display a Typed Fault
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In this procedure, you make the ListInventory operation display the typed fault. For the tshirt2.wsdl file, there is just one typed fault named TshirtFault, which is mapped to every operation that the WSDL has: OrderTshirt, ListInventory, and TrackOrder.
+
+APIkit for SOAP supports the following types of SOAP faults:
+
+* Soap Fault 1.1
+* Soap Fault 1.2
+
+You can select either type using any WSDL file, even for those files that do not contain typed faults.
+
+. In Studio, delete the Set Payload processor of the ListInventory:api-config flow.
+. Search for fault in the palette, drag and drop SOAP Fault into the ListInventory:api-config flow.
+. In the properties editor, select ListInventory from the Operation drop-down.
+. Select or accept the default TshirtFault from the Fault Type drop-down.
+. Add a Transform Message component before the SOAP Fault component.
+. In the component properties, set up the following DataWeave code:
++
+[source,raml,linenums]
+----
+%dw 1.0
+ %output application/xml
+ %namespace ns0 http://mulesoft.org/tshirt-service
+ %namespace soap http://www.w3.org/2003/05/soap-envelope
+---
+ soap#Fault: {
+   faultcode: "soap:Server",
+   faultstring: "The error details",
+   detail: {
+     ns0#TshirtFault: {
+      errorStuff: 500
+     }
+   }
+ }
+----
++
+. Save and rerun the project.
++
+Using the SoapUI client, run the ListInventory operation.
++
+The client returns the following envelope instead of the default fault:
++
+[source,xml,linenums]
+----
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <soap:Fault xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+         <faultcode>soap:Server</faultcode>
+         <faultstring>The error details</faultstring>
+         <detail>
+            <ns0:TshirtFault xmlns:ns0="http://mulesoft.org/tshirt-service">
+               <errorStuff>500</errorStuff>
+            </ns0:TshirtFault>
+         </detail>
+      </soap:Fault>
+   </soap:Body>
+</soap:Envelope>
+----

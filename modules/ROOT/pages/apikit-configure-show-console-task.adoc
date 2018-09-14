@@ -1,0 +1,10 @@
+= To Configure API Console to Open Automatically
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+To run the application _without_ automatically opening the API Console:
+
+. Right-click the project, then select *Run As* >** Run Configurations...**.
+. Uncheck *Show APIkit console*.
+. Click *Run*.

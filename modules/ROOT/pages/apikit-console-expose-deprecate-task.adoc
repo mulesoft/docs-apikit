@@ -1,0 +1,35 @@
+= To Expose, Enable, and Disable API Console (Deprecated)
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This procedure describes how to expose the API Console by configuring the apikit:config element. The console path, when using this configuration, is part of the api namespace, specified in the listener of the main flow. Ff the api is configured in /api, the console is accessed by hitting /api/console. This causes problems when applying policies to the whole api, as the console is affected by the policies. This method of disabling API Console is deprecated.
+
+To expose API Console, configure the apikit:config element:
+
+----
+ <apikit:config name="apiConfig" raml="api.raml" consoleEnabled="true" consolePath="console"/>
+----
+
+== To Enable or Disable API Console
+
+To enable/disable the console when exposing the API as described above, use the consoleEnabled property.
+
+. Add a conditional expression in the api-console flow as shown in the following example:
++
+----
+<flow name="api-console">
+   <http:listener config-ref="api-httpListenerConfig" path="/console/*" doc:name="HTTP"/>
+     <choice doc:name="Choice">
+        <when expression="${test}">
+           <apikit:console config-ref="api-config" doc:name="APIkit Console"/>
+        </when>
+        <otherwise>
+            <set-payload value="Resource not found" doc:name="Set Payload"/>
+        </otherwise>
+     </choice>
+</flow>
+----
++
+. Define the `test` property in mule-app.properties.
+. Set the `test` property to true or false to enable/disable the console.
