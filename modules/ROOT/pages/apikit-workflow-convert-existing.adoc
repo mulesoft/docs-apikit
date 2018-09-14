@@ -1,0 +1,104 @@
+= Workflow: Convert an Existing Mule Project to an APIkit Project
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+If you create a new Studio project and do _not_ specify an API definition file,  APIkit generates a skeletal RAML file and XML configuration that includes the following things:
+
+* HTTP Listener configuration
+* APIkit Router component
+* Error handling flows
+
+The following screenshot shows the Specify API Definition File Location or URL option, which you uncheck to create the backend first:
+
+image::backend-first-project.png[]
+
+Later, you can add an API specification, and then use API Console to simulate the API.
+
+== Adding APIkit to an Existing Design
+
+You add APIkit components to an existing design, for example a legacy project that you want to modernize using RAML and APIkit, by creating the RAML code within Studio as follows:
+
+*RAML-based API*
+
+* Define the API definition files.
+* Create a main flow, or use an existing one, that includes an HTTP Listener and APIkit Router.
+* Generate backend flows.
+
+The generated backend flows contain the core logic of the API, error handling flows, API Console. You need to add REST resource-action pairing.
+
+== Defining the API Definition Files
+
+If you want a RAML-backed API, you can use Studio to create the file: Studio: File > New > RAML API Definition.
+
+image::new-raml.png[]
+
+For example:
+
+. Use the RAML specification and dependent JSON example files provided in the Workflow: Generating a Mule Flow from an API Specification.
+
+. Right-click the name of the RAML in /src/main/resources/api and select Validate. Proceed if there are no problems with the RAML.
+
+. Create any dependent files, or drag and drop them into Studio beside the main RAML. For example, drag the user-example.json to /src/main/resources/api.
++
+Ignore error messages in the Problems window that pertain to undefined attributes.
+
+== Creating a Main Flow
+
+Within the APIkit project, build a flow.
+
+. Drag the following components from the Mule palette:
++
+* An HTTP Listener
+* An APIkit Router
++
+. In the properties editor for APIkit Router, in Router Configuration, select `api-config`.
+. In the properties editor for HTTP Listener, in Connector Configuration, select api-httpListenerConfig, and set a path. For example, in Path, enter `/`.
+
+
+== Generating REST Backend Flows
+
+When you create a RAML in Studio, generating backend flows is optional. Error handling is generated for a RAML-based API. You need to reference generated flows from the main flow. This procedure assumes you have already created a main flow.
+
+To generate backend flows:
+
+. In the Package Explorer, right-click the project name.
+. Select Mule > Generate Flows From REST API.
++
+The backend flows appear below the main flow.
+
+== Mapping RAML Resources to Actions
+
+As part of the backend-first design process, you map RAML resources to actions as shown in the following procedure. This procedure assumes you have generated backend flows.
+
+To map resources to actions:
+
+. Click the APIkit Router to open the *Properties Editor*. In *Router configuration*, click image:add-16x16.png[].
++
+The *Global Element Properties* wizard appears.
++
+. Enter the relative path to the RAML file you created within Studio, for example: src/main/resources/api/api.raml. If you browse, the file name alone is used and that isn't sufficient.
+. In Mappings, click image:add-16x16.png[] to create a new mapping.
++
+The *New Mapping* dialog appears.
+. Use the drop-down to map the resources to actions.
++
+* In the Resource drop-down, select `/users`.
++
+* In the Action drop-down, select `GET`.
++
+* In the Flow drop-down, select the flow that contains the get users action: `get:\users:api-config`.
++
+Click *OK*.
++
+image::map-resource-to-action.png[apikit-using-ab251]
++
+. Repeat the previous step for each resource-action pairing in the API.
+
+Now, you are ready to run the new project and simulate calls using API Console.
+
+== See Also
+
+* xref:apikit-4-generate-workflow.adoc[Workflow: Generating a Mule Flow from an API Specification]
+* xref:run-apikit-task.adoc[To Run an APIkit Project]
+* xref:apikit-simulate.adoc[To Simulate API Calls]

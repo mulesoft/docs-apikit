@@ -1,0 +1,44 @@
+= To Implement the Endpoint
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+After simulating calls to the API, follow this procedure to see an example of preparing an API for release. Modify and add flows that return actual data from the JSON Placeholder site instead of the data from RAML examples. Modify the users flow to get actual data from the Json Placeholder site.
+
+. Drag an HTTP Listener component from the Mule palette to the Source section of the get:/users:api-config flow.
++
+image::source-section.png[]
++
+. In the properties editor of Listener, in Connector Configuration, select api-httpListenerConfig.
++
+image::apikit-edit-listener.png[]
++
+Click image:edit-16x16.gif[Edit-16x16] and click OK to accept the default host 0.0.0.0 and port 8081.
++
+. In the properties editor of Listener, in General, type */placeholder* in Path.
+. Drag an HTTP Request component to the right of Transform.
+. In Connector Configuration of the Request, click image:add-16x16.png[Add-16x16].
++
+The HTTP Request Configuration appears.
++
+. Set the following HTTP Request Configuration options:
++
+* Accept the default Name, HTTP_Request_Configuration.
+* Accept the default HTTP protocol.
+* Set Host to *jsonplaceholder.typicode.com*.
+* Set Port to *80*.
+* Accept the other defaults, and click OK.
++
+. In the properties editor of Request, set the following options:
++
+* Method: Accept the default GET.
++
+* Path: `/users`
++
+. Save changes.
+
+Next, filter the list of users by ID.
+
+== See Also
+
+* xref:filter-users-id-task.adoc[To Filter Users By ID Using a Parameter]

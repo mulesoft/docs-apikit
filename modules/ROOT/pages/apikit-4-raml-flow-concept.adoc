@@ -1,0 +1,39 @@
+= About Generating RAML-based Flows
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+From a RAML specification, the APIkit scaffolding technique typically generates the following components in APIkit 4.x:
+
+image::scaffolding.png[]
+
+* An archetype
++
+Basic configuration files plus a Mule XML configuration (Mule code)
++
+* An implementation of the API
++
+** HTTP listener and APIkit router
++
+For routing and binding to RAML resources.
++
+** An API Console
++
+For simulating calls to the API using the mocking service.
+** Flows
++
+A mock implementation. Later you need to add the business logic to the flows.
+
+In Studio, the APIkit project looks something like this:
+
+image::apikit-flows.png[]
+
+A flow is generated for each resource method:
+
+image::apikit-flow-per-method.png[height=558,width=256]
+
+The generated, minimal flows meets the communication operations required by a REST contract.
+
+== APIkit Router
+
+The APIkit router is a key message processor that validates requests against the RAML definition, enriches messages, for example by adding default values to the messages, and routes requests to a flow. "Bad request" is returned if the request is invalid, for example, and "Not implemented" is returned if the RAML resource that you request is not associated with a flow.

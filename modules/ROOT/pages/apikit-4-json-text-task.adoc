@@ -1,0 +1,35 @@
+= Create a JSON Example Using a Text Editor
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This procedure is part of the workflow that generates a Mule flow from the API specification.
+
+After creating the api.raml file in a text editor instead of Design Center, you need to also create a dependent JSON example file. The API specification will include the example.
+
+Enter the following code into a text editor and save it as user-example.json in the same directory as the RAML file:
+
+----
+[{
+              "id": 1,
+              "name": "Leanne Graham",
+              "username": "Bret",
+              "email": "Sincere@april.biz",
+              "address": {
+                "street": "Kulas Light",
+                "suite": "Apt. 556",
+                "city": "Gwenborough",
+                "zipcode": "92998-3874",
+                "geo": {
+                  "lat": "-37.3159",
+                  "lng": "81.1496"
+                }
+                },
+              "phone": "1-770-736-8031 x56442",
+              "website": "hildegard.org",
+              "company": {
+                "name": "Romaguera-Crona",
+                "catchPhrase": "Multi-layered client-server neural-net",
+                "bs": "harness real-time e-markets"
+              } }]
+----

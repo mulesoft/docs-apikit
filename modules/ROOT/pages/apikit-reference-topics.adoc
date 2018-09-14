@@ -1,9 +1,0 @@
-= APIkit Reference Topics
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-
-* xref:apikit-odata-extension-reference.adoc[APIkit OData Reference]
-* xref:apikit-using.adoc[Naming the Application Reference]
-* xref:apikit-basic-anatomy.adoc[APIkit Anatomy Reference]
-* xref:apikit-reference.adoc[APIkit XML Reference]

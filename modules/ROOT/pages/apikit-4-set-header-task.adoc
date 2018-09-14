@@ -1,0 +1,56 @@
+= To Set a SOAP Header
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In this procedure, you add header information to the response that complies with the WSDL. Header information that complies with the WSDL document is called APIUsageInformation.
+
+. In Studio, open the tshirt2.wsdl in `src/main/resources/api` and scroll to APIUsageInformation element, which is the element expected by the contract. Copy the name of the element to the clipboard.
+. On the canvas, select Transform message in the `OrderTshirt:/soapkit-config` flow, and in the properties editor, click Add New Target:
++
+image::apikit-for-soap-3005f.png[height=440,width=700]
++
+. Select Variable from the drop-down.
++
+. In Variable Name, paste the contents of the clipboard, and add *soap.* as a prefix. or type *soap.APIUsageInformation*.
++
+The complete variable name looks like this:
++
+soap.APIUsageInformation
++
+. Click OK.
+. In Output, double-click apiCallsRemaining: _Integer_.
++
+image::apikit-for-soap-41732.png[height=440,width=700]
++
+Double-clicking apiCallsRemaining adds `APIUsageInformation: { apiCallsRemaining: null }` to the DataWeave code for the outbound property:
++
+[source,raml,linenums]
+----
+%dw 2.0
+output application/java
+---
+{
+  "soap.APIUsageInformation": null
+}
+----
++
+. Change null to *10*.
+. Save and rerun the project.
+. In the SoapUI, execute the OrderTshirt request again. The response envelope from APIkit for SOAP is:
++
+[source,xml,linenums]
+----
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <ns0:APIUsageInformation xmlns:ns0="http://mulesoft.org/tshirt-service">
+         <apiCallsRemaining>10</apiCallsRemaining>
+      </ns0:APIUsageInformation>
+   </soap:Header>
+   <soap:Body>
+      <ns0:OrderTshirtResponse xmlns:ns0="http://mulesoft.org/tshirt-service">
+         <orderId>I got a request from John, using the following auth header 987654321</orderId>
+      </ns0:OrderTshirtResponse>
+   </soap:Body>
+</soap:Envelope>
+----

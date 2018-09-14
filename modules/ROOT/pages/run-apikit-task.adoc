@@ -1,0 +1,14 @@
+= To Run an APIkit Project
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This procedure assumes you started an APIkit project and are ready to run the API.
+
+Click Run As image:lrun-obj.png[run icon] > Mule Application.
+
+The application deploys and you can now simulate calling the API using APIkit Console.
+
+== See Also
+
+* xref:apikit-simulate.adoc[To Simulate API Calls]

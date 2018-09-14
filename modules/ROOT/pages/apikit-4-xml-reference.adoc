@@ -1,0 +1,61 @@
+= APIkit XML Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: apikit, maven
+
+This reference contains dependency, namespace, schema, and other information about APIkit.
+
+== APIkit Dependency Information
+
+----
+<dependency>
+  <groupId>org.mule.modules</groupId>
+  <artifactId>mule-apikit-module</artifactId>
+  <version>1.1.0</version>
+  <classifier>mule-plugin</classifier>
+</dependency>
+----
+
+*APIkit Namespace and Schema*
+
+----
+xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd"
+----
+
+=== apikit Elements
+
+[%header,cols="30a,50a,8a"]
+|===
+|Element Name |Description |Required
+|*apikit:config* |APIkit configuration |Y
+|*apikit:console* |Refers to the config-ref property in the http:listener element in the api-console flow that defines the API Console URL |N
+|*apikit:router* |A rest routing message processor nested in the flow element |Y
+|===
+
+=== apikit:config Attributes
+
+These elements are of type NonBlankString.
+
+[%header,cols="22a,10a,68a"]
+|===
+|Attribute Name|Required |Description
+|*outboundHeadersMapName* |N |Used to identify the name of the map the contains response headers
+|*httpStatusVarName* |N |The name of the variable that stores the HTTP status code in the response
+|*keepRamlBaseUri* |N |Rewrites (false) or does not rewrite (true) the baseUri in the RAML definition of the API.
+|*name* |Y |Configuration name that other elements, such as apikit:router, reference
+|*raml* |Y |Name of RAML file in src/main/api
+|===
+
+If you are using APIkit behind a reverse proxy, you can use API Console if you set `keepRamlBaseUri` to true to put the URL of a proxy in the baseUri property.
+
+=== apikit:router Attributes
+
+[%header,cols="22a,10a,68a"]
+|===
+|Attribute Name|Required |Description
+|*disableValidations* |N |Disables validations of requests.
+|*headerStrictValidation* |N |Validates that request headers are defined in RAML file or belong to a well-known set of headers.
+|*queryParamsStrictValidation* |N |Validates that request query parameters are defined in RAML file.
+|===

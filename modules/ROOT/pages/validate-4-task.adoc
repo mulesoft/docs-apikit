@@ -1,0 +1,19 @@
+= To Validate Query Parameters and Headers
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This procedure assumes that you have generated Mule flows using APIkit in Studio. You can configure APIkit Router to validate, or not, headers and query parameters. Strict query parameter and header validation limits parameters to those defined in the RAML. Enabling validations can affect performance. Many complex validations can cause a delay in response time, so if your use case cannot tolerate latency, you might want to disable validations. By default validations are disabled.
+
+. In Studio, select APIkit Router.
++
+image::router-selected.png[]
++
+. In Router Configuration, click image:edit-16x16.gif[Edit-16x16] or image:add-16x16.png[Add-16x16].
+. In Disable Validations, select True to disable validations. You can disable or enable validations using an expression from the validations drop-downs.
++
+image::validation-configuration.png[]
++
+. In Query Parameters Strict Validations, select True to limit parameters to those defined in the RAML.
+. In Headers Strict Validations, select True to limit headers to those defined in the RAML.
+. Reverse the procedures by selecting False to inhibit the respective validation, or set Disable Validations to False to inhibit both validations.

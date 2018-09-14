@@ -1,0 +1,27 @@
+= To Customize the API Console URL
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This procedure explains how to customize the URL for browser-based API Console. To use the mocking server and simulate calls to the API, you need API Console. If you do not customize the URL for API Console, you open a browser, and go to `/console`.
+
+. In Studio, select the Configuration XML tab.
+
+. Change the console path in the path attribute in this part of the code:
++
+[source,xml,linenums]
+----
+<flow name="api-console">
+    <http:listener config-ref="httpListenerConfigDefault" path="/console/*">
+        <http:response statusCode="#[vars.httpStatus default 200]">
+            <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+        </http:response>
+
+...
+
+    </http:listener>
+    <apikit:console config-ref="api-config" />
+</flow>
+----
++
+. Change the host and port by editing the listener-config.

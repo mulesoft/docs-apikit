@@ -1,0 +1,23 @@
+= To Meet Prerequisites for Using APIkit for Soap
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This procedure describes how to set up the development environment for creating a WSDL-based API using APIkit for this workflow.
+
+. Check that you are using Studio 7.1 or later, which includes the Anypoint APIkit SOAP Extension:
+Help > Installation Details.
++
+If not, install Studio 7.1 or later.
++
+. Download the SoapUI client. For example:
++
+SoapUI Client site: `+https://www.soapui.org/downloads/soapui.html+`
++
+. Download or obtain the URL for a WSDL file. For this workflow, download the example WSDL tshirt2.wsdl.
++
+WSDL file: `+https://docs.mulesoft.com/apikit/v/4.x/_attachments/tshirt2.wsdl+`
+
+== See Also
+
+* XML code for the completed API: `+https://docs.mulesoft.com/apikit/v/4.x/_attachments/apikit-for-soap-tutorial.xml+`

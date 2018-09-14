@@ -1,0 +1,69 @@
+= To Display a Typed Fault
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In this procedure, you make the ListInventory operation display the typed fault. For the tshirt2.wsdl file, there is just one typed fault named TshirtFault, which is mapped to every operation that the WSDL has: OrderTshirt, ListInventory, and TrackOrder.
+
+APIkit for SOAP supports the following types of SOAP faults:
+
+* Soap Fault 1.1
+* Soap Fault 1.2
+
+You can select either type using any WSDL file, even for those files that do not contain typed faults.
+
+. In Studio, search for fault in the palette.
++
+Multiple SOAP Fault components might appear.
++
+. Drag and drop the SOAP Fault component into the ListInventory:api-config flow to the right of Transform.
++
+If the Operation Unavailable message appears telling you about a version descrepancy, cancel the operation, and choose another SOAP Fault component. Repeat these steps until you find a version match.
+. In the properties editor, in Module Configuration, select soapkit-config from the drop-down.
+. In Operation, select ListInventory from the drop-down.
+. In Fault, select TshirtFault from the drop-down and save the properties
+. Click the Transform Message component to the left of the SOAP Fault component.
+. Modify the DataWeave code as follows:
++
+[source,raml,linenums]
+----
+%dw 2.0
+output application/xml
+ns ns0 http://mulesoft.org/tshirt-service
+ns soap http://schemas.xmlsoap.org/soap/envelope/
+---
+{
+  soap#Fault: {
+    faultcode: "soap:Server",
+    faultstring: "The error details",
+    detail: {
+      ns0#TshirtFault: {
+        errorStuff: 500
+      }
+    }
+  }
+}
+----
++
+. Save and rerun the project.
++
+Using the SoapUI client, run the ListInventory operation.
++
+The client returns the following envelope instead of the default fault:
++
+[source,xml,linenums]
+----
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <soap:Fault>
+         <faultcode>soap:Server</faultcode>
+         <faultstring>The error details</faultstring>
+         <detail>
+            <ns0:TshirtFault xmlns:ns0="http://mulesoft.org/tshirt-service">
+               <errorStuff>500</errorStuff>
+            </ns0:TshirtFault>
+         </detail>
+      </soap:Fault>
+   </soap:Body>
+</soap:Envelope>
+----

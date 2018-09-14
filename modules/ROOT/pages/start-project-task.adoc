@@ -3,13 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-*Documentation for APIkit 4.x*
-
-In this procedure, you import the RAML into Anypoint Studio that you created in Design Center or in a text editor.
+In this procedure, you import the RAML into Studio that you created in Design Center or in a text editor.
 
 . In Studio, click File > New > Mule Project. In Project Settings, set the following options:
 * Project Name: Type any name, for example, *myproject*.
-* In API Implementation, check this Specify API Definition File Location or URL option.
+* In API Implementation, check Specify API Definition File Location or URL option.
 * In Location, do one of the following:
 +
 ** Select Design Center if you created api.raml in Design Center. Login to Anypoint Platform if necessary, and select api.raml.
@@ -38,5 +36,5 @@ Now, you are ready to run the API.
 
 == See Also
 
-* xref:apikit-run-test.adoc[To Run and Test an APIkit Project]
-* link:/design-center/v/1.0/design-create-publish-api-specs[Create and Publish an API Specification or API Fragment] using Design Center.
+* xref:run-apikit-task.adoc[To Run an APIkit Project]
+* link:/design-center/v/1.0/design-create-publish-api-specs[Create and Publish an API Specification or API Fragment] using Design Center..

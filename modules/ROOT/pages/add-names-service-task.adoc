@@ -1,0 +1,30 @@
+= To Add a Service to Get Only User Names
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In this procedure, you add a flow to filter users to get a list of user names. You set up the Transform Message to return the results you want.
+
+. Copy and paste the get:/users:api-config flow to create another flow: Select the flow, and then Edit > Copy. Click a blank area of the canvas, and select Edit > Paste.
++
+A copy of the flow appears at the bottom of the canvas.
++
+. In the copy of the flow, select the HTTP listener component, and in the properties editor, change the Path from /placeholder to */placeholder/names*.
+. Drag a Transform Message component from the Mule palette to the right of the HTTP requester.
++
+image::transform-msg.png[define metadata]
++
+. In the properties editor, change the output code to specify the application/json mime type instead of application/java and add `payload.name`:
++
+----
+%dw 1.0
+%output application/json
+---
+payload.name
+----
+
+Next, test the API Implementation.
+
+== See Also
+
+* xref:test-api-task.adoc[To Test the API Implementation]

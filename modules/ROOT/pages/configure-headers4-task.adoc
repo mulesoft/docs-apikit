@@ -1,0 +1,37 @@
+= To Configure Headers
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In the HTTP Listener, you can configure a verbose form of the response HTTP headers and status code. You configure two properties:
+
+* `outboundHeadersMapName`
++
+Supports sending custom headers with the response.
++
+* `httpStatusVarName`
++
+Supports sending a custom HTTP status code in the response.
+
+
+== Adding a Header to a Response
+
+Put the header you want to add inside the `outboundHeaders` map, as shown in the following example:
+
+[source,xml,linenums]
+----
+<ee:transform>
+    <ee:set-variables>
+    <ee:set-variable name="outboundHeaders">
+        variables.outboundHeaders ++{headerName:"value"}
+    </ee:set-variable>
+</ee:set-variables>
+</ee:transform>
+----
+
+
+== See Also
+
+
+* xref:apikit-simulate.adoc[To Simulate API Calls using API Console]
+* xref:validate-4-task.adoc[To Validate Query Parameters and Headers]

@@ -1,0 +1,19 @@
+= To Configure the Path for Deployment on CloudHub
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: apikit, rest, console, load balancer, configuring path
+
+APIkit supports RAML 1.0 and 0.8 versions as described in the release notes. APIkit projects can run onsite or on CloudHub. CloudHub requires a unique application name regardless of the region where you deploy the API.
+
+Add the region name to the application name to ensure uniqueness. For example:
+
+`test-customers-eu`
+
+`test-customers-na`
+
+By default, APIkit adds a base path `/api` to each API. The final URL of the APIs deployed on CloudHub is:
+
+`+http://test-customers.eu.cloudhub.io/api/customers+`
+
+`+http://acceptance-customer.eu.cloudhub.io/api/customers+`
