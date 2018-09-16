@@ -1,4 +1,5 @@
 .xref:index.adoc[About APIkit]
+* xref:index.adoc[About APIkit]
 * xref:apikit-4-index.adoc[APIkit 4.x]
  ** xref:overview-4.adoc[APIkit 4.x Overview]
  ** xref:apikit-4-raml-flow-concept.adoc[About Generating RAML-based Flows]
