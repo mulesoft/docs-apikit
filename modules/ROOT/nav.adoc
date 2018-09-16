@@ -1,4 +1,5 @@
 .xref:index.adoc[About APIkit 3.x]
+* xref:index.adoc[About APIkit 3.x]
 * xref:apikit-3-index.adoc[About APIkit 3.x]
  ** xref:apikit-tutorial.adoc[Workflow: Create, Run, and Test an APIkit Project]
   *** xref:apikit-create.adoc[To Create a New APIkit Project]
