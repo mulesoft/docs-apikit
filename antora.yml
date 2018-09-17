@@ -1,5 +1,5 @@
 name: apikit
 title: APIkit
-version: 'latest'
+version: '4.x'
 nav:
 - modules/ROOT/nav.adoc
