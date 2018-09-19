@@ -27,4 +27,4 @@ output application/json
 
 == See Also
 
-* xref:4.1@mule4-runtime::error-handling.adoc[Error Handling Reference]
+* xref:4.1@mule-runtime::error-handling.adoc[Error Handling Reference]
