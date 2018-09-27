@@ -13,7 +13,7 @@ Alternatively, you can use a text editor instead of Design Center to create the 
 * xref:apikit-4-raml-text-task.adoc[Create RAML specification file].
 * xref:apikit-4-json-text-task.adoc[Create a JSON example] to include in the RAML specification.
 +
-. link:/apikit/start-project-task[Start an APIkit project] by importing the API specification.
+. xref:start-project-task.adoc[Start an APIkit project] by importing the API specification.
 . xref:run-apikit-task.adoc[Run the APIkit project].
 . xref:apikit-simulate.adoc[Simulate API calls to the API to test it.]
 . Add business logic to the API:
