@@ -19,7 +19,7 @@ A REST or SOAP project that uses APIkit has the following parts:
 
 image::apikit-basic-anatomy-f5e73.png[REST vs SOAP Studio Projects]
 
-You can use the link:/api-manager/designing-your-api#simulating-calls-to-the-api[APIkit Console] or a SOAP testing tool, such as https://en.wikipedia.org/wiki/SoapUI[SoapUI], to simulate calls to the API.
+You can use the xref:1.x@api-manager::designing-your-api.adoc#simulating-calls-to-the-api[APIkit Console] or a SOAP testing tool, such as https://en.wikipedia.org/wiki/SoapUI[SoapUI], to simulate calls to the API.
 
 *Note:* An APIkit Console equivalent is not available for WSDL-based APIs.
 

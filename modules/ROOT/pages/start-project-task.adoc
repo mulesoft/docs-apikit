@@ -39,4 +39,4 @@ Now, you are ready to run the API.
 == See Also
 
 * xref:apikit-run-test.adoc[To Run and Test an APIkit Project]
-* link:/design-center/v/1.0/design-create-publish-api-specs[Create and Publish an API Specification or API Fragment] using Design Center.
+* xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment] using Design Center.
