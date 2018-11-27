@@ -1,0 +1,149 @@
+= APIkit OData Extension Reference
+:keywords: apikit, apikit extension, odata, apikit odata reference
+
+The Entity Data Model (EDM) that you create using RAML is the basis for building an OData API. You use EDM-compatible data types to create the file, as described in this reference, and name the file odata.raml. After generating flows using the APIkit OData Extension, you need to implement API endpoints.
+
+== Entity Data Model
+
+The APIkit OData Extension builds the OData API based on an odata.raml file that describes the OData entity data model (EDM) using supported EDM types. The odata.raml is a RAML Library. Each DataType represents an EntityModel. For example:
+
+----
+#%RAML 1.0 Library
+uses:
+  odata: !include libraries/odata.raml
+types:
+  Employee:
+    properties:
+      id:
+        type: integer
+        (odata.key): bool
+        (odata.nullable): bool
+      name:
+        type: string
+----
+
+Annotate at least one of the properties on each entity using the annotation (odata.key).
+
+The following annotations pertain to each property:
+
+----
+(odata.precision): int
+(odata.scale): int
+----
+
+Use the optional (odata.remote) annotation to provide the name of the entity in the remote data source.
+
+----
+types:
+  Employee:
+  (odata.remote): SAP_VBAK
+    properties:
+      ...
+----
+
+== Supported EDM Data Types
+
+The APIkit OData Extension supports all EDM types except Edm.Sbyte. In your model, you the RAML types that maps to the EDM type shown in the following list of supported EDM types:
+
+=== Edm.String
+
+The String type represents fixed or variable length character data.
+
+RAML `type: string`
+
+=== Edm.Boolean
+
+The Boolean data type is used to represent the mathematical concept of binary valued logic. There are no applicable facets for this type.
+
+RAML `type: boolean`
+
+=== Edm.Double
+
+The Double type represents a floating point number with 15 digits precision that can represent values with approximate range of ± 2.23e -308 through ± 1.79e +308.
+
+RAML `type: number`
+
+=== Edm.Single
+
+The Single type represents a floating point number with 7 digits precision that can represent values with approximate range of ± 1.18e -38 through ± 3.40e +38
+
+RAML `type: number`
+
+RAML `format: float`
+
+=== Edm.Binary
+
+The binary data type is used to represent fixed or variable length binary data.
+
+RAML `type: file`
+
+=== Edm.DateTime
+
+The DateTime type represents date and time with values ranging from 12:00:00 midnight, January 1, 1753 A.D. through 11:59:59 P.M, December 31, 9999 A.D.
+
+RAML `type: datetime-only`
+
+=== Edm.Int32
+
+The Int32 type represents a signed 32-bit integer value.
+
+RAML `type: integer`
+
+=== Edm.Int64
+
+The Int64 type represents a signed 64-bit integer value.
+
+RAML `type: integer`
+
+RAML `format: int64`
+
+=== Edm.Int16
+
+The Int16 type represents a signed 16-bit integer value.
+
+RAML `type: integer`
+
+RAML `format: int16`
+
+=== Edm.Byte
+
+The Byte type represents an unsigned 8-bit integer value.
+
+RAML `type: integer`
+
+RAML `format: int8`
+
+=== Edm.Decimal
+
+The Decimal type represents numeric values with fixed precision and scale. The required precision and scale can be specified using optional precision and scale properties. This type can describe a numeric value ranging from negative 10^255 + 1 to positive 10^255 -1.
+
+RAML `type: number`
+
+RAML `(odata.precision): 3`
+
+RAML `(odata.scale): 3`
+
+=== Edm.Guid
+
+This Guid type, as specified in link:https://www.ietf.org/rfc/rfc4122.txt[RFC4122], represents a 16-byte (128-bit) unique identifier value.
+
+RAML `type: string`
+
+RAML `(odata.type): guid`
+
+=== Edm.Time
+
+The Time type represents the time of day with values ranging from 0:00:00.x to 23:59:59.y, where x and y depend upon the precision.
+
+RAML `type: time-only`
+
+=== Edm.DateTimeOffset
+
+The DateTimeOffset type represents date and time as an offset in minutes from GMT, with values ranging from 12:00:00 midnight, January 1, 1753 A.D. through 11:59:59 P.M, December 9999 A.D.
+
+RAML `type: datetime`
+
+
+
+
+
