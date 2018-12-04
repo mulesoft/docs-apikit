@@ -96,12 +96,7 @@ The pom.xml and other project files appear in the apikit-odata-example-master di
 +
 The *Select* dialog appears.
 +
-. Select *Anypoint Studio* > *Maven-based Mule Project from pom.xml*. Click Next.
-+
-The Maven Configuration dialog appears.
-+
-. Enter the path to your Maven installation directory, for example `/usr/local/Cellar/maven/3.3.9`
-. Click Test Maven Configuration, and if the test is successful, click Next; otherwise, troubleshoot your Maven configuration.
+. Select *Anypoint Studio* > *Anypoint Studio Project from file system*. Click Next.
 +
 The Import Mule Project dialog appears.
 +
