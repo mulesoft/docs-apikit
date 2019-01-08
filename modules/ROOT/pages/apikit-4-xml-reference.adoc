@@ -43,9 +43,39 @@ These elements are of type NonBlankString.
 |Attribute Name|Required |Description
 |*outboundHeadersMapName* |N |Used to identify the name of the map the contains response headers
 |*httpStatusVarName* |N |The name of the variable that stores the HTTP status code in the response
-|*keepRamlBaseUri* |N |Rewrites (false) or does not rewrite (true) the baseUri in the RAML definition of the API.
+|*keepRamlBaseUri* |N | An alias for the equivalent "keepApiBaseUri" attribute.
+
+This attribute is deprecated since APIkit 1.2.0 and only kept for compatibility with APIkit 1.1.x. +
+It's recommended that API implementations use "keepApiBaseUri" instead of “keepRamlBaseUri”.
 |*name* |Y |Configuration name that other elements, such as apikit:router, reference
-|*raml* |Y |Name of RAML file in src/main/api
+|*raml* |Y | An alias for the equivalent "api" attribute.
+
+This attribute is deprecated since APIkit 1.2.0 and only kept for compatibility with APIkit 1.1.x. +
+It's recommended that API implementations use "api" instead of “raml”.
+|*parser* | N | Specifies the parser used to validate requests.
+
+*This attribute is valid for APIkit 1.2.0 and later*
+
+Possible values are:
+
+* AUTO: The APIkit Router will try to initiate using AMF, it it's not possible (it has errors), then It will try with the RAML Parser.
+* AMF: The APIkit Router will use AMF to read the API and validate incoming requests.
+* RAML: The APIkit Router will use RAML Parser to read the API and validate incoming requests. This is similar to previous APIkit versions.
+
+*Default Value: AUTO*.
+
+| *api* | N | Root API file location.
+
+*This attribute is valid for APIkit 1.2.0 and later*
+
+It can be any of a URL, the relative path to a file located under `src/main/resources/api`, or the API Sync resource path.
+
+| *keepApiBaseUrii* | N | *This attribute is valid for APIkit 1.2.0 and later*
+
+When set to *false*, it rewrites the `baseUri` in the RAML definition of the API. +
+If set to *true* it does not rewrite the `baseUri` field.
+
+
 |===
 
 If you are using APIkit behind a reverse proxy, you can use API Console if you set `keepRamlBaseUri` to true to put the URL of a proxy in the baseUri property.
