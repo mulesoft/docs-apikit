@@ -58,7 +58,7 @@ It's recommended that API implementations use "api" instead of “raml”.
 
 Possible values are:
 
-* AUTO: The APIkit Router will try to initiate using AMF, it it's not possible (it has errors), then It will try with the RAML Parser.
+* AUTO: The APIkit Router will try to initiate using AMF, it's not possible (it has errors), then it will try with the RAML Parser.
 * AMF: The APIkit Router will use AMF to read the API and validate incoming requests.
 * RAML: The APIkit Router will use RAML Parser to read the API and validate incoming requests. This is similar to previous APIkit versions.
 
