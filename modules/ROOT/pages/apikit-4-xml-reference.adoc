@@ -68,7 +68,7 @@ Possible values are:
 
 *This attribute is valid for APIkit 1.2.0 and later*
 
-It can be any of a URL, the relative path to a file located under `src/main/resources/api`, or the API Sync resource path.
+It can be any of a URL, the relative path to a file located under `src/main/resources/api`.
 
 | *keepApiBaseUrii* | N | *This attribute is valid for APIkit 1.2.0 and later*
 
