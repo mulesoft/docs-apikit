@@ -4,7 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: apikit, apikit extension, odata
 
-The APIkit OData Extension supports http://www.odata.org/documentation/odata-version-2-0/overview/[OData] (Open Data Protocol) Version 2 for creating HTTP-based data services. Through these services, you can query the data sources using HTTP. The APIkit OData Extension builds the services from the entity data model (EDM), which OData services uses to formalize its resource descriptions. You write the EDM in RAML using xref:apikit-odata-extension-reference.adoc#supported-edm-data-types[EDM-compatible data types] to represent API entities. The APIkit OData Extension generates Mule flows to handle OData requests. After configuring a data source and adding endpoints to the flows, deploying the app exposes a RESTful API and an OData API accessible through different URLs. The <<odata-mysql-example,OData MySQL example>> shows how to use an HTTP-based data service to query a MySQL database.
+The APIkit OData Extension supports OData (Open Data Protocol) Version 2 for creating HTTP-based data services. Through these services, you can query the data sources using HTTP. +
+The APIkit OData Extension builds the services from the entity data model (EDM), which OData services use to formalize their resource descriptions. You write the EDM in RAML using xref:apikit-odata-extension-reference.adoc#supported-edm-data-types[EDM-compatible data types] to represent API entities. +
+The APIkit OData Extension generates Mule flows to handle OData requests. After configuring a data source and adding endpoints to the flows, deploying the app exposes a RESTful API and an OData API accessible through different URLs. The <<odata-mysql-example,OData MySQL example>> shows how to use an HTTP-based data service to query a MySQL database.
 
 You can use the APIkit OData Extension to expose a legacy API as an OData API, orchestrate data before exposing it in Salesforce, or create a bidirectional OData API for Oracle, DB2, or Azure DB, for example.
 
@@ -19,10 +21,7 @@ The following software is required for creating and using an OData-enabled API w
 
 == Installing the APIKit OData Extension
 
-Using Studio, you install the APIKit OData Extension in Studio as described in the following procedure.
-
-
-To install the APIKit OData Extension:
+You install the APIKit OData Extension from Anypoint Studio as described in the following procedure:
 
 . From the *Help* menu in Anypoint Studio, select *Install New Software*.
 . In the *Work with:* field, select `APIkit for ODATA Update Site - +http://studio.mulesoft.org/r5/apikit-for-odata+` from the drop-down.
@@ -32,9 +31,9 @@ Studio displays a list of items to select.
 . Check the check box to update APIkit Studio Plugin.
 . Click *Next*.
 +
-An Install Remediation Page might appear.
+An Install Remediation Page might show.
 +
-. Click Next, and click Next again to install the remedial software.
+. Click *Next*, and click *Next* again to install the remedial software.
 . Accept the terms and conditions of the product, then click *Finish*.
 . Restart Studio to complete the installation.
 
@@ -42,22 +41,23 @@ An Install Remediation Page might appear.
 
 After installing the prerequisite software, perform the following high-level steps to use the APIkit OData Extension:
 
-. xref:apikit-odata-extension-reference.adoc#entity-data-model[Define an entity data model] named odata.raml, formatting the file as a RAML library.
+. xref:apikit-odata-extension-reference.adoc#entity-data-model[Define an entity data model] named `odata.raml`, formatting the file as a RAML library.
 +
-You can download an link:{attachmentsdir}/odata.raml[example entity data model] to see exactly how to create the file for this example.
+You can download an link:{attachmentsdir}/odata.raml[example entity data model] to see exactly how to create the file.
 +
 . Create a new Mule project in Studio.
 +
 Select the *Add APIkit Components* on the New Project dialog.
-. Copy the odata.raml to /src/main/api in Studio project explorer.
-. In the project explorer, right-click odata.raml and select *Mule* > *Generate OData API from RAML Types*.
+. Copy the `odata.raml` to /src/main/api in Studio project explorer.
+. In the project explorer, right-click `odata.raml` and select *Mule* > *Generate OData API from RAML Types*.
 +
-The OData Extension generates the api.raml and OData library in src/main/api. Generated flows appear on the canvas when you select api.xml.
+The OData Extension generates the `api.raml` and OData library in src/main/api. Generated flows are displayed on the canvas when you select `api.xml`.
 +
 image::creating-an-odata-api-b2e8e.png[]
 +
 . Make sure to add the extensionEnabled="true" attribute/value to the apikit:config element in the XML view. This will ensure that the OData extension is picked up at runtime:
 +
+[source,xml,linenums]
 ----
 <apikit:config name="apiConfig" raml="api.raml" consoleEnabled="false" doc:name="Router" extensionEnabled="true"/>
 ----
@@ -68,7 +68,7 @@ image::creating-an-odata-api-b2e8e.png[]
 
 == Deploying an OData API
 
-You can deploy the example app in a number of ways, including the following ones:
+You can deploy the example app in different ways, including the following ones:
 
 * Locally
 +
@@ -77,11 +77,13 @@ Right-click your project, then select *Run As* > *Mule Application*.
 +
 Right-click your project, then select *Anypoint Platform* > *Deploy to Cloud*.
 
-Once deployed, you can also register the OData app in external OData consumer services like https://help.salesforce.com/HTViewHelpDoc?id=platform_connect_add_external_data_source.htm&language=en_US[Salesforce].
+Once deployed, you can also register the OData app in external OData consumer services like Salesforce.
 
-== OData mySQL Example
+== OData MySQL Example
 
-The OData mySQL example is a fully functional OData API packaged as a Maven project. In this example, the data source, the app, and the service is local. First, you install a MySQL database and load tables using a provided script. You import the compressed project into Studio, which includes a mySQL database driver. You can examine the flows to see how to implement endpoints needed accessing the data. You run the project, and finally, call the REST and OData services.
+The OData MySQL example is a fully functional OData API packaged as a Maven project. In this example, the data source, the app, and the service are local. +
+
+First, you install a MySQL database and load tables using a provided script. Next, you import the compressed project into Studio, which includes a MySQL database driver. You can examine the flows to see how to implement the endpoints you need by accessing the data. Then you run the project and call the REST and OData services.
 
 . Install a MySQL database. Launch MySQL.
 +
@@ -90,22 +92,23 @@ The Maven project you download in step 3 contains the mysql-connector-java-5.1.3
 . Download the link:{attachmentsdir}/example.sql[example.sql script]. Run the script using MySQL commands to load data into a database named apikit-odata-example.
 . Download and unpack the link:{attachmentsdir}/apikit-odata-example-master.zip[compressed Maven project], `apikit-odata-example-master.zip`.
 +
-The pom.xml and other project files appear in the apikit-odata-example-master directory.
+You can find the `pom.xml` and other project files in the apikit-odata-example-master directory.
 +
 . In Studio, Select *File* > *Import*.
 +
-The *Select* dialog appears.
+The *Select* dialog shows.
 +
 . Select *Anypoint Studio* > *Anypoint Studio Project from file system*. Click Next.
 +
-The Import Mule Project dialog appears.
+The Import Mule Project dialog shows.
 +
 . Browse to and select the POM file from the apikit-odata-example-master directory. Click *Finish*.
 +
-The test-drive project appears in the project explorer. APIkit OData Extension generates flows that appear in the canvas when you click api.xml in src/main/app in the project explorer.
+The test-drive project shows in the project explorer. APIkit OData Extension generates flows that are displayed in the canvas when you click `api.xml` in src/main/app in the project explorer.
 +
-. In Studio, in mule-app.properties in src/main/app, set the following properties to access the local MySQL database:
+. In Studio, edit the `mule-app.properties` file inside the src/main/app folder, and set the following properties to access the local MySQL database:
 +
+[source,html,linenums]
 ----
 ds.db.port=3306
 ds.db.user=<your MySQL user name>
@@ -136,6 +139,7 @@ Call the REST API to retrieve the list of customers: `+http://localhost:8081/api
 
 
 The response is:
+[source,JSON,linenums]
 ----
 {
   "entries": [
@@ -151,6 +155,8 @@ The response is:
       "CompanyName": "Alfreds Futterkiste",
       "CustomerID": "ALFKI"
     },
+  ]
+}
 ----
 
 === Access a Description of the OData Service
@@ -162,7 +168,7 @@ http://localhost:8081/api/odata.svc
 ----
 
 The response is:
-
+[source,xml,linenums]
 ----
 <service xmlns="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app" xml:base="http://localhost:8081">
   <workspace>
@@ -179,16 +185,16 @@ The response is:
 
 === Get OData Service Metadata
 
-The Service Metadata exposes the structure of OData service resources and its operations and EDM for a given service.
+The Service Metadata exposes the structure of OData service resources, its operations, and EDM for a given service.
 
-Get the metadata for HTTP Services example:
+Get the metadata for HTTP Services:
 
 ----
 http://localhost:8081/api/odata.svc/$metadata
 ----
 
-The response aligns with the odata.raml EDM you used to build the HTTP Services API example.
-
+The response aligns with the `odata.raml` EDM you used to build the HTTP Services API example:
+[source,xml,linenums]
 ----
 <edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
 <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
@@ -213,7 +219,7 @@ The response aligns with the odata.raml EDM you used to build the HTTP Services 
 
 === Query the Data Source
 
-Issue OData queries to get the list of customers in XML and JSON format.
+Issue OData queries to get the list of customers in XML and JSON format:
 
 ----
 http://localhost:8081/api/odata.svc/customers
@@ -227,18 +233,26 @@ http://localhost:8081/api/odata.svc/customers?$format=json&$top=1&$skip=10
 ----
 
 The response is:
-
+[source,json,linenums]
 ----
 {
-"d" : {
-"results" : [
-{
-"__metadata" : {
-"uri" : "http://localhost:8081/api/odata.svc/customers('BOTTM')", "type" : "odata2.namespace.customers"
-}, "CompanyName" : "Bottom-Dollar Markets", "ContactName" : "Elizabeth Lincoln", "ContactTitle" : "Accounting Manager", "CustomerID" : "BOTTM"
-}
-]
-}
+"d" :
+  {
+  "results" :
+    [
+      {
+      "__metadata" :
+        {
+        "uri" : "http://localhost:8081/api/odata.svc/customers('BOTTM')",
+        "type" : "odata2.namespace.customers"
+        },
+      "CompanyName" : "Bottom-Dollar Markets",
+      "ContactName" : "Elizabeth Lincoln",
+      "ContactTitle" : "Accounting Manager",
+      "CustomerID" : "BOTTM"
+      }
+    ]
+  }
 }
 ----
 

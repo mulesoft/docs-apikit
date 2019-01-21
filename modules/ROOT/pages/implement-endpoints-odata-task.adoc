@@ -3,34 +3,50 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Using Studio, you can implement API endpoints, such as the `get:/customers:config` and `get:/orders:config` flows. The output of the flows must be in JSON format. For more information, see the xref:creating-an-odata-api-with-apikit.adoc#odata-mysql-example[complete functioning example].
+You can implement API endpoints such as the `get:/customers:config` and `get:/orders:config` flows using Anypoint Studio. The output format of the flows must be JSON. For more information, see the xref:creating-an-odata-api-with-apikit.adoc#odata-mysql-example[complete functioning example].
 
 == Declaring Input Variables for a GET
 
 . Declare a variable for the APIkit OData Service variable that contains the fields of your entity in a list of strings (List<String>). For example:
 +
-`var entityFields = vars.odata.fields`
+[source,javascript,linenums]
+----
+var entityFields = vars.odata.fields
+----
 +
 . Declare a variable for the APIkit OData Service variable that filters into 'http.query.params'. For example:
 +
-`var filters = attributes.queryParams`
+[source,javascript,linenums]
+----
+var filters = attributes.queryParams
+----
 +
 . Declare a variable for the APIkit Odata Service variable that contains the keys of your entity. For example:
 +
-`var keys = vars.odata.keyNames`
+[source,javascript,linenums]
+----
+var keys = vars.odata.keyNames
+----
 +
 . Declare a variable for the APIkit Odata Service variable that contains the table name. For example:
 +
-`var remoteEntityName = vars.odata.remoteEntityName`
+[source,javascript,linenums]
+----
+var remoteEntityName = vars.odata.remoteEntityName
+----
 
 == Declaring Input Variables for a POST
 
 . Declare a variable for the APIkit Odata Service inbound property that contains the entity's name:
-+ 
-`var remoteEntityName = vars.odata.remoteEntityName`
++
+[source,javascript,linenums]
+----
+var remoteEntityName = vars.odata.remoteEntityName
+----
 +
 . Declare a variable for transforming your payload into something like this: { myKey1: 'myValue1', myKey2: 'myValue2'}.
 +
+[source,javascript,linenums]
 ----
 var valuesFromPayload = {
   keys: payload pluck $$,
@@ -38,8 +54,9 @@ var valuesFromPayload = {
 }
 ----
 +
-. Declare column and values variables, and use joinBy to transform your keys and values into comma-separated-values (CSV). For example:
+. Declare two variables, and use joinBy to transform your keys and values into comma-separated-values (CSV). For example:
 +
+[source,javascript,linenums]
 ----
 var columns = ( (valuesFromPayload.keys map "`$`" ) joinBy ", ") // myKey1, myKey2
 var values = (valuesFromPayload.values joinBy ", ") // 'myValue1', 'myValue2'
@@ -47,8 +64,15 @@ var values = (valuesFromPayload.values joinBy ", ") // 'myValue1', 'myValue2'
 
 == Formatting Output
 
-The output for each flow must conform to the following format: 
-`{"entries": [{<entry1>},{<entry2>},{<entryN>}]}`
-
-
-
+The output for each flow must conform to the following format:
+[source,xml,linenums]
+----
+{
+  "entries":
+  [
+    {<entry1>},
+    {<entry2>},
+    {<entryN>}
+  ]
+}
+----

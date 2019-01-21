@@ -1,12 +1,13 @@
 = APIkit OData Extension Reference
 :keywords: apikit, apikit extension, odata, apikit odata reference
 
-The Entity Data Model (EDM) that you create using RAML is the basis for building an OData API. You use EDM-compatible data types to create the file, as described in this reference, and name the file odata.raml. After generating flows using the APIkit OData Extension, you need to implement API endpoints.
+The Entity Data Model (EDM) that you create using RAML is the basis for building an OData API. You use EDM-compatible data types to create the file, as described in this reference, and name the file `odata.raml`. After generating flows using the APIkit OData Extension, you need to implement API endpoints.
 
 == Entity Data Model
 
-The APIkit OData Extension builds the OData API based on an odata.raml file that describes the OData entity data model (EDM) using supported EDM types. The odata.raml is a RAML Library. Each DataType represents an EntityModel. For example:
+The APIkit OData Extension builds the OData API based on an `odata.raml` file that describes the OData entity data model (EDM) using supported EDM types. The `odata.raml` is a RAML Library. Each DataType represents an EntityModel. For example:
 
+[source,yaml,linenums]
 ----
 #%RAML 1.0 Library
 uses:
@@ -26,6 +27,7 @@ Annotate at least one of the properties on each entity using the annotation (oda
 
 The following annotations pertain to each property:
 
+[source,yaml]
 ----
 (odata.precision): int
 (odata.scale): int
@@ -33,6 +35,7 @@ The following annotations pertain to each property:
 
 Use the optional (odata.remote) annotation to provide the name of the entity in the remote data source.
 
+[source,yaml,linenums]
 ----
 types:
   Employee:
@@ -43,7 +46,7 @@ types:
 
 == Supported EDM Data Types
 
-The APIkit OData Extension supports all EDM types except Edm.Sbyte. In your model, you the RAML types that maps to the EDM type shown in the following list of supported EDM types:
+The APIkit OData Extension supports all EDM types except Edm.Sbyte. In your model, you define the RAML types that map to the EDM type shown in the following list of supported EDM types:
 
 === Edm.String
 
@@ -59,13 +62,13 @@ RAML `type: boolean`
 
 === Edm.Double
 
-The Double type represents a floating point number with 15 digits precision that can represent values with approximate range of ± 2.23e -308 through ± 1.79e +308.
+The Double type represents a floating point number with 15 digits precision that can represent values with an approximate range of ± 2.23e -308 through ± 1.79e +308.
 
 RAML `type: number`
 
 === Edm.Single
 
-The Single type represents a floating point number with 7 digits precision that can represent values with approximate range of ± 1.18e -38 through ± 3.40e +38
+The Single type represents a floating point number with 7 digits precision that can represent values with an approximate range of ± 1.18e -38 through ± 3.40e +38
 
 RAML `type: number`
 
@@ -115,7 +118,7 @@ RAML `format: int8`
 
 === Edm.Decimal
 
-The Decimal type represents numeric values with fixed precision and scale. The required precision and scale can be specified using optional precision and scale properties. This type can describe a numeric value ranging from negative 10^255 + 1 to positive 10^255 -1.
+The Decimal type represents numeric values with fixed precision and scale. You can specify the required precision and scale by modifying these optional properties. This type can describe a numeric value ranging from negative 10^255 + 1 to positive 10^255 -1.
 
 RAML `type: number`
 
@@ -125,7 +128,7 @@ RAML `(odata.scale): 3`
 
 === Edm.Guid
 
-This Guid type, as specified in link:https://www.ietf.org/rfc/rfc4122.txt[RFC4122], represents a 16-byte (128-bit) unique identifier value.
+The globally unique identifier (GUID) type represents a 16-byte (128-bit) number compliant with the UUID standard (RFC 4122).
 
 RAML `type: string`
 
@@ -142,8 +145,3 @@ RAML `type: time-only`
 The DateTimeOffset type represents date and time as an offset in minutes from GMT, with values ranging from 12:00:00 midnight, January 1, 1753 A.D. through 11:59:59 P.M, December 9999 A.D.
 
 RAML `type: datetime`
-
-
-
-
-
