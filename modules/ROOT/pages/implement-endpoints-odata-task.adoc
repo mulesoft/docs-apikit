@@ -1,4 +1,4 @@
-= Implementing Endpoints for OData Example
+= Implementing Endpoints for an OData API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

@@ -36,3 +36,6 @@
  ** xref:handle-errors-4-concept.adoc[About Handling Errors]
  ** xref:apikit-error-handling-reference.adoc[APIkit Error Handling Reference]
  ** xref:apikit-4-xml-reference.adoc[APIkit 4.x XML Reference]
+ ** xref:creating-an-odata-api-with-apikit.adoc[Creating an OData API with APIkit]
+ ** xref:implement-endpoints-odata-task.adoc[Implementing the endpoint for an OData API]
+ ** xref:apikit-odata-extension-reference.adoc[APIkit OData Extension Reference]
