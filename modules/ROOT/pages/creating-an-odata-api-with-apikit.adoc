@@ -90,7 +90,7 @@ First, you install a MySQL database and load tables using a provided script. Nex
 . Install a MySQL database. Launch MySQL.
 +
 [TIP]
-The Maven project you download in step 3 contains the mysql-connector-java-5.1.37.jar MySQL database driver, so you do not need to make a driver available to the project.
+The Maven project you download in step 3 contains the `mysql-connector-java-5.1.37.jar` MySQL database driver, so you do not need to make a driver available to the project.
 
 +
 . Download the link:{attachmentsdir}/example.sql[example.sql script]. Run the script using MySQL commands to load data into a database named apikit-odata-example.
