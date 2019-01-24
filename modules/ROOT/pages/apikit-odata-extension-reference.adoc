@@ -69,7 +69,7 @@ RAML `type: number`
 
 === Edm.Single
 
-The Single type represents a floating point number with 7 digits precision that can represent values with an approximate range of ± 1.18e -38 through ± 3.40e +38
+The Single type represents a floating point number with seven digits precision that can represent values with an approximate range of ± 1.18e -38 through ± 3.40e +38
 
 RAML `type: number`
 
