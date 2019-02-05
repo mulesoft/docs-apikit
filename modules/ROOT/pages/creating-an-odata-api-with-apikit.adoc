@@ -57,13 +57,6 @@ The OData Extension generates the `api.raml` and OData library in src/main/api. 
 +
 image::creating-an-odata-api-b2e8e.png[]
 +
-. Make sure to add the extensionEnabled="true" attribute/value to the apikit:config element in the XML view. This will ensure that the OData extension is picked up at runtime:
-+
-[source,xml,linenums]
-----
-<apikit:config name="apiConfig" raml="api.raml" consoleEnabled="false" doc:name="Router" extensionEnabled="true"/>
-----
-+
 . Add logic and endpoints for querying a data source as described in xref:implement-endpoints-odata-task.adoc["Implementing Endpoints"].
 +
 . Deploy the OData API.
