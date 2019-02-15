@@ -49,7 +49,7 @@ You can download an link:{attachmentsdir}/odata.raml[example entity data model] 
 +
 . Create a new Mule project in Anypoint Studio.
 +
-Select the *Add APIkit Components* on the New Project dialog.
+Select the *Specify API definition file location or URL* on the New Project dialog.
 . Copy the `odata.raml` to /src/main/api in Studio project explorer.
 . In the project explorer, right-click `odata.raml` and select *Mule* > *Generate OData API from RAML Types*.
 +
