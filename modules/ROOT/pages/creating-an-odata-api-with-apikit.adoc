@@ -24,7 +24,9 @@ The following software is required for creating and using an OData-enabled API w
 You install the APIKit OData Extension from Anypoint Studio as described in the following procedure:
 
 . From the *Help* menu in Studio, select *Install New Software*.
-. In the *Work with:* field, select `APIkit for ODATA Update Site - +http://studio.mulesoft.org/s3/apikit-for-odata+` from the drop-down.
+. Click *Add...*
+. In the *Name* field, type `APIkit for ODATA Update Site`.
+. In the *Location* field, type `+http://studio.mulesoft.org/s3/apikit-for-odata+`.
 +
 Studio displays a list of items to select.
 +
