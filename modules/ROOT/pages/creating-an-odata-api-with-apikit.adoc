@@ -49,7 +49,7 @@ You can download an link:{attachmentsdir}/odata.raml[example entity data model] 
 +
 . Create a new Mule project in Anypoint Studio.
 +
-Select the *Specify API definition file location or URL* on the New Project dialog.
+Select the *Specify API definition file location or URL * on the New Project dialog.
 . Copy the `odata.raml` to /src/main/api in Studio project explorer.
 . In the project explorer, right-click `odata.raml` and select *Mule* > *Generate OData API from RAML Types*.
 +
@@ -234,30 +234,28 @@ http://localhost:8081/api/odata.svc/customers?$format=json
 Issue an OData query to get the tenth customer in the customer list:
 
 ----
-http://localhost:8081/api/odata.svc/customers?$format=json&$top=1&$skip=10
+http://localhost:8081/api/odata.svc/customers?$format=json&$top=1&$skip=10&$inlinecount=allpages
 ----
 
 The response is:
 [source,json,linenums]
 ----
 {
-"d" :
-  {
-  "results" :
-    [
-      {
-      "__metadata" :
-        {
-        "uri" : "http://localhost:8081/api/odata.svc/customers('BOTTM')",
-        "type" : "odata2.namespace.customers"
-        },
-      "CompanyName" : "Bottom-Dollar Markets",
-      "ContactName" : "Elizabeth Lincoln",
-      "ContactTitle" : "Accounting Manager",
-      "CustomerID" : "BOTTM"
-      }
-    ]
-  }
+    "d": {
+        "results": [
+            {
+                "__metadata": {
+                    "uri": "http:/localhost:8081/api/odata.svc/customers('BOTTM')",
+                    "type": "odata2.namespace.customers"
+                },
+                "CompanyName": "Bottom-Dollar Markets",
+                "ContactName": "Elizabeth Lincoln",
+                "ContactTitle": "Accounting Manager",
+                "CustomerID": "BOTTM"
+            }
+        ],
+        "__count": "98"
+    }
 }
 ----
 
