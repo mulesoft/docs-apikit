@@ -4,16 +4,100 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: apikit, raml, tutorial, api, rest
 
-In this procedure, you build and deploy an APIkit project that imports a RAML. You run the API in Anypoint Studio, use API Console to simulate calls to the API, prepare the project for deployment, deploy the project to Anypoint Platform, and apply a policy to the API.
+In this workflow, you build an APIkit project that imports a RAML. You run the API in Anypoint Studio and use API Console to simulate calls to the API.
 
 Studio 6.0 or later is recommended for this procedure. The API you create covers two main tasks:
 
 * Updating vending machine data: to update the central database on each sale
 * Tracking inventory: to find out if a machine is low on stock
 
-. xref:apikit-create.adoc[Create a new project].
-. xref:apikit-run-test.adoc[Run and test the project].
-. xref:apikit-add-logic.adoc[Add logic to the project].
-. xref:apikit-deploy.adoc[Deploy the project].
-. xref:apikit-apply-policy.adoc[Apply a policy].
-. xref:apikit-test-policy.adoc[Test a Policy].
+== Create a New APIkit Project
+
+This procedure launches the new project and generates a Main flow with an HTTP Listener, an APIkit Router, and references to flows to handle errors. The project support REST resources and methods. These flows, aptly called skeleton flows, are the bare minimum needed to support the RAML specification. The RAML file imported by this procedure resides in `src/main/api`.
+
+. Download the example file to your local drive:
++
+`+link:{attachmentsdir}/api.raml[api.raml]+`.
+. Under the File menu, select *New > Mule Project*.
+. In the New Mule Project wizard, enter a Name, myproject for example, Mule Runtime 3.8.0.
++
+. Check Add APIkit Components. In the RAML File field, browse to and select the downloaded `api.raml` file.
++
+image::apikit-tutorial-3e0e4.png[height=633,width=600]
++
+. Click *Finish*.
+
+== Run and Test the Project
+. Right-click the project name in the Project Explorer, then select *Run As > Mule Application*.
++
+The APIkit Console appears below the canvas, displaying the resource-action pairs exposed by the API.
++
+image::apikitconsole-tutorial.png[APIkitconsole-tutorial]
++
+. Click *Introduction* under Documentation to view the API description.
++
+The main Introduction title and sentence map to the contents of `documentation` in the root section of the RAML file.
++
+. Click `/machines` to expand the section. Expand `GET: /machines`, then click the tab labeled *Try It*.
++
+The baseURI is optional in a RAML-backed API, but required by the API Console Try It functionality; otherwise, Try-it is disabled.
++
+image::fv-601.png[]
++
+In the RAML, you can use an arbitrary value, for example `+http://www.example.com+` for the baseURI.
++
+. Click the GET button to send a test call to GET a list of machines.
++
+image::apikitt-get.png[]
++
+. The API returns a list of machines.
++
+The output is the payload set on the message by the `get:/machines:apiConfig` flow.
++
+[source,json,linenums]
+----
+{
+  "count": 3,
+  "machines": [
+    {
+      "id": "ZX4102",
+      "location": "Starbuck's, 442 Geary Street, San Francisco, CA 94102"
+    },
+    {
+      "id": "ZX5322",
+      "location": "Starbuck's, 462 Powell Street, San Francisco, CA 94102"
+    },
+    {
+      "id": "ZX6792",
+      "location": "Cafe La Taza, 470 Post Street, San Francisco, CA 94102"
+    }
+  ]
+}
+----
+
+== Add Logic to the Project
+
+For example purposes, add over-simplified logic to the project to use later in API Manager. Unlike the APIkit-generated flows, the flow you create during this procedure returns a result, a payload message, when you call the API from a browser.
+
+. Drag an HTTP component to the canvas.
++
+Studio creates a flow named apiFlow by default.
++
+. In the apiflow, select the HTTP Connector to open its properties editor.
+. Click image:edit-16x16.gif[Edit-16x16] to edit the Connector Configuration global configuration element.
+. Change the value of the Base Path as follows:
++
+`remote-vending`
++
+. Click OK.
+. In the properties editor, change the Path setting from `/` to `/test-policy`.
+. Drag a Set Payload component to the process area of apiFlow.
+. Set the Value of the payload to `test policy`.
+. Save the changes.
+
+You can then deploy the APIkit project from Studio to Exchange, and apply and test policies via API Manager.
+
+== See Also
+* xref:apikit-basic-anatomy.adoc#backend-flows[Backend flows]
+* xref:studio::export-to-exchange-task.adoc[Publishing a Project to Exchange]
+* xref:api-manager::policy-mule3-tutorial-manage-an-api.adoc#to-apply-the-policy[Applying a Policy]
