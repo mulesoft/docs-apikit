@@ -5,8 +5,8 @@ endif::[]
 :keywords: apikit, apikit extension, odata
 
 The APIkit OData Extension supports OData (Open Data Protocol) Version 2 for creating HTTP-based data services. Through these services, you can query the data sources using HTTP. +
-The APIkit OData Extension builds the services from the entity data model (EDM), which OData services use to formalize their resource descriptions. You write the EDM in RAML using xref:apikit-odata-extension-reference.adoc#supported-edm-data-types[EDM-compatible data types] to represent API entities. +
-The APIkit OData Extension generates Mule flows to handle OData requests. After configuring a data source and adding endpoints to the flows, deploying the app exposes a RESTful API and an OData API accessible through different URLs. The <<odata-mysql-example,OData MySQL example>> shows how to use an HTTP-based data service to query a MySQL database.
+The APIkit OData Extension builds the services from the entity data model (EDM), which OData services use to formalize their resource descriptions. You write the EDM in RAML using EDM-compatible data types to represent API entities. +
+The APIkit OData Extension generates Mule flows to handle OData requests. After configuring a data source and adding endpoints to the flows, deploying the app exposes a RESTful API and an OData API accessible through different URLs. The OData MySQL example on this page shows how to use an HTTP-based data service to query a MySQL database.
 
 You can use the APIkit OData Extension to expose a legacy API as an OData API, orchestrate data before exposing it in Salesforce, or create a bidirectional OData API for Oracle, DB2, or Azure DB, for example.
 
@@ -27,39 +27,44 @@ You install the APIKit OData Extension from Anypoint Studio as described in the 
 . Click *Add...*
 . In the *Name* field, type `APIkit for ODATA Update Site`.
 . In the *Location* field, type `+http://studio.mulesoft.org/s3/apikit-for-odata+`.
+. Click *OK*
 +
 Studio displays a list of items to select.
 +
-. Check the check box to update APIkit Studio Plugin.
+. Check the check box to update Anypoint OData Plugin.
 . Click *Next*.
 +
 An Install Remediation Page might show.
 +
 . Click *Next*, and click *Next* again to install the remedial software.
 . Accept the terms and conditions of the product, then click *Finish*.
++
+An Installing Update (%) message appears at the bottom right corner of Studio.
++
 . Restart Studio to complete the installation.
 
 == Using the APIkit OData Extension
 
 After installing the prerequisite software, perform the following high-level steps to use the APIkit OData Extension:
 
-. xref:apikit-odata-extension-reference.adoc#entity-data-model[Define an entity data model] named `odata.raml`, formatting the file as a RAML library.
+. Define an entity data model named `odata.raml`, formatting the file as a RAML library.
 +
 [TIP]
 You can download an link:{attachmentsdir}/odata.raml[example entity data model] to see exactly how to create the file.
 
 +
-. Create a new Mule project in Anypoint Studio.
+. Create a new Mule project in Anypoint Studio. Click *File*, then select *New > Mule Project*
 +
-Select the *Specify API definition file location or URL * on the New Project dialog.
-. Copy the `odata.raml` to /src/main/api in Studio project explorer.
+Select the *Specify API definition file location or URL* on the New Mule Project dialog.
+. Click *Finish*
+. Copy the `odata.raml` to /src/main/resources/api in Studio project explorer.
 . In the project explorer, right-click `odata.raml` and select *Mule* > *Generate OData API from RAML Types*.
 +
-The OData Extension generates the `api.raml` and OData library in src/main/api. Generated flows are displayed on the canvas when you select `api.xml`.
+The OData Extension generates the `api.raml` in /src/main/resources/api and `ODataLibrary.raml` in /src/main/resources/api/libraries. Generated flows are displayed on the canvas when you select `api.xml`.
 +
-image::creating-an-odata-api-b2e8e.png[]
+image::creating-an-odata-api.png[]
 +
-. Add logic and endpoints for querying a data source as described in xref:implement-endpoints-odata-task.adoc["Implementing Endpoints"].
+. Add logic and endpoints for querying a data source.
 +
 . Deploy the OData API.
 
@@ -70,7 +75,7 @@ You can deploy the example app in different ways, including the following ones:
 * Locally
 +
 Right-click your project, then select *Run As* > *Mule Application*.
-* xref:runtime-manager::deploying-to-cloudhub.adoc[To CloudHub]
+* To CloudHub
 +
 Right-click your project, then select *Anypoint Platform* > *Deploy to Cloud*.
 
@@ -263,4 +268,6 @@ The response is:
 
 == See Also
 
-xref:apikit-odata-extension-reference.adoc[APIkit OData Extension Reference]
+* xref:apikit-odata-extension-reference.adoc[APIkit OData Extension Reference]
+* xref:runtime-manager::deploying-to-cloudhub.adoc[Deploying to CloudHub]
+* xref:implement-endpoints-odata-task.adoc[Implementing Endpoints]
