@@ -104,7 +104,7 @@ You can find the `pom.xml` and other project files in the apikit-odata-example-m
 +
 The *Select* dialog shows.
 +
-. Select *Anypoint Studio* > *Anypoint Studio Project from file system*. Click Next.
+. Select *Anypoint Studio* > *Anypoint Studio Project from file system*. Click *Next*.
 +
 The Import Mule Project dialog shows.
 +
