@@ -17,7 +17,7 @@ This procedure launches the new project and generates a Main flow with an HTTP L
 
 . Download the example file to your local drive:
 +
-`+link:{attachmentsdir}/api.raml[api.raml]+`.
+link:{attachmentsdir}/api.raml[api.raml]
 . Under the File menu, select *New > Mule Project*.
 . In the New Mule Project wizard, enter a Name, myproject for example, Mule Runtime 3.8.0.
 +
