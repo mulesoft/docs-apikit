@@ -24,7 +24,7 @@ ns ns0 http://mulesoft.org/tshirt-service
            orderId: "I got a request from "
            ++ payload.body.ns0#OrderTshirt.name
            ++ " using the following auth header"
-           ++ payload.headers.header.ns0#AuthenticationHeader.apiKey
+           ++ payload.headers.AuthenticationHeader.ns0#AuthenticationHeader.apiKey
         }
     } write "application/xml"
 }
