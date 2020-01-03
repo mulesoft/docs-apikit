@@ -3,6 +3,7 @@
 * xref:apikit-4-raml-flow-concept.adoc[About Generating RAML-based Flows]
 * xref:start-apikit-concept.adoc[About Starting an APIkit Project]
 * xref:apikit-4-generate-workflow.adoc[Workflow: Generating a Mule Flow from an API Specification]
+ ** xref:apikit-4-raml-text-task.adoc[Create a RAML Specification Using a Plain Text Editor]
  ** xref:start-project-task.adoc[To Start an APIkit Project]
  ** xref:run-apikit-task.adoc[To Run an APIkit Project]
  ** xref:apikit-simulate.adoc[To Simulate API Calls]
