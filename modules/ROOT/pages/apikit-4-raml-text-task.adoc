@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: apikit-4-json-text-task.adoc
 
 This procedure is part of the workflow that generates a Mule flow from the API specification. For example purposes, the RAML code uses query parameters instead of the conventional path segment to get the unique identifier of a user.
 
