@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases: apikit-4-json-text-task.adoc
 
-This procedure is part of the workflow that generates a Mule flow from the API specification.
+This task shows you how to create a sample RAML specification using a plain text editor:
 
 . Create a JSON file that includes a list of users the API retrieves:
 +
@@ -88,3 +88,6 @@ version: 1.0
 --
 . Save it as  `api.raml`.
 
+== See Also
+
+* xref:apikit-4-generate-workflow.adoc[Workflow: Generating a Mule Flow from an API Specification]
