@@ -4,11 +4,40 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases: apikit-4-json-text-task.adoc
 
-This procedure is part of the workflow that generates a Mule flow from the API specification. For example purposes, the RAML code uses query parameters instead of the conventional path segment to get the unique identifier of a user.
+This procedure is part of the workflow that generates a Mule flow from the API specification.
 
-Enter the following code into a text editor and save it as api.raml. Anypoint Studio, which has a text editor that validates RAML code, is recommended.
-
-----
+. Create a JSON file that includes a list of users the API retrieves:
++
+[source,JSON,linenums]
+--
+[{
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+    },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  } }]
+--
+. Save it as `user-example.json`
+. Create a new blank file with the API specification:
++
+[source,RAML,linenums]
+--
 #%RAML 1.0
 title: placeholder
 version: 1.0
@@ -56,4 +85,6 @@ version: 1.0
                   "catchPhrase": "Face to face bifurcated interface",
                   "bs": "e-enable strategic applications"
                 } }]
-----
+--
+. Save it as  `api.raml`.
+
