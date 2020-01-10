@@ -26,7 +26,7 @@ You install the APIKit OData Extension from Anypoint Studio as described in the 
 . From the *Help* menu in Studio, select *Install New Software*.
 . Click *Add...*
 . In the *Name* field, type `APIkit for ODATA Update Site`.
-. In the *Location* field, type `+http://studio.mulesoft.org/s3/apikit-for-odata/+`.
+. In the *Location* field, type `+http://studio.mulesoft.org/s4/apikit-for-odata/+`.
 . Click *OK*.
 +
 Studio displays a list of items to select.
