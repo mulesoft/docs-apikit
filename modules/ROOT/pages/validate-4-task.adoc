@@ -1,19 +1,34 @@
-= To Validate Query Parameters and Headers
+= Validate Query Parameters and Headers Using APIKit
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-partial:
 
-This procedure assumes that you have generated Mule flows using APIkit in Studio. You can configure APIkit Router to validate, or not, headers and query parameters. Strict query parameter and header validation limits parameters to those defined in the RAML. Enabling validations can affect performance. Many complex validations can cause a delay in response time, so if your use case cannot tolerate latency, you might want to disable validations. By default validations are disabled.
+This process assumes that you have generated flows using APIkit in Studio.
 
-. In Studio, select APIkit Router.
+You can configure APIkit Router to validate headers and query parameters to limit parameters to those defined in your API specification:
+
+// tag::process[]
+. In your Studio canvas, select *APIkit Router*.
 +
-image::router-selected.png[]
+image::apikit-router-selection.png[]
+. Select the *Edit* button for your router configuration
 +
-. In Router Configuration, click image:edit-16x16.gif[Edit-16x16] or image:add-16x16.png[Add-16x16].
-. In Disable Validations, select True to disable validations. You can disable or enable validations using an expression from the validations drop-downs.
+image::router-config.png[]
+// end::process[]
+. Select *Query parameters Strict Validations*  to limit parameters to those defined in your API specification, or *Headers Strict Validations* to limit headers to those defined in your API specification:
 +
-image::validation-configuration.png[]
+image::enable-verifications.png[]
+
+== Disable Query Parameters and Headers Validation
+
+Enabling strict validations can affect performance and cause a delay in response time. If your use case cannot tolerate latency, consider disabling strict validations:
+
+include::page$validate-4-task.adoc[tag=process]
+. Select *Disable Validations*:
 +
-. In Query Parameters Strict Validations, select True to limit parameters to those defined in the RAML.
-. In Headers Strict Validations, select True to limit headers to those defined in the RAML.
-. Reverse the procedures by selecting False to inhibit the respective validation, or set Disable Validations to False to inhibit both validations.
+image::disable-verifiations-apikit.png[]
+
+== See Also
+
+* xref:apikit-4-tasks-index.adoc[Key APIkit Tasks]
