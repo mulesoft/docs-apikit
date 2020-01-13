@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-**** xref:validate-4-task.adoc[To Validate Query Parameters and Headers]
+**** xref:validate-4-task.adoc[Validate Query Parameters and Headers Using APIKit]
 **** xref:regenerate-flows.adoc[To Change an APIkit Project]
 **** xref:customize-console-url-4-task.adoc[To Customize the API Console URL]
 **** xref:execute-nonfunctional-requirements-4-task.adoc[To Execute Non-functional Requirements]
