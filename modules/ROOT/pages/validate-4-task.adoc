@@ -7,13 +7,14 @@ This procedure assumes that you have generated Mule flows using APIkit in Studio
 
 . In Studio, select APIkit Router.
 +
-image::router-selected.png[]
+image::apikit-router-selection.png[]
 +
 . In Router Configuration, click image:edit-16x16.gif[Edit-16x16] or image:add-16x16.png[Add-16x16].
 . In Disable Validations, select True to disable validations. You can disable or enable validations using an expression from the validations drop-downs.
+image::router-config.png[]
 +
-image::validation-configuration.png[]
+image::enable-verifications.png[]
 +
 . In Query Parameters Strict Validations, select True to limit parameters to those defined in the RAML.
 . In Headers Strict Validations, select True to limit headers to those defined in the RAML.
-. Reverse the procedures by selecting False to inhibit the respective validation, or set Disable Validations to False to inhibit both validations.
+image::disable-verifiations-apikit.png[]
