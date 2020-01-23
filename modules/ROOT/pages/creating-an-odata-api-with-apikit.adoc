@@ -26,7 +26,7 @@ You install the APIKit OData Extension from Anypoint Studio as described in the 
 . From the *Help* menu in Studio, select *Install New Software*.
 . Click *Add...*
 . In the *Name* field, type `APIkit for ODATA Update Site`.
-. In the *Location* field, type `+http://studio.mulesoft.org/s3/apikit-for-odata/+`.
+. In the *Location* field, type `+http://studio.mulesoft.org/s4/apikit-for-odata/+`.
 . Click *OK*.
 +
 Studio displays a list of items to select.
@@ -55,7 +55,6 @@ You can download an link:{attachmentsdir}/odata.raml[example entity data model] 
 +
 . Create a new Mule project in Anypoint Studio. Click *File*, then select *New > Mule Project*.
 +
-Select the *Specify API definition file location or URL* on the New Mule Project dialog.
 . Click *Finish*
 . Copy the `odata.raml` to /src/main/resources/api in Studio project explorer.
 . In the project explorer, right-click `odata.raml` and select *Mule* > *Generate OData API from RAML Types*.
