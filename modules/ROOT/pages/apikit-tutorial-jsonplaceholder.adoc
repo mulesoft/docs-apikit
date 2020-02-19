@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: api, raml, json
 
-Using Anypoint Studio 6.x, you can use APIkit to generate a flow based on an API specification written in RAML or WSDL.
+In Anypoint Studio 6.x you can use APIkit to generate a flow based on an API specification written in RAML or WSDL.
 
 In this procedure, you use a RAML specification and add a new service to the interface. You call the API to access services. The interface connects to a free online REST service, JSONPlaceholder.
 
@@ -24,9 +24,9 @@ The New Mule Project dialog appears.
 * *Project Name*: `myproject`
 * *Runtime*: Select or accept the default `Mule Server 3.9.0 EE` or later.
 * *Add APIkit components*: Check *Add APIkit components*.
-* *API Definition*: Browse to and select the api.raml file you downloaded.
+* *API Definition*: Browse to and select the `api.raml` file you downloaded.
 +
-When you click *Finish* both files you downloaded appear in `src/main/api`. On the canvas, the flow scaffolded by APIkit appears:
+When you click *Finish*, both files you downloaded appear in `src/main/api`. On the canvas, the flow scaffolded by APIkit appears:
 . Right-click the API name `api.xml` and select *Run As* > *Mule Application*.
 
 On the Console tab, messages indicate that the project is deployed, and the API Console appears in the API Console tab.
