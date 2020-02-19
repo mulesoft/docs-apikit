@@ -11,10 +11,7 @@ Using Anypoint Studio 6.x, you can use APIkit to generate a flow based on a API 
 
 The JSONPlaceholder service provides all the JSON user information.
 
-. Download the RAML for this procedure from the following location:
-+
-`+https://docs.mulesoft.com/apikit/v/3.x/_attachments/apikit-tutorial2.zip+`
-+
+. Click link:{attachmentsdir}/apikit-tutorial2.zip[here] to download the RAML for this procedure.
 . Unzip the downloaded archive.
 +
 The following files are unpacked:
