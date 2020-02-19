@@ -52,7 +52,7 @@ Add the header declaration to add `APIUsageInformation`:
 
 }
 ----
-<1> This piece of Dataweave code addds headers to the produced output in the Transform Message component.
+<1> This piece of Dataweave code adds headers to the produced output in the Transform Message component.
 . Add the `apiCallsRemaining` header to the `APIUsageInformation` element:
 +
 [code,linenums]
