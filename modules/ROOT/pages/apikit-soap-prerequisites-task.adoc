@@ -5,7 +5,7 @@ endif::[]
 
 This procedure describes how to set up the development environment for creating a WSDL-based API using APIkit.
 
-. Check that you are using Studio 6.
+. Verify that you are using Studio 6.
 . Download a SoapUI client. +
 For example, https://www.soapui.org/downloads/soapui.html[SoapUI].
 . Download or obtain the URL for a WSDL file. +
