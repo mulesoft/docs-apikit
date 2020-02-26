@@ -3,41 +3,81 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In this procedure, you add header information to the outbound response that complies with the WSDL. Header information that complies with the WSDL document is called APIUsageInformation.
+Use APIkit to set headers to your application's response based on the WSDL declarations.
 
-. In Studio, open the tshirt2.wsdl in `src/main/wsdl` and scroll to APIUsageInformation element, which is the element expected by the contract. Copy the name of the element to the clipboard.
-. On the canvas, select Transform message in the `OrderTshirt:/TshirtService/TshirtServicePort/api-config` flow, and in the properties editor, click Add New Target:
+To follow this example, you must download the `tshirt2.wsdl` API definition, and create a Mule application based on it. +
+See xref:apikit-soap-prerequisites-task.adoc[Prerequisites for Using APIkit for Soap] and xref:apikit-soap-project-task.adoc[Create an APIkit for SOAP Project] for more information.
+
+In this example, you add the `APIUsageInformation` header to the response of your application:
+
+. In Studio, open the `tshirt2.wsdl` in `src/main/resources/api` and scroll to `APIUsageInformation` element, which is the element expected by the contract.
+
+. On the canvas, select the Transform Message component in the `OrderTshirt:/soapkit-config` flow.
+. In the existing Dataweave code:
 +
-image::apikit-for-soap-3005f.png[height=440,width=700]
-+
-. Select Property instead of Variable from the drop-down.
-. In Variable Name, paste the contents of the clipboard, and add *soap.* as a prefix. or type *soap.APIUsageInformation*.
-+
-The complete variable name looks like this:
-+
-soap.APIUsageInformation
-+
-. Click OK.
-. Double-click apiCallsRemaining: _Integer_.
-+
-image::apikit-for-soap-41732.png[height=440,width=700]
-+
-Double-clicking apiCallsRemaining: _Integer_ adds `APIUsageInformation: { apiCallsRemaining: null }` to the DataWeave code for the outbound property:
-+
-[source,raml,linenums]
+[source,linenums]
 ----
-%dw 1.0
-%output application/xml
-%namespace ns0 http://mulesoft.org/tshirt-service
----
 {
-  ns0#APIUsageInformation: {
-    apiCallsRemaining: null
-  }
+	body : {
+		ns0#OrderTshirtResponse: {
+			orderId: "I got a request from "
+			++ payload.body.ns0#OrderTshirt.name
+			++ " using the following auth header "
+			++ (payload.headers["AuthenticationHeader"].ns0#AuthenticationHeader.apiKey default "")
+		}
+	} write "application/xml"
 }
 ----
 +
-. Change null to *10*.
+Add the declaration to add the `APIUsageInformation` header:
++
+[source,linenums]
+----
+{
+	body : {
+		ns0#OrderTshirtResponse: {
+			orderId: "I got a request from "
+			++ payload.body.ns0#OrderTshirt.name
+			++ " using the following auth header "
+			++ (payload.headers["AuthenticationHeader"].ns0#AuthenticationHeader.apiKey default "")
+		}
+	} write "application/xml",
+
+	headers: { //<1>
+		header: {
+			ns0#APIUsageInformation: {
+			}
+		} write "application/xml"
+	}
+
+}
+----
+<1> This piece of Dataweave code adds headers to the produced output in the Transform Message component.
+. Add the `apiCallsRemaining` header to the `APIUsageInformation` element:
++
+[code,linenums]
+----
+{
+	body : {
+		ns0#OrderTshirtResponse: {
+			orderId: "I got a request from "
+			++ payload.body.ns0#OrderTshirt.name
+			++ " using the following auth header "
+			++ (payload.headers["AuthenticationHeader"].ns0#AuthenticationHeader.apiKey default "")
+		}
+	} write "application/xml",
+
+	headers: {
+		header: {
+			ns0#APIUsageInformation: {
+				apiCallsRemaining: 10 //<1>
+			}
+		} write "application/xml"
+	}
+
+}
+----
+<1> This example sets `apiCallsRemaining` to `10`.
 . Save and rerun the project.
 . In the SoapUI, execute the OrderTshirt request again. The response envelope from APIkit for SOAP is:
 +
