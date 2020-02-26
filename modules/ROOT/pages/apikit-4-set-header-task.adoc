@@ -5,7 +5,7 @@ endif::[]
 
 Use APIkit to set headers to your application's response based on the WSDL declarations.
 
-To follow this example, you must downloadd the `tshirt2.wsdl` API definition, and create a Mule application based on it. +
+To follow this example, you must download the `tshirt2.wsdl` API definition, and create a Mule application based on it. +
 See xref:apikit-4-soap-prerequisites-task.adoc[Prerequisites for Using APIkit for Soap] and xref:apikit-4-soap-project-task.adoc[Create an APIkit for SOAP Project] for more information.
 
 In this example, you add the `APIUsageInformation` header to the response of your application:
