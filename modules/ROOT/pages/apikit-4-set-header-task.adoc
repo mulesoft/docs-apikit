@@ -3,16 +3,16 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Using APIkit you can set headers to your application's response based on the WSDL declarations.
+Use APIkit to set headers to your application's response based on the WSDL declarations.
 
-To follow this example, you must have downloaded the `tshirt2.wsdl` API definition, and created a Mule application based on it. +
+To follow this example, you must downloadd the `tshirt2.wsdl` API definition, and created a Mule application based on it. +
 See xref:apikit-4-soap-prerequisites-task.adoc[Prerequisites for Using APIkit for Soap] and xref:apikit-4-soap-project-task.adoc[Create an APIkit for SOAP Project] for more information.
 
 In this example, you add the `APIUsageInformation` header to the response of your application:
 
 . In Studio, open the `tshirt2.wsdl` in `src/main/resources/api` and scroll to `APIUsageInformation` element, which is the element expected by the contract.
 
-. On the canvas, select the Transform Message component on the `OrderTshirt:/soapkit-config` flow.
+. On the canvas, select the Transform Message component in the `OrderTshirt:/soapkit-config` flow.
 . In the existing Dataweave code:
 +
 [source,linenums]
@@ -29,7 +29,7 @@ In this example, you add the `APIUsageInformation` header to the response of you
 }
 ----
 +
-Add the header declaration to add `APIUsageInformation`:
+Add the `APIUsageInformation` header declaration:
 +
 [source,linenums]
 ----
