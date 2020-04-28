@@ -3,19 +3,19 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This process walks you through the creation of a create a new Mule project based on a SOAP API specification.
+This process walks you through the creation of a new Mule project based on a SOAP API specification.
 
-Before proceeding, ensure that you meet the xref:apikit-4-soap-prerequisites-task.adoc[Prerequisites for Using APIkit for SOAP]
+Before proceeding, ensure that you meet the xref:apikit-4-soap-prerequisites-task.adoc[Prerequisites for Using APIkit for SOAP].
 
 . Under the File menu, select *New* > *Mule Project*.
 +
 image::create-new-mule-project-soap.png[]
 <1> In *Project Name*, enter a name for the project. +
-For example _soap-implementation_.
+For example, _soap-implementation_.
 <1> Select the Mule runtime engine version. +
-For example `Mule Server 4.2.2 EE`.
+For example, `Mule Server 4.2.2 EE`.
 <1> Under *API Specification*, select the  *From Design Center or Local Files* tab.
-<1> Select the expand icon: and select *Browse files...*.
+<1> Select the expand icon: image:expand-icon.png[30,35] and select *Browse files...*.
 
 . Select a service and port from the drop-down menus or accept the defaults. For this example, accept the defaults: Select `TshirtService` and `TshirtServicePort`.
 +
