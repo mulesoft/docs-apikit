@@ -13,7 +13,7 @@ image::import-from-design-center.png[]
 * If you are importing your API specification from a local file in your file system, select the *Import RAML from Local File* tab.
 +
 image::import-from-local-file.png[]
-* If you are importing your API specification from Exchange, select the *Import a published API* > *From Excahnge*.
+* If you are importing your API specification from Exchange, select *Import a published API* > *From Exchange*.
 +
 image::import-from-exchange.png[]
 . Select the *Scaffold flows from these API specifications* option.
