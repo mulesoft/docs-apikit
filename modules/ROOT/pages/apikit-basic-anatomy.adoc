@@ -23,6 +23,7 @@ You can use the xref:1.x@api-manager::designing-your-api.adoc#simulating-calls-t
 
 *Note:* An APIkit Console equivalent is not available for WSDL-based APIs.
 
+[[apikit-router-main-flow]]
 == About the Main Flow
 
 The main flow for a RAML-based API manages these functions:
