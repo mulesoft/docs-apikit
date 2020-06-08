@@ -21,6 +21,8 @@ image::import-from-exchange.png[]
 
 APIkit generates the necessary flows based on the API specification you imported.
 
+You can also create an APIKit project using Maven. See xref:creating-an-apikit-4-project-with-maven.adoc[Creating an APIkit Project with Maven] for more information.
+
 
 == See Also
 
