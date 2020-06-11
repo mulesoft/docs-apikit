@@ -1,27 +1,33 @@
-= To Create an APIkit for SOAP Project
+= Create an APIkit for SOAP Project
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You create a new project, specify the use of APIkit components, and refer to a WSDL file that you download.
+This process walks you through the creation of a new Mule project based on a SOAP API specification.
 
-. Under the File menu, select New > Mule Project.
+Before proceeding, ensure that you meet the xref:apikit-4-soap-prerequisites-task.adoc[Prerequisites for Using APIkit for SOAP].
+
+. Under the File menu, select *New* > *Mule Project*.
 +
-The New Mule Project wizard appears.
-. In Project Name, enter a name for the project, for example *myproject*. Select or accept the default EE Runtime, for example Mule Server 4.1.0 EE.
-. In API Implementation, check Specify API Definition File Location or URL, and browse to the WSDL file you downloaded earlier.
-. Select a service and port from the drop-down menus or accept the defaults. For this example, accept the defaults: Select TshirtService and TshirtServicePort.
+image::create-new-mule-project-soap.png[]
+<1> In *Project Name*, enter a name for the project. +
+For example, _soap-implementation_.
+<1> Select the Mule runtime engine version. +
+For example, `Mule Server 4.2.2 EE`.
+<1> Under *API Specification*, select the  *From Design Center or Local Files* tab.
+<1> Select the expand icon: image:expand-icon.png[30,35] and select *Browse files...*.
+
+. Select a service and port from the drop-down menus or accept the defaults. For this example, accept the defaults: Select `TshirtService` and `TshirtServicePort`.
 +
-image::apikit-4-project.png[]
+image::create-apikit-soap-project.png[]
 +
-. Accept the default project location, and click Finish.
+. Select *Finish*.
 +
 The new project appears and has a `src/main/resources/api` folder that contains the WSDL file.
-+
 . Right-click a blank area of the canvas and choose the option to run the project.
-. Go to `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+`.
+. In your SOAP UI client, go to `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+`.
 +
-The contents of the TShirtService WSDL file appear.
+The SOAP service returns the content of your WSDL file.
 
 == See Also
 

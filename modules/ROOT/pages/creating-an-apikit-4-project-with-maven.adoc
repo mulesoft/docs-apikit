@@ -59,7 +59,7 @@ You need a Maven `settings.xml` file in the `.m2` directory that includes the Mu
 
 == Maven Archetype Command
 
-You use the `mvn archetype` command to create xref:3.x@apikit-basic-anatomy.adoc[APIkit parts] for the project. Maven stores the instructions for building the project and associated settings in a template called an _archetype._ APIkit provides a specialized Maven archetype tailored to the needs of creating APIkit projects. It is hosted in Mule's public repositories so you don't need to download it; you can simply reference its virtual address in your Maven commands.
+You use the `mvn archetype` command to create an APIkit project. Maven stores the instructions for building the project and associated settings in a template called an archetype. APIkit provides a specialized Maven archetype tailored to the needs of creating APIkit projects. It is hosted in Mule's public repositories so you don't need to download it; you can simply reference its virtual address in your Maven commands.
 
 The `mvn archetype` command creates a new project, directory structure, and an empty `api.raml` file. The command sets up required dependencies.
 
@@ -71,8 +71,8 @@ The `mvn archetype` parameters define where to find the archetype.
 |===
 |Parameter |Value
 |`archetypeGroupId` | `org.mule.tools`
-|`archetypeArtifactId` | `apikit-archetype`
-|`archetypeVersion` | `3.8.3`
+|`archetypeArtifactId` | `mule-apikit-archetype`
+|`archetypeVersion` | `1.2.5`
 |`archetypeRepository` | `+http://repository.mulesoft.org/releases+`
 |===
 
@@ -98,7 +98,7 @@ To generate a new project in Studio:
 . In a terminal, navigate to the directory where you want to create the project, then run the following Maven generation command from within your Anypoint Studio workspace folder, for example `C:\Users\Aaron\workspace`.
 +
 ----
-mvn archetype:generate -DarchetypeGroupId=org.mule.tools -DarchetypeArtifactId=apikit-archetype -DarchetypeVersion=3.8.3 -DarchetypeRepository=http://repository.mulesoft.org/releases -DgroupId=org.mule.tools -DartifactId=APIKit-project -Dpackage=package-name -Dversion=1.0
+mvn archetype:generate -DarchetypeGroupId=org.mule.tools -DarchetypeArtifactId=mule-apikit-archetype -DarchetypeVersion=1.2.4 -DarchetypeRepository=http://repository.mulesoft.org/releases -DgroupId=org.mule.tools -DartifactId=APIKit-project -Dpackage=package-name -Dversion=1.0 -B
 ----
 +
 Maven stores the project files in the Studio workspace.
@@ -109,7 +109,7 @@ Maven generates a new project in the specified directory that includes the lates
 
 == Preparing a RAML File
 
-The xref:3.x@apikit-basic-anatomy.adoc[`api.raml`] file in `src/main/api` is initially empty. To populate the file, complete one of the following tasks:
+The `api.raml` file in `src/main/api` is initially empty. To populate the file, complete one of the following tasks:
 
 * Edit the `api.raml` file to define your API.
 * Use the provided link:{attachmentsdir}/sample_RAML.raml[sample RAML file] as an example.
@@ -127,14 +127,14 @@ In the `apikit:config` tag, the attribute `raml` specifies the file from which t
 
 == Generating Backend Flows
 
-You need to generate xref:3.x@apikit-basic-anatomy.adoc#backend-flows[backend flows] for each resource-action pairing in the RAML you create.
+You need to generate backend flows for each resource-action pairing in the RAML you create.
 
 . From the command line, navigate to the newly-created folder that contains your project.
 . Run the following Maven command:
 +
 [source,text,linenums]
 ----
-mvn org.mule.tools:apikit-maven-plugin:create
+mvn org.mule.tools:mule-apikit-maven-plugin:create
 ----
 +
 From the information in `api.raml`, the plugin creates the backend flows.

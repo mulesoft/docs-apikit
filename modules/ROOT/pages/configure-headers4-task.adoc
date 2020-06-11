@@ -28,4 +28,4 @@ Put the header you want to add inside the `outboundHeaders` map, as shown in the
 
 
 * xref:apikit-simulate.adoc[To Simulate API Calls using API Console]
-* xref:validate-4-task.adoc[To Validate Query Parameters and Headers]
+* xref:validate-4-task.adoc[Validate Query Parameters and Headers Using APIKit]
