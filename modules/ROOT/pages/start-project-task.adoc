@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: start-project-task.adoc
 
 In this procedure, you import the RAML into Studio that you created in Design Center or in a text editor.
 
