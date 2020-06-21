@@ -108,7 +108,7 @@ The *Select* dialog shows.
 +
 The Import Mule Project dialog shows.
 +
-. Browse to and select the POM file from the apikit-odata-example-master directory. Click *Finish*.
+. Browse to and select the apikit-odata-example-master directory. Click *Finish*.
 +
 [TIP]
 The test-drive project shows in the project explorer. APIkit OData Extension generates flows that are displayed in the canvas when you click `api.xml` in src/main/app in the project explorer.
