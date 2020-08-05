@@ -96,10 +96,6 @@ The Mule project you download in step 2 contains the `mysql-connector-java-8.0.2
 . Download and import the project in Anypoint Studio:{attachmentsdir}/apikit-odata-example-master.jar[Mule project], `apikit-odata-example-master.jar`.
 . Run the sql script located in src/main/resources called example.sql using MySQL commands to load data into a database named apikit-odata-example.
 +
-[TIP]
-You can find the `pom.xml` and other project files in the apikit-odata-example-master directory.
-
-+
 . In Studio, Select *File* > *Import*.
 +
 The *Select* dialog shows.
@@ -108,7 +104,7 @@ The *Select* dialog shows.
 +
 The Import Mule Project dialog shows.
 +
-. Browse to and select the jar file downloaded. Click *Finish*.
+. Browse for the jar file downloaded and select it. Click *Finish*.
 +
 [TIP]
 The test-drive project shows in the project explorer. APIkit OData Extension generates flows that are displayed in the canvas when you click `api.xml` in src/main/app in the project explorer.
