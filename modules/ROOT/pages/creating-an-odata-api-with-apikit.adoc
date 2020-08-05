@@ -90,7 +90,7 @@ First, you install a MySQL database and load tables using a provided script. Nex
 . Install a MySQL database. Launch MySQL.
 +
 [TIP]
-The Maven project you download in step 3 contains the `mysql-connector-java-5.1.37.jar` MySQL database driver, so you do not need to make a driver available to the project.
+The Mule project you download in step 2 contains the `mysql-connector-java-8.0.21.jar` MySQL database driver, so you do not need to make a driver available to the project.
 
 +
 . Download and import the project in Anypoint Studio:{attachmentsdir}/apikit-odata-example-master.jar[Mule project], `apikit-odata-example-master.jar`.
