@@ -90,31 +90,27 @@ First, you install a MySQL database and load tables using a provided script. Nex
 . Install a MySQL database. Launch MySQL.
 +
 [TIP]
-The Maven project you download in step 3 contains the `mysql-connector-java-5.1.37.jar` MySQL database driver, so you do not need to make a driver available to the project.
+The Mule project you download in step 2 contains the `mysql-connector-java-8.0.21.jar` MySQL database driver, so you do not need to make a driver available to the project.
 
 +
-. Download the link:{attachmentsdir}/example.sql[example.sql script]. Run the script using MySQL commands to load data into a database named apikit-odata-example.
-. Download and unpack the link:{attachmentsdir}/apikit-odata-example-master.zip[compressed Maven project], `apikit-odata-example-master.zip`.
-+
-[TIP]
-You can find the `pom.xml` and other project files in the apikit-odata-example-master directory.
-
+. Download and import the project in Anypoint Studio:{attachmentsdir}/apikit-odata-example-master.jar[Mule project], `apikit-odata-example-master.jar`.
+. Run the sql script located in src/main/resources called example.sql using MySQL commands to load data into a database named apikit-odata-example.
 +
 . In Studio, Select *File* > *Import*.
 +
 The *Select* dialog shows.
 +
-. Select *Anypoint Studio* > *Anypoint Studio Project from file system*. Click *Next*.
+. Select *Anypoint Studio* > *Packaged mule application (.jar)*. Click *Next*.
 +
 The Import Mule Project dialog shows.
 +
-. Browse to and select the POM file from the apikit-odata-example-master directory. Click *Finish*.
+. Browse for the jar file downloaded and select it. Click *Finish*.
 +
 [TIP]
 The test-drive project shows in the project explorer. APIkit OData Extension generates flows that are displayed in the canvas when you click `api.xml` in src/main/app in the project explorer.
 
 +
-. In Studio, edit the `mule-app.properties` file inside the src/main/app folder, and set the following properties to access the local MySQL database:
+. In Studio, edit the `mule-configuration.properties` file inside the src/main/resources folder, and set the following properties to access the local MySQL database:
 +
 [source,html,linenums]
 ----
@@ -125,7 +121,7 @@ ds.db.database=apikit-odata-example
 ds.db.password=<your MySQL password>
 ----
 +
-. Run the API locally: Right-click the project, and select *Run As* > *Mule Application with Maven*.
+. Run the API locally: Right-click the project, and select *Run As* > *Mule Application*.
 
 You can now access the REST and OData Service.
 
@@ -133,7 +129,7 @@ You can now access the REST and OData Service.
 
 To run the API locally:
 
-. Right-click the project, and select *Run As* > *Mule Application with Maven*.
+. Right-click the project, and select *Run As* > *Mule Application*.
 . Access the REST and OData Service using the following URLs:
 +
 * REST API: `/api`
