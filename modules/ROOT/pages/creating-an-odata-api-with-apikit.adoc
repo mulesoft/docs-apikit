@@ -93,7 +93,7 @@ First, you install a MySQL database and load tables using a provided script. Nex
 The Mule project you download in step 2 contains the `mysql-connector-java-8.0.21.jar` MySQL database driver, so you do not need to make a driver available to the project.
 
 +
-. Download and import the project in Anypoint Studio:{attachmentsdir}/apikit-odata-example-master.jar[Mule project], `apikit-odata-example-master.jar`.
+. Download and import the project in Anypoint Studio link:{attachmentsdir}/apikit-odata-example-master.jar[apikit-odata-example-master.jar].
 . Run the sql script located in src/main/resources called example.sql using MySQL commands to load data into a database named apikit-odata-example.
 +
 . In Studio, Select *File* > *Import*.
