@@ -20,7 +20,7 @@
  ** xref:retrieve-raml-task.adoc[To Retrieve RAML Files]
  ** xref:configure-cloudhub-path-task.adoc[To Configure the Path for Deployment on CloudHub]
  ** xref:configure-load-balancer-task.adoc[To Configure a Load Balancer]
-* xref:apikit-workflow-convert-existing.adoc[Workflow: Convert an Exising Mule Project to an APIkit Project]
+* xref:apikit-workflow-convert-existing.adoc[Workflow: Convert an Existing Mule Project to an APIkit Project]
 * xref:apikit-4-for-soap.adoc[Workflow: Implement a SOAP Interface]
  ** xref:apikit-4-soap-prerequisites-task.adoc[To Meet Prerequisites for Using APIkit for SOAP]
  ** xref:apikit-4-soap-project-task.adoc[To Create an APIkit for SOAP Project]
