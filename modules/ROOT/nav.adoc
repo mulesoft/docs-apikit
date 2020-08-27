@@ -2,7 +2,7 @@
 * xref:index.adoc[Overview]
 * xref:apikit-tutorial.adoc[Workflow: Create, Run, and Test an APIkit Project]
 * xref:apikit-tutorial-jsonplaceholder.adoc[To Generate a Mule Flow from an API Specification]
-* xref:apikit-add-raml-workflow.adoc[Workflow: Convert an Exising Mule Project to an APIkit Project]
+* xref:apikit-add-raml-workflow.adoc[Workflow: Convert an Existing Mule Project to an APIkit Project]
 ** xref:apikit-define-raml-task.adoc[To Define the RAML]
 ** xref:apikit-create-flows-task.adoc[To Create Flows and Exception Strategies]
 ** xref:apikit-map-resources-task.adoc[To Map RAML Resources to Actions]
