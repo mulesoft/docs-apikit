@@ -4,113 +4,81 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: apikit, apikit extension, odata
 
-The APIkit OData Extension supports OData (Open Data Protocol) Version 2 for creating HTTP-based data services. Through these services, you can query the data sources using HTTP. +
-The APIkit OData Extension builds the services from the entity data model (EDM), which OData services use to formalize their resource descriptions. You write the EDM in RAML using EDM-compatible data types to represent API entities. +
-The APIkit OData Extension generates Mule flows to handle OData requests. After configuring a data source and adding endpoints to the flows, deploying the app exposes a RESTful API and an OData API accessible through different URLs. The OData MySQL example on this page shows how to use an HTTP-based data service to query a MySQL database.
+The APIkit OData Extension supports OData (Open Data Protocol) to create HTTP-based data services.
 
-You can use the APIkit OData Extension to expose a legacy API as an OData API, orchestrate data before exposing it in Salesforce, or create a bidirectional OData API for Oracle, DB2, or Azure DB, for example.
+The APIkit OData Extension builds the services from the entity data model (EDM), which OData services use to formalize their resource descriptions. You can write the EDM in RAML using EDM-compatible data types to represent API entities.
+
+The APIkit OData extension generates Mule flows to manage OData requests. You can use the APIkit OData extension to, for example, expose a legacy API as an OData API, orchestrate data before exposing it in Salesforce, or create a bidirectional OData API for Oracle, DB2, or Azure DB.
+
+The OData MySQL example on this page shows how to use an HTTP-based data service to query a MySQL database.
 
 == Prerequisites
 
-The following software is required for creating and using an OData-enabled API with APIkit:
+The following software is required to create and use an OData REST API with APIkit:
 
 * OData Plugin
 * Mule EE 4.1.1 and later
 * Anypoint Studio 7.1.4 and later
-* Maven
 
-== Installing the APIKit OData Extension
+Additionally, you must download the link:{attachmentsdir}/odata.raml[OData example entity data model].
 
-You install the APIKit OData Extension from Anypoint Studio as described in the following procedure:
+== Install the APIKit OData Extension
 
-. From the *Help* menu in Studio, select *Install New Software*.
+To install the APIKit OData extension in Anypoint Studio:
+
+. Select *Help* > *Install New Software*.
 . Click *Add...*
++
+image::add-update-site.png[]
 . In the *Name* field, type `APIkit for ODATA Update Site`.
 . In the *Location* field, type `+http://studio.mulesoft.org/s4/apikit-for-odata/+`.
-. Click *OK*.
+. Click *Add*.
 +
-Studio displays a list of items to select.
+image::add-repository-odata.png[]
+. Select the *Anypoint ODATA Plugin* box, and click *Next*.
 +
-. Check the check box to update Anypoint OData Plugin.
-. Click *Next*.
-+
-An Install Remediation Page might show.
-+
-. Click *Next*, and click *Next* again to install the remedial software.
+image::select-odata-extension.png[]
 . Accept the terms and conditions of the product, then click *Finish*.
-+
-An Installing Update (%) message appears at the bottom right corner of Studio.
-+
 . Restart Studio to complete the installation.
 
-== Using the APIkit OData Extension
+== Implement an API Using the APIkit OData Extension
 
-After installing the prerequisite software, perform the following high-level steps to use the APIkit OData Extension:
+The following example shows you how to implement an OData-enabled REST API:
 
-. Define an entity data model named `odata.raml`, formatting the file as a RAML library.
-+
-[TIP]
-You can download an link:{attachmentsdir}/odata.raml[example entity data model] to see exactly how to create the file.
-
-+
-. Create a new Mule project in Anypoint Studio. Click *File*, then select *New > Mule Project*.
-+
-Select the *Specify API definition file location or URL* on the New Mule Project dialog.
-. Click *Finish*
-. Copy the `odata.raml` to /src/main/resources/api in Studio project explorer.
+. In Studio, select *File* > *New* > *Mule Project*.
+. In the *Project Name* field, type the name of your Mule project.
+. Click *Finish*.
+. Copy the `odata.raml` file you downloaded in the prerequisites section to the `/src/main/resources/api` directory in your project.
 . In the project explorer, right-click `odata.raml` and select *Mule* > *Generate OData API from RAML Types*.
 +
-The OData Extension generates the `api.raml` in /src/main/resources/api and `ODataLibrary.raml` in /src/main/resources/api/libraries. Generated flows are displayed on the canvas when you select `api.xml`.
+image::generate-odata.png[]
+. The OData extension generates the necessary files for your OData API implementation:
 +
-image::creating-an-odata-api.png[]
+image::list-of-odata-files.png[]
 +
-. Add logic and endpoints for querying a data source.
-+
-. Deploy the OData API.
-
-== Deploying an OData API
-
-You can deploy the example app in different ways, including the following ones:
-
-* Locally
-+
-Right-click your project, then select *Run As* > *Mule Application*.
-* To CloudHub
-+
-Right-click your project, then select *Anypoint Platform* > *Deploy to Cloud*.
-
-Once deployed, you can also register the OData app in external OData consumer services like Salesforce.
+<1> The Mule configuration file with the flows for the API implementation
+<1> The generated RAML definition
+<1> The generated RAML libraries
+. Add the necessary logic for your API implementation in the flows.
 
 == OData MySQL Example
 
-The OData MySQL example is a fully functional OData API packaged as a Maven project. In this example, the data source, the app, and the service are local. +
+The OData MySQL example is a fully functional OData API packaged as a Maven project. In this example, the data source, the app, and the service are local.
 
 First, you install a MySQL database and load tables using a provided script. Next, you import the compressed project into Studio, which includes a MySQL database driver. You can examine the flows to see how to implement the endpoints you need by accessing the data. Then you run the project and call the REST and OData services.
 
-. Install a MySQL database. Launch MySQL.
-+
-[TIP]
-The Mule project you download in step 2 contains the `mysql-connector-java-8.0.21.jar` MySQL database driver, so you do not need to make a driver available to the project.
+=== Install and Populate a MySQL Database
 
-+
-. Download and import the project in Anypoint Studio link:{attachmentsdir}/apikit-odata-example-master.jar[apikit-odata-example-master.jar].
-. Run the sql script located in src/main/resources called example.sql using MySQL commands to load data into a database named apikit-odata-example.
-+
+. Install a MySQL database and launch MySQL.
+. Download the MySQL project example link:{attachmentsdir}/apikit-odata-example-master.jar[apikit-odata-example-master.jar].
+. Run the `example.sql` script located in `src/main/resources` using MySQL commands to load data into a database named `apikit-odata-example`.
+
+=== Implement the OData API
+
 . In Studio, Select *File* > *Import*.
-+
-The *Select* dialog shows.
-+
-. Select *Anypoint Studio* > *Packaged mule application (.jar)*. Click *Next*.
-+
-The Import Mule Project dialog shows.
-+
-. Browse for the jar file downloaded and select it. Click *Finish*.
-+
-[TIP]
-The test-drive project shows in the project explorer. APIkit OData Extension generates flows that are displayed in the canvas when you click `api.xml` in src/main/app in the project explorer.
-
-+
-. In Studio, edit the `mule-configuration.properties` file inside the src/main/resources folder, and set the following properties to access the local MySQL database:
+. Select *Anypoint Studio* > *Packaged mule application (.jar)* > *Next*.
+. Browse for the `apikit-odata-example-master.jar` file and click *Finish*.
+. In Studio, edit the `mule-configuration.properties` file inside the `src/main/resources` folder, and set the following properties to access the local MySQL database:
 +
 [source,html,linenums]
 ----
@@ -120,12 +88,11 @@ ds.db.host=<your MySQL host name>
 ds.db.database=apikit-odata-example
 ds.db.password=<your MySQL password>
 ----
-+
-. Run the API locally: Right-click the project, and select *Run As* > *Mule Application*.
+. Run the API locally by right-clicking the project, and selecting *Run As* > *Mule Application*.
 
 You can now access the REST and OData Service.
 
-== Accessing the REST and OData Service
+== Access the REST and OData Service
 
 To run the API locally:
 
@@ -241,6 +208,7 @@ http://localhost:8081/api/odata.svc/customers?$format=json&$top=1&$skip=10&$inli
 ----
 
 The response is:
+
 [source,json,linenums]
 ----
 {
