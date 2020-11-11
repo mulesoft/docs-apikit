@@ -10,6 +10,8 @@ The APIkit OData Extension builds the services from the entity data model (EDM),
 
 The APIkit OData extension generates Mule flows to manage OData requests. You can use the APIkit OData extension to, for example, expose a legacy API as an OData API, orchestrate data before exposing it in Salesforce, or create a bidirectional OData API for Oracle, DB2, or Azure DB.
 
+The APIkit OData extension supports OData version 2.0.
+
 The OData MySQL example on this page shows how to use an HTTP-based data service to query a MySQL database.
 
 == Prerequisites
