@@ -5,7 +5,7 @@ endif::[]
 
 This procedure describes how to set up the development environment for creating a WSDL-based API using APIkit.
 
-* Check that you are using Studio 7.1 or later. +
+* Ensure that you are using Studio 7.1 or later. +
 Studio includes the Anypoint APIkit SOAP Extension.
 * Mule runtime engine 4.1.1 or later.
 * Download a SoapUI client. +
