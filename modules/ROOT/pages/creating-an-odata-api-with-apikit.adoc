@@ -19,7 +19,7 @@ The OData MySQL example on this page shows how to use an HTTP-based data service
 The following software is required to create and use an OData REST API with APIkit:
 
 * OData Plugin
-* Mule EE 4.1.1 and later
+* Mule runtime engine 4.1.1 and later
 * Anypoint Studio 7.1.4 and later
 
 Additionally, you must download the link:{attachmentsdir}/odata.raml[OData example entity data model].

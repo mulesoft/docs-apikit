@@ -5,11 +5,12 @@ endif::[]
 
 This procedure describes how to set up the development environment for creating a WSDL-based API using APIkit.
 
-. Check that you are using Studio 7.1 or later.
+* Check that you are using Studio 7.1 or later. +
 Studio includes the Anypoint APIkit SOAP Extension.
-. Download a SoapUI client. +
+* Mule runtime engine 4.1.1 or later.
+* Download a SoapUI client. +
 For example, https://www.soapui.org/downloads/soapui.html[SoapUI].
-. Download or obtain the URL for a WSDL file. +
+* Download or obtain the URL for a WSDL file. +
 For this workflow, download the link:{attachmentsdir}/tshirt2.wsdl[WSDL tshirt2.wsdl] example.
 
 == See Also
