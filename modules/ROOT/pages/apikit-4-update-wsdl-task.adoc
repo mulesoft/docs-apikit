@@ -7,9 +7,9 @@ In this procedure, you regenerate SOAP flows. After modifying a WSDL, such as ad
 
 To update a WSDL file:
 
-. Download `+https://docs.mulesoft.com/apikit/v/4.x/_attachments/tshirt-modified.wsdl+`.
+. Modify the original WSDL or download the following example `+https://github.com/mulesoft/mulesoft-docs/blob/master/api-manager/v/1.x/_attachments/tshirt-modified.wsdl+`.
 . Copy the entire contents of the downloaded file.
-. In Studio, right-click src/main/resources/api/tshirt2.wsdl, and select Open With > Test Editor.
+. In Studio, right-click src/main/resources/api/tshirt2.wsdl, and select Open With > Text Editor.
 . Replace the contents in tshirt2.wsdl with the clipboard contents.
 +
 . In Package Explorer, right-click src/main/resources/api/tshirt2.wsdl and select Mule > Generate Flows From WSDL.
