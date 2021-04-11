@@ -19,7 +19,8 @@ Also included is a description of elements and attributes.
 <dependency>
   <groupId>org.mule.modules</groupId>
   <artifactId>mule-module-apikit</artifactId>
-  <version>3.8.1</version>
+  <version>${mule.version}</version>
+  <scope>provided</scope>
 </dependency>
 ----
 
