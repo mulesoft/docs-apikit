@@ -13,7 +13,6 @@ In this workflow, you create an API using Studio and APIkit for SOAP. APIkit for
 . xref:apikit-4-get-header-task.adoc[To get a SOAP header]
 . xref:apikit-4-set-header-task.adoc[To set a SOAP header]
 . xref:apikit-4-display-fault-task.adoc[To display a typed fault]
-. xref:apikit-4-update-wsdl-task.adoc[To Update a WSDL]
 
 
 == See Also

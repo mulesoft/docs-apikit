@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: apikit-4-update-wsdl-task.adoc
 
 This process walks you through the creation of a new Mule project based on a SOAP API specification.
 
@@ -28,6 +29,11 @@ The new project appears and has a `src/main/resources/api` folder that contains 
 . In your SOAP UI client, go to `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+`.
 +
 The SOAP service returns the content of your WSDL file.
+
+If you update your WSDL file, you can regenerate your flows:
+
+. In the Package Explorer view, right-click your WSDL file.
+. Select *Mule* > *Generate Flows From WSDL*.
 
 == See Also
 

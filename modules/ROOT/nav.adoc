@@ -29,7 +29,6 @@
  ** xref:apikit-4-display-fault-task.adoc[To Display a Typed Fault]
  ** xref:apikit-4-get-header-task.adoc[To Get a SOAP Header]
  ** xref:apikit-4-set-header-task.adoc[To Set a SOAP Header]
- ** xref:apikit-4-update-wsdl-task.adoc[To Update a WSDL]
 * xref:creating-an-apikit-4-project-with-maven.adoc[Creating an APIkit Project with Maven]
 * xref:apikit-retrieve-raml.adoc[Retrieving RAML Resources Reference]
 * xref:handle-errors-4-concept.adoc[About Handling Errors]
