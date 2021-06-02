@@ -30,9 +30,9 @@ The new project appears and has a `src/main/resources/api` folder that contains 
 +
 The SOAP service returns the content of your WSDL file.
 
-If you have to update your WSDL file, you can regenerate your flows:
+If you update your WSDL file, you can regenerate your flows:
 
-. In your Package Explorer view, right-click your WSDL file.
+. In the Package Explorer view, right-click your WSDL file.
 . Select *Mule* > *Generate Flows From WSDL*.
 
 == See Also
