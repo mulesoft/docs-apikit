@@ -24,7 +24,7 @@
 * xref:apikit-4-for-soap.adoc[Workflow: Implement a SOAP Interface]
  ** xref:apikit-4-soap-prerequisites-task.adoc[To Meet Prerequisites for Using APIkit for SOAP]
  ** xref:apikit-4-soap-project-task.adoc[To Create an APIkit for SOAP Project]
- ** xref:apikit-4-soap-fault-task.adoc[To Generate a SOAP Fault]
+ ** xref:apikit-4-soap-fault-task.adoc[Identify Operations to Implement]
  ** xref:apikit-4-prevent-fault-task.adoc[To Prevent the SOAP Fault]
  ** xref:apikit-4-display-fault-task.adoc[To Display a Typed Fault]
  ** xref:apikit-4-get-header-task.adoc[To Get a SOAP Header]

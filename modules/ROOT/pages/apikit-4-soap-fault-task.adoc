@@ -1,21 +1,20 @@
-= To Generate a SOAP Fault
+= Identify Operations to Implement
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In this procedure, you use the SoapUI tool to identify an operation you need to implement by making the API that fails. You use the OrderTshirt operation to create a request in SOAP UI to place an order for a large t-shirt for John. The API cannot handle this operation and a SOAP fault occurs.
+You can use SoapUI to identify an operation you need to implement by making the API fail. You use the `OrderTshirt` operation to create a request in SOAP UI to place an order for a large t-shirt for John. The API cannot handle this operation and a SOAP fault occurs.
 
-. In a SOAP client, SoapUI for example, create a new SOAP project using the URL for your deployed Mule APIkit project for the initial WSDL. In this workflow, the URL is `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+`:
+. In SoapUI create a new SOAP project using the URL for your deployed Mule APIkit project for the initial WSDL. +
+In this workflow, the URL is `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+`:
 +
 image::soapui-new-project.png[]
 +
-. In SoapUI, request a large t-shirt for John by entering some values into the request envelope. For example:
+. In SoapUI, request a large t-shirt for John by entering some values into the request envelope:
 +
-* Click Projects > TshirtServicePort?wsdl > TshirtServiceSoapBinding > OrderTshirt > Request 1.
-* Enter *L* between the `<size>` tags.
-+
-* Enter *John* between the `<name>` tags.
-+
+.. Select *Projects* > *TshirtServicePort?wsdl* > *TshirtServiceSoapBinding* > *OrderTshirt* > *Request 1*.
+.. Enter *L* between the `<size>` tags.
+.. Enter *John* between the `<name>` tags.
 . Submit the request.
 +
 The result is the SOAP fault.
@@ -30,4 +29,4 @@ The result is the SOAP fault.
       </soap:Fault>
    </soap:Body>
 </soap:Envelope>
-----
+---
