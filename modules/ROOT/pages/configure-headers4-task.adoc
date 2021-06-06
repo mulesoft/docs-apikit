@@ -20,13 +20,7 @@ Put the header you want to add inside the `outboundHeaders` map, as shown in the
 
 [source,xml,linenums]
 ----
-<ee:transform>
-    <ee:set-variables>
-    <ee:set-variable name="outboundHeaders">
-        variables.outboundHeaders ++{headerName:"value"}
-    </ee:set-variable>
-</ee:set-variables>
-</ee:transform>
+<set-variable value='#[ vars.outboundHeaders ++ { headerName: "value" } ]' variableName="outboundHeaders"/>
 ----
 
 
