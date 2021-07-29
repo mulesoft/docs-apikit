@@ -81,7 +81,7 @@ Within each *On Entity Request* and *On Entity Collection Request* listeners you
 #[attributes.odataRequestAttributes.systemQueryOptions.select]
 --
 
-//image::01
+image::odata-query-option-attributes.png[]
 
 == Use The Transform to SQL Operation
 
@@ -89,8 +89,12 @@ APIKit for OData 4 contains a Transform Message component to transform the input
 
 APIkit automatically configures each `transform to SQL` operation with the necessary attributes to pass to your SQL database:
 
-// image::[]02
-// image::[]03
+image::transform-to-sql-transformer.png[]
+
+image::add-db-transform-to-sql.png[]
+
+image::serialize-transform-to-sql.png[]
+
 
 == OData v4 Implementation Example
 
