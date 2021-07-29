@@ -3,8 +3,6 @@
 
 The Entity Data Model (EDM) that you create using RAML is the basis for building an OData API. You use EDM-compatible data types to create the `odata.raml` file, as described in this reference. After generating flows using the APIkit OData Extension, you need to implement API endpoints.
 
-APIkit supports OData version 2.0.
-
 == Entity Data Model
 
 The APIkit OData Extension builds the OData API based on an `odata.raml` file that describes the OData entity data model (EDM) using supported EDM types. The `odata.raml` file is a RAML Library. Each DataType represents an EntityModel. For example:

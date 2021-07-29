@@ -1,0 +1,277 @@
+= Create an OData v4 API
+
+The OData MySQL example shows you how to use an HTTP-based data service to query a MySQL database.
+
+== Prerequisites
+
+The following software is required to create and use an OData REST API with APIkit:
+
+* OData Plugin
+* Mule runtime engine 4.1.1 or later
+* Anypoint Studio 7.1.4 or later
+
+== Scaffold an OData v4 API Using the APIkit OData Extension
+
+. In Studio, select *File* > *New* > *Mule Project*.
+. In the *Project Name* field, type the name of your Mule project.
+. Click *Finish*.
+. Create a new file and `odata-metadata.csdl.xml`:
++
+[source,xml]
+--
+<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="odata4.namespace">
+      <EntityType Name="Customers"> //<1>
+        <Key> //<2>
+          <PropertyRef Name="CustomerID" />
+        </Key>
+        <Property Name="CompanyName" Type="Edm.String" MaxLength="40" Unicode="false" />
+        <Property Name="ContactName" Type="Edm.String" MaxLength="30" Unicode="false" />
+        <Property Name="ContactTitle" Type="Edm.String" MaxLength="30" Unicode="false" />
+        <Property Name="CustomerID" Type="Edm.String" Nullable="false" MaxLength="5" Unicode="false" />
+      </EntityType>
+      <EntityType Name="Orders">
+        <Key>
+          <PropertyRef Name="OrderID" />
+          <PropertyRef Name="ShipName" />
+        </Key>
+        <Property Name="Freight" Type="Edm.Decimal" Precision="19" Scale="4" />
+        <Property Name="OrderDate" Type="Edm.DateTimeOffset" Unicode="false" />
+        <Property Name="OrderID" Type="Edm.Int32" Nullable="false" Unicode="false" />
+        <Property Name="Price" Type="Edm.Single" Unicode="false" />
+        <Property Name="Priority" Type="Edm.Int16" Unicode="false" />
+        <Property Name="ShipAddress" Type="Edm.String" MaxLength="60" Unicode="false" />
+        <Property Name="ShipName" Type="Edm.String" Nullable="false" MaxLength="40" Unicode="false" />
+      </EntityType>
+      <EntityContainer Name="OData4EntityContainer"> //<3>
+        <EntitySet Name="Customers" EntityType="odata4.namespace.Customers"/> //<4>
+        <EntitySet Name="Orders" EntityType="odata4.namespace.Orders"/>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
+--
++
+<1> `EntityType` defines the type and its properties
+<1> `key` defines which property or set of properties is the key for the entity. +
+For example, the entity set `Orders` is composed of two keys `OrderID` and `ShipName`.
+<1> `EntityContainer` defines the sets of exposed entities. +
+In this example, `Orders` and `Customers`.
+<1> `EntitySet` contains a name and EntityType. +
+Both must be defined in the `schema` namespace.
+. In the Package Explorer view, right-click your *odata-metadata.csdl.xml* file > *Generate Mule OData 4 API*:
++
+image::generate-odata-v4-api.png[]
+. APIkit generates the corresponding flows based on your _.csdl.xml_ metadata file.
++
+image::generated-odata-4-flow.png[]
++
+<1> The main flow that receives messages and routes the operation to the correct handler.
+<1> Five flows with `GET`, `PUT`, `POST`, and `DELETE` operations for each entities.
+<1> A flow with a `GET` operation to retrieve the collection of entities.
+
+== Handle OData System Query Options
+
+Within each *On Entity Request* and *On Entity Collection Request* listener you can access a `systemQueryOptions` attribute that maps to each OData query option (`$select`, `$orderBy`, `$count`, etc.). For example, to access the `$select` value you use the following expression:
+
+[soure]
+--
+#[attributes.odataRequestAttributes.systemQueryOptions.select]
+--
+
+image::odata-query-option-attributes.png[]
+
+== Use The Transform to SQL Operation
+
+APIKit for OData 4 contains a Transform Message component to transform the input OData `GET` request to SQL queries. The transform-to-SQL operation is useful combined with the `select` operation of the Database Connector.
+
+APIkit automatically configures each `transform to SQL` operation with the necessary attributes to pass to your SQL database:
+
+image::transform-to-sql-transformer.png[]
+
+image::add-db-transform-to-sql.png[]
+
+image::serialize-transform-to-sql.png[]
+
+
+== OData v4 Implementation Example
+
+Download the full link:{attachmentsdir}/apikit-odata4-example.jar[apikit-odata4-example] application and run it.
+
+After Studio deploys the application, you can query your OData service using the following query examples:
+
+== GET Request Example
+
+.Request
+[source,curl]
+--
+curl --location --request GET 'localhost:8081/api/Customers('BLAUS')'
+--
+
+.Response
+[source,JSON]
+--
+{
+  "@odata.context": "http://localhost:8081/api/$metadata#Customers/$entity",
+  "CompanyName": "Blauer See Delikatessen",
+  "ContactName": "Hanna Moos",
+  "ContactTitle": "Sales Representative",
+  "CustomerID": "BLAUS"
+}
+--
+
+=== GET Request Example With Composite Key
+
+.Request
+[source,curl]
+--
+curl --location --request GET 'localhost:8081/api/Orders(OrderID=10315,ShipName='Island Trading')
+--
+
+.Response
+[source,JSON]
+--
+{
+  "@odata.context": "http://localhost:8081/api/$metadata#Orders/$entity",
+  "Freight": 41.76,
+  "OrderDate": "1996-09-26T00:00:00Z",
+  "OrderID": "10315",
+  "Price": null,
+  "Priority": 1,
+  "ShipAddress": "Garden house Crowther Way",
+  "ShipName": "Island Trading"
+}
+--
+
+=== Creation Example
+
+In this example, the client provides the key (or keys) to create a new entity:
+
+.POST Customer Request
+[source,curl]
+--
+curl --location --request POST 'http://localhost:8081/api/Customers' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+   "CompanyName": "Mulesoft",
+   "ContactName": "Customer 123",
+   "CustomerID": "NW123"
+}'
+--
+
+.POST Order
+[source,curl]
+--
+curl --location --request POST 'http://localhost:8081/api/Orders' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+   "Freight": 32.38,
+   "OrderID": 100000,
+   "ShipAddress": "Unknown St. 123",
+   "ShipName": "Order 100000"
+}'
+--
+
+
+=== Update Example
+
+OData v4 recommends using PATCH to update entities because it only changes the provided fields:
+
+.PATCH
+[source,curl]
+--
+curl --location --request PATCH 'http://localhost:8081/api/Customers('\''BOTTM'\'')' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+   "ContactName": "James Bottom"
+}'
+--
+
+[source,curl]
+--
+curl --location --request PATCH 'http://localhost:8081/api/Orders(OrderID=10251,ShipName='\''Victuailles en stock'\'')' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+   "ShipAddress": "Unknown Av. 1234"
+}'
+--
+
+OData v4 discourages the usage of PUT to update your entities because it replaces the entire entity with a new one risking you a possible data loss.
+
+.PUT
+[source,curl]
+--
+curl --location --request PUT 'http://localhost:8081/api/Customers('\''LONEP'\'')' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+   "CompanyName": "New Lonesome Pine Restaurant",
+   "ContactName": "Fran C. Wilson",
+   "CustomerID": "LONEP"
+}'
+--
+
+[source,curl]
+--
+curl --location --request PUT 'http://localhost:8081/api/Orders(OrderID=11056,ShipName='\''Eastern Connection'\'')' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+   "Freight": 27.52,
+   "OrderDate": "1998-05-28T00:00:00",
+   "OrderID": 11056,
+   "Priority": 2,
+   "ShipAddress": "45 King George",
+   "ShipName": "Eastern Connection"
+}'
+--
+
+=== Client-Side Pagination in OData 4
+
+You can configure your client to request the page using the HTTP query parameters `$skip` and `$top`.
+
+* The `$top` system query parameter specifies a non-negative integer _n_ that limits the number of items returned from a collection.
+* The `$skip` system query parameter specifies a non-negative integer _n_ that excludes the first _n_ items of the queried collection from the result.
+
+For example:
+
+[source,curl]
+--
+curl -X GET ‘localhost:8081/api/Customers?$skip=1&$top=5’
+--
+
+Returns five records starting from the second position.
+
+=== Server-Side Pagination in OData 4
+
+Your API implementation retrieves a limited number of records using a fix `pageSize` parameter. The response of the first request contains `@odata.nextlink` with a URL to get the next page.
+
+For example:
+
+[source,curl]
+--
+curl -X GET ‘localhost:8081/api/Orders’
+--
+
+.Response
+[source,json]
+--
+{
+	value: [{ set of records}],
+	“@odata.nextlink”: ‘localhost:8081/api/Orders?$skiptoken=10’
+}
+--
+
+In this example, `$skiptoken` is "10", because the `pageSize` parameter is configured to return ten records.
+
+When you request the `@odata.nextlink` URL, you get the following response:
+
+[source,json]
+--
+{
+	value: [{ set of records}],
+	“@odata.nextlink” : ‘localhost:8081/api/Orders?$skiptoken=20’
+}
+--
+
+The last page does not return a `odata.nextlink` field.
