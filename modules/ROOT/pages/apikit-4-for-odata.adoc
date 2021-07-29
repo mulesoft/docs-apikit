@@ -33,4 +33,4 @@ image::select-odata-extension.png[]
 == See Also
 
 * xref:creating-an-odata-api-with-apikit.adoc[Creating an OData v2 API with APIkit]
-* xref:creating-an-odata-4-api-with-apikit.adoc[Creating an OData v4 API with APIkit]
+* xref:apikit-odatav4-extension-reference.adoc[Creating an OData v4 API with APIkit]
