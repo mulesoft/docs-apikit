@@ -56,7 +56,7 @@ The following software is required to create and use an OData REST API with APIk
 +
 <1> `EntityType` defines the type and its properties
 <1> `key` defines which property or set of properties is the key for the entity. +
-For example, the entity set `Orders` is composed by two keys `OrderID` and `ShipName`.
+For example, the entity set `Orders` is composed of two keys `OrderID` and `ShipName`.
 <1> `EntityContainer` defines the sets of exposed entities. +
 In this example, `Orders` and `Customers`.
 <1> `EntitySet` contains a name and EntityType. +
@@ -68,13 +68,13 @@ image::generate-odata-v4-api.png[]
 +
 image::generated-odata-4-flow.png[]
 +
-<1> A main flow that receives messages and routes the operation to the correct handler.
-<1> Five flows with `GET`, `PUT`, `POST`, and `DELETE` operations for each individual entities.
+<1> The main flow that receives messages and routes the operation to the correct handler.
+<1> Five flows with `GET`, `PUT`, `POST`, and `DELETE` operations for each entities.
 <1> A flow with a `GET` operation to retrieve the collection of entities.
 
 == Handle OData System Query Options
 
-Within each *On Entity Request* and *On Entity Collection Request* listeners you can access a `systemQueryOptions` attribute that maps to each OData query option (`$select`, `$orderBy`, `$count`, etc.). For example, to access the `$select` value you use the following expression:
+Within each *On Entity Request* and *On Entity Collection Request* listener you can access a `systemQueryOptions` attribute that maps to each OData query option (`$select`, `$orderBy`, `$count`, etc.). For example, to access the `$select` value you use the following expression:
 
 [soure]
 --
@@ -198,7 +198,7 @@ curl --location --request PATCH 'http://localhost:8081/api/Orders(OrderID=10251,
 }'
 --
 
-Odata v4 discourages the usage of PUT to update your entities, because it replaces the entire entity with a new one risking you to a possible data loss.
+OData v4 discourages the usage of PUT to update your entities because it replaces the entire entity with a new one risking you a possible data loss.
 
 .PUT
 [source,curl]
