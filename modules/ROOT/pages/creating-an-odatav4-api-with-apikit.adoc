@@ -118,7 +118,7 @@ curl --location --request GET 'localhost:8081/api/Customers('BLAUS')'
 }
 --
 
-== GET Request Example With Composite Key
+=== GET Request Example With Composite Key
 
 .Request
 [source,curl]
@@ -141,7 +141,7 @@ curl --location --request GET 'localhost:8081/api/Orders(OrderID=10315,ShipName=
 }
 --
 
-== Creation Example
+=== Creation Example
 
 In this example, the client provides the key (or keys) to create a new entity:
 
@@ -171,6 +171,103 @@ curl --location --request POST 'http://localhost:8081/api/Orders' \
 --
 
 
-== Update Example
+=== Update Example
+
+OData v4 recommends using PATCH to update entities because it only changes the provided fields:
 
 .PATCH
+[source,curl]
+--
+curl --location --request PATCH 'http://localhost:8081/api/Customers('\''BOTTM'\'')' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+   "ContactName": "James Bottom"
+}'
+--
+
+[source,curl]
+--
+curl --location --request PATCH 'http://localhost:8081/api/Orders(OrderID=10251,ShipName='\''Victuailles en stock'\'')' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+   "ShipAddress": "Unknown Av. 1234"
+}'
+--
+
+Odata v4 discourages the usage of PUT to update your entities, because it replaces the entire entity with a new one risking you to a possible data loss.
+
+.PUT
+[source,curl]
+--
+curl --location --request PUT 'http://localhost:8081/api/Customers('\''LONEP'\'')' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+   "CompanyName": "New Lonesome Pine Restaurant",
+   "ContactName": "Fran C. Wilson",
+   "CustomerID": "LONEP"
+}'
+--
+
+[source,curl]
+--
+curl --location --request PUT 'http://localhost:8081/api/Orders(OrderID=11056,ShipName='\''Eastern Connection'\'')' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+   "Freight": 27.52,
+   "OrderDate": "1998-05-28T00:00:00",
+   "OrderID": 11056,
+   "Priority": 2,
+   "ShipAddress": "45 King George",
+   "ShipName": "Eastern Connection"
+}'
+--
+
+=== Client-Side Pagination in OData 4
+
+You can configure your client to request the page using the HTTP query parameters `$skip` and `$top`.
+
+* The `$top` system query parameter specifies a non-negative integer _n_ that limits the number of items returned from a collection.
+* The `$skip` system query parameter specifies a non-negative integer _n_ that excludes the first _n_ items of the queried collection from the result.
+
+For example:
+
+[source,curl]
+--
+curl -X GET ‘localhost:8081/api/Customers?$skip=1&$top=5’
+--
+
+Returns five records starting from the second position.
+
+=== Server-Side Pagination in OData 4
+
+Your API implementation retrieves a limited number of records using a fix `pageSize` parameter. The response of the first request contains `@odata.nextlink` with a URL to get the next page.
+
+For example:
+
+[source,curl]
+--
+curl -X GET ‘localhost:8081/api/Orders’
+--
+
+.Response
+[source,json]
+--
+{
+	value: [{ set of records}],
+	“@odata.nextlink”: ‘localhost:8081/api/Orders?$skiptoken=10’
+}
+--
+
+In this example, `$skiptoken` is "10", because the `pageSize` parameter is configured to return ten records.
+
+When you request the `@odata.nextlink` URL, you get the following response:
+
+[source,json]
+--
+{
+	value: [{ set of records}],
+	“@odata.nextlink” : ‘localhost:8081/api/Orders?$skiptoken=20’
+}
+--
+
+The last page does not return a `odata.nextlink` field.
