@@ -1,26 +1,23 @@
 = APIkit for OData
 
-The APIkit OData Extension supports OData (Open Data Protocol) to create HTTP-based data services.
+APIkit supports OData (Open Data Protocol) versions 2.0 and 4.0 to create HTTP-based data services.
 
-The APIkit OData Extension builds the services from the entity data model (EDM), which OData services use to formalize their resource descriptions. You can write the EDM in RAML using EDM-compatible data types to represent API entities.
+APIkit builds the services from the entity data model (EDM), which OData services use to formalize their resource descriptions.
 
-The APIkit OData extension generates Mule flows to manage OData requests. You can use the APIkit OData extension to, for example, expose a legacy API as an OData API, orchestrate data before exposing it in Salesforce, or create a bidirectional OData API for Oracle, DB2, or Azure DB.
+APIkit for OData generates Mule flows to manage OData requests. You can use APIkit for OData to, for example, expose a legacy API as an OData API, orchestrate data before exposing it in Salesforce, or create a bidirectional OData API for Oracle, DB2, or Azure DB.
 
-The APIkit OData extension supports OData versions 2.0 and 4.0 and is compatible with the following software:
+== Install APIKit for OData
 
-* Mule runtime engine 4.1.1 or later
-* Anypoint Studio 7.1.4 or later
-
-== Install the APIKit OData Extension
-
-To install the APIKit OData extension in Anypoint Studio:
+To install APIKit for OData in Anypoint Studio:
 
 . Select *Help* > *Install New Software*.
 . Click *Add...*
 +
 image::add-update-site.png[]
 . In the *Name* field, type `APIkit for ODATA Update Site`.
-. In the *Location* field, type `+http://studio.mulesoft.org/s4/apikit-for-odata/+`.
+. In the *Location* field, type the URL corresponding to the OData version that you want to install
+  ** APIKit for OData 2.0: `+http://studio.mulesoft.org/s4/apikit-for-odata/+`.
+  ** APIKit for OData 4.0: `+http://studio.mulesoft.org/s4/apikit-for-odata4/+`.
 . Click *Add*.
 +
 image::add-repository-odata.png[]
@@ -32,5 +29,5 @@ image::select-odata-extension.png[]
 
 == See Also
 
-* xref:creating-an-odata-api-with-apikit.adoc[Creating an OData v2 API with APIkit]
-* xref:creating-an-odatav4-api-with-apikit.adoc[Creating an OData v4 API with APIkit]
+* xref:creating-an-odata-api-with-apikit.adoc[Creating an OData 2.0 API with APIkit]
+* xref:creating-an-odatav4-api-with-apikit.adoc[Creating an OData 4.0 API with APIkit]
