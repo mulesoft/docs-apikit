@@ -1,6 +1,4 @@
-= APIkit OData v4 Extension Reference
-
-OData Extension main class.
+= APIkit for OData v4 Module Reference
 
 == Configurations
 ---

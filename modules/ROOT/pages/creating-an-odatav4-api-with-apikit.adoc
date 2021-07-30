@@ -7,15 +7,15 @@ The OData MySQL example shows you how to use an HTTP-based data service to query
 The following software is required to create and use an OData REST API with APIkit:
 
 * OData Plugin
-* Mule runtime engine 4.1.1 or later
-* Anypoint Studio 7.1.4 or later
+* Mule runtime engine 4.3.0 or later
+* Anypoint Studio 7.9.0 or later
 
-== Scaffold an OData v4 API Using the APIkit OData Extension
+== Scaffold an OData v4 API Using the APIkit for OData
 
 . In Studio, select *File* > *New* > *Mule Project*.
 . In the *Project Name* field, type the name of your Mule project.
 . Click *Finish*.
-. Create a new file and `odata-metadata.csdl.xml`:
+. Create a new file with extension _.csdl.xml_ in `+src/main/resources/api+`. For example, `odata-metadata.csdl.xml`:
 +
 [source,xml]
 --
@@ -31,6 +31,7 @@ The following software is required to create and use an OData REST API with APIk
         <Property Name="ContactName" Type="Edm.String" MaxLength="30" Unicode="false" />
         <Property Name="ContactTitle" Type="Edm.String" MaxLength="30" Unicode="false" />
         <Property Name="CustomerID" Type="Edm.String" Nullable="false" MaxLength="5" Unicode="false" />
+        <NavigationProperty Name="Orders" Type="Collection(odata4.namespace.Orders)"/>
       </EntityType>
       <EntityType Name="Orders">
         <Key>
@@ -40,19 +41,26 @@ The following software is required to create and use an OData REST API with APIk
         <Property Name="Freight" Type="Edm.Decimal" Precision="19" Scale="4" />
         <Property Name="OrderDate" Type="Edm.DateTimeOffset" Unicode="false" />
         <Property Name="OrderID" Type="Edm.Int32" Nullable="false" Unicode="false" />
+        <Property Name="CustomerID" Type="Edm.String" MaxLength="5"/>
         <Property Name="Price" Type="Edm.Single" Unicode="false" />
         <Property Name="Priority" Type="Edm.Int16" Unicode="false" />
         <Property Name="ShipAddress" Type="Edm.String" MaxLength="60" Unicode="false" />
         <Property Name="ShipName" Type="Edm.String" Nullable="false" MaxLength="40" Unicode="false" />
+        <NavigationProperty Name="Customer" Type="odata4.namespace.Customers">
+        	<ReferentialConstraint Property="CustomerID" ReferencedProperty="CustomerID" />
+        </NavigationProperty>
       </EntityType>
       <EntityContainer Name="OData4EntityContainer"> //<3>
-        <EntitySet Name="Customers" EntityType="odata4.namespace.Customers"/> //<4>
+        <EntitySet Name="Customers" EntityType="odata4.namespace.Customers"> //<4>
+        	<NavigationPropertyBinding Path="Orders" Target="Orders"/>
+        </EntitySet>
         <EntitySet Name="Orders" EntityType="odata4.namespace.Orders"/>
       </EntityContainer>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
 --
+
 +
 <1> `EntityType` defines the type and its properties
 <1> `key` defines which property or set of properties is the key for the entity. +
@@ -69,8 +77,8 @@ image::generate-odata-v4-api.png[]
 image::generated-odata-4-flow.png[]
 +
 <1> The main flow that receives messages and routes the operation to the correct handler.
-<1> Five flows with `GET`, `PUT`, `POST`, and `DELETE` operations for each entities.
-<1> A flow with a `GET` operation to retrieve the collection of entities.
+<1> Five flows with `GET`, `PUT`, `POST`, and `DELETE` operations for each entity.
+<1> A flow with `GET` operation to retrieve the collection of entities.
 
 == Handle OData System Query Options
 
@@ -85,9 +93,7 @@ image::odata-query-option-attributes.png[]
 
 == Use The Transform to SQL Operation
 
-APIKit for OData 4 contains a Transform Message component to transform the input OData `GET` request to SQL queries. The transform-to-SQL operation is useful combined with the `select` operation of the Database Connector.
-
-APIkit automatically configures each `transform to SQL` operation with the necessary attributes to pass to your SQL database:
+APIkit for OData 4 contains a `Transform to SQL Select` operation to transform the input OData `GET` request to an SQL SELECT query. The operation is useful when combined with the `select` operation of the Database Connector. The output payload is a prepared statement and the attributes is a map of prepared statement parameters. 
 
 image::transform-to-sql-transformer.png[]
 
@@ -96,7 +102,7 @@ image::add-db-transform-to-sql.png[]
 image::serialize-transform-to-sql.png[]
 
 
-== OData v4 Implementation Example
+== APIkit for OData 4 Implementation Example
 
 Download the full link:{attachmentsdir}/apikit-odata4-example.jar[apikit-odata4-example] application and run it.
 
@@ -226,7 +232,22 @@ curl --location --request PUT 'http://localhost:8081/api/Orders(OrderID=11056,Sh
 }'
 --
 
-=== Client-Side Pagination in OData 4
+=== Delete Example
+
+To delete the entity:
+
+.DELETE
+[source,curl]
+--
+curl --location --request DELETE 'http://localhost:8081/api/Customers('\''NW123'\'')'
+--
+
+[source,curl]
+--
+curl --location --request DELETE 'http://localhost:8081/api/Orders(OrderID=11056,ShipName='\''Eastern Connection'\'')'
+--
+
+=== Client-Side Pagination in APIkit for OData 4
 
 You can configure your client to request the page using the HTTP query parameters `$skip` and `$top`.
 
@@ -242,7 +263,7 @@ curl -X GET ‘localhost:8081/api/Customers?$skip=1&$top=5’
 
 Returns five records starting from the second position.
 
-=== Server-Side Pagination in OData 4
+=== Server-Side Pagination in APIkit for OData 4
 
 Your API implementation retrieves a limited number of records using a fix `pageSize` parameter. The response of the first request contains `@odata.nextlink` with a URL to get the next page.
 
