@@ -10,7 +10,7 @@ The following software is required to create and use an OData REST API with APIk
 * Mule runtime engine 4.3.0 or later
 * Anypoint Studio 7.9.0 or later
 
-== Scaffold an OData v4 API Using the APIkit for OData
+== Scaffold an OData v4 API Using APIkit for OData
 
 . In Studio, select *File* > *New* > *Mule Project*.
 . In the *Project Name* field, type the name of your Mule project.
@@ -93,7 +93,7 @@ image::odata-query-option-attributes.png[]
 
 == Use The Transform to SQL Operation
 
-APIkit for OData 4 contains a `Transform to SQL Select` operation to transform the input OData `GET` request to an SQL SELECT query. The operation is useful when combined with the `select` operation of the Database Connector. The output payload is a prepared statement and the attributes is a map of prepared statement parameters. 
+APIkit for OData 4 contains a `Transform to SQL Select` operation to transform the input OData `GET` request to an SQL SELECT query. The operation is useful when combined with the `select` operation of the Database Connector. The output payload is a prepared statement and the attributes is a map of prepared statement parameters.
 
 image::transform-to-sql-transformer.png[]
 

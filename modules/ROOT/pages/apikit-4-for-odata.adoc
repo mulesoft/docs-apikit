@@ -4,7 +4,7 @@ APIkit supports OData (Open Data Protocol) versions 2.0 and 4.0 to create HTTP-b
 
 APIkit builds the services from the entity data model (EDM), which OData services use to formalize their resource descriptions.
 
-APIkit for OData generates Mule flows to manage OData requests. You can use the APIkit for OData to, for example, expose a legacy API as an OData API, orchestrate data before exposing it in Salesforce, or create a bidirectional OData API for Oracle, DB2, or Azure DB.
+APIkit for OData generates Mule flows to manage OData requests. You can use APIkit for OData to, for example, expose a legacy API as an OData API, orchestrate data before exposing it in Salesforce, or create a bidirectional OData API for Oracle, DB2, or Azure DB.
 
 == Install APIKit for OData
 
