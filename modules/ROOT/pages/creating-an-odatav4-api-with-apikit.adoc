@@ -15,7 +15,8 @@ The following software is required to create and use an OData REST API with APIk
 . In Studio, select *File* > *New* > *Mule Project*.
 . In the *Project Name* field, type the name of your Mule project.
 . Click *Finish*.
-. Create a new file with extension _.csdl.xml_ in `+src/main/resources/api+`. For example, `odata-metadata.csdl.xml`:
+. In `+src/main/resources/api+`, create a new file with a _.csdl.xml_ extension. +
+For example, `odata-metadata.csdl.xml`:
 +
 [source,xml]
 --
@@ -60,7 +61,6 @@ The following software is required to create and use an OData REST API with APIk
   </edmx:DataServices>
 </edmx:Edmx>
 --
-
 +
 <1> `EntityType` defines the type and its properties
 <1> `key` defines which property or set of properties is the key for the entity. +
@@ -78,7 +78,7 @@ image::generated-odata-4-flow.png[]
 +
 <1> The main flow that receives messages and routes the operation to the correct handler.
 <1> Five flows with `GET`, `PUT`, `POST`, and `DELETE` operations for each entity.
-<1> A flow with `GET` operation to retrieve the collection of entities.
+<1> A flow with a `GET` operation to retrieve the collection of entities.
 
 == Handle OData System Query Options
 
@@ -93,7 +93,7 @@ image::odata-query-option-attributes.png[]
 
 == Use The Transform to SQL Operation
 
-APIkit for OData 4 contains a `Transform to SQL Select` operation to transform the input OData `GET` request to an SQL SELECT query. The operation is useful when combined with the `select` operation of the Database Connector. The output payload is a prepared statement and the attributes is a map of prepared statement parameters.
+APIkit for OData 4 contains a `Transform to SQL Select` operation to transform the input OData `GET` request to a SQL SELECT query. The operation is useful when combined with the `select` operation of the Database Connector. The output payload is a prepared statement and the attributes are a map of prepared statement parameters.
 
 image::transform-to-sql-transformer.png[]
 
@@ -151,7 +151,7 @@ curl --location --request GET 'localhost:8081/api/Orders(OrderID=10315,ShipName=
 }
 --
 
-=== Creation Example
+=== Create Example
 
 In this example, the client provides the key (or keys) to create a new entity:
 
