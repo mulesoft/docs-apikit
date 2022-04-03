@@ -33,7 +33,7 @@ image::apikit-tutorial-3e0e4.png[height=633,width=600][alt=New Mule Project wind
 +
 The APIkit Console appears below the canvas, displaying the resource-action pairs exposed by the API.
 +
-image::apikitconsole-tutorial.png[alt=Remove Vending API example.]
+image::apikitconsole-tutorial.png[alt=Resource action pairs exposed by the Remote Vending API example.]
 +
 . Click *Introduction* under Documentation to view the API description.
 +
