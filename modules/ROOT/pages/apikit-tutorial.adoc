@@ -43,7 +43,7 @@ The main Introduction title and sentence map to the contents of `documentation` 
 +
 The baseURI is optional in a RAML-backed API, but required by the API Console Try It functionality; otherwise, Try-it is disabled.
 +
-image::fv-601.png[alt=Example displaying the try-it disabled because baseURI is not present.]
+image::fv-601.png[alt=Example of the Try-it feature being disabled because baseURI is not present.]
 +
 In the RAML, you can use an arbitrary value, for example `+http://www.example.com+` for the baseURI.
 +
