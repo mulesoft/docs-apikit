@@ -7,7 +7,7 @@ After simulating calls to the API, follow this procedure to see an example of pr
 
 . Drag an HTTP Listener component from the Mule palette to the Source section of the get:/users:api-config flow.
 +
-image::source-section.png["HTTP listener highlighted in the Mule palette. Listener moving from Mule palette tab to API tab."]
+image::source-section.png["HTTP listener is highlighted in the Mule Palette. Moving the Listener from the Mule Palette tab to the API tab."]
 +
 . In the properties editor of Listener, in Connector Configuration, select api-httpListenerConfig.
 +
