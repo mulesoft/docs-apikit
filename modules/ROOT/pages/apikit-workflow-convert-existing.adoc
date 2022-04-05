@@ -11,7 +11,7 @@ If you create a new Studio project and do _not_ specify an API definition file, 
 
 The following screenshot shows the Specify API Definition File Location or URL option, which you uncheck to create the backend first:
 
-image::backend-first-project.png[]
+image::backend-first-project.png["The window displays the project name, the runtime server, and the unchecked option in the Specify API Definition File Location or URL option in the API implementation section."]
 
 Later, you can add an API specification, and then use API Console to simulate the API.
 
@@ -31,7 +31,7 @@ The generated backend flows contain the core logic of the API, error handling fl
 
 If you want a RAML-backed API, you can use Studio to create the file: Studio: File > New > RAML API Definition.
 
-image::new-raml.png[]
+image::new-raml.png["Window displays the folder, the name, and the title for creating the new raml API definition file."]
 
 For example:
 
@@ -73,12 +73,12 @@ As part of the backend-first design process, you map RAML resources to actions a
 
 To map resources to actions:
 
-. Click the APIkit Router to open the *Properties Editor*. In *Router configuration*, click image:add-16x16.png[].
+. Click the APIkit Router to open the *Properties Editor*. In *Router configuration*, click image:add-16x16.png["Plus button."].
 +
 The *Global Element Properties* wizard appears.
 +
 . Enter the relative path to the RAML file you created within Studio, for example: src/main/resources/api/api.raml. If you browse, the file name alone is used and that isn't sufficient.
-. In Mappings, click image:add-16x16.png[] to create a new mapping.
+. In Mappings, click image:add-16x16.png["Plus button"] to create a new mapping.
 +
 The *New Mapping* dialog appears.
 . Use the drop-down to map the resources to actions.

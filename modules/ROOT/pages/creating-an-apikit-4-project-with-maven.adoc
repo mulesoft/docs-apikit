@@ -146,6 +146,6 @@ After creating the basic structure for a project, import the project into Anypoi
 . In Studio, under the *File* menu, select *Import*.
 . In the Import wizard, expand the *Mule* folder, then select `Maven-based Mule project from pom.xml`.
 +
-image::import-maven.png[]
+image::import-maven.png["Import window highlights the Mule folder, in which the pom.xml file should be selected."]
 +
 . Complete the remaining steps in the wizard to identify the *name* and *location* of your project's `pom.xml` on your local drive, then click *Finish* to import the project.

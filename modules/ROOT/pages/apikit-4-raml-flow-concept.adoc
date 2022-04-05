@@ -5,7 +5,7 @@ endif::[]
 
 From a RAML specification, the APIkit scaffolding technique typically generates the following components in APIkit 4.x:
 
-image::scaffolding.png[]
+image::scaffolding.png["Apikit scaffolding generates a main api which includes the listener, the apikit router, and the error handling."]
 
 * An archetype
 +
@@ -26,7 +26,7 @@ A mock implementation. Later you need to add the business logic to the flows.
 
 In Studio, the APIkit project looks something like this:
 
-image::apikit-flows.png[]
+image::apikit-flows.png["The package explorer is displayed with the project files, and the project flow, which highlights the router, the console, and the error handling."]
 
 A flow is generated for each resource method:
 

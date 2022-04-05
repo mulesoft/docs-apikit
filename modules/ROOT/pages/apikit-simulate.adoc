@@ -20,7 +20,7 @@ In this procedure, you locate the URL for API Console. You enter the URL in a br
 
 . In Studio, click the basepoint URL, `http://localhost:8081/console/`, that appears in APIkit Consoles.
 +
-image::apikit-consoles.png[]
+image::apikit-consoles.png["Apikit consoles tab displays the location of the basepoint URL in the window."]
 +
 Your default browser opens
 +
