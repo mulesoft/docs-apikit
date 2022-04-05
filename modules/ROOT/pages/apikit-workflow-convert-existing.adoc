@@ -31,7 +31,7 @@ The generated backend flows contain the core logic of the API, error handling fl
 
 If you want a RAML-backed API, you can use Studio to create the file: Studio: File > New > RAML API Definition.
 
-image::new-raml.png["Window displays the folder, the name, and the title for creating the new raml API definition file."]
+image::new-raml.png["Window displays the folder, the name, and the title for creating the new RAML API definition file."]
 
 For example:
 
