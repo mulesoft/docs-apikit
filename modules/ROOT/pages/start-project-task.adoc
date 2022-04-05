@@ -10,7 +10,7 @@ In this procedure, you import the RAML into Studio that you created in Design Ce
 . In the *Project Name* field, type the name of your Mule project.
 * If you are importing your API specification from Design Center, select the *Import from Design Center* tab.
 +
-image::import-from-design-center.png["Import from design center tab highlighted in the API implementation section."]
+image::import-from-design-center.png["The Import from Design Center tab highlighted in the API implementation section."]
 * If you are importing your API specification from a local file in your file system, select the *Import RAML from Local File* tab.
 +
 image::import-from-local-file.png["Import RAML from local file tab highlighted in the API implementation section."]
