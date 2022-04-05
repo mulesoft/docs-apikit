@@ -95,7 +95,7 @@ image::odata-query-option-attributes.png["odataRequestAttributes is highlighted 
 
 APIkit for OData 4 contains a `Transform to SQL Select` operation to transform the input OData `GET` request to a SQL SELECT query. The operation is useful when combined with the `select` operation of the Database Connector. The output payload is a prepared statement and the attributes are a map of prepared statement parameters.
 
-image::transform-to-sql-transformer.png["Transform to sql select element and tab are highlighted."]
+image::transform-to-sql-transformer.png["Transform to SQL select element and tab are highlighted."]
 
 image::add-db-transform-to-sql.png["Select element and tab are highlighted, as well as the attributes.queryparameters in the input parameters field."]
 
