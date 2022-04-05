@@ -5,7 +5,7 @@ endif::[]
 
 In this procedure, you retrieve a SOAP header from the request. In the SoapUI, the request window shows the soap Envelope header.
 
-image::apikit-for-soap-53dc2.png["Request window showing the soap envelope header."]
+image::apikit-for-soap-53dc2.png["Request window showing the SOAP envelope header."]
 
 . In the SoapUI, modify the OrderTshirt request by entering a value for the API key. For example, enter `987654321` between the `<apiKey>` tags.
 
