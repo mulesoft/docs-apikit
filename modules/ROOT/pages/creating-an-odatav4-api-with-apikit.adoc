@@ -71,7 +71,7 @@ In this example, `Orders` and `Customers`.
 Both must be defined in the `schema` namespace.
 . In the Package Explorer view, right-click your *odata-metadata.csdl.xml* file > *Generate Mule OData 4 API*:
 +
-image::generate-odata-v4-api.png["Window displays the path mentioned before to get to the generate Mule odata 4 API option."]
+image::generate-odata-v4-api.png["Window displays the previously mentioned path to get to the Generate Mule OData 4 API option."]
 . APIkit generates the corresponding flows based on your _.csdl.xml_ metadata file.
 +
 image::generated-odata-4-flow.png["The three flows created from the csdl.xml metadata file are highlighted."]
