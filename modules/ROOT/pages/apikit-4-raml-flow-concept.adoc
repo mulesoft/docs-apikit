@@ -5,7 +5,7 @@ endif::[]
 
 From a RAML specification, the APIkit scaffolding technique typically generates the following components in APIkit 4.x:
 
-image::scaffolding.png["Apikit scaffolding generates a main api which includes the listener, the apikit router, and the error handling."]
+image::scaffolding.png["APIkit scaffolding generates a main API, which includes the listener, the APIkit router, and the error handling."]
 
 * An archetype
 +
