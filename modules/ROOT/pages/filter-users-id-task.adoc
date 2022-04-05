@@ -43,7 +43,7 @@ image::apikit-metadata.png["Metadata option is highlighted in the Request tab."]
 ** Name the type using an arbitrary name, for example, int-type.
 ** Define the type as an integer.
 +
-image::apikit-set-payload-type.png["Select metadata type window is displayed with the options mentioned before."]
+image::apikit-set-payload-type.png["Select metadata type window is displayed with the previously mentioned options."]
 . Save all.
 
 Next, add a service to get only user names
