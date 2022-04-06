@@ -11,14 +11,14 @@ You can configure APIkit Router to validate headers and query parameters to limi
 // tag::process[]
 . In your Studio canvas, select *APIkit Router*.
 +
-image::apikit-router-selection.png[]
+image::apikit-router-selection.png["APIkit router highlighted."]
 . Select the *Edit* button for your router configuration
 +
-image::router-config.png[]
+image::router-config.png["Edit button highlighted next to the plus button, in the APIkit router tab."]
 // end::process[]
 . Select *Query parameters Strict Validations*  to limit query parameters to those defined in your API specification, or *Headers Strict Validations* to limit headers to those defined in your API specification:
 +
-image::enable-verifications.png[]
+image::enable-verifications.png["Query parameters strict validations and headers strict validations highlighted in the router configuration tab."]
 
 == Disable Validation of Query Parameters and Headers
 
@@ -27,7 +27,7 @@ Enabling validations can affect performance and cause a delay in response time. 
 include::page$validate-4-task.adoc[tag=process]
 . Select *Disable Validations*:
 +
-image::disable-verifiations-apikit.png[]
+image::disable-verifiations-apikit.png["Disable verifications option highlighted and checked in the router configuration tab."]
 
 == See Also
 
