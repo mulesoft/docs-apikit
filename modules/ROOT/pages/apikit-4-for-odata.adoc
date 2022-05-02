@@ -6,6 +6,8 @@ APIkit builds the services from the entity data model (EDM), which OData service
 
 APIkit for OData generates Mule flows to manage OData requests. You can use APIkit for OData to, for example, expose a legacy API as an OData API, orchestrate data before exposing it in Salesforce, or create a bidirectional OData API for Oracle, DB2, or Azure DB.
 
+API Console does not support OData APIs. 
+
 == Install APIKit for OData
 
 To install APIKit for OData in Anypoint Studio:
