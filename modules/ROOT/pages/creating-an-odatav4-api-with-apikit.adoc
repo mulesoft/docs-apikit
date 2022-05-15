@@ -101,7 +101,7 @@ image::add-db-transform-to-sql.png["Select element and tab are highlighted, as w
 
 image::serialize-transform-to-sql.png["Serialized entity element and tab are highlighted, as well as the inbound content in the General section."]
 
-=== What is `transform-to-sql-select` in OData 4?
+=== What is transform to SQL select in OData 4?
 
 The `transform-to-sql-select` is an operation that allows the user to transform an OData query request into a SQL select statement. It has been designed to work with the Mule DB connector to help the user expose databases with OData 4 easily.
 
@@ -127,12 +127,12 @@ On the other hand, APIkit does not currently support the following elements:
 * $compute
 * $expand
 
-=== How does `transform-to-sql-select` work in OData 4?
+=== How does transform to SQL select work in OData 4?
 
 The OData protocol defines a series of conventions that allow clients to query identified resources using URLs. The list of queryable entities, their fields, and the relationships between them are defined in a data model using simple HTTP messages.
 As OData shares some similarities with Java database connectivity (JDBC), the `transform-to-sql-select` operation takes advantage of such similarities to help the user create SQL queries for those resources. Then, the query is returned at the payload along with the query parameters at the attributes.
 
-=== How do I implement the `transform-to-sql-select` operation using APIkit for OData 4?
+=== How do I implement the transform to SQL select operation using APIkit for OData 4?
 
 <apikit-odata:transform-to-sql-select> is the name of the XML element that represents this operation, which has the following parameters: 
 
@@ -150,7 +150,7 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 | Strict search term match | Parameter to define the behavior of the transformation.
 |====
 
-=== `$filter` expressions in OData 4 
+=== $filter expressions in OData 4 
 
 ​​The `$filter` expression in OData uses comparison, logical, arithmetic, and grouping operators.
 
@@ -194,7 +194,7 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 | ( ) | Precedence grouping | (Price sub 5) gt 10
 |====
 
-=== Supported expressions by `transform-to-sql-select`
+=== Supported expressions by transform to SQL select
 
 `transform-to-sql-select` operation supports the following unary and binary operators, along with the following method operators.
 
@@ -234,7 +234,7 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 | endswith | LIKE %value
 |====
 
-=== `$search` support
+=== $search support
 
 The operation builds a “where” clause based on the `$search` expression provided by the system query option. The implementation translates the search expression to select all the elements that have properties values that match the condition. By default, a term matches if the field value “contains” the term, but it will not match if it is set to be “strict” by configuration.
 
@@ -250,7 +250,7 @@ Download the full link:{attachmentsdir}/apikit-odata4-example.jar[apikit-odata4-
 
 After Studio deploys the application, you can query your OData service using the following query examples:
 
-== GET Request Example
+=== GET Request Example
 
 .Request
 [source,curl]
@@ -270,7 +270,7 @@ curl --location --request GET 'localhost:8081/api/Customers('BLAUS')'
 }
 --
 
-=== GET Request Example With Composite Key
+==== GET Request Example With Composite Key
 
 .Request
 [source,curl]
@@ -321,7 +321,6 @@ curl --location --request POST 'http://localhost:8081/api/Orders' \
    "ShipName": "Order 100000"
 }'
 --
-
 
 === Update Example
 
