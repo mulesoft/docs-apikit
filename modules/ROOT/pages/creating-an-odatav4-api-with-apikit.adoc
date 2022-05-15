@@ -101,6 +101,148 @@ image::add-db-transform-to-sql.png["Select element and tab are highlighted, as w
 
 image::serialize-transform-to-sql.png["Serialized entity element and tab are highlighted, as well as the inbound content in the General section."]
 
+=== What is `transform-to-sql-select` in OData 4?
+
+The `transform-to-sql-select` is an operation that allows the user to transform an OData query request into a SQL select statement. It has been designed to work with the Mule DB connector to help the user expose databases with OData 4 easily.
+
+On the one hand, APIkit currently supports the following elements:
+
+* System query options:
+** $filter
+** $select
+** $search
+** $orderBy
+** $skip
+** $top
+* Single entity
+* Entity relation
+* Server-side pagination
+
+On the other hand, APIkit does not currently support the following elements:
+
+* Parameter Aliases
+* Built-in Filter Operations (has, divby) 
+* Built-in Query Functions (all but contains, startswith, endwith)
+* $apply
+* $compute
+* $expand
+
+=== How does `transform-to-sql-select` work in OData 4?
+
+The OData protocol defines a series of conventions that allow clients to query identified resources using URLs. The list of queryable entities, their fields, and the relationships between them are defined in a data model using simple HTTP messages.
+As OData shares some similarities with Java database connectivity (JDBC), the `transform-to-sql-select` operation takes advantage of such similarities to help the user create SQL queries for those resources. Then, the query is returned at the payload along with the query parameters at the attributes.
+
+=== How do I implement the `transform-to-sql-select` operation using APIkit for OData 4?
+
+<apikit-odata:transform-to-sql-select> is the name of the XML element that represents this operation, which has the following parameters: 
+
+|====
+| *Parameter name* | *Description*
+| Display name | This parameter configures the operation name.
+| Module configuration | Name of the related-module configuration.
+| Entity set name | The name of the entity set that you are trying to fetch #[attributes.entitySetName].
+| Page size | A number that defines the amount of pages in server-side-pagination.
+| Entity type name | A string obtained from the OData request using #[attributes.odataRequestAttributes], which is specified by the entity data model.
+| Entity type fields | An array of strings obtained from the OData request using #[attributes.odataRequestAttributes], which provides the list of property fields from the entity type.
+| Entity type keys | An object obtained from the OData request using #[attributes.odataRequestAttributes], which provides the map of entity key names and values.
+| System query options | Parameter obtained from the OData request using #[attributes.odataRequestAttributes].
+| Search transformation enabled | Parameter to define the behavior of the transformation.
+| Strict search term match | Parameter to define the behavior of the transformation.
+|====
+
+=== `$filter` expressions in OData 4 
+
+​​The `$filter` expression in OData uses comparison, logical, arithmetic, and grouping operators.
+
+==== Comparison Operators
+
+|====
+| *Operator* | *Description* | *Example* 
+| eq | Equal | Address/City eq 'Redmond'
+| ne | Not equal | Address/City ne 'London'
+| gt | Greater than | Price gt 20
+| ge | Greater than or equal to | Price ge 10
+| lt | Less than | Price lt 20
+| le | Less than or equal to | Price le 100
+| in | Is a member of | Address/City in ('Redmond', 'London')
+|====
+
+==== Logical Operators
+
+|====
+| *Operator* | *Description* | *Example*
+| and | Logical and | Price le 200 and Price gt 3.5
+| or | Logical or | Price le 3.5 or Price gt 200
+| not | Logical negation | not endswith(Description,'milk')
+|====
+
+==== Arithmetic Operators
+
+|====
+| *Operator* | *Description* | *Example*
+| add | Addition | Price add 5 gt 10
+| sub | Subtraction | Price sub 5 gt 10
+| mul | Multiplication | Price mul 2 gt 2000
+| div | Division | Price div 2 gt 4
+| mod | Modulo | Price mod 2 eq 0
+|====
+
+===== Grouping Operators
+
+|====
+| *Operator* | *Description* | *Example*
+| ( ) | Precedence grouping | (Price sub 5) gt 10
+|====
+
+=== Supported expressions by `transform-to-sql-select`
+
+`transform-to-sql-select` operation supports the following unary and binary operators, along with the following method operators.
+
+==== Binary Operators in OData and in SQL
+
+|====
+| *OData Operator* | *SQL Operator*
+| add | +
+| and | AND
+| div | /
+| eq | =
+| ge | >=
+| gt | >
+| le | =<
+| lt | <
+| mod | %
+| mul | *
+| ne | <>
+| or | OR
+| sub | -
+|====
+
+==== Unary Operators in OData and in SQL
+
+|====
+| *OData Operator* | *SQL Operator*
+| not | NOT 
+| - | - 
+|====
+
+==== Method Operators in OData and in SQL
+
+|====
+| *OData Operator* | *SQL Operator*
+| contains | LIKE %value%
+| startswith | LIKE value%
+| endswith | LIKE %value
+|====
+
+=== `$search` support
+
+The operation builds a “where” clause based on the `$search` expression provided by the system query option. The implementation translates the search expression to select all the elements that have properties values that match the condition. By default, a term matches if the field value “contains” the term, but it will not match if it is set to be “strict” by configuration.
+
+The following parameters define the `$search` feature:
+
+* Search transformation enabled: it enables (true) or disables (false) the transformation support for this option.
+
+* Strict search term match: it defines if the match should be strict (true) or not strict (false), meaning that the field value should exactly match the term(s) of the search expression.
 
 == APIkit for OData 4 Implementation Example
 
