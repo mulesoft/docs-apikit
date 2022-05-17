@@ -406,34 +406,25 @@ Returns five records starting from the second position.
 
 === Server-Side Pagination in APIkit for OData 4
 
-Your API implementation retrieves a limited number of records using a fix `pageSize` parameter. The response of the first request contains `@odata.nextlink` with a URL to get the next page.
+Server-side pagination is a way of controlling a subset of data requests that were fetched from a client-side server using a fix `pageSize` parameter. It divides the response data set into discrete pages to improve data readability. The server defines the page size, which is the maximum number of records returned by the server in a request.
 
-For example:
+===== How server-side-pagination works in OData 4
 
-[source,curl]
---
-curl -X GET ‘localhost:8081/api/Orders’
---
+OData defines a `@odata.nextLink` to indicate that a response is only a subset of the requested collection of entities. As such, `@odata.nextLink` contains a URL that allows the client to retrieve the next subset of the requested collection.
+Apart from that, the URL contains a query parameter `$skiptoken` that indicates the server where the next page starts.
 
-.Response
-[source,json]
---
-{
-	value: [{ set of records}],
-	“@odata.nextlink”: ‘localhost:8081/api/Orders?$skiptoken=10’
-}
---
+==== How to implement this feature in APIkit for OData 4
 
-In this example, `$skiptoken` is "10", because the `pageSize` parameter is configured to return ten records.
+<apikit-odata:request-entity-collection-listener> allows you to define a set of fields in the *Responses* tab, in Anypoint Studio, to implement the server-side pagination.
 
-When you request the `@odata.nextlink` URL, you get the following response:
+image::pagesize.png[alt text:"pageSize set to ${service.orders.pageSize} in the On Entity Collection Request tab."]
 
-[source,json]
---
-{
-	value: [{ set of records}],
-	“@odata.nextlink” : ‘localhost:8081/api/Orders?$skiptoken=20’
-}
---
+Once populated, APIkit creates the XML representation of the previous fields.
 
-The last page does not return a `odata.nextlink` field.
+image:xmlrepresentation.png[alt text:"XML representation of the pageSize mentioned before."]
+
+==== Page size or Token fields for server-side pagination
+
+`Page size` is a fixed number that represents the maximum number of records the request-entity-collection listener can retrieve for each request.
+In case you cannot use a numeric pagination, you can set a token in the `Token field`, which the developer will generate in the corresponding flow.
+APIkit for OData will include this token value in the `@odata.nextLink` URL with a query parameter `$skiptoken=<Token_Value>`.
