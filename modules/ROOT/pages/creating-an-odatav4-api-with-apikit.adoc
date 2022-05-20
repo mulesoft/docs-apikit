@@ -93,17 +93,13 @@ image::odata-query-option-attributes.png["odataRequestAttributes is highlighted 
 
 == Use The Transform to SQL Operation
 
-APIkit for OData 4 contains a `Transform to SQL Select` operation to transform the input OData `GET` request to a SQL SELECT query. The operation is useful when combined with the `select` operation of the Database Connector. The output payload is a prepared statement and the attributes are a map of prepared statement parameters.
+APIkit for OData 4 contains a `Transform to SQL Select` operation to transform the input OData `GET` request to a SQL SELECT query. The operation is useful when combined with the `select` operation of the Database Connector. The output payload is a prepared statement and the attributes are a map of prepared statement parameters. It has been designed to work with the Mule DB connector to help the user expose databases with OData 4 easily.
 
 image::transform-to-sql-transformer.png["Transform to SQL select element and tab are highlighted."]
 
 image::add-db-transform-to-sql.png["Select element and tab are highlighted, as well as the attributes.queryparameters in the input parameters field."]
 
 image::serialize-transform-to-sql.png["Serialized entity element and tab are highlighted, as well as the inbound content in the General section."]
-
-=== What is transform to SQL select in OData 4?
-
-The `transform-to-sql-select` is an operation that allows the user to transform an OData query request into a SQL select statement. It has been designed to work with the Mule DB connector to help the user expose databases with OData 4 easily.
 
 On the one hand, APIkit currently supports the following elements:
 
