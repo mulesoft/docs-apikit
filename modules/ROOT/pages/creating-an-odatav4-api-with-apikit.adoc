@@ -157,7 +157,7 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 
 === Supported expressions by transform to SQL select
 
-`transform-to-sql-select` operation supports the following unary and binary operators, along with the following method operators.
+OData supports a variety of expressions for filtering that you can find in the [specification](http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations). `transform-to-sql-select` operation supports the following subset of unary and binary operators, along with the following method operators.
 
 ==== Binary Operators in OData and in SQL
 
