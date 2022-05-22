@@ -153,47 +153,7 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 
 === $filter expressions in OData 4 
 
-​​The `$filter` expression in OData uses comparison, logical, arithmetic, and grouping operators.
-
-==== Comparison Operators
-
-|====
-| *Operator* | *Description* | *Example* 
-| eq | Equal | Address/City eq 'Redmond'
-| ne | Not equal | Address/City ne 'London'
-| gt | Greater than | Price gt 20
-| ge | Greater than or equal to | Price ge 10
-| lt | Less than | Price lt 20
-| le | Less than or equal to | Price le 100
-| in | Is a member of | Address/City in ('Redmond', 'London')
-|====
-
-==== Logical Operators
-
-|====
-| *Operator* | *Description* | *Example*
-| and | Logical and | Price le 200 and Price gt 3.5
-| or | Logical or | Price le 3.5 or Price gt 200
-| not | Logical negation | not endswith(Description,'milk')
-|====
-
-==== Arithmetic Operators
-
-|====
-| *Operator* | *Description* | *Example*
-| add | Addition | Price add 5 gt 10
-| sub | Subtraction | Price sub 5 gt 10
-| mul | Multiplication | Price mul 2 gt 2000
-| div | Division | Price div 2 gt 4
-| mod | Modulo | Price mod 2 eq 0
-|====
-
-===== Grouping Operators
-
-|====
-| *Operator* | *Description* | *Example*
-| ( ) | Precedence grouping | (Price sub 5) gt 10
-|====
+​​The `$filter` expression in OData uses comparison, logical, arithmetic, and grouping operators. You can see the list operators with their corresponding meaning at http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[the OData4 Specification]. The only unsupported operators are `has` and `divby`.
 
 === Supported expressions by transform to SQL select
 
