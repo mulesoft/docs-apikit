@@ -117,8 +117,13 @@ On the one hand, APIkit currently supports the following elements:
 On the other hand, APIkit does not currently support the following elements:
 
 * Parameter Aliases
-* Built-in Filter Operations (has, divby) 
-* Built-in Query Functions (all but contains, startswith, endwith)
+* Built-in Filter Operations:
+** has
+** divby 
+* Built-in Query Functions, all but:
+** contains
+** startswith
+** endwith
 * $apply
 * $compute
 * $expand
