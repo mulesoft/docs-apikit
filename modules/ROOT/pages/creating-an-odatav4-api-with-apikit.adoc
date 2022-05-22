@@ -367,7 +367,7 @@ Returns five records starting from the second position.
 
 === Server-Side Pagination in APIkit for OData 4
 
-Server-side pagination is a way of controlling a subset of data requests that were fetched from a client-side server using a fix `pageSize` parameter. It divides the response data set into discrete pages to improve data readability. The server defines the page size, which is the maximum number of records returned by the server in a request.
+Server-side pagination is a way of controlling a subset of data requests that were fetched from a client-side server using a fixed `pageSize` parameter. It divides the response data set into discrete pages to improve data readability. The server defines the page size, which is the maximum number of records returned by the server in a request.
 
 ===== How server-side-pagination works in OData 4
 
