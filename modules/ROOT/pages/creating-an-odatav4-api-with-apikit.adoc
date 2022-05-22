@@ -137,7 +137,7 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 | Display name | This parameter configures the operation name.
 | Module configuration | Name of the related-module configuration.
 | Entity set name | The name of the entity set that you are trying to fetch #[attributes.entitySetName].
-| Page size | A number that defines the amount of pages in server-side-pagination.
+| Page size | A number that defines the amount of results per page during server-side-pagination.
 | Entity type name | A string obtained from the OData request using #[attributes.odataRequestAttributes], which is specified by the entity data model.
 | Entity type fields | An array of strings obtained from the OData request using #[attributes.odataRequestAttributes], which provides the list of property fields from the entity type.
 | Entity type keys | An object obtained from the OData request using #[attributes.odataRequestAttributes], which provides the map of entity key names and values.
