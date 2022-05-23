@@ -197,13 +197,13 @@ OData supports a variety of expressions for filtering that you can find in the [
 
 === $search support
 
-The operation builds a “where” clause based on the `$search` expression provided by the system query option. The implementation translates the search expression to select all the elements that have properties values that match the condition. By default, a term matches if the field value “contains” the term, but it will not match if it is set to be “strict” by configuration.
+The operation builds a “where” clause based on the `$search` expression provided by the system query option. The implementation translates the search expression to select all the elements that have properties values that match the condition. By default, a term matches if the field value “contains” the term, but it will not match if it is set to be “strict” by configuration. The following parameters define the `$search` feature:
 
-The following parameters define the `$search` feature:
-
-* Search transformation enabled: it enables (true) or disables (false) the transformation support for this option.
-
-* Strict search term match: it defines if the match should be strict (true) or not strict (false), meaning that the field value should exactly match the term(s) of the search expression.
+|====
+| *Parameter name* | *Description*
+| Search transformation enabled | It enables (true) or disables (false) the transformation support for this option.
+| Strict search term match | It defines if the match should be strict (true) or not strict (false), meaning that the field value should exactly match the term(s) of the search expression.
+|====
 
 == APIkit for OData 4 Implementation Example
 
