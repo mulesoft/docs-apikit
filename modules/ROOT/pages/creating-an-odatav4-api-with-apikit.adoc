@@ -369,7 +369,7 @@ Returns five records starting from the second position.
 
 Server-side pagination is a way of controlling a subset of data requests that were fetched from a client-side server using a fixed `pageSize` parameter. It divides the response data set into discrete pages to improve data readability. The server defines the page size, which is the maximum number of records returned by the server in a request.
 
-===== How server-side-pagination works in OData 4
+===== How Server-Side Pagination Works in OData 4
 
 OData defines a `@odata.nextLink` to indicate that a response is only a subset of the requested collection of entities. As such, `@odata.nextLink` contains a URL that allows the client to retrieve the next subset of the requested collection.
 Apart from that, the URL contains a query parameter `$skiptoken` that indicates the server where the next page starts.
