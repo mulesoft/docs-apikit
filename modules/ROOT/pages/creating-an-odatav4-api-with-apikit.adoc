@@ -371,21 +371,20 @@ Server-side pagination is a way of controlling a subset of data requests that we
 
 ===== How Server-Side Pagination Works in OData 4
 
-OData defines a `@odata.nextLink` to indicate that a response is only a subset of the requested collection of entities. As such, `@odata.nextLink` contains a URL that allows the client to retrieve the next subset of the requested collection.
-Apart from that, the URL contains a query parameter `$skiptoken` that indicates the server where the next page starts.
+OData defines a `@odata.nextLink` to indicate that a response is only a subset of the requested collection of entities. As such, `@odata.nextLink` contains a URL that enables the client to retrieve the next subset of the requested collection. The URL contains a query parameter `$skiptoken` that indicates the server where the next page starts.
 
-==== How to implement this feature in APIkit for OData 4
+==== How to Implement This Feature in Apikit for Odata 4
 
-<apikit-odata:request-entity-collection-listener> allows you to define a set of fields in the *Responses* tab, in Anypoint Studio, to implement the server-side pagination.
+<apikit-odata:request-entity-collection-listener> enables you to define a set of fields in the *Responses* tab, in Anypoint Studio, to implement the server-side pagination.
 
 image::pagesize.png[alt text:"pageSize set to ${service.orders.pageSize} in the On Entity Collection Request tab."]
 
-Once populated, APIkit creates the XML representation of the previous fields.
+After it is populated, APIkit creates the XML representation of the previous fields.
 
 image:xmlrepresentation.png[alt text:"XML representation of the pageSize mentioned before."]
 
-==== Page size or Token fields for server-side pagination
+==== Page Size or Token Fields for Server-Side Pagination
 
-`Page size` is a fixed number that represents the maximum number of records the request-entity-collection listener can retrieve for each request.
+`Page size` is a fixed number that represents the maximum number of records the `request-entity-collection` listener can retrieve for each request.
 In case you cannot use a numeric pagination, you can set a token in the `Token field`, which the developer will generate in the corresponding flow.
 APIkit for OData will include this token value in the `@odata.nextLink` URL with a query parameter `$skiptoken=<Token_Value>`.
