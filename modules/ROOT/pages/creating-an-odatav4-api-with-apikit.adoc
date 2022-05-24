@@ -128,7 +128,7 @@ APIkit does not currently support the following elements:
 * $compute
 * $expand
 
-=== How does transform to SQL select work in OData 4?
+=== How Does Transform to SQL Select Work in Odata 4?
 
 The OData protocol defines a series of conventions that allow clients to query identified resources using URLs. The list of queryable entities, their fields, and the relationships between them are defined in a data model using simple HTTP messages.
 As OData shares some similarities with Java database connectivity (JDBC), the `transform-to-sql-select` operation takes advantage of such similarities to help the user create SQL queries for those resources. Then, the query is returned at the payload along with the query parameters at the attributes.
