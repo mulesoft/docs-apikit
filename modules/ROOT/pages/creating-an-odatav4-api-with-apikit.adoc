@@ -375,7 +375,7 @@ OData defines a `@odata.nextLink` to indicate that a response is only a subset o
 
 ==== How to Implement This Feature in Apikit for Odata 4
 
-<apikit-odata:request-entity-collection-listener> enables you to define a set of fields in the *Responses* tab, in Anypoint Studio, to implement the server-side pagination.
+`<apikit-odata:request-entity-collection-listener>` enables you to define a set of fields in the *Responses* tab, in Anypoint Studio, to implement the server-side pagination.
 
 image::pagesize.png[alt text:"pageSize set to ${service.orders.pageSize} in the On Entity Collection Request tab."]
 
