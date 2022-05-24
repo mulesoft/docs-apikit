@@ -386,5 +386,5 @@ image:xmlrepresentation.png[alt text:"XML representation of the pageSize mention
 ==== Page Size or Token Fields for Server-Side Pagination
 
 `Page size` is a fixed number that represents the maximum number of records the `request-entity-collection` listener can retrieve for each request.
-In case you cannot use a numeric pagination, you can set a token in the `Token field`, which the developer generates in the corresponding flow.
+In case you cannot use a numeric pagination, set a token in the `Token field`, so a developer can generate it in the corresponding flow.
 APIkit for OData includes this token value in the `@odata.nextLink` URL with a query parameter `$skiptoken=<Token_Value>`.
