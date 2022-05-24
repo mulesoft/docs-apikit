@@ -157,7 +157,7 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 
 === Expressions Supported by Transform to SQL Select
 
-OData supports a variety of expressions for filtering that you can find in the [specification](http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations). `transform-to-sql-select` operation supports the following subset of unary and binary operators, along with the following method operators.
+OData supports a variety of expressions for filtering that you can find in the [specification^](http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations). The `transform-to-sql-select` operation supports the following subset of unary and binary operators, along with the following method operators.
 
 ==== Binary Operators in OData and in SQL
 
@@ -195,7 +195,7 @@ OData supports a variety of expressions for filtering that you can find in the [
 | endswith | LIKE %value
 |====
 
-=== $search support
+=== $search Support
 
 The operation builds a “where” clause based on the `$search` expression provided by the system query option. The implementation translates the search expression to select all the elements that have properties values that match the condition. By default, a term matches if the field value “contains” the term, but it will not match if it is set to be “strict” by configuration. The following parameters define the `$search` feature:
 
