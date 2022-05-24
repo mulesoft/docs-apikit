@@ -197,7 +197,7 @@ OData supports a variety of expressions for filtering that you can find in the [
 
 === $search Support
 
-The operation builds a “where” clause based on the `$search` expression provided by the system query option. The implementation translates the search expression to select all the elements that have properties values that match the condition. By default, a term matches if the field value “contains” the term, but it will not match if it is set to be “strict” by configuration. The following parameters define the `$search` feature:
+The operation builds a `where` clause based on the `$search` expression provided by the system query option. The implementation translates the search expression to select all the elements that have property values that match the condition. By default, a term matches if the field value “contains” the term, but it does not match if it is set as “strict” in the configuration. The following parameters define the `$search` feature:
 
 |====
 | *Parameter name* | *Description*
