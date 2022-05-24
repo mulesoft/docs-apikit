@@ -151,7 +151,7 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 | Strict search term match | Parameter to define the behavior of the transformation.
 |====
 
-=== $filter expressions in OData 4 
+=== $filter Expressions in OData 4 
 
 ​​The `$filter` expression in OData uses comparison, logical, arithmetic, and grouping operators. You can access the list operators with their corresponding meaning at http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[the OData4 Specification]. As mentioned before, APIkit does not support `has` and `divby` operators.
 
