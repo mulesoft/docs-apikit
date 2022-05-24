@@ -201,8 +201,8 @@ The operation builds a `where` clause based on the `$search` expression provided
 
 |====
 | *Parameter name* | *Description*
-| Search transformation enabled | It enables (true) or disables (false) the transformation support for this option.
-| Strict search term match | It defines if the match should be strict (true) or not strict (false), meaning that the field value should exactly match the term(s) of the search expression.
+| Search transformation enabled | When set to `true`, it enables the transformation support for this option.
+| Strict search term match | When set to `true`, it specifies that there is a match only if the field value contains exactly the same terms as the search expression.
 |====
 
 == APIkit for OData 4 Implementation Example
