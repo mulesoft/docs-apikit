@@ -101,7 +101,7 @@ image::add-db-transform-to-sql.png["Select element and tab are highlighted, as w
 
 image::serialize-transform-to-sql.png["Serialized entity element and tab are highlighted, as well as the inbound content in the General section."]
 
-On the one hand, APIkit currently supports the following elements:
+APIkit currently supports the following elements:
 
 * System query options:
 ** $filter
@@ -114,7 +114,7 @@ On the one hand, APIkit currently supports the following elements:
 * Entity relation
 * Server-side pagination
 
-On the other hand, APIkit does not currently support the following elements:
+APIkit does not currently support the following elements:
 
 * Parameter Aliases
 * Built-in Filter Operations:
