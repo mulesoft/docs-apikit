@@ -381,7 +381,14 @@ image::pagesize.png[alt text:"pageSize set to ${service.orders.pageSize} in the 
 
 After it is populated, APIkit creates the XML representation of the previous fields.
 
-image:xmlrepresentation.png[alt text:"XML representation of the pageSize mentioned before."]
+[source,xml]
+--
+<apikit-odata:request-entity-collection-listener config-ref="odata-metadata-config" path="/Orders" method="GET" >
+        <apikit-odata:collection-success-response >
+            <apikit-odata:entity-collection-sucess-response pageSize="${service.orders.pageSize}"/>
+        </apikit-odata:collection-success-response>
+    <apikit-odata:request-entity-collection-listener>
+--
 
 ==== Page Size or Token Fields for Server-Side Pagination
 
