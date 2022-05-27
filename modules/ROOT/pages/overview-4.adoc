@@ -15,7 +15,7 @@ image::apikit-pom.png[height=522,width=396]
 +
 * The API folder is located under resources. API definition files are no longer duplicated in the root folder.
 +
-image::api-folder.png[]
+image::api-folder.png["Pom file highlighted in the target folder, in the Package Explorer tab."]
 +
 * API Console 4.0 that simulates calls to the API is not embedded in Studio.
 +

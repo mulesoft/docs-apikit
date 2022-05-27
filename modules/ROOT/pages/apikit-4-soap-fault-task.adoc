@@ -8,7 +8,7 @@ You can use SoapUI to identify an operation you need to implement by making the 
 . In SoapUI, create a new SOAP project using the URL for your deployed Mule APIkit project for the initial WSDL. +
 In this workflow, the URL is `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+`:
 +
-image::soapui-new-project.png[]
+image::soapui-new-project.png["New SOAP project window displaying the initial WSDL as http://localhost:8081/TshirtService/TshirtServicePort?wsdl."]
 +
 . In SoapUI, request a large t-shirt for John by entering some values into the request envelope:
 +

@@ -1,18 +1,11 @@
-= Creating an OData-Enabled API
+= Create an OData v2 API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: apikit, apikit extension, odata
+:page-aliases: implement-endpoints-odata-task.adoc
 
-The APIkit OData Extension supports OData (Open Data Protocol) to create HTTP-based data services.
-
-The APIkit OData Extension builds the services from the entity data model (EDM), which OData services use to formalize their resource descriptions. You can write the EDM in RAML using EDM-compatible data types to represent API entities.
-
-The APIkit OData extension generates Mule flows to manage OData requests. You can use the APIkit OData extension to, for example, expose a legacy API as an OData API, orchestrate data before exposing it in Salesforce, or create a bidirectional OData API for Oracle, DB2, or Azure DB.
-
-The APIkit OData extension supports OData version 2.0.
-
-The OData MySQL example on this page shows how to use an HTTP-based data service to query a MySQL database.
+The OData MySQL example shows you how to use an HTTP-based data service to query a MySQL database.
 
 == Prerequisites
 
@@ -24,26 +17,7 @@ The following software is required to create and use an OData REST API with APIk
 
 Additionally, you must download the link:{attachmentsdir}/odata.raml[OData example entity data model].
 
-== Install the APIKit OData Extension
-
-To install the APIKit OData extension in Anypoint Studio:
-
-. Select *Help* > *Install New Software*.
-. Click *Add...*
-+
-image::add-update-site.png[]
-. In the *Name* field, type `APIkit for ODATA Update Site`.
-. In the *Location* field, type `+http://studio.mulesoft.org/s4/apikit-for-odata/+`.
-. Click *Add*.
-+
-image::add-repository-odata.png[]
-. Select the *Anypoint ODATA Plugin* box, and click *Next*.
-+
-image::select-odata-extension.png[]
-. Accept the terms and conditions of the product, then click *Finish*.
-. Restart Studio to complete the installation.
-
-== Implement an API Using the APIkit OData Extension
+== Implement an OData v2 API Using the APIkit OData Extension
 
 The following example shows you how to implement an OData-enabled REST API:
 
@@ -53,10 +27,10 @@ The following example shows you how to implement an OData-enabled REST API:
 . Copy the `odata.raml` file you downloaded in the prerequisites section to the `/src/main/resources/api` directory in your project.
 . In the project explorer, right-click `odata.raml` and select *Mule* > *Generate OData API from RAML Types*.
 +
-image::generate-odata.png[]
+image::generate-odata.png["Window highlights the full path that was previously mentioned to get to the generate OData API from RAML types option."]
 . The OData extension generates the necessary files for your OData API implementation:
 +
-image::list-of-odata-files.png[]
+image::list-of-odata-files.png["The three files are highlighted in the tree: api.xml in the Mule folder, and api.raml and odatalibrary.raml files in the resource folder."]
 +
 <1> The Mule configuration file with the flows for the API implementation
 <1> The generated RAML definition
@@ -232,8 +206,83 @@ The response is:
 }
 ----
 
+== Implement Endpoints for an OData API
+
+You can implement API endpoints such as the `get:/customers:config` and `get:/orders:config` flows using Anypoint Studio. The output format of the flows must be JSON. For more information, see the xref:creating-an-odata-api-with-apikit.adoc#odata-mysql-example[complete functioning example].
+
+=== Declare Input Variables for a GET
+
+. Declare a variable for the APIkit OData Service variable that contains the fields of your entity in a list of strings (List<String>). For example:
++
+[source,javascript,linenums]
+----
+var entityFields = vars.odata.fields
+----
++
+. Declare a variable for the APIkit OData Service variable that filters into 'http.query.params'. For example:
++
+[source,javascript,linenums]
+----
+var filters = attributes.queryParams
+----
++
+. Declare a variable for the APIkit Odata Service variable that contains the keys of your entity. For example:
++
+[source,javascript,linenums]
+----
+var keys = vars.odata.keyNames
+----
++
+. Declare a variable for the APIkit Odata Service variable that contains the table name. For example:
++
+[source,javascript,linenums]
+----
+var remoteEntityName = vars.odata.remoteEntityName
+----
+
+=== Declare Input Variables for a POST
+
+. Declare a variable for the APIkit Odata Service inbound property that contains the entity's name:
++
+[source,javascript,linenums]
+----
+var remoteEntityName = vars.odata.remoteEntityName
+----
++
+. Declare a variable for transforming your payload into something like this: { myKey1: 'myValue1', myKey2: 'myValue2'}.
++
+[source,javascript,linenums]
+----
+var valuesFromPayload = {
+  keys: payload pluck $$,
+  values: payload pluck "'$'"
+}
+----
++
+. Declare two variables, and use joinBy to transform your keys and values into comma-separated-values (CSV). For example:
++
+[source,javascript,linenums]
+----
+var columns = ( (valuesFromPayload.keys map "`$`" ) joinBy ", ") // myKey1, myKey2
+var values = (valuesFromPayload.values joinBy ", ") // 'myValue1', 'myValue2'
+----
+
+=== Format Output
+
+The output for each flow must conform to the following format:
+[source,xml,linenums]
+----
+{
+  "entries":
+  [
+    {<entry1>},
+    {<entry2>},
+    {<entryN>}
+  ]
+}
+----
+
 == See Also
 
 * xref:apikit-odata-extension-reference.adoc[APIkit OData Extension Reference]
 * xref:runtime-manager::deploying-to-cloudhub.adoc[Deploying to CloudHub]
-* xref:implement-endpoints-odata-task.adoc[Implementing Endpoints]

@@ -1,0 +1,496 @@
+= APIkit for OData v4 Module Reference
+
+== Configurations
+---
+[[Config]]
+=== Config
+
+
+Default configuration
+
+
+==== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+|Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*{nbsp}
+| Api Definition a| String |  API definition |  | *x*{nbsp}
+| Name a| String |  The identifier of this element used to reference it in other components |  | *x*{nbsp}
+|===
+
+
+==== Associated Operations
+* <<Route>> {nbsp}
+* <<SerializeEntity>> {nbsp}
+* <<SerializeEntityCollection>> {nbsp}
+* <<TransformToSqlSelect>> {nbsp}
+
+==== Associated Sources
+* <<RequestEntityCollectionListener>> {nbsp}
+* <<RequestEntityListener>> {nbsp}
+
+
+== Operations
+
+[[Route]]
+== Route
+`<apikit-odata:route>`
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Content a| Any |  |  #[payload] | {nbsp}
+| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
+| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
+| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+* <<RepeatableFileStoreStream>>
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
+| Method a| Enumeration, one of:
+
+** GET
+** POST
+** PUT
+** PATCH
+** DELETE |  HTTP request method name. |  | *x*{nbsp}
+| Masked Request Path a| String |  OData request path, relative to listener. |  | *x*{nbsp}
+| Scheme a| Enumeration, one of:
+
+** HTTP
+** HTTPS |  HTTP request scheme. |  | *x*{nbsp}
+| Host a| String |  Request host. |  | *x*{nbsp}
+| Listener Path a| String |  Listener path, ending with "*". |  | *x*{nbsp}
+| Http Headers a| Object |  HTTP request headers. |  | {nbsp}
+| Query String a| String |  HTTP query string. |  | {nbsp}
+| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| Any
+| *Attributes Type* a| <<RouteOutputAttributes>>
+|===
+
+=== For Configurations
+
+* <<Config>> {nbsp}
+
+=== Throws
+
+* APIKIT-ODATA:DESERIALIZATION {nbsp}
+* APIKIT-ODATA:INTERNAL_SERVER_ERROR {nbsp}
+* APIKIT-ODATA:MALFORMED_SEARCH {nbsp}
+* APIKIT-ODATA:MALFORMED_URI {nbsp}
+* APIKIT-ODATA:NOT_FOUND {nbsp}
+* APIKIT-ODATA:NOT_IMPLEMENTED {nbsp}
+* APIKIT-ODATA:SERIALIZATION {nbsp}
+* APIKIT-ODATA:TRANSFORMATION {nbsp}
+
+
+[[SerializeEntity]]
+== Serialize Entity
+`<apikit-odata:serialize-entity>`
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Inbound Content a| Binary |  |  #[payload] | {nbsp}
+| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
+| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
+| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+* <<RepeatableFileStoreStream>>
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
+| Method a| Enumeration, one of:
+
+** GET
+** POST
+** PUT
+** PATCH
+** DELETE |  HTTP Method. |  | *x*{nbsp}
+| Path a| String |  Path to Entity Type. |  | *x*{nbsp}
+| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| Binary
+|===
+
+=== For Configurations
+
+* <<Config>> {nbsp}
+
+
+
+[[SerializeEntityCollection]]
+== Serialize Entity Collection
+`<apikit-odata:serialize-entity-collection>`
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Inbound Content a| Binary |  |  #[payload] | {nbsp}
+| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
+| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
+| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+* <<RepeatableFileStoreStream>>
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
+| Method a| Enumeration, one of:
+
+** GET
+** POST
+** PUT
+** PATCH
+** DELETE |  HTTP Method. |  | *x*{nbsp}
+| Path a| String |  Path to Entity Type. |  | *x*{nbsp}
+| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| Binary
+|===
+
+=== For Configurations
+
+* <<Config>> {nbsp}
+
+
+
+[[TransformToSqlSelect]]
+== Transform To Sql Select
+`<apikit-odata:transform-to-sql-select>`
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Entity Set Name a| String |  |  | *x*{nbsp}
+| Page Size a| Number |  |  | {nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
+| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+* <<RepeatableFileStoreStream>>
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
+| Entity Type Name a| String |  Entity type name specified by the Entity Data Model. |  | *x*{nbsp}
+| Entity Type Fields a| Array of String |  List of property fields from the Entity type. |  | *x*{nbsp}
+| Entity Type Keys a| Object |  Map of entity key names and values. |  | *x*{nbsp}
+| System Query Options a| Object |  System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], in order to simplify usability we remove initial dollar sign to avoid escaping withing dataweave, in example to access System Query Option $skip user should use the following expresion #[attributes.systemQueryOptions.'skip'] |  | *x*{nbsp}
+| Search Transformation Enabled a| Boolean |  Enables $search transformation to WHERE clause. |  true | {nbsp}
+| Strict Search Term Match a| Boolean |  Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. |  false | {nbsp}
+| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| Binary
+| *Attributes Type* a| <<SqlTransformerOutputAttributes>>
+|===
+
+=== For Configurations
+
+* <<Config>> {nbsp}
+
+=== Throws
+
+* APIKIT-ODATA:INTERNAL_SERVER_ERROR {nbsp}
+* APIKIT-ODATA:MALFORMED_SEARCH {nbsp}
+* APIKIT-ODATA:MALFORMED_URI {nbsp}
+* APIKIT-ODATA:NOT_IMPLEMENTED {nbsp}
+* APIKIT-ODATA:TRANSFORMATION {nbsp}
+
+
+== Sources
+
+[[RequestEntityCollectionListener]]
+== On Entity Collection Request
+`<apikit-odata:request-entity-collection-listener>`
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
+| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
+| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when runnning in Cluster |  | {nbsp}
+| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+* <<RepeatableFileStoreStream>>
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
+| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | {nbsp}
+| Method a| Enumeration, one of:
+
+** GET
+** POST
+** PUT
+** PATCH
+** DELETE |  HTTP Method |  | *x*{nbsp}
+| Path a| String |  Path to Entity Type |  | *x*{nbsp}
+| Collection Success Response a| One of:
+
+* <<RawEntityCollectionSuccessResponse>>
+* <<EntityCollectionSuccessResponse>> |  |  | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| Any
+| *Attributes Type* a| <<ListenerRequestAttributes>>
+|===
+
+=== For Configurations
+
+* <<Config>> {nbsp}
+
+
+
+[[RequestEntityListener]]
+== On Entity Request
+`<apikit-odata:request-entity-listener>`
+
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
+| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
+| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when runnning in Cluster |  | {nbsp}
+| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+* <<RepeatableFileStoreStream>>
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
+| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | {nbsp}
+| Method a| Enumeration, one of:
+
+** GET
+** POST
+** PUT
+** PATCH
+** DELETE |  HTTP Method |  | *x*{nbsp}
+| Path a| String |  Path to Entity Type |  | *x*{nbsp}
+| Success Response a| One of:
+
+* <<RawEntitySuccessResponse>>
+* <<EntitySuccessResponse>> |  |  | {nbsp}
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| *Type* a| Any
+| *Attributes Type* a| <<ListenerRequestAttributes>>
+|===
+
+=== For Configurations
+
+* <<Config>> {nbsp}
+
+
+
+== Types
+[[ListenerRequestAttributes]]
+=== Listener Request Attributes
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Entity Set Name a| String |  |  |
+| Odata Http Attributes a| <<ODataHttpAttributes>> |  |  |
+| Odata Request Attributes a| <<ODataRequestAttributes>> |  |  |
+|======================
+
+[[ODataHttpAttributes]]
+=== O Data Http Attributes
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Headers a| Object |  |  |
+| Method a| Enumeration, one of:
+
+** GET
+** POST
+** PUT
+** PATCH
+** DELETE |  |  |
+| Raw Base Uri a| String |  |  |
+| Raw Odata Path a| String |  |  |
+| Raw Query Path a| String |  |  |
+| Raw Request Uri a| String |  |  |
+| Scheme a| Enumeration, one of:
+
+** HTTP
+** HTTPS |  |  |
+|======================
+
+[[ODataRequestAttributes]]
+=== O Data Request Attributes
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Custom Query Options a| Object |  |  |
+| Entity Type Fields a| Array of String |  |  |
+| Entity Type Keys a| Object |  |  |
+| Entity Type Name a| String |  |  |
+| System Query Options a| Object |  |  |
+|======================
+
+[[RepeatableInMemoryStream]]
+=== Repeatable In Memory Stream
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Initial Buffer Size a| Number | This is the amount of memory that will be allocated in order to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it will be expanded by according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  |
+| Buffer Size Increment a| Number | This is by how much will be buffer size by expanded if it exceeds its initial size. Setting a value of zero or lower will mean that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised when the buffer gets full. |  |
+| Max Buffer Size a| Number | This is the maximum amount of memory that will be used. If more than that is used then a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised. A value lower or equal to zero means no limit. |  |
+| Buffer Unit a| Enumeration, one of:
+
+** BYTE
+** KB
+** MB
+** GB | The unit in which all these attributes are expressed |  |
+|======================
+
+[[RepeatableFileStoreStream]]
+=== Repeatable File Store Stream
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| In Memory Size a| Number | Defines the maximum memory that the stream should use to keep data in memory. If more than that is consumed then it will start to buffer the content on disk. |  |
+| Buffer Unit a| Enumeration, one of:
+
+** BYTE
+** KB
+** MB
+** GB | The unit in which maxInMemorySize is expressed |  |
+|======================
+
+[[RedeliveryPolicy]]
+=== Redelivery Policy
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Max Redelivery Count a| Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message |  |
+| Message Digest Algorithm a| String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  |
+| Message Identifier a| <<RedeliveryPolicyMessageIdentifier>> | Defines which strategy is used to identify the messages. |  |
+| Object Store a| ObjectStore | The object store where the redelivery counter for each message is going to be stored. |  |
+|======================
+
+[[RedeliveryPolicyMessageIdentifier]]
+=== Redelivery Policy Message Identifier
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Use Secure Hash a| Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  |
+| Id Expression a| String | Defines one or more expressions to use to determine when a message has been redelivered. This property may only be set if useSecureHash is false. |  |
+|======================
+
+[[RouteOutputAttributes]]
+=== Route Output Attributes
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Headers a| Object |  |  |
+| Status Code a| Number |  |  |
+|======================
+
+[[SqlTransformerOutputAttributes]]
+=== SQL Transformer Output Attributes
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Query Parameters a| Object |  |  |
+|======================
+
+[[RawEntitySuccessResponse]]
+=== Raw Entity Success Response
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Raw Content a| Binary | The raw response content of the response message. | #[payload] |
+|======================
+
+[[EntitySuccessResponse]]
+=== Entity Success Response
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Body Content a| Binary | The body of the response message. | #[payload] |
+|======================
+
+[[RawEntityCollectionSuccessResponse]]
+=== Raw Entity Collection Success Response
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Raw Content a| Binary | The raw response message. | #[payload] |
+|======================
+
+[[EntityCollectionSuccessResponse]]
+=== Entity Collection Success Response
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Body Content a| Binary | The body of the response message. | #[payload] |
+| Serialization Parameters a| <<SerializationParameters>> | Set of serialization-related parameters. |  | x
+|======================
+
+[[SerializationParameters]]
+=== Serialization Parameters
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Count a| Number |  |  |
+| Page Size a| Number |  |  |
+| Token a| String |  |  |
+|======================

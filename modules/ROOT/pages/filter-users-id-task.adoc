@@ -30,12 +30,12 @@ Click OK.
 ** Value to *attributes.queryParams.id*
 ** Accept the other defaults.
 +
-image::apikit-query-parameter.png[]
+image::apikit-query-parameter.png["The general option in the request tab is displayed to show the name ID, the value attributes.queryParams.id, and the other defaults."]
 . In the properties editor, set metadata properties as follows:
 +
 * Select Metadata.
 +
-image::apikit-metadata.png[]
+image::apikit-metadata.png["Metadata option is highlighted in the Request tab."]
 +
 * Declare the data type of the id as follows:
 +
@@ -43,7 +43,7 @@ image::apikit-metadata.png[]
 ** Name the type using an arbitrary name, for example, int-type.
 ** Define the type as an integer.
 +
-image::apikit-set-payload-type.png[]
+image::apikit-set-payload-type.png["Select metadata type window is displayed with the previously mentioned options."]
 . Save all.
 
 Next, add a service to get only user names
