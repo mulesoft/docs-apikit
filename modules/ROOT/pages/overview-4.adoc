@@ -41,7 +41,7 @@ The timing of future improvements and fixes are no longer constrained by Studio 
 </dependency>
 ----
 
-== Customizing APIkit
+== Customize APIkit
 
 You can customize the configuration of APIkit. For example, you can change the host, port, path, and scheme by editing the listener and listener-config in the configuration.xml of the project.
 
