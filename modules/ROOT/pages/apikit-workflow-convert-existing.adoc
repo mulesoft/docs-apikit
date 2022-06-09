@@ -15,7 +15,7 @@ image::backend-first-project.png["The window displays the project name, the runt
 
 Later, you can add an API specification, and then use API Console to simulate the API.
 
-== Adding APIkit to an Existing Design
+== Add APIkit to an Existing Design
 
 You add APIkit components to an existing design, for example a legacy project that you want to modernize using RAML and APIkit, by creating the RAML code within Studio as follows:
 
@@ -27,7 +27,7 @@ You add APIkit components to an existing design, for example a legacy project th
 
 The generated backend flows contain the core logic of the API, error handling flows, API Console. You need to add REST resource-action pairing.
 
-== Defining the API Definition Files
+== Define the API Definition Files
 
 If you want a RAML-backed API, you can use Studio to create the file: Studio: File > New > RAML API Definition.
 
@@ -43,7 +43,7 @@ For example:
 +
 Ignore error messages in the Problems window that pertain to undefined attributes.
 
-== Creating a Main Flow
+== Create a Main Flow
 
 Within the APIkit project, build a flow.
 
@@ -56,7 +56,7 @@ Within the APIkit project, build a flow.
 . In the properties editor for HTTP Listener, in Connector Configuration, select api-httpListenerConfig, and set a path. For example, in Path, enter `/`.
 
 
-== Generating REST Backend Flows
+== Generate REST Backend Flows
 
 When you create a RAML in Studio, generating backend flows is optional. Error handling is generated for a RAML-based API. You need to reference generated flows from the main flow. This procedure assumes you have already created a main flow.
 
@@ -67,7 +67,7 @@ To generate backend flows:
 +
 The backend flows appear below the main flow.
 
-== Mapping RAML Resources to Actions
+== Map RAML Resources to Actions
 
 As part of the backend-first design process, you map RAML resources to actions as shown in the following procedure. This procedure assumes you have generated backend flows.
 

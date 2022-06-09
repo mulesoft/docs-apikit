@@ -14,7 +14,7 @@ Supports sending custom headers with the response.
 Supports sending a custom HTTP status code in the response.
 
 
-== Adding a Header to a Response
+== Add a Header to a Response
 
 Put the header you want to add inside the `outboundHeaders` map, as shown in the following example:
 
