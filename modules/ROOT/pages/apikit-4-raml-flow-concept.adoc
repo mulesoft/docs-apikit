@@ -36,4 +36,6 @@ The generated, minimal flows meets the communication operations required by a RE
 
 == APIkit Router
 
-The APIkit router is a key message processor that validates requests against the RAML definition, enriches messages, for example by adding default values to the messages, and routes requests to a flow. "Bad request" is returned if the request is invalid, for example, and "Not implemented" is returned if the RAML resource that you request is not associated with a flow.
+The APIkit router is a key message processor that routes messages from the incoming API request to the corresponding Mule flows and serializes a response. It also enriches messages by adding default values to the messages. For example, APIkit returns a `Bad request` response if the request is invalid, and a `Not implemented` response if the API resource that you request is not associated with a flow.
+
+Although the APIkit router can validate your request payload, headers, query, and URI parameters, the router does not validate everything declared in an API specification. For example, the router does not validate authentication because API Gateway policies, which execute before your request reaches the router, are responsible for enforcing authentication.
