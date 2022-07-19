@@ -84,7 +84,7 @@ image::generated-odata-4-flow.png["The three flows created from the csdl.xml met
 
 Within each *On Entity Request* and *On Entity Collection Request* listener you can access a `systemQueryOptions` attribute that maps to each OData query option (`$select`, `$orderBy`, `$count`, etc.). For example, to access the `$select` value you use the following expression:
 
-[soure]
+[source]
 --
 #[attributes.odataRequestAttributes.systemQueryOptions.select]
 --
@@ -369,7 +369,7 @@ Returns five records starting from the second position.
 
 Server-side pagination is a way of controlling a subset of data requests that were fetched from a client-side server using a fixed `pageSize` parameter. It divides the response data set into discrete pages to improve data readability. The server defines the page size, which is the maximum number of records returned by the server in a request.
 
-===== How Server-Side Pagination Works in OData 4
+==== How Server-Side Pagination Works in OData 4
 
 OData defines a `@odata.nextLink` to indicate that a response is only a subset of the requested collection of entities. As such, `@odata.nextLink` contains a URL that enables the client to retrieve the next subset of the requested collection. The URL contains a query parameter `$skiptoken` that indicates the server where the next page starts.
 
@@ -385,7 +385,7 @@ After it is populated, APIkit creates the XML representation of the previous fie
 --
 <apikit-odata:request-entity-collection-listener config-ref="odata-metadata-config" path="/Orders" method="GET" >
         <apikit-odata:collection-success-response >
-            <apikit-odata:entity-collection-sucess-response pageSize="${service.orders.pageSize}"/>
+            <apikit-odata:entity-collection-success-response pageSize="${service.orders.pageSize}"/>
         </apikit-odata:collection-success-response>
     <apikit-odata:request-entity-collection-listener>
 --
