@@ -18,7 +18,7 @@ Multiple SOAP Fault components might appear.
 +
 . Drag and drop the SOAP Fault component into the ListInventory:api-config flow to the right of Transform.
 +
-If the Operation Unavailable message appears telling you about a version descrepancy, cancel the operation, and choose another SOAP Fault component. Repeat these steps until you find a version match.
+If the Operation Unavailable message appears telling you about a version discrepancy, cancel the operation, and choose another SOAP Fault component. Repeat these steps until you find a version match.
 . In the properties editor, in Module Configuration, select soapkit-config from the drop-down.
 . In Operation, select ListInventory from the drop-down.
 . In Fault, select `Fault` from the drop-down and save the properties

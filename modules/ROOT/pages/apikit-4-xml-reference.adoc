@@ -70,7 +70,7 @@ Possible values are:
 
 It can be any of a URL, the relative path to a file located under `src/main/resources/api`, or the API Sync resource path.
 
-| *keepApiBaseUrii* | N | *This attribute is valid for APIkit 1.2.0 and later*
+| *keepApiBaseUri* | N | *This attribute is valid for APIkit 1.2.0 and later*
 
 When set to *false*, it rewrites the `baseUri` in the RAML definition of the API. +
 If set to *true* it does not rewrite the `baseUri` field.

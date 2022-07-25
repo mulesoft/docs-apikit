@@ -27,7 +27,7 @@ Enabling validations can affect performance and cause a delay in response time. 
 include::page$validate-4-task.adoc[tag=process]
 . Select *Disable Validations*:
 +
-image::disable-verifiations-apikit.png["Disable verifications option highlighted and checked in the router configuration tab."]
+image::disable-verifications-apikit.png["Disable verifications option highlighted and checked in the router configuration tab."]
 
 == See Also
 
