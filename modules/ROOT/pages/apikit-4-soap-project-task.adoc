@@ -10,7 +10,7 @@ Before proceeding, ensure that you meet the xref:apikit-4-soap-prerequisites-tas
 
 . Under the File menu, select *New* > *Mule Project*.
 +
-image::create-new-mule-project-soap.png[]
+image::create-new-mule-project-soap.png["New Mule project window highlighting the project-name field, the runtime engine, the from design center or local files tab, and the expand icon for browsing files."]
 <1> In *Project Name*, enter a name for the project. +
 For example, _soap-implementation_.
 <1> Select the Mule runtime engine version. +
@@ -20,7 +20,7 @@ For example, `Mule Server 4.2.2 EE`.
 
 . Select a service and port from the drop-down menus or accept the defaults. For this example, accept the defaults: Select `TshirtService` and `TshirtServicePort`.
 +
-image::create-apikit-soap-project.png[]
+image::create-apikit-soap-project.png["API specification window highlights the service and the port from the drop-down menus."]
 +
 . Select *Finish*.
 +

@@ -5,7 +5,7 @@ endif::[]
 
 From a RAML specification, the APIkit scaffolding technique typically generates the following components in APIkit 4.x:
 
-image::scaffolding.png[]
+image::scaffolding.png["APIkit scaffolding generates a main API, which includes the listener, the APIkit router, and the error handling."]
 
 * An archetype
 +
@@ -26,7 +26,7 @@ A mock implementation. Later you need to add the business logic to the flows.
 
 In Studio, the APIkit project looks something like this:
 
-image::apikit-flows.png[]
+image::apikit-flows.png["The package explorer is displayed with the project files, and the project flow, which highlights the router, the console, and the error handling."]
 
 A flow is generated for each resource method:
 
@@ -36,4 +36,6 @@ The generated, minimal flows meets the communication operations required by a RE
 
 == APIkit Router
 
-The APIkit router is a key message processor that validates requests against the RAML definition, enriches messages, for example by adding default values to the messages, and routes requests to a flow. "Bad request" is returned if the request is invalid, for example, and "Not implemented" is returned if the RAML resource that you request is not associated with a flow.
+The APIkit router is a key message processor that routes messages from the incoming API request to the corresponding Mule flows and serializes a response. It also enriches messages by adding default values to the messages. For example, APIkit returns a `Bad request` response if the request is invalid, and a `Not implemented` response if the API resource that you request is not associated with a flow.
+
+Although the APIkit router can validate your request payload, headers, query, and URI parameters, the router does not validate everything declared in an API specification. For example, the router does not validate authentication because API Gateway policies, which execute before your request reaches the router, are responsible for enforcing authentication.

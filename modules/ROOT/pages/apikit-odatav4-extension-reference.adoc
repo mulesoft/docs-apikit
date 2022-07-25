@@ -245,7 +245,7 @@ Default configuration
 | Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
 | Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
 | Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
-| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when runnning in Cluster |  | {nbsp}
+| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | {nbsp}
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
@@ -292,7 +292,7 @@ Default configuration
 | Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
 | Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
 | Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
-| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when runnning in Cluster |  | {nbsp}
+| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | {nbsp}
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}

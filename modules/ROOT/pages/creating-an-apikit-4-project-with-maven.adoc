@@ -91,7 +91,7 @@ You can include the following parameters in the `mvn archetype` command, using v
 
 If you don't include these parameters, Maven prompts you for values upon execution.
 
-== Generating a New Project
+== Generate a New Project
 
 To generate a new project in Studio:
 
@@ -107,7 +107,7 @@ Maven stores the project files in the Studio workspace.
 +
 Maven generates a new project in the specified directory that includes the latest Mule runtime available.  To use an earlier runtime, open the pom.xml file and change the contents of the `<mule.version>` XML tag.
 
-== Preparing a RAML File
+== Prepare a RAML File
 
 The `api.raml` file in `src/main/api` is initially empty. To populate the file, complete one of the following tasks:
 
@@ -125,7 +125,7 @@ In the `apikit:config` tag, the attribute `raml` specifies the file from which t
 <apikit:config name="apiConfig" raml="CUSTOM FILE NAME" consoleEnabled="true" consolePath="console" />
 ----
 
-== Generating Backend Flows
+== Generate Backend Flows
 
 You need to generate backend flows for each resource-action pairing in the RAML you create.
 
@@ -139,13 +139,13 @@ mvn org.mule.tools:mule-apikit-maven-plugin:create
 +
 From the information in `api.raml`, the plugin creates the backend flows.
 
-== Importing the Project into Anypoint Studio
+== Import the Project into Anypoint Studio
 
 After creating the basic structure for a project, import the project into Anypoint Studio, and then enhance the backend flows to map RAML resources to actions.
 
 . In Studio, under the *File* menu, select *Import*.
 . In the Import wizard, expand the *Mule* folder, then select `Maven-based Mule project from pom.xml`.
 +
-image::import-maven.png[]
+image::import-maven.png["Import window highlights the Mule folder, in which to select the pom.xml file."]
 +
 . Complete the remaining steps in the wizard to identify the *name* and *location* of your project's `pom.xml` on your local drive, then click *Finish* to import the project.
