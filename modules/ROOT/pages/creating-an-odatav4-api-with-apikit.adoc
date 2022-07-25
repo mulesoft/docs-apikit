@@ -84,7 +84,7 @@ image::generated-odata-4-flow.png["The three flows created from the csdl.xml met
 
 Within each *On Entity Request* and *On Entity Collection Request* listener you can access a `systemQueryOptions` attribute that maps to each OData query option (`$select`, `$orderBy`, `$count`, etc.). For example, to access the `$select` value you use the following expression:
 
-[soure]
+[source]
 --
 #[attributes.odataRequestAttributes.systemQueryOptions.select]
 --
