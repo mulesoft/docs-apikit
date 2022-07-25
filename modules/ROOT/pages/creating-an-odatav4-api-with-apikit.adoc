@@ -373,7 +373,7 @@ Server-side pagination is a way of controlling a subset of data requests that we
 
 OData defines a `@odata.nextLink` to indicate that a response is only a subset of the requested collection of entities. As such, `@odata.nextLink` contains a URL that enables the client to retrieve the next subset of the requested collection. The URL contains a query parameter `$skiptoken` that indicates the server where the next page starts.
 
-==== How to Implement This Feature in Apikit for Odata 4
+==== How to Implement This Feature in Apikit for OData 4
 
 `<apikit-odata:request-entity-collection-listener>` enables you to define a set of fields in the *Responses* tab, in Anypoint Studio, to implement the server-side pagination.
 
