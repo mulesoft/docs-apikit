@@ -58,7 +58,7 @@ Example: OrderTshirt:/TshirtService/TshirtServicePort/api-config
 
 The name of each backend flow corresponds to the resource-action pairing or to some operation-service mapping. For example, the XML code for the backend flow named `get:/machines:apiConfig` maps to the RAML resource `/machines` and its nested `get:` action.
 
-After generating backend flows, you integrate the functional processes to take the expected input and produce output. From RAML, Studio infers information about the metadata for the input of a flow and exposes this information through xref:6@studio::datasense.adoc[DataSense]. In a REST API, this input might arrive in the following forms:
+After generating backend flows, you integrate the functional processes to take the expected input and produce output. From RAML, Studio infers information about the metadata for the input of a flow and exposes this information through xref:6.x@studio::datasense.adoc[DataSense]. In a REST API, this input might arrive in the following forms:
 
 * Request body
 * Query parameters
