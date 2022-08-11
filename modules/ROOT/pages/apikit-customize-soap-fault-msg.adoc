@@ -136,7 +136,7 @@ The application should deploy, and the following messages should appear in the *
 
 == Send a SoapUI Request
 
-. Using SoapUI, send a request to the deployed the Mule app on port 8087.
+. Using SoapUI, send a request to the deployed Mule app on port 8087.
 +
 If you send an invalid XML, you see the SoapFault with the message customized in the SoapFaultOutInterceptor:
 +
