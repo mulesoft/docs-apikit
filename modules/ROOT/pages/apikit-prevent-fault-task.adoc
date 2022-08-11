@@ -3,20 +3,20 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In this procedure, you resolve the SOAP fault you generated. You add the Transform Message component to the flow and specify a message in DataWeave for responding to the request, effectively implementing the operation. In the DataWeave code, you use the proper namespace to avoid a soap:Server faultcode at the beginning of the response to the request.
+In this procedure, you resolve the SOAP fault you generated. You add the *Transform Message* component to the flow and specify a message in DataWeave for responding to the request, effectively implementing the operation. In the DataWeave code, you use the proper namespace to avoid a *soap:Server faultcode* at the beginning of the response to the request.
 
-The Transform Message component works on the process side after the endpoint defined in the WSDL has been hit, triggering the main flow of the Mule application to execute, which then calls the backend flow.
+The *Transform Message* component works on the process side after the endpoint defined in the WSDL has been hit, triggering the main flow of the Mule application to execute, which then calls the backend flow.
 
-. Remove the Set Payload element from the flow OrderTshirt:api-config.
-. Drag a Transform Message component from the Mule palette to replace Set Payload.
+. Remove the *Set Payload* element from the flow *OrderTshirt:api-config*.
+. Drag a *Transform Message* component from the *Mule Palette* to replace *Set Payload*.
 +
-Leave the Source section of the APIkit backend flow empty.
+Leave the *Source* section of the APIkit backend flow empty.
 +
-image::apikit-for-soap-e8679.png[]
+image::apikit-for-soap-e8679.png["*Source* section of the APIkit backend flow empty."]
 +
-. Select the Transform Message component.
+. Select the *Transform Message* component.
 +
-The user interface displays the input and output for the current operation, OrderTshirt as input, and OrderTshirtResponse as output.
+The user interface displays the input and output for the current operation: *OrderTshirt* as input, and *OrderTshirtResponse* as output.
 +
 . In the properties editor, specify the payload as follows:
 +
@@ -34,7 +34,7 @@ The user interface displays the input and output for the current operation, Orde
 }
 ----
 +
-image::apikit-for-soap-475c0.png[]
+image::apikit-for-soap-475c0.png["*Transform Message* tab with the payload output."]
 +
 . Save and rerun the project.
 +

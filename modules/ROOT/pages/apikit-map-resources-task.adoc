@@ -5,14 +5,15 @@ endif::[]
 
 After you generate backend flows and reference exception strategies, you map RAML resources to actions as shown in this procedure.
 
-. Click the APIkit Router to open the *Properties Editor*. In *Router configuration*, click image:add-16x16.png[Add-16x16].
+. Click the APIkit Router to open the *Properties Editor*. 
+. In *Router configuration*, click image:add-16x16.png["Plus button."].
 +
 The *Global Element Properties* wizard appears.
 +
-image::apikit-using-9bea1.png[]
+image::apikit-using-9bea1.png["*Global Element Properties* dialog with the *Router configuration* tab highlighted."]
 +
 . Browse to the RAML file you created within Studio.
-. In Mappings, click image:add-16x16.png[Add-16x16] to create a new mapping.
+. In Mappings, click image:add-16x16.png["Plus button."] to create a new mapping.
 +
 The *New Mapping* dialog appears.
 . Use the drop-down to map the resources to actions.
@@ -25,8 +26,8 @@ The *New Mapping* dialog appears.
 +
 `post:/sales:application/json:Router`
 +
-Click *OK*.
+. Click *OK*.
 +
-image::apikit-using-ab251.png[]
+image::apikit-using-ab251.png["*New Mapping* dialog with resources mapped."]
 +
-. Repeat the previous step for each resource-action pairing in the API.
+. Repeat the previous steps for each resource-action pairing in the API.

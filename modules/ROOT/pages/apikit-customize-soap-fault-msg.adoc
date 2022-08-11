@@ -122,9 +122,9 @@ In Studio, in the config file `src/main/resource/cxf.xml` are references to the 
 
 Run the application from Studio.
 
-image::apikit-run-app.png[Run the application from Studio]
+image::apikit-run-app.png["*Run project soap* highlighted after right-clicking the application."]
 
-The application should deploy, and the following messages should appear in the Console:
+The application should deploy, and the following messages should appear in the *Console*:
 
 [source,text,linenums]
 ----
@@ -136,11 +136,11 @@ The application should deploy, and the following messages should appear in the C
 
 == Send a SoapUI Request
 
-. Using SoapUI, send a request to the deployed Mule app on port 8087.
+. Using SoapUI, send a request to the deployed the Mule app on port 8087.
 +
 If you send an invalid XML, you see the SoapFault with the message customized in the SoapFaultOutInterceptor:
 +
-image::apikit-messages-in-studio.png[SoapFault message in Studio]
+image::apikit-messages-in-studio.png["SoapFault message in Studio."]
 +
 The console log should look like:
 +
@@ -155,7 +155,7 @@ Original SoapFault:
 ********** End Custom SoapFault Interceptor ***********
 ----
 +
-image::apikit-project-structure.png[Studio project structure]
+image::apikit-project-structure.png["Studio project structure with *SoapFaultOutInterceptor* highlighted."]
 +
 . To get rid of the console exception, you can change the log severity.
 +

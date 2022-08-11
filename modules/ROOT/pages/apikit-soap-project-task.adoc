@@ -5,16 +5,19 @@ endif::[]
 
 You create a new project, specify the use of APIkit components, and refer to a WSDL file that you download.
 
-. Under the File menu, select New > Mule Project.
+. Under the File menu, select *New* > *Mule Project*.
 +
-The New Mule Project wizard appears.
-. In Project Name, enter a name for the project. Select or accept the default EE Runtime, for example Mule Server 3.8.1 EE.
-. Check Add APIkit Components, and browse to the tshirt2.wsdl file you downloaded.
+The *New Mule Project* wizard appears.
++
+. In *Project Name*, enter a name for the project. 
+. Select or accept the default EE Runtime, for example *Mule Server 3.8.1 EE*.
+. Check *Add APIkit Components*.
+. Browse to the *tshirt2.wsdl* file you downloaded.
 . Select a service and port from the drop-down menus. For example, select TshirtService and TshirtServicePort.
 +
-image::apikit-for-soap-47fb8.png[]
+image::apikit-for-soap-47fb8.png["*New Mule Project* dialog with populated fields."]
 +
-. Click Finish.
+. Click *Finish*.
 +
 The new project having a `src/main/wsdl` folder that contains the WSDL file appears.
 +

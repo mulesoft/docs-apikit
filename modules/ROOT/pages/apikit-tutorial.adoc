@@ -33,7 +33,7 @@ image::apikit-tutorial-3e0e4.png["Project Settings for a New Mule Project, inclu
 +
 The APIkit Console appears below the canvas, displaying the resource-action pairs exposed by the API.
 +
-image::apikitconsole-tutorial.png[alt=Resource action pairs exposed by the Remote Vending API example.]
+image::apikitconsole-tutorial.png["Resource action pairs exposed by the Remote Vending API example."]
 +
 . Click *Introduction* under Documentation to view the API description.
 +
@@ -43,13 +43,13 @@ The main Introduction title and sentence map to the contents of `documentation` 
 +
 The baseURI is optional in a RAML-backed API, but required by the API Console Try It functionality; otherwise, Try-it is disabled.
 +
-image::fv-601.png[alt=Example of the Try-it feature being disabled because baseURI is not present.]
+image::fv-601.png["Example of the Try-it feature being disabled because baseURI is not present."]
 +
 In the RAML, you can use an arbitrary value, for example `+http://www.example.com+` for the baseURI.
 +
 . Click the GET button to send a test call to GET a list of machines.
 +
-image::apikitt-get.png[alt=Get button is highlighted to test the get call.]
+image::apikitt-get.png["Get button is highlighted to test the get call."]
 +
 . The API returns a list of machines.
 +

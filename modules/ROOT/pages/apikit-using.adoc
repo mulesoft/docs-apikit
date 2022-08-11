@@ -59,7 +59,7 @@ Because each server belongs to a different environment, there is no need to incl
 
 Avoid hard-coding URLs in base path. Use different property files for different deployments:
 
-image::apikit-using-7d817.png[]
+image::apikit-using-7d817.png["`dev-on-prem properties: base.path=/api/customers/v1` and `dev-ch properties: base.path=/api/*` highlighted."]
 
 You can configure a custom load balancer to adjust URLs. For example, `http://api.yourcompany.com/customer/v1` can point to `+http://server:port/api/customer/v1+`.
 
