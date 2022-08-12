@@ -17,12 +17,12 @@ The following software is required for creating and using an OData-enabled API w
 * Studio 6.1.2
 * Maven is optional
 
-== Installing the APIKit OData Extension
+== Installing the APIkit OData Extension
 
-Using Studio, you install the APIKit OData Extension in Studio as described in the following procedure.
+Using Studio, you install the APIkit OData Extension in Studio as described in the following procedure.
 
 
-To install the APIKit OData Extension:
+To install the APIkit OData Extension:
 
 . From the *Help* menu in Anypoint Studio, select *Install New Software*.
 . In the *Work with:* field, select `APIkit for ODATA Update Site - +http://studio.mulesoft.org/r5/apikit-for-odata+` from the drop-down.
@@ -32,9 +32,9 @@ Studio displays a list of items to select.
 . Check the check box to update APIkit Studio Plugin.
 . Click *Next*.
 +
-An Install Remediation Page might appear.
+An *Install Remediation Page* might appear.
 +
-. Click Next, and click Next again to install the remedial software.
+. Click *Next*, and click *Next* again to install the remedial software.
 . Accept the terms and conditions of the product, then click *Finish*.
 . Restart Studio to complete the installation.
 
@@ -48,15 +48,15 @@ You can download an link:{attachmentsdir}/odata.raml[example entity data model] 
 +
 . Create a new Mule project in Studio.
 +
-Select the *Add APIkit Components* on the New Project dialog.
+Select the *Add APIkit Components* on the *New Project* dialog.
 . Copy the odata.raml to /src/main/api in Studio project explorer.
 . In the project explorer, right-click odata.raml and select *Mule* > *Generate OData API from RAML Types*.
 +
 The OData Extension generates the api.raml and OData library in src/main/api. Generated flows appear on the canvas when you select api.xml.
 +
-image::creating-an-odata-api-b2e8e.png[]
+image::creating-an-odata-api-b2e8e.png["api.xml and odata.raml located in Package Explorer."]
 +
-. Make sure to add the extensionEnabled="true" attribute/value to the apikit:config element in the XML view. This will ensure that the OData extension is picked up at runtime:
+. Make sure to add the *extensionEnabled="true"* attribute/value to the *apikit:config* element in the XML view. This will ensure that the OData extension is picked up at runtime:
 +
 ----
 <apikit:config name="apiConfig" raml="api.raml" consoleEnabled="false" doc:name="Router" extensionEnabled="true"/>
@@ -92,20 +92,20 @@ The Maven project you download in step 3 contains the mysql-connector-java-5.1.3
 +
 The pom.xml and other project files appear in the apikit-odata-example-master directory.
 +
-. In Studio, Select *File* > *Import*.
+. In Studio, select *File* > *Import*.
 +
 The *Select* dialog appears.
 +
 . Select *Anypoint Studio* > *Maven-based Mule Project from pom.xml*. Click Next.
 +
-The Maven Configuration dialog appears.
+The *Maven Configuration* dialog appears.
 +
 . Enter the path to your Maven installation directory, for example `/usr/local/Cellar/maven/3.3.9`
-. Click Test Maven Configuration, and if the test is successful, click Next; otherwise, troubleshoot your Maven configuration.
+. Click *Test Maven Configuration*, and if the test is successful, click *Next*; otherwise, troubleshoot your Maven configuration.
 +
-The Import Mule Project dialog appears.
+The *Import Mule Project* dialog appears.
 +
-. Browse to and select the POM file from the apikit-odata-example-master directory. Click *Finish*.
+. Browse to and select the POM file from the *apikit-odata-example-master* directory. Click *Finish*.
 +
 The test-drive project appears in the project explorer. APIkit OData Extension generates flows that appear in the canvas when you click api.xml in src/main/app in the project explorer.
 +

@@ -9,11 +9,11 @@ You can apply the rate limiting policy to limit the number of requests to an API
 +
 The API version details page for the vending API appears.
 +
-. On the Policies tab, scroll down to the rate limiting policy, and click Apply.
+. On the *Policies* tab, scroll down to the rate limiting policy, and click *Apply*.
 +
-The Apply Rate limiting Policy dialog appears.
+The *Apply Rate limiting Policy* dialog appears.
 +
 . Configure the policy. For example, configure rate limiting to 3 requests per minute.
-. Click Apply.
-.  Click `1.0development` to go to the API version details for the test-policy API.
+. Click *Apply*.
+. Click `1.0development` to go to the API version details for the test-policy API.
 . Apply the rate limiting policy to the test-policy API.

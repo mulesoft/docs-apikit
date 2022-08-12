@@ -6,35 +6,38 @@ endif::[]
 
 In Anypoint Studio 6.x you can use APIkit to generate a flow based on an API specification written in RAML or WSDL.
 
-In this procedure, you use a RAML specification and add a new service to the interface. You call the API to access services. The interface connects to a free online REST service, JSONPlaceholder.
+In this procedure, you use a RAML specification and add a new service to the interface. You call the API to access services. The interface connects to a free online REST service, *JSONPlaceholder*.
 
 Resources are:
 
  * All user information.
  * Information about user having ID = _n_.
 
-The JSONPlaceholder service provides all the JSON user information.
+The *JSONPlaceholder* service provides all the JSON user information.
 
 . Click link:{attachmentsdir}/apikit-tutorial2.zip[here] to download the RAML for this procedure.
 . Unzip the downloaded archive.
 . In Studio, create a new Mule project: *File* > *New* > *Mule Project*.
-The New Mule Project dialog appears.
-. In Project Settings, set the following options:
 +
-* *Project Name*: `myproject`
+The *New Mule Project* dialog appears.
++
+. In *Project Settings*, set the following options:
++
+* *Project Name*: `myproject`.
 * *Runtime*: Select or accept the default `Mule Server 3.9.0 EE` or later.
 * *Add APIkit components*: Check *Add APIkit components*.
 * *API Definition*: Browse to and select the `api.raml` file you downloaded.
 +
 When you click *Finish*, both files you downloaded appear in `src/main/api`. On the canvas, the flow scaffolded by APIkit appears:
++
 . Right-click the API name `api.xml` and select *Run As* > *Mule Application*.
 
-On the Console tab, messages indicate that the project is deployed, and the API Console appears in the API Console tab.
+On the *Console* tab, messages indicate that the project is deployed, and the *API Console* appears in the *API Console* tab.
 
 == Simulate API Calls Using APIkit Console
 
-. In APIkit Console, on the /users resource GET tab, click Try It.
-. Click GET to retrieve the RAML example in the `user-example.json` file.
+. In *APIkit Console*, on the */users resource GET* tab, click *Try It*.
+. Click *GET* to retrieve the RAML example in the `user-example.json` file.
 +
 Status 200 and the user 1 example appears:
 +
@@ -66,7 +69,7 @@ Status 200 and the user 1 example appears:
 ]
 ----
 +
-. Click *Try It* on the GET tab of the `/usersbyid` resource. +
+. Click *Try It* on the *GET* tab of the `/usersbyid` resource. +
 The response is:
 ----
  [{
@@ -97,27 +100,27 @@ The response is:
 
 After simulating calls to the API, prepare the API for release. Modify and add flows that return actual data from the JSON Placeholder site instead of the data from RAML examples. Modify the users flow to get actual data from the Json Placeholder site:
 
-. Drag an HTTP component to the Source section of the get:/users:api-config flow.
-. In the properties editor of the HTTP Listener, change the Path from `/` to */placeholder*.
-. In Connector Configuration of the HTTP Listener, click image:edit-16x16.gif[Edit-16x16] and click OK to accept the default host 0.0.0.0 and port 8081.
-. Delete the Set Payload component from the Process area of the get:/users:api-config flow.
-. Drag an HTTP connector to the Process area of the flow.
-. In the properties editor of the HTTP Requester, set the following options:
+. Drag an HTTP component to the *Source* section of the *get:/users:api-config* flow.
+. In the properties editor of the *HTTP Listener*, change the Path from `/` to */placeholder*.
+. In Connector Configuration of the *HTTP Listener*, click image:edit-16x16.gif["Edit button."] and click *OK* to accept the default host 0.0.0.0 and port 8081.
+. Delete the *Set Payload* component from the *Process* area of the *get:/users:api-config* flow.
+. Drag an *HTTP connector* to the *Process* area of the flow.
+. In the properties editor of the *HTTP Requester*, set the following options:
 +
 * Path: `/users`
 +
-* Method: Select GET from the drop-down.
+* Method: Select *GET* from the drop-down.
 +
-. In Connector Configuration of the HTTP Requester, click image:add-16x16.png[Add-16x16].
+. In *Connector Configuration of the HTTP Requester*, click image:add-16x16.png["Add button."].
 +
-The HTTP Request Configuration dialog appears.
+The *HTTP Request Configuration* dialog appears.
 +
-. Set the following HTTP Request Configuration options:
+. Set the following *HTTP Request Configuration* options:
 +
 * Accept the default Name, HTTP_Request_Configuration.
 * Accept the default HTTP protocol.
 * Set Host to *jsonplaceholder.typicode.com*.
-* Set Port to 80.
+* Set Port to *80*.
 +
 . Save changes.
 
@@ -125,14 +128,14 @@ The HTTP Request Configuration dialog appears.
 
 Revise the flow to filter users by ID:
 
-. Drag an HTTP component to the Source section of the get:/users/userbyid:api-config flow.
-. In the properties editor, set Path to */placeholder/byid*.
-. In Connector Configuration of the HTTP Listener, click image:edit-16x16.gif[Edit-16x16] and click OK to accept the default host 0.0.0.0 and port 8081.
-. Delete Set Payload from the flow, and in its place, drag an HTTP component to the Process area.
+. Drag an HTTP component to the *Source* section of the *get:/users/userbyid:api-config* flow.
+. In the properties editor, set *Path* to */placeholder/byid*.
+. In *Connector Configuration* of the *HTTP Listener*, click image:edit-16x16.gif["Edit button."] and click *OK* to accept the default host 0.0.0.0 and port 8081.
+. Delete *Set Payload* from the flow, and in its place, drag an HTTP component to the *Process* area.
 . In the properties editor, set the following HTTP Requester options:
 * Path: Set to */users*.
-* Method: Select GET from the drop-down.
-* Click Add Parameter and set the following options:
+* Method: Select *GET* from the drop-down.
+* Click *Add Parameter* and set the following options:
 +
 ** Name: *id*
 ** Value to *#[message.inboundProperties.'http.query.params'.id]*
@@ -140,35 +143,35 @@ Revise the flow to filter users by ID:
 
 == To Add a Service to Get Names Only
 
-In this procedure, you add a flow to filter users to get a list of user names. You set up the Transform Message input and output metadata to generate DataWeave code and return results you want.
+In this procedure, you add a flow to filter users to get a list of user names. You set up the *Transform Message* input and output metadata to generate DataWeave code and return results you want.
 
-. Copy and paste the get:/users:api-config flow to create another flow: Select the flow, and then Edit > Copy. Click a blank area of the canvas, and select Edit > Paste.
+. Copy and paste the *get:/users:api-config* flow to create another flow: Select the flow, and then *Edit* > *Copy*. Click a blank area of the canvas, and select *Edit* > *Paste*.
 +
 A copy of the flow appears at the bottom of the canvas.
 +
-. In the copy of the flow, select the HTTP listener component, and in the properties editor, change the Path from /placeholder to */placeholder/names*.
-. Drag a Transform Message component from the Mule palette to the right of the HTTP requester.
+. In the copy of the flow, select the HTTP listener component, and in the properties editor, change the *Path* from /placeholder to */placeholder/names*.
+. Drag a *Transform Message* component from the *Mule Palette* to the right of the HTTP requester.
 +
-image::transform-msg.png[define metadata]
+image::transform-msg.png["*Transform Message* component next to the right of the HTTP requester."]
 +
-. In Transform Message, in Input, click Define Metadata, and set the metadata:
-* Click image:add-16x16.png[Add-16x16] to create a new type, and give the type an arbitrary name, userlist, for example.
-* In Type, select JSON, and then select Example. Browse to the same user-example.json that you downloaded and referenced in the RAML.
+. In *Transform Message*, in *Input*, click *Define Metadata*, and set the metadata:
+* Click image:add-16x16.png["Add button."] to create a new type, and give the type an arbitrary name, *userlist*, for example.
+* In *Type*, select JSON, and then select *Example*. Browse to the same *user-example.json* that you downloaded and referenced in the RAML.
 +
-image::transform-msg2.png[define metadata select file]
+image::transform-msg2.png["*userlist* example in the *Select metadata type* dialog."]
 +
-* Click Select.
+* Click *Select*.
 . Create a file having a JSON array, which represents the list of names you want in the output:
 +
 `["Jane Doe", "John Smith"]`
 +
-Give the file an arbitrary name, for example names.json.
+Give the file an arbitrary name, for example, *names.json*.
 +
-. In Transform Message, in Output, click Define Metadata, and set the metadata:
-* Click image:add-16x16.png[Add-16x16] to create a new type, and give the type an arbitrary name, namelist, for example.
-* In Type, select JSON, and then select Example. Browse to names.json.
-* Click Select.
-. In Transform Message, in Input, drag Name:String to `List<String>` in Output.
+. In *Transform Message*, in *Output*, click *Define Metadata*, and set the metadata:
+* Click image:add-16x16.png["Add button."] to create a new type, and give the type an arbitrary name, *namelist*, for example.
+* In *Type*, select *JSON*, and then select *Example*. Browse to *names.json*.
+* Click *Select*.
+. In *Transform Message*, in *Input*, drag *Name:String* to `List<String>` in *Output*.
 +
 DataWeave code is generated.
 . In the properties editor, change the output code to specify the application/json mime type instead of application/java:
@@ -182,7 +185,7 @@ payload.name
 
 == To Test the API
 
-. In Package Explorer, right-click the project name, and choose *Run As* > *Mule Application*.
+. In *Package Explorer*, right-click the project name, and choose *Run As* > *Mule Application*.
 . Open a browser, and go to `+http://localhost:8081/placeholder+`.
 +
 All user information from the JSONPlaceholder service appears:
@@ -270,5 +273,5 @@ All user information from the JSONPlaceholder service appears:
 ----
 
 == See Also
-s
+
 * xref:apikit-basic-anatomy.adoc[APIkit Anatomy]

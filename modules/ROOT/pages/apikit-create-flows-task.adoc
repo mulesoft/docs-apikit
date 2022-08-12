@@ -5,20 +5,20 @@ endif::[]
 
 This procedure describes how to build a main flow, backend flows, and exception strategies to create an APIkit project. When you create a RAML in Studio, you have the option of generating backend flows, or not. Exception strategies are generated for a RAML-based API. You need to reference these strategies from the main flow.
 
-. Drag the following components for the main flow from the Mule palette:
+. Drag the following components for the main flow from the *Mule Palette*:
 +
 * An HTTP (or Jetty) Listener
 * An APIkit Router
 +
-image::apikit-using-ea7ad.png[]
+image::apikit-using-ea7ad.png["An APIkit Router and a HTTP Listener added to the main flow."]
 +
 . In the *Package Explorer*, right-click the project name.
 . Select *Mule* > *Generate Flows from RAML*
 +
 The backend flows appear below the main flow.
 +
-image::apikit-tutorial-ce60c.png[]
+image::apikit-tutorial-ce60c.png["Backend flows and the main flow."]
 +
 . Expand the *Error handling* section in the main flow.
-. Drag a *Reference Exception Strategy* component from the Mule palette to the Error handling section.
-. On the Configuration.xml tab, add xref:apikit-basic-anatomy.adoc#raml-based-exception-strategy-mappings[exception strategy mappings] to the project right after the last `</flow>` tag.
+. Drag a *Reference Exception Strategy* component from the *Mule Palette* to the *Error Handling* section.
+. On the *Configuration XML* tab, add xref:apikit-basic-anatomy.adoc#raml-based-exception-strategy-mappings[exception strategy mappings] to the project right after the last `</flow>` tag.

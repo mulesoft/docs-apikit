@@ -5,11 +5,11 @@ endif::[]
 
 By default, APIkit automatically opens an *APIkit Console* panel in Studio when you run a RAML-based APIkit project. API Console gives you access to the generated documentation for the API.
 
-image::apiconsole.png[apiConsole]
+image::apiconsole.png["APIkit Console highlighted in the Studio panel."]
 
 By default, the console is offered at the same host, port, and path as the routing flow listener, with the addition of the path `/console`. You can customize the path in the router global configuration. You can also disable the console completely.
 
-image::routerconfig-console.png[]
+image::routerconfig-console.png["Global Element Properties with the *Use Console* checkbox and the *Console Path* highlighted."]
 
 To access the console in a browser, go to the full address of your project routing flow and append the console path, `/console` by default, to the end of the address. For example, if your API is hosted at `+http://localhost:8081/api+`, then the URL for accessing the console is `+http://localhost:8081/api/console+`.
 
@@ -17,11 +17,11 @@ The Show APIkit Console configuration determines whether or not API Console open
 
 == Using API Console and a Reverse Proxy
 
-APIkit 3.8.3 and later solves the problem accessing APIkit Console when a load balancer or reverse proxy is configured in front of an APIKit application. By default, the console uses the URL defined in the listener or provided by Cloudhub, making the console inaccessible.
+APIkit 3.8.3 and later solves the problem accessing APIkit Console when a load balancer or reverse proxy is configured in front of an APIkit application. By default, the console uses the URL defined in the listener or provided by Cloudhub, making the console inaccessible.
 
-If the RAML baseUri is relative, APIKit 3.8.3 and later uses the relative URI without overwriting it. When using a load balancer or reverse proxy, set the `keepRamlBaseUri` attribute in the `apikit:config` element to true. When you set the attribute to true, the console uses the URL of a the baseUri property of the RAML, and you can access API Console. By default, the attribute is false.
+If the RAML baseUri is relative, APIkit 3.8.3 and later uses the relative URI without overwriting it. When using a load balancer or reverse proxy, set the `keepRamlBaseUri` attribute in the `apikit:config` element to true. When you set the attribute to true, the console uses the URL of a the baseUri property of the RAML, and you can access API Console. By default, the attribute is false.
 
-If the RAML baseUri is relative, APIKit 3.8.3 and later uses the relative URI without overwriting it.
+If the RAML baseUri is relative, APIkit 3.8.3 and later uses the relative URI without overwriting it.
 
 == Hosting Additional Consoles
 

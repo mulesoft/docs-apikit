@@ -9,8 +9,8 @@ To update a WSDL file:
 
 . Download `+https://docs.mulesoft.com/apikit/v/3.x/_attachments/tshirt-modified.wsdl+`, copy the entire contents of the downloaded file, and paste it in tshirt2.wsdl, replacing the tshirt2.wsdl content.
 +
-. In Package Explorer, right-click the project and select Mule > Generate SOAP Flows.
+. In *Package Explorer*, right-click the project and select *Mule* > *Generate SOAP Flows*.
 +
-A new flow named DeleteOrder:api-config appears.
+A new flow named *DeleteOrder:api-config* appears.
 +
-image::generate-sources.png[width="300"]
+image::generate-sources.png["*DeleteOrder:api-config* flow and its components.",width="300"]

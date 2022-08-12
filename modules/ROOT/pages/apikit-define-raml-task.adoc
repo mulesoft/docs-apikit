@@ -19,6 +19,6 @@ The *New RAML API Definition* dialog appears.
 +
 Studio creates and opens a new file in the `src/main/api` folder in your project.
 +
-image::new-raml.png[new_raml]
+image::new-raml.png["New RAML file highlighted in *Package Explorer*."]
 +
 . Add the https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md[RAML].
