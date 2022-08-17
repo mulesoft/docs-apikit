@@ -31,10 +31,13 @@ image::generate-odata.png["Window highlights the full path that was previously m
 . The OData extension generates the necessary files for your OData API implementation:
 +
 image::list-of-odata-files.png["The three files are highlighted in the tree: api.xml in the Mule folder, and api.raml and odatalibrary.raml files in the resource folder."]
-+
-<1> The Mule configuration file with the flows for the API implementation
-<1> The generated RAML definition
-<1> The generated RAML libraries
+
+[calloutlist]
+. The Mule configuration file with the flows for the API implementation
+. The generated RAML definition
+. The generated RAML libraries
+
+[start=7]
 . Add the necessary logic for your API implementation in the flows.
 
 == OData MySQL Example
