@@ -73,12 +73,12 @@ As part of the backend-first design process, you map RAML resources to actions a
 
 To map resources to actions:
 
-. Click the APIkit Router to open the *Properties Editor*. In *Router configuration*, click image:add-16x16.png["Plus button."].
+. Click the APIkit Router to open the *Properties Editor*. In *Router configuration*, click image:add-16x16.png["Add button."].
 +
 The *Global Element Properties* wizard appears.
 +
 . Enter the relative path to the RAML file you created within Studio, for example: src/main/resources/api/api.raml. If you browse, the file name alone is used and that isn't sufficient.
-. In Mappings, click image:add-16x16.png["Plus button"] to create a new mapping.
+. In Mappings, click image:add-16x16.png["Add button"] to create a new mapping.
 +
 The *New Mapping* dialog appears.
 . Use the drop-down to map the resources to actions.
@@ -91,7 +91,7 @@ The *New Mapping* dialog appears.
 +
 Click *OK*.
 +
-image::map-resource-to-action.png[apikit-using-ab251]
+image::map-resource-to-action.png["*New Mapping" window with *get:\users:api-config* data populated."]
 +
 . Repeat the previous step for each resource-action pairing in the API.
 

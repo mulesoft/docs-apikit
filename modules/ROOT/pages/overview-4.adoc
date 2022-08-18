@@ -11,7 +11,7 @@ If you’re an APIkit 3.x user, you can get up and running quickly with APIkit 4
 ** MuleSoft can update APIkit in a timely manner, independent from Mule Runtime updates.
 ** To use a different APIkit version, just change the dependency in the POM.
 +
-image::apikit-pom.png[height=522,width=396]
+image::apikit-pom.png["pom.xml file highlighted in the *Package Explorer*.",height=522,width=396]
 +
 * The API folder is located under resources. API definition files are no longer duplicated in the root folder.
 +
@@ -49,7 +49,7 @@ You can customize the configuration of APIkit. For example, you can change the h
 == See Also
 
 * xref:apikit-simulate.adoc[To Simulate API Calls using API Console]
-* xref:validate-4-task.adoc[Validate Query Parameters and Headers Using APIKit]
+* xref:validate-4-task.adoc[Validate Query Parameters and Headers Using APIkit]
 * xref:customize-console-url-4-task.adoc[To Customize the API Console URL]
 * xref:configure-headers4-task.adoc[To Configure Headers]
 * xref:execute-nonfunctional-requirements-4-task.adoc[To Execute Non-functional Requirements]

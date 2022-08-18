@@ -22,7 +22,7 @@ image::import-from-exchange.png["Import a published API highlighted when clickin
 
 APIkit generates the necessary flows based on the API specification you imported.
 
-You can also create an APIKit project using Maven. See xref:creating-an-apikit-4-project-with-maven.adoc[Creating an APIkit Project with Maven] for more information.
+You can also create an APIkit project using Maven. See xref:creating-an-apikit-4-project-with-maven.adoc[Creating an APIkit Project with Maven] for more information.
 
 
 == See Also
