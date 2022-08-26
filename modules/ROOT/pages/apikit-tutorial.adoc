@@ -5,55 +5,55 @@ endif::[]
 :page-aliases: start-project-task.adoc, apikit-create.adoc, apikit-run-test.adoc, apikit-add-logic.adoc, apikit-deploy.adoc, apikit-test-policy.adoc
 :keywords: apikit, raml, tutorial, api, rest
 
-In this workflow, you build an APIkit project that imports a RAML. You run the API in Anypoint Studio and use API Console to simulate calls to the API.
+In this workflow, you build an APIkit project that imports a RAML. You run the API in *Anypoint Studio* and use *API Console* to simulate calls to the API.
 
 Studio 6.0 or later is recommended for this procedure. The API you create covers two main tasks:
 
-* Updating vending machine data: to update the central database on each sale
-* Tracking inventory: to find out if a machine is low on stock
+* Updating vending machine data to update the central database on each sale
+* Tracking inventory to find out if a machine is low on stock
 
 == Create a New APIkit Project
 
-This procedure launches the new project and generates a Main flow with an HTTP Listener, an APIkit Router, and references to flows to handle errors. The project support REST resources and methods. These flows, aptly called skeleton flows, are the bare minimum needed to support the RAML specification. The RAML file imported by this procedure resides in `src/main/api`.
+This procedure launches the new project and generates a *Main Flow* with an *HTTP Listener*, an *APIkit Router*, and references to flows to handle errors. The project support REST resources and methods. These flows, called skeleton flows, are the bare minimum structure needed to support the RAML specification. The RAML file imported by this procedure is located at *src/main/api*.
 
 . Download the example file to your local drive:
 +
 link:{attachmentsdir}/api.raml[api.raml]
-. Under the File menu, select *New > Mule Project*.
-. In the New Mule Project wizard, enter a Name, myproject for example, Mule Runtime 3.8.0.
+. Under the *File* menu, select *New* > *Mule Project*.
+. In the *New Mule Project* wizard, enter a *Project Name* (*myproject*, for example). *Mule Server 3.8.0* will be selected by default in the *Runtime* section.
 +
-. Check Add APIkit Components. In the RAML File field, browse to and select the downloaded `api.raml` file.
+. Check *Add APIkit Components*.
+. In the *APIkit Settings* section, select the downloaded *api.raml* example file.
 +
 image::apikit-tutorial-3e0e4.png["Project Settings for a New Mule Project, including Project Name, Runtime, Maven Settings, Version Control System Support, APIkit Settings, and API Definition.",height=633,width=600]
 +
 . Click *Finish*.
 
 == Run and Test the Project
-. Right-click the project name in the Project Explorer, then select *Run As > Mule Application*.
+. Right-click the project name in the *Project Explorer* and select *Run As* > *Mule Application*.
 +
-The APIkit Console appears below the canvas, displaying the resource-action pairs exposed by the API.
+The *APIkit Console* appears below the canvas, displaying the resource-action pairs exposed by the API.
 +
-image::apikitconsole-tutorial.png["Resource action pairs exposed by the Remote Vending API example."]
+. Click *Introduction* under the *Documentation* section to expand the API description.
 +
-. Click *Introduction* under Documentation to view the API description.
+The main *Introduction* title and the sentence map to the contents of *Documentation* in the root section of the RAML file.
 +
-The main Introduction title and sentence map to the contents of `documentation` in the root section of the RAML file.
+. Click */machines* in the *Resource* section to expand *GET: /machines*.
+. Click *Try It* label.
 +
-. Click `/machines` to expand the section. Expand `GET: /machines`, then click the tab labeled *Try It*.
+The baseURI is optional in a RAML-backed API, but required by the API-Console *Try It* functionality; otherwise, *Try It* is disabled.
 +
-The baseURI is optional in a RAML-backed API, but required by the API Console Try It functionality; otherwise, Try-it is disabled.
+image::fv-601.png["Example of the Try It feature being disabled because baseURI is not present."]
 +
-image::fv-601.png["Example of the Try-it feature being disabled because baseURI is not present."]
+In the RAML, you can use an arbitrary value, for example +http://www.example.com+ for the baseURI.
 +
-In the RAML, you can use an arbitrary value, for example `+http://www.example.com+` for the baseURI.
+. Click *GET* to send a test call to get a list of machines.
 +
-. Click the GET button to send a test call to GET a list of machines.
-+
-image::apikitt-get.png["Get button is highlighted to test the get call."]
+image::apikitt-get.png["GET button is highlighted to test the get call."]
 +
 . The API returns a list of machines.
 +
-The output is the payload set on the message by the `get:/machines:apiConfig` flow.
+The output is the payload set on the message by the *get:/machines:apiConfig* flow.
 +
 [source,json,linenums]
 ----
@@ -78,25 +78,25 @@ The output is the payload set on the message by the `get:/machines:apiConfig` fl
 
 == Add Logic to the Project
 
-For example purposes, add over-simplified logic to the project to use later in API Manager. Unlike the APIkit-generated flows, the flow you create during this procedure returns a result, a payload message, when you call the API from a browser.
+For example purposes, add over-simplified logic to the project to use later in *API Manager*. Unlike the APIkit-generated flows, the flow you create during this procedure returns a result, a payload message, when you call the API from a browser.
 
 . Drag an HTTP component to the canvas.
 +
-Studio creates a flow named apiFlow by default.
+Studio creates a flow named *apiFlow* by default.
 +
-. In the apiflow, select the HTTP Connector to open its properties editor.
-. Click image:edit-16x16.gif[Edit-16x16] to edit the Connector Configuration global configuration element.
-. Change the value of the Base Path as follows:
+. In the *apiflow*, select the *HTTP Connector* to open its properties editor.
+. Click image:edit-16x16.gif[Edit button] to edit the *Connector Configuration* global configuration element.
+. Change the value of the *Base Path* as follows:
 +
 `remote-vending`
 +
-. Click OK.
-. In the properties editor, change the Path setting from `/` to `/test-policy`.
-. Drag a Set Payload component to the process area of apiFlow.
-. Set the Value of the payload to `test policy`.
+. Click *OK*.
+. In the properties editor, change the *Path* setting from */* to */test-policy*.
+. Drag a *Set Payload* component to the process area of *apiFlow*.
+. Set the *Value* of the payload to *test policy*.
 . Save the changes.
 
-You can then deploy the APIkit project from Studio to Exchange, and apply and test policies via API Manager.
+Deploy the APIkit project from Studio to Exchange, and apply and test policies via API Manager.
 
 == See Also
 
