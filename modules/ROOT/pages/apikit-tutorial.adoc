@@ -19,7 +19,7 @@ This procedure launches the new project and generates a *Main Flow* with an *HTT
 . Download the example file to your local drive:
 +
 link:{attachmentsdir}/api.raml[api.raml]
-. Under the *File* menu, select *New* > *Mule Project*.
+. From the *File* menu, select *New* > *Mule Project*.
 . In the *New Mule Project* wizard, enter a *Project Name* (*myproject*, for example). *Mule Server 3.8.0* will be selected by default in the *Runtime* section.
 +
 . Check *Add APIkit Components*.
