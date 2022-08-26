@@ -38,7 +38,7 @@ The *APIkit Console* appears and displays the resource-action pairs exposed by t
 +
 The main *Introduction* title and the sentence map to the contents of *Documentation* in the root section of the RAML file.
 +
-. Click */machines* in the *Resource* section to expand *GET: /machines*.
+.  In the *Resource* section, click */machines* to expand *GET: /machines*.
 . Click *Try It* label.
 +
 The baseURI is optional in a RAML-backed API, but required by the API-Console *Try It* functionality; otherwise, *Try It* is disabled.
