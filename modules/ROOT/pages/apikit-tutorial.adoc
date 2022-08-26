@@ -43,7 +43,7 @@ The main *Introduction* title and the sentence map to the contents of *Documenta
 +
 The baseURI is optional in a RAML-backed API but is required by the the API-Console *Try It* functionality.  *Try It* is disabled if there is no baseURI.
 +
-image::fv-601.png["Example of the Try It feature being disabled because baseURI is not present."]
+image::fv-601.png["The Try It feature is disabled because baseURI is not present."]
 +
 In the RAML, you can use an arbitrary value, for example +http://www.example.com+ for the baseURI.
 +
