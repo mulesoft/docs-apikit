@@ -32,7 +32,7 @@ image::apikit-tutorial-3e0e4.png["Project Settings for a New Mule Project, inclu
 == Run and Test the Project
 . Right-click the project name in the *Project Explorer* and select *Run As* > *Mule Application*.
 +
-The *APIkit Console* appears below the canvas, displaying the resource-action pairs exposed by the API.
+The *APIkit Console* appears and displays the resource-action pairs exposed by the API.
 +
 . Click *Introduction* under the *Documentation* section to expand the API description.
 +
