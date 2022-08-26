@@ -78,7 +78,7 @@ The output is the payload set on the message by the *get:/machines:apiConfig* fl
 
 == Add Logic to the Project
 
-For example purposes, add over-simplified logic to the project to use later in *API Manager*. Unlike the APIkit-generated flows, the flow you create during this procedure returns a result, a payload message, when you call the API from a browser.
+For example purposes, add over-simplified logic to the project to use later in *API Manager*. Unlike the APIkit-generated flows, the flow you create during this procedure returns  a payload message when you call the API from a browser.
 
 . Drag an HTTP component to the canvas.
 +
