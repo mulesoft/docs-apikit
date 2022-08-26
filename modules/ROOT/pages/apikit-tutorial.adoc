@@ -41,7 +41,7 @@ The main *Introduction* title and the sentence map to the contents of *Documenta
 .  In the *Resource* section, click */machines* to expand *GET: /machines*.
 . Click *Try It* label.
 +
-The baseURI is optional in a RAML-backed API but is required by the the API-Console *Try It* functionality.  *Try It* is disabled if there is no baseURI.
+The baseURI is optional in a RAML-backed API but is required by the API-Console *Try It* functionality. *Try It* is disabled if there is no baseURI.
 +
 image::fv-601.png["The Try It feature is disabled because baseURI is not present."]
 +
@@ -78,14 +78,14 @@ The output is the payload set on the message by the *get:/machines:apiConfig* fl
 
 == Add Logic to the Project
 
-For example purposes, add over-simplified logic to the project to use later in *API Manager*. Unlike the APIkit-generated flows, the flow you create during this procedure returns  a payload message when you call the API from a browser.
+For example purposes, add over-simplified logic to the project to use later in *API Manager*. Unlike the APIkit-generated flows, the flow you create during this procedure returns a payload message when you call the API from a browser.
 
 . Drag an HTTP component to the canvas.
 +
 Studio creates a flow named *apiFlow* by default.
 +
 . In the *apiflow*, select the *HTTP Connector* to open its properties editor.
-.  To edit the *Connector Configuration* global configuration element, click image:edit-16x16.gif[Edit].
+.  To edit the *Connector Configuration* global configuration element, click the edit button.
 . Change the value of the *Base Path* as follows:
 +
 `remote-vending`
