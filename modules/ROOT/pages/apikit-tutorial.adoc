@@ -85,7 +85,7 @@ For example purposes, add over-simplified logic to the project to use later in *
 Studio creates a flow named *apiFlow* by default.
 +
 . In the *apiflow*, select the *HTTP Connector* to open its properties editor.
-. Click image:edit-16x16.gif[Edit button] to edit the *Connector Configuration* global configuration element.
+.  To edit the *Connector Configuration* global configuration element, click image:edit-16x16.gif[Edit].
 . Change the value of the *Base Path* as follows:
 +
 `remote-vending`
