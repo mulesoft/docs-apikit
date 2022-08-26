@@ -41,7 +41,7 @@ The main *Introduction* title and the sentence map to the contents of *Documenta
 .  In the *Resource* section, click */machines* to expand *GET: /machines*.
 . Click *Try It* label.
 +
-The baseURI is optional in a RAML-backed API, but required by the API-Console *Try It* functionality; otherwise, *Try It* is disabled.
+The baseURI is optional in a RAML-backed API but is required by the the API-Console *Try It* functionality.  *Try It* is disabled if there is no baseURI.
 +
 image::fv-601.png["Example of the Try It feature being disabled because baseURI is not present."]
 +
