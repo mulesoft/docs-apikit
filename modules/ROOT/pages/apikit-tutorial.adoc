@@ -47,7 +47,7 @@ image::fv-601.png["The Try It feature is disabled because baseURI is not present
 +
 In the RAML, you can use an arbitrary value, for example +http://www.example.com+ for the baseURI.
 +
-. Click *GET* to send a test call to get a list of machines.
+.  To send a test call to get a list of machines, click *GET*.
 +
 image::apikitt-get.png["GET button is highlighted to test the get call."]
 +
