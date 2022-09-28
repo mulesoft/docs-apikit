@@ -108,7 +108,7 @@ APIkit currently supports the following elements:
 ** $filter
 ** $select
 ** $search
-** $orderBy
+** $orderby
 ** $skip
 ** $top
 * Single entity
