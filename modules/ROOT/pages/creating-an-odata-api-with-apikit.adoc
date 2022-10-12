@@ -49,14 +49,14 @@ First, you install a MySQL database and load tables using a provided script. Nex
 === Install and Populate a MySQL Database
 
 . Install a MySQL database and launch MySQL.
-. Download the MySQL project example link:{attachmentsdir}/apikit-odata-example-master.jar[apikit-odata-example-master.jar].
+. Download the MySQL project example link:{attachmentsdir}/apikit-odata-example-main.jar[apikit-odata-example-main.jar].
 . Run the `example.sql` script located in `src/main/resources` using MySQL commands to load data into a database named `apikit-odata-example`.
 
 === Implement the OData API
 
 . In Studio, Select *File* > *Import*.
 . Select *Anypoint Studio* > *Packaged mule application (.jar)* > *Next*.
-. Browse for the `apikit-odata-example-master.jar` file and click *Finish*.
+. Browse for the `apikit-odata-example-main.jar` file and click *Finish*.
 . In Studio, edit the `mule-configuration.properties` file inside the `src/main/resources` folder, and set the following properties to access the local MySQL database:
 +
 [source,html,linenums]
