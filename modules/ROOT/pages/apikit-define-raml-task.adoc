@@ -3,6 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+include::reuse::partial$non-inclusive-banner.adoc[]
+
 The following procedure describes how to define a RAML-based API in Studio. Alternatively, you can use any text editor to create the API definition, and then drag the file into the `src/main/api` folder of the Studio project. Using Design Center is recommended if you have the Crowd Release.
 
 . In the *Package Explorer*, right-click the project name, then select *New* > *RAML API Definition*.
