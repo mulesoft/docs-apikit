@@ -88,9 +88,9 @@ The OData mySQL example is a fully functional OData API packaged as a Maven proj
 The Maven project you download in step 3 contains the mysql-connector-java-5.1.37.jar MySQL database driver, so you do not need to make a driver available to the project.
 +
 . Download the link:{attachmentsdir}/example.sql[example.sql script]. Run the script using MySQL commands to load data into a database named apikit-odata-example.
-. Download and unpack the link:{attachmentsdir}/apikit-odata-example-master.zip[compressed Maven project], `apikit-odata-example-master.zip`.
+. Download and unpack the link:{attachmentsdir}/apikit-odata-example-main.zip[compressed Maven project], `apikit-odata-example-main.zip`.
 +
-The pom.xml and other project files appear in the apikit-odata-example-master directory.
+The pom.xml and other project files appear in the apikit-odata-example-main directory.
 +
 . In Studio, select *File* > *Import*.
 +
@@ -105,7 +105,7 @@ The *Maven Configuration* dialog appears.
 +
 The *Import Mule Project* dialog appears.
 +
-. Browse to and select the POM file from the *apikit-odata-example-master* directory. Click *Finish*.
+. Browse to and select the POM file from the *apikit-odata-example-main* directory. Click *Finish*.
 +
 The test-drive project appears in the project explorer. APIkit OData Extension generates flows that appear in the canvas when you click api.xml in src/main/app in the project explorer.
 +
