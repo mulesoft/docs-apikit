@@ -39,3 +39,4 @@
  ** xref:apikit-odata-extension-reference.adoc[APIkit OData v2 Extension Reference]
  ** xref:creating-an-odatav4-api-with-apikit.adoc[Create an OData v4 API with APIkit]
  ** xref:apikit-odatav4-extension-reference.adoc[APIkit OData v4 Extension Reference]
+ ** xref:apikit-odatav4-expand-tutorial.adoc[Implement `$expand` leveraging flow reuse]
