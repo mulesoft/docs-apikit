@@ -1,0 +1,136 @@
+= Implement `$expand` leveraging flow reuse
+
+Since version 1.3.0 the module supports automatic routing for ease of
+implementing the `$expand` system query option on most common cases. Usage of
+this feature requires a little bit of preparation and configuration but it
+allows easy reuse of already implemented flows for processing `$expand`
+requests.
+
+For more information on the system query option see http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptionexpand[the specification].
+
+== A quick introduction to `$expand`
+
+The `$expand` operations allows an API consumer to request both an entity (or a
+collection) from a given entity set in conjunction with it's relationships. This
+lowers the amount of network roundtrips the consumer has to do when gathering
+relevant information.
+
+[NOTE]
+====
+
+Let's think of an example:
+
+* The `Employee` entity has a related `Manager` entity.
+* The `Employees` entity set is a collection of `Employee` entities.
+* The `Managers` entity set is a collection of `Manager` entities.
+* Our API is placed on `https://example.com/api/`
+
+To retrieve a list of employees with their managers without expand we can do:
+
+* `GET https://example.com/api/Employees` to retrieve a list of employees.
+* Gather the `Manager` ids through the `ReferentialConstraint` of their
+  relationship.
+* `GET https://example.com/api/Managers?$filter=ManagerID in (id1, id2, ..., idN)`
+  to retrieve a list of related managers.
+* Merge both lists
+
+Using `$expand` we can just do:
+
+* `GET https://example.com/api/Employees?$expand=Manager` to retrieve a list of
+  employees with their `Manager` navigation property expanded.
+
+====
+
+`$expand` is a powerful system query option to implement. It reduces the amount
+of incoming network traffic and enables an easier to use API for consumers. The
+ability to request _"just what's needed"_ is really useful for metered
+consumers (mobile phones, for example).
+
+== The _generic expand_ feature
+
+_Generic expand_ refers to our ability to reuse existent flow implementations as
+a starting point for expand requests. This allows a Mule Developer to focus only
+on the relevant data retrieval operations while the module performs the
+neccesary steps to ensure `$expand`-ed fields get completed.
+
+From the point of view of a Mule Developer an application with _generic expand_
+enabled is exactly like any other OData Mule Application. Flow execution
+differs; once the information is retrieved for the main entity set the module
+will perform additional internal requests gathering the information for any
+`expand`-ed fields. If errors arise during this expansion operation the final
+behaviour is configurable (throw the error to the consumer or ignore it
+resolving a `null` value).
+
+== Requirements
+
+- APIKit for OData Module (version 1.3.0)
+- An `<entity-collection-source/>` implementation for each expandable entity.
+- Support for the `in` filter on those `<entity-collection-source/>` flows.
+
+== Implementation guidelines
+
+In order to use our generic expansion implementation each source has to be
+annotated with the relevant types that might be expanded from it. Keep in mind
+that enabling `$expand` in a completely unrestricted way will allow API clients
+to write arbitrarily complex queries, this can cause performance problems.
+
+If you wish to implement `$expand` by yourself for some relationships leave
+those out of the list on the "expandable navigation properties" option. And
+implement the expansion manually on the flow.
+
+=== Example
+
+// TODO: Add pictures!
+. For each source where you want to enable _generic expand_ support:
+.. Open the *Capabilities* tab
+.. Edit inline *Expandable navigation properties*
+.. Add the name of each navigation property you want to be expandable using
+   _generic expand_.
+.. Depending on your usecase check *Ignore errors on expand* if you don't want
+   errors during generic expansion to generate errors on the main flow.
+
+== How _generic expand_ works
+
+Generic expand works by dispatching additional queries to the application once
+the original flow is completed. Because this is done based on the application
+`EDM` extra annotations might be needed in order to add enough context to the
+module:
+
+. The `EntitySet` where the expansion takes place should have a
+  `NavitationPropertyBinding` for every expandable `NavigationProperty` of its
+  `Entity`. +
+  This used to select which `<entity-collection-source/>` will be executed when
+  expanding that property.
+. Each expandable `NavigationProperty` should have a `ReferentialConstraint`
+  attached. +
+  This is used to create the inner query where the value from the `Property`
+  will be matched against the value of the `ReferencedProperty`.
+
+=== Flow execution
+
+. The main flow is executed and completed. A collection of _entities_ is it's
+  result.
+. The OData Module gathers all the properties that need expansion.
+. For each `NavigationProperty`:
+.. Get the _source property_ from its `ReferentialConstraint`.
+.. Get the _referenced property_ from its `ReferentialConstraint`.
+.. Get the _destination entity set_ from its `NavigationPropertyBinding`.
+.. For each of the _entities_ get the resolved _source property_ put all these
+   values on a _source property list_.
+.. Invoke the `<entity-collection-source/>` for _destination entity set_ with
+   `$filter=_referenced property_ in (..._source property list_)`.
+
+=== Error propagation
+
+// TODO: Add explanation!
+
+=== Limitations
+
+* Only the first `ReferencialConstraint` is considered. +
+  Navigation properties that use compound keys are not currently supported.
+* Expansion is done _field-by-field_ instead of _EntitySet-by-EntitySet_. +
+  This might result in more internal requests than neccesary.
+* The expanded entities should always have an `<entity-collection-source/>`
+  implementation. +
+  Expansion using `<entity-source/>` implementations is not implemented due to
+  performance concerns.
