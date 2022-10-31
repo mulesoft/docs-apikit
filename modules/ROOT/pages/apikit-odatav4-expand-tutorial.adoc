@@ -80,7 +80,8 @@ implement the expansion manually on the flow.
 
 === Example
 
-// TODO: Add pictures!
+IMPORTANT: Draft, should add pictures for this process!
+
 . For each source where you want to enable _generic expand_ support:
 .. Open the *Capabilities* tab
 .. Edit inline *Expandable navigation properties*
@@ -122,7 +123,7 @@ module:
 
 === Error propagation
 
-// TODO: Add explanation!
+IMPORTANT: Draft, should add explanation!
 
 === Limitations
 
