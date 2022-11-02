@@ -3,10 +3,10 @@
 Since version 1.3.0 the module supports automatic routing for ease of
 implementing the `$expand` system query option on most common cases. Usage of
 this feature requires a little bit of preparation and configuration but it
-allows easy reuse of already implemented flows for processing `$expand`
+allows easy reuse of already implemented flows when processing `$expand`
 requests.
 
-For more information on the system query option see http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptionexpand[the specification].
+For more information on the system query option see http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptionexpand[the OASIS specification].
 
 == A quick introduction to `$expand`
 
@@ -25,16 +25,16 @@ Let's think of an example:
 * The `Managers` entity set is a collection of `Manager` entities.
 * Our API is placed on `https://example.com/api/`
 
-To retrieve a list of employees with their managers without expand we can do:
+To retrieve a list of employees with their managers we can do:
 
 * `GET https://example.com/api/Employees` to retrieve a list of employees.
 * Gather the `Manager` ids through the `ReferentialConstraint` of their
   relationship.
 * `GET https://example.com/api/Managers?$filter=ManagerID in (id1, id2, ..., idN)`
   to retrieve a list of related managers.
-* Merge both lists
+* Write a small program to merge the lists based on a join criteria.
 
-Using `$expand` we can just do:
+If we use `$expand` all this work becomes:
 
 * `GET https://example.com/api/Employees?$expand=Manager` to retrieve a list of
   employees with their `Manager` navigation property expanded.
@@ -43,8 +43,8 @@ Using `$expand` we can just do:
 
 `$expand` is a powerful system query option to implement. It reduces the amount
 of incoming network traffic and enables an easier to use API for consumers. The
-ability to request _"just what's needed"_ is really useful for metered
-consumers (mobile phones, for example).
+ability to request _"just what's needed"_ without multiple network roundtrips
+is useful for both metered consumers and latency-sensitive ones.
 
 == The _generic expand_ feature
 
@@ -55,8 +55,8 @@ neccesary steps to ensure `$expand`-ed fields get completed.
 
 From the point of view of a Mule Developer an application with _generic expand_
 enabled is exactly like any other OData Mule Application. Flow execution
-differs; once the information is retrieved for the main entity set the module
-will perform additional internal requests gathering the information for any
+differs: once the information for the main entity set is retrieved the module
+will perform additional _virtual_ requests gathering the information for any
 `expand`-ed fields. If errors arise during this expansion operation the final
 behaviour is configurable (throw the error to the consumer or ignore it
 resolving a `null` value).
@@ -75,13 +75,18 @@ that enabling `$expand` in a completely unrestricted way will allow API clients
 to write arbitrarily complex queries, this can cause performance problems.
 
 If you wish to implement `$expand` by yourself for some relationships leave
-those out of the list on the "expandable navigation properties" option. And
-implement the expansion manually on the flow.
+those out of the list on the "expandable navigation properties" option. Manual
+implementations inside the flow will be needed for navigation properties that
+don't use _generic expansion_.
 
-=== Example
+=== Implementation checklist
 
-IMPORTANT: Draft, should add pictures for this process!
-
+. Check that your CSDL and Mule application meets the expected requirements:
+** Every `NavigationProperty` should have one `ReferentialConstraint`.
+** Every `EntitySet` should have one `NavigationPropertyBinding` for each
+   `NavigationProperty` of its entity type.
+** Every `<entity-collection-source/>` should support the `in` operator for
+   the `$filter` system query option.
 . For each source where you want to enable _generic expand_ support:
 .. Open the *Capabilities* tab
 .. Edit inline *Expandable navigation properties*
@@ -89,6 +94,7 @@ IMPORTANT: Draft, should add pictures for this process!
    _generic expand_.
 .. Depending on your usecase check *Ignore errors on expand* if you don't want
    errors during generic expansion to generate errors on the main flow.
+. Enjoy how your existent flows enable `$expand` support for you!
 
 == How _generic expand_ works
 
@@ -118,12 +124,32 @@ module:
 .. Get the _destination entity set_ from its `NavigationPropertyBinding`.
 .. For each of the _entities_ get the resolved _source property_ put all these
    values on a _source property list_.
-.. Invoke the `<entity-collection-source/>` for _destination entity set_ with
+.. Execute the _virtual_ request by invoking the `<entity-collection-source/>`
+   for _destination entity set_ with
    `$filter=_referenced property_ in (..._source property list_)`.
 
-=== Error propagation
+=== Error handling and error propagation
 
-IMPORTANT: Draft, should add explanation!
+Error handling for OData v4 applications will still be local to each flow.
+Wether yo chose to use _generic expansion_ or not. Error handling code for a
+given `EntitySet` will belong to the flow implementations for that entity set
+both for normal requests and for the _virtual_ requests observed during
+expansion processing.
+
+Handling errors during the expansion process is not supported, as the expansion
+process runs after the execution of the flow has finalized. For that two options
+are given:
+
+- *Ignore errors during expansion:* Errors during generic expansion will be
+  ignored. +
+  Expansion of collections and single objects will be resolved to empty lists
+  and `null` values respectively.
+- *Propagate errors during expansion:* Errors during generic expansion will
+  bubble-up. +
+  When an error reaches the OData v4 router the original request will be
+  answered with an error response.
+
+This is configurable *per-source* on the *Capabilities* tab.
 
 === Limitations
 
