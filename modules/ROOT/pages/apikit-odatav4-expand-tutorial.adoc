@@ -10,10 +10,9 @@ For more information on the system query option see http://docs.oasis-open.org/o
 
 == A quick introduction to `$expand`
 
-The `$expand` operations allows an API consumer to request both an entity (or a
-collection) from a given entity set in conjunction with it's relationships. This
-lowers the amount of network roundtrips the consumer has to do when gathering
-relevant information.
+The `$expand` operation allows API consumers to request inline representations
+for the related entities of query results. This lowers the amount of network
+roundtrips the consumer has to do when gathering relevant information.
 
 [NOTE]
 ====
@@ -25,7 +24,7 @@ Let's think of an example:
 * The `Managers` entity set is a collection of `Manager` entities.
 * Our API is placed on `https://example.com/api/`
 
-To retrieve a list of employees with their managers we can do:
+Given this setup, the retrieval of employees with their managers requires:
 
 * `GET https://example.com/api/Employees` to retrieve a list of employees.
 * Gather the `Manager` ids through the `ReferentialConstraint` of their
@@ -34,7 +33,7 @@ To retrieve a list of employees with their managers we can do:
   to retrieve a list of related managers.
 * Write a small program to merge the lists based on a join criteria.
 
-If we use `$expand` all this work becomes:
+If you use `$expand` this can be shortened to:
 
 * `GET https://example.com/api/Employees?$expand=Manager` to retrieve a list of
   employees with their `Manager` navigation property expanded.
@@ -51,7 +50,7 @@ is useful for both metered consumers and latency-sensitive ones.
 _Generic expand_ refers to our ability to reuse existent flow implementations as
 a starting point for expand requests. This allows a Mule Developer to focus only
 on the relevant data retrieval operations while the module performs the
-neccesary steps to ensure `$expand`-ed fields get completed.
+necessary steps to ensure `$expand`-ed fields get completed.
 
 From the point of view of a Mule Developer an application with _generic expand_
 enabled is exactly like any other OData Mule Application. Flow execution
@@ -115,7 +114,7 @@ module:
 
 === Flow execution
 
-. The main flow is executed and completed. A collection of _entities_ is it's
+. The main flow is executed and completed. A collection of _entities_ is its
   result.
 . The OData Module gathers all the properties that need expansion.
 . For each `NavigationProperty`:
@@ -131,7 +130,7 @@ module:
 === Error handling and error propagation
 
 Error handling for OData v4 applications will still be local to each flow.
-Wether yo chose to use _generic expansion_ or not. Error handling code for a
+Wether to chose to use _generic expansion_ or not. Error handling code for a
 given `EntitySet` will belong to the flow implementations for that entity set
 both for normal requests and for the _virtual_ requests observed during
 expansion processing.
@@ -146,7 +145,7 @@ are given:
   and `null` values respectively.
 - *Propagate errors during expansion:* Errors during generic expansion will
   bubble-up. +
-  When an error reaches the OData v4 router the original request will be
+  When an error reaches the OData v4 router, the original request will be
   answered with an error response.
 
 This is configurable *per-source* on the *Capabilities* tab.
@@ -156,7 +155,7 @@ This is configurable *per-source* on the *Capabilities* tab.
 * Only the first `ReferencialConstraint` is considered. +
   Navigation properties that use compound keys are not currently supported.
 * Expansion is done _field-by-field_ instead of _EntitySet-by-EntitySet_. +
-  This might result in more internal requests than neccesary.
+  This might result in more internal requests than necessary.
 * The expanded entities should always have an `<entity-collection-source/>`
   implementation. +
   Expansion using `<entity-source/>` implementations is not implemented due to
