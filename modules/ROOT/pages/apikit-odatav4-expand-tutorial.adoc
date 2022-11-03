@@ -91,7 +91,7 @@ don't use _generic expansion_.
 .. Edit inline *Expandable navigation properties*
 .. Add the name of each navigation property you want to be expandable using
    _generic expand_.
-.. Depending on your usecase check *Ignore errors on expand* if you don't want
+.. Depending on your use case check *Ignore errors on expand* if you don't want
    errors during generic expansion to generate errors on the main flow.
 . Enjoy how your existent flows enable `$expand` support for you!
 
