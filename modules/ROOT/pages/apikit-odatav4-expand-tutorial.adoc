@@ -47,16 +47,16 @@ is useful for both metered consumers and latency-sensitive ones.
 
 == The _generic expand_ feature
 
-_Generic expand_ refers to our ability to reuse existent flow implementations as
-a starting point for expand requests. This allows a Mule Developer to focus only
+_Generic expand_ is the ability to reuse existent flow implementations as a
+starting point for expand requests. This allows a Mule Developer to focus only
 on the relevant data retrieval operations while the module performs the
 necessary steps to ensure `$expand`-ed fields get completed.
 
-From the point of view of a Mule Developer an application with _generic expand_
+From the point of view of a Mule Developer, an application with _generic expand_
 enabled is exactly like any other OData Mule Application. Flow execution
-differs: once the information for the main entity set is retrieved the module
+differs: once the information for the main entity set is retrieved, the module
 will perform additional _virtual_ requests gathering the information for any
-`expand`-ed fields. If errors arise during this expansion operation the final
+`expand`-ed fields. If errors arise during this expansion operation, the final
 behaviour is configurable (throw the error to the consumer or ignore it
 resolving a `null` value).
 
@@ -142,7 +142,7 @@ are given:
 - *Ignore errors during expansion:* Errors during generic expansion will be
   ignored. +
   Expansion of collections and single objects will be resolved to empty lists
-  and `null` values respectively.
+  and `null` values respectively. *This is the default behaviour.*
 - *Propagate errors during expansion:* Errors during generic expansion will
   bubble-up. +
   When an error reaches the OData v4 router, the original request will be
