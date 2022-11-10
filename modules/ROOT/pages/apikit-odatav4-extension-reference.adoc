@@ -259,6 +259,9 @@ Default configuration
 ** DELETE |  HTTP Method |  | *x*{nbsp}
 | Path a| String |  Path to Entity Type |  | *x*{nbsp}
 | Collection Success Response a| One of:
+| Supported System Query Options - `$expand` a| Boolean |  Wether to enable support for `$expand` or not. |  `true` | {nbsp}
+| Ignore errors on expansion enabled a| Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true` failed expansions will render as `null`. |  `false` | {nbsp}
+| Expandable navigation properties | List<String> | List of types enabled to be generically expanded from this flow. | `[]` | {nbsp}
 
 * <<RawEntityCollectionSuccessResponse>>
 * <<EntityCollectionSuccessResponse>> |  |  | {nbsp}
@@ -305,6 +308,9 @@ Default configuration
 ** PATCH
 ** DELETE |  HTTP Method |  | *x*{nbsp}
 | Path a| String |  Path to Entity Type |  | *x*{nbsp}
+| Supported System Query Options - `$expand` a| Boolean |  Wether to enable support for `$expand` or not. |  `true` | {nbsp}
+| Ignore errors on expansion enabled a| Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true` failed expansions will render as `null`. |  `false` | {nbsp}
+| Expandable navigation properties | List<String> | List of types enabled to be generically expanded from this flow. | `[]` | {nbsp}
 | Success Response a| One of:
 
 * <<RawEntitySuccessResponse>>
