@@ -58,7 +58,7 @@ This creates the inner query, where the value of `Property` is matched against t
 
 === Error Handling and Error Propagation
 
-Error handling for OData v4 applications is local to each flow. Whether you use `generic expansion` or not. Error handling code for a given `EntitySet` will belong to the flow implementations for that entity set, both for normal requests and for the internal requests observed during expansion processing.
+Error handling for OData v4 applications is local to each flow, whether you use `generic expansion` or not. Error handling code for a given `EntitySet` belongs to the flow implementations for that entity set, both for normal requests and for the internal requests observed during expansion processing.
 
 Handling errors during the expansion process is not supported, because the expansion process runs once the execution of the flow is finished. There are two options available for handling errors:
 
