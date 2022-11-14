@@ -1,4 +1,4 @@
-= Implement $expand Feature
+= Implement the $expand Feature
 
 `$expand` is a system query option that reduces the amount of incoming network traffic and makes APIs easier to be consumed. Consumers only request inline representations for the related entities of query results so only relevant information is provided avoiding multiple network roundtrips, which is useful for metered and latency-sensitive consumers.
 
