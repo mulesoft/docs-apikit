@@ -53,7 +53,7 @@ This creates the inner query, where the value of `Property` is matched against t
 .. Get the `source property` from its `ReferentialConstraint`.
 .. Get the `referenced property` from its `ReferentialConstraint`.
 .. Get the `destination entity set` from its `NavigationPropertyBinding`.
-.. For each of the `entities` get the resolved `source property`. Put all these values on a `source property list`.
+.. For each of the `entities` get the resolved `source property`. Add all of these values to a `source property list`.
 .. Execute the `internal` request by invoking the `<entity-collection-source/>` for `destination entity set` with `$filter=referenced property` in `(...source property list)`.
 
 === Error Handling and Error Propagation
