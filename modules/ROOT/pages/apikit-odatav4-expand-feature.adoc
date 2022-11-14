@@ -14,6 +14,8 @@ For more information on the system query option, see http://docs.oasis-open.org/
 
 == `$expand` Feature Example 
 
+In this example:
+
 * The `Employee` entity has a related `Manager` entity.
 * The `Employees` entity set is a collection of `Employee` entities.
 * The `Managers` entity set is a collection of `Manager` entities.
