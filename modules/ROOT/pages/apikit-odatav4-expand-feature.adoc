@@ -32,7 +32,7 @@ If using the `$expand` feature, requests are `GET https://example.com/api/Employ
 
 == The `generic expand` Feature
 
-The `generic expand` feature offers the possibility to reuse existent flow implementations as a starting point for expanding requests. This feature enables a Mule developer to focus on the relevant data retrieval operations while the module performs the necessary steps to ensure the `$expand` fields get completed.
+The `generic expand` feature enables you to reuse existing flow implementations as a starting point for expanding requests. Using this feature, you can focus on the relevant data retrieval operations while the module performs the necessary steps to ensure that the `$expand` fields complete.
 
 From the point of view of a Mule developer, an application with the `generic expand` feature enabled works as any other OData Mule application. The difference in the flow execution is that once the information for the main entity set is retrieved, the module will perform additional internal requests gathering the information for any `expand` field. If errors occur during expansion operation, the final behavior is configurable via the error to the consumer, or it can be ignored, resolving it with a `null` value.
 
