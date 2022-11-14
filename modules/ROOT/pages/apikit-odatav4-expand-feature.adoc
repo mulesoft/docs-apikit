@@ -43,7 +43,7 @@ An application with the `generic expand` feature enabled works as any other ODat
 The `EntitySet` where the expansion takes place should have a `NavitationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. +
 This is used to select which `<entity-collection-source/>` is executed when expanding that property.
 . Each expandable `NavigationProperty` should have a `ReferentialConstraint` attached. +
-This is used to create the inner query where the value from the `Property` will be matched against the value of the `ReferencedProperty`.
+This creates the inner query, where the value of `Property` is matched against the value of `ReferencedProperty`.
 
 === Flow Execution
 
