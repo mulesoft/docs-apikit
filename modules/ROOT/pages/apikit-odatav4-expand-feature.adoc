@@ -65,7 +65,7 @@ Handling errors during the expansion process is not supported, because the expan
 - *Ignore errors during expansion:* Errors during generic expansion are ignored. +
 By default, the expansion of collections and single objects are resolved to empty lists and `null` values respectively).
 - *Propagate errors during expansion:* Errors during generic expansion will arise. +
-When an error reaches the OData v4 router, the original request will be answered with an error response.
+When an error reaches the OData v4 router, the original request is answered with an error response.
 
 Error handling is configured *per-source* on the *Capabilities* tab.
 
