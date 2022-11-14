@@ -1,15 +1,15 @@
 = Implement the $expand Feature
 
-`$expand` is a system query option that reduces the amount of incoming network traffic and makes APIs easier to be consumed. Consumers only request inline representations for the related entities of query results so only relevant information is provided avoiding multiple network roundtrips, which is useful for metered and latency-sensitive consumers.
+The `$expand` system query option reduces the amount of incoming network traffic and makes APIs easier to consume. Because consumers request only inline representations of the related entities of query results, the returned information avoids multiple network roundtrips. This benefits metered and latency-sensitive consumers.
 
-From APIkit for OData 1.3.0, this module supports automatic routing for ease of implementing the `$expand` system query option in most common cases. Though this feature requires more preparation and configuration, it enables the reuse of already implemented flows when processing the `$expand` requests.
+From APIkit for OData 1.3.0, this module supports automatic routing for ease of implementing the `$expand` system query option in the most common cases. Although this feature requires more preparation and configuration, it enables the reuse of already implemented flows when processing the `$expand` requests.
 
 For more information on the system query option, see http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptionexpand[the OASIS specification^].
 
 == Requirements
 
-- APIkit for OData Module (version 1.3.0).
-- An `<request-entity-collection-listener/>` implementation for each expandable entity.
+- APIkit for OData Module (version 1.3.0)
+- A `<request-entity-collection-listener/>` implementation for each expandable entity
 - Support for the `in` filter on the `<request-entity-collection-listener/>` flows.
 
 == `$expand` Feature Example 
@@ -19,18 +19,16 @@ In this example:
 * The `Employee` entity has a related `Manager` entity.
 * The `Employees` entity set is a collection of `Employee` entities.
 * The `Managers` entity set is a collection of `Manager` entities.
-* API location is `https://example.com/api/`.
+* The API location is `https://example.com/api/`.
 
-Given this setup, requests to retrieve employees with their managers are:
+Given this setup, the following requests retrieve employees and their managers:
 
-* `GET https://example.com/api/Employees` to retrieve a list of employees.
+* Use `GET https://example.com/api/Employees` to retrieve a list of employees.
 * Gather the `Manager` IDs through the `ReferentialConstraint` of their relationship.
-* `GET https://example.com/api/Managers?$filter=ManagerID in (id1, id2, ..., idN)` to retrieve a list of related managers.
+* Use `GET https://example.com/api/Managers?$filter=ManagerID in (id1, id2, ..., idN)` to retrieve a list of related managers.
 * Write a small program to merge the lists based on join criteria.
 
-If using the `$expand` feature, requests are:
-
-* `GET https://example.com/api/Employees?$expand=Manager` to retrieve a list of employees with their `Manager` navigation property expanded.
+If using the `$expand` feature, requests are `GET https://example.com/api/Employees?$expand=Manager` to retrieve a list of employees with their `Manager` navigation property expanded.
 
 == The `generic expand` Feature
 
