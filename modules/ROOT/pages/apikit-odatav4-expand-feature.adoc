@@ -36,9 +36,9 @@ The `generic expand` feature enables you to reuse existing flow implementations 
 
 An application with the `generic expand` feature enabled works as any other OData Mule application. However, during the flow execution, once the module retrieves information for the main entity set, it performs additional internal requests gathering the information for any `expand` field. If there are errors during the expansion operation, the consumer can configure the final behavior, or the consumer can ignore it with a `null` value.
 
-== `generic expand` Operation
+== The `generic expand` Operation
 
-`generic expand` dispatches additional queries to the application when the original flow completes. Because this is done based on the application `EDM`, extra annotations may be needed in order to add enough context to the module:
+The `generic expand` feature dispatches additional queries to the application when the original flow completes. Because this is done based on the application `EDM`, extra annotations may be needed in order to add enough context to the module:
 
 The `EntitySet` where the expansion takes place should have a `NavitationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. +
 This is used to select which `<entity-collection-source/>` is executed when expanding that property.
