@@ -65,7 +65,7 @@ Handling errors during the expansion process is not supported, because the expan
 - *Ignore errors during expansion:* Errors during generic expansion are ignored. +
 By default, the expansion of collections and single objects are resolved to empty lists and `null` values respectively.
 - *Propagate errors during expansion:* Errors during generic expansion will arise. +
-When an error reaches the OData v4 router, the original request will be answered with an error response.
+When an error reaches the OData v4 router, the original request is answered with an error response.
 
 Error handling is configured *per-source* on the *Capabilities* tab.
 
@@ -74,13 +74,13 @@ Error handling is configured *per-source* on the *Capabilities* tab.
 * Only the first `ReferencialConstraint` is considered. +
 Navigation properties that use compound keys are not supported.
 * Expansion is done `field-by-field` instead of `EntitySet-by-EntitySet`. +
-This may cause more internal requests than necessary.
+This can cause more internal requests than necessary.
 * The expanded entities should always have an `<entity-collection-source/>` implementation. +
 Expansion using `<entity-source/>` implementations are not executed due to performance concerns.
 
 == Implementation Guidelines
 
-To implement the `generic expansion` feature, each source has to be annotated with the relevant types that might be expanded from it. Note that enabling `$expand` in a completely unrestricted way will enable API clients to write arbitrarily complex queries, which can create performance issues.
+To implement the `generic expansion` feature, you must annotate each source must with the types that it can expand. Enabling `$expand` without restrictions enables API clients to write arbitrarily complex queries, which can create performance issues.
 
 If you implement `$expand` manually for some relationships, leave such relationships out of the list on the *Expandable Navigation Properties* option. Manual implementations inside the flow will be needed for the navigation properties that don't use the `generic expansion` feature.
 
