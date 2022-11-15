@@ -9,7 +9,7 @@ You can add APIkit components to an existing maven project, for example a legacy
 Familiarity with the following topics is recommended:
 
 * mvn man page or http://www.manpagez.com/man/1/mvn/[mvn help page]
-* xref:3.8@mule-runtime::using-maven-with-mule.adoc[Using Maven with Mule]
+* xref:3.9@mule-runtime::using-maven-with-mule.adoc[Using Maven with Mule]
 
 == Maven Settings File
 
