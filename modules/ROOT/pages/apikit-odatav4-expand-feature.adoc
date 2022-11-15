@@ -10,7 +10,7 @@ For more information on the system query option, see http://docs.oasis-open.org/
 
 - APIkit for OData Module (version 1.3.0)
 - A `<request-entity-collection-listener/>` implementation for each expandable entity
-- Support for the `in` filter on the `<request-entity-collection-listener/>` flows.
+- Support for the `in` filter on the `<request-entity-collection-listener/>` flows
 
 == `$expand` Feature Example 
 
@@ -40,7 +40,7 @@ An application with the `generic expand` feature enabled works as any other ODat
 
 The `generic expand` feature dispatches additional queries to the application when the original flow completes. Because this is done based on the application `EDM`, extra annotations may be needed in order to add enough context to the module:
 
-The `EntitySet` where the expansion takes place should have a `NavitationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. +
+. The `EntitySet` where the expansion takes place should have a `NavitationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. +
 This is used to select which `<entity-collection-source/>` is executed when expanding that property.
 . Each expandable `NavigationProperty` should have a `ReferentialConstraint` attached. +
 This creates the inner query, where the value of `Property` is matched against the value of `ReferencedProperty`.
