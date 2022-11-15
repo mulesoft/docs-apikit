@@ -90,7 +90,7 @@ If you implement `$expand` manually for some relationships, leave these relation
 ** Every `NavigationProperty` should have one `ReferentialConstraint`.
 ** Every `EntitySet` should have one `NavigationPropertyBinding` for each `NavigationProperty` of its entity type.
 ** Every `<entity-collection-source/>` should support the `in` operator for the `$filter` system query option.
-. For each source where you want to enable `generic expand` support:
+. For each source for which you want to enable `generic expand` support:
 .. Open the *Capabilities* tab
 .. Edit inline *Expandable navigation properties*
 .. Add the name of each navigation property you want to be expandable using `generic expand`.
