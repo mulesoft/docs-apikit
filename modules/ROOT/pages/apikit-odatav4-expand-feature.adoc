@@ -82,7 +82,7 @@ Expansion using `<entity-source/>` implementations are not executed due to perfo
 
 To implement the `generic expansion` feature, you must annotate each source must with the types that it can expand. Enabling `$expand` without restrictions enables API clients to write arbitrarily complex queries, which can create performance issues.
 
-If you implement `$expand` manually for some relationships, leave such relationships out of the list on the *Expandable Navigation Properties* option. Manual implementations inside the flow will be needed for the navigation properties that don't use the `generic expansion` feature.
+If you implement `$expand` manually for some relationships, leave these relationships out of the list on the *Expandable Navigation Properties* option. Manual implementations inside the flow are needed for the navigation properties that don't use the `generic expansion` feature.
 
 === Implementation Checklist
 
