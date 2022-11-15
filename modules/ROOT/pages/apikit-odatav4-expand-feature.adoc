@@ -95,4 +95,4 @@ If you implement `$expand` manually for some relationships, leave these relation
 .. Edit inline the *Expandable navigation properties* field.
 .. Add the name of each navigation property that you want to be expandable by using `generic expand`.
 .. Depending on your use case, check *Ignore errors on expand* to avoid errors during the generic expansion and to generate errors on the main flow.
-. Verify that your existent flows support the `$expand` feature.
+. Verify that your existing flows support the `$expand` feature.
