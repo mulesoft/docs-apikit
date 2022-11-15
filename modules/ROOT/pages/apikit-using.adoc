@@ -74,5 +74,5 @@ When using a load balancer, set the `keepRamlBaseUri` attribute as described for
 * xref:apikit-tutorial.adoc[Workflow: Create, Run, and Test an APIkit Project]
 * xref:apikit-for-soap.adoc[Workflow: Implement a SOAP Interface]
 * xref:runtime-manager::deploying-to-cloudhub.adoc#creating-an-application-name[Unique application name]
-* xref:3.8@mule-runtime::mule-application-deployment-descriptor.adoc#options[Use different property files]
+* xref:3.9@mule-runtime::mule-application-deployment-descriptor.adoc#options[Use different property files]
 * <<using-apikit-console-and-a-reverse-proxy,using APIkit with a reverse proxy>>
