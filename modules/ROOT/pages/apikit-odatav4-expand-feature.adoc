@@ -1,6 +1,6 @@
 = Implement the $expand Feature
 
-The `$expand` system query option reduces the amount of incoming network traffic and makes APIs easier to consume. Because consumers request only inline representations of the related entities of query results, the returned information avoids multiple network roundtrips. This benefits metered and latency-sensitive consumers.
+The `$expand` system query option reduces the amount of incoming network traffic and makes APIs easier to consume. Because API consumers request only inline representations of the related entities of query results, the returned information avoids multiple network roundtrips. This benefits metered and latency-sensitive consumers.
 
 From APIkit for OData 1.3.0 onwards, this module supports automatic routing for ease of implementing the `$expand` system query option in the most common cases. Although this feature requires more preparation and configuration, it enables the reuse of already implemented flows when processing the `$expand` requests.
 
@@ -34,7 +34,7 @@ If using the `$expand` feature, requests are `GET https://example.com/api/Employ
 
 The `generic expand` feature enables you to reuse existing flow implementations as a starting point for expanding requests. Using this feature, you can focus on the relevant data retrieval operations while the module performs the necessary steps to ensure that the `$expand` fields complete.
 
-An application with the `generic expand` feature enabled works as any other OData Mule application. However, during the flow execution, once the module retrieves information for the main entity set, it performs additional internal requests gathering the information for any `expand` field. If there are errors during the expansion operation, the consumer can configure the final behavior, or the consumer can ignore it with a `null` value.
+An application with the `generic expand` feature enabled works as any other OData Mule application. However, during the flow execution, once the module retrieves information for the main entity set, it performs additional internal requests gathering the information for any `expand` field. If there are errors during the expansion operation, you can configure the final behavior. You can fail the request with an error, or you can replace the failed expansion with a `null` value.
 
 == The `generic expand` Operation
 
@@ -43,7 +43,7 @@ The `generic expand` feature dispatches additional queries to the application wh
 . The `EntitySet` where the expansion takes place has a `NavigationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. +
 This is used to select which `<entity-collection-source/>` is executed when expanding that property.
 . Each expandable `NavigationProperty` has a `ReferentialConstraint` attached. +
-This creates the inner query, where the value of `Property` is matched against the value of `ReferencedProperty`.
+Internal requests use this, where the value of `Property` is matched against the value of `ReferencedProperty`.
 
 === Flow Execution
 
@@ -54,7 +54,7 @@ This creates the inner query, where the value of `Property` is matched against t
 .. Get the `referenced property` from its `ReferentialConstraint`.
 .. Get the `destination entity set` from its `NavigationPropertyBinding`.
 .. For each of the `entities` get the resolved `source property`. Add these values to a `source property list`.
-.. Execute the `internal` request by invoking the `<entity-collection-source/>` for `destination entity set` with `$filter=referenced property` in `(...source property list)`.
+.. Execute the internal request by invoking the `<entity-collection-source/>` for `destination entity set` with `$filter=referenced property` in `(...source property list)`.
 
 === Error Handling and Error Propagation
 
