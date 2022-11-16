@@ -14,21 +14,21 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-|Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*{nbsp}
-| Api Definition a| String |  API definition |  | *x*{nbsp}
-| Name a| String |  The identifier of this element used to reference it in other components |  | *x*{nbsp}
+|Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*
+| Api Definition a| String |  API definition |  | *x*
+| Name a| String |  The identifier of this element used to reference it in other components |  | *x*
 |===
 
 
 ==== Associated Operations
-* <<Route>> {nbsp}
-* <<SerializeEntity>> {nbsp}
-* <<SerializeEntityCollection>> {nbsp}
-* <<TransformToSqlSelect>> {nbsp}
+* <<Route>> 
+* <<SerializeEntity>> 
+* <<SerializeEntityCollection>> 
+* <<TransformToSqlSelect>> 
 
 ==== Associated Sources
-* <<RequestEntityCollectionListener>> {nbsp}
-* <<RequestEntityListener>> {nbsp}
+* <<RequestEntityCollectionListener>> 
+* <<RequestEntityListener>> 
 
 
 == Operations
@@ -43,32 +43,32 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
-| Content a| Any |  |  #[payload] | {nbsp}
-| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
+| Configuration | String | The name of the configuration to use. | | *x*
+| Content a| Any |  |  #[payload] | 
+| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | 
+| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
 | Method a| Enumeration, one of:
 
 ** GET
 ** POST
 ** PUT
 ** PATCH
-** DELETE |  HTTP request method name. |  | *x*{nbsp}
-| Masked Request Path a| String |  OData request path, relative to listener. |  | *x*{nbsp}
+** DELETE |  HTTP request method name. |  | *x*
+| Masked Request Path a| String |  OData request path, relative to listener. |  | *x*
 | Scheme a| Enumeration, one of:
 
 ** HTTP
-** HTTPS |  HTTP request scheme. |  | *x*{nbsp}
-| Host a| String |  Request host. |  | *x*{nbsp}
-| Listener Path a| String |  Listener path, ending with "*". |  | *x*{nbsp}
-| Http Headers a| Object |  HTTP request headers. |  | {nbsp}
-| Query String a| String |  HTTP query string. |  | {nbsp}
-| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
-| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+** HTTPS |  HTTP request scheme. |  | *x*
+| Host a| String |  Request host. |  | *x*
+| Listener Path a| String |  Listener path, ending with "*". |  | *x*
+| Http Headers a| Object |  HTTP request headers. |  | 
+| Query String a| String |  HTTP query string. |  | 
+| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | 
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | 
 |===
 
 === Output
@@ -81,18 +81,18 @@ Default configuration
 
 === For Configurations
 
-* <<Config>> {nbsp}
+* <<Config>> 
 
 === Throws
 
-* APIKIT-ODATA:DESERIALIZATION {nbsp}
-* APIKIT-ODATA:INTERNAL_SERVER_ERROR {nbsp}
-* APIKIT-ODATA:MALFORMED_SEARCH {nbsp}
-* APIKIT-ODATA:MALFORMED_URI {nbsp}
-* APIKIT-ODATA:NOT_FOUND {nbsp}
-* APIKIT-ODATA:NOT_IMPLEMENTED {nbsp}
-* APIKIT-ODATA:SERIALIZATION {nbsp}
-* APIKIT-ODATA:TRANSFORMATION {nbsp}
+* APIKIT-ODATA:DESERIALIZATION 
+* APIKIT-ODATA:INTERNAL_SERVER_ERROR 
+* APIKIT-ODATA:MALFORMED_SEARCH 
+* APIKIT-ODATA:MALFORMED_URI 
+* APIKIT-ODATA:NOT_FOUND 
+* APIKIT-ODATA:NOT_IMPLEMENTED 
+* APIKIT-ODATA:SERIALIZATION 
+* APIKIT-ODATA:TRANSFORMATION 
 
 
 [[SerializeEntity]]
@@ -105,24 +105,24 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
-| Inbound Content a| Binary |  |  #[payload] | {nbsp}
-| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
+| Configuration | String | The name of the configuration to use. | | *x*
+| Inbound Content a| Binary |  |  #[payload] | 
+| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | 
+| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
 | Method a| Enumeration, one of:
 
 ** GET
 ** POST
 ** PUT
 ** PATCH
-** DELETE |  HTTP Method. |  | *x*{nbsp}
-| Path a| String |  Path to Entity Type. |  | *x*{nbsp}
-| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
-| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+** DELETE |  HTTP Method. |  | *x*
+| Path a| String |  Path to Entity Type. |  | *x*
+| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | 
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | 
 |===
 
 === Output
@@ -134,7 +134,7 @@ Default configuration
 
 === For Configurations
 
-* <<Config>> {nbsp}
+* <<Config>> 
 
 
 
@@ -148,24 +148,24 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
-| Inbound Content a| Binary |  |  #[payload] | {nbsp}
-| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
+| Configuration | String | The name of the configuration to use. | | *x*
+| Inbound Content a| Binary |  |  #[payload] | 
+| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | 
+| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
 | Method a| Enumeration, one of:
 
 ** GET
 ** POST
 ** PUT
 ** PATCH
-** DELETE |  HTTP Method. |  | *x*{nbsp}
-| Path a| String |  Path to Entity Type. |  | *x*{nbsp}
-| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
-| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+** DELETE |  HTTP Method. |  | *x*
+| Path a| String |  Path to Entity Type. |  | *x*
+| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | 
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | 
 |===
 
 === Output
@@ -177,7 +177,7 @@ Default configuration
 
 === For Configurations
 
-* <<Config>> {nbsp}
+* <<Config>> 
 
 
 
@@ -191,22 +191,22 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
-| Entity Set Name a| String | The table name in the database for the requested entity set |  | *x*{nbsp}
-| Database Schema | String | The name of the database schema to which the entity set belongs. If not empty, it is prefixed to the table name in the WHERE clause. |  | {nbsp}
-| Page Size a| Number |  |  | {nbsp}
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
+| Configuration | String | The name of the configuration to use. | | *x*
+| Entity Set Name a| String | The table name in the database for the requested entity set |  | *x*
+| Database Schema | String | The name of the database schema to which the entity set belongs. If not empty, it is prefixed to the table name in the WHERE clause. |  | 
+| Page Size a| Number |  |  | 
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
-| Entity Type Name a| String |  Entity type name specified by the Entity Data Model. |  | *x*{nbsp}
-| Entity Type Fields a| Array of String |  List of property fields from the Entity type. |  | *x*{nbsp}
-| Entity Type Keys a| Object |  Map of entity key names and values. |  | *x*{nbsp}
-| System Query Options a| Object |  System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], in order to simplify usability we remove initial dollar sign to avoid escaping withing dataweave, in example to access System Query Option $skip user should use the following expresion #[attributes.systemQueryOptions.'skip'] |  | *x*{nbsp}
-| Search Transformation Enabled a| Boolean |  Enables $search transformation to WHERE clause. |  true | {nbsp}
-| Strict Search Term Match a| Boolean |  Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. |  false | {nbsp}
-| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
-| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
+| Entity Type Name a| String |  Entity type name specified by the Entity Data Model. |  | *x*
+| Entity Type Fields a| Array of String |  List of property fields from the Entity type. |  | *x*
+| Entity Type Keys a| Object |  Map of entity key names and values. |  | *x*
+| System Query Options a| Object |  System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], in order to simplify usability we remove initial dollar sign to avoid escaping withing dataweave, in example to access System Query Option $skip user should use the following expresion #[attributes.systemQueryOptions.'skip'] |  | *x*
+| Search Transformation Enabled a| Boolean |  Enables $search transformation to WHERE clause. |  true | 
+| Strict Search Term Match a| Boolean |  Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. |  false | 
+| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | 
+| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | 
 |===
 
 === Output
@@ -219,15 +219,15 @@ Default configuration
 
 === For Configurations
 
-* <<Config>> {nbsp}
+* <<Config>> 
 
 === Throws
 
-* APIKIT-ODATA:INTERNAL_SERVER_ERROR {nbsp}
-* APIKIT-ODATA:MALFORMED_SEARCH {nbsp}
-* APIKIT-ODATA:MALFORMED_URI {nbsp}
-* APIKIT-ODATA:NOT_IMPLEMENTED {nbsp}
-* APIKIT-ODATA:TRANSFORMATION {nbsp}
+* APIKIT-ODATA:INTERNAL_SERVER_ERROR 
+* APIKIT-ODATA:MALFORMED_SEARCH 
+* APIKIT-ODATA:MALFORMED_URI 
+* APIKIT-ODATA:NOT_IMPLEMENTED 
+* APIKIT-ODATA:TRANSFORMATION 
 
 
 == Sources
@@ -242,30 +242,30 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
-| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
-| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | {nbsp}
+| Configuration | String | The name of the configuration to use. | | *x*
+| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | 
+| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
+| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | 
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
-| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | {nbsp}
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
+| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | 
 | Method a| Enumeration, one of:
 
 ** GET
 ** POST
 ** PUT
 ** PATCH
-** DELETE |  HTTP Method |  | *x*{nbsp}
-| Path a| String |  Path to Entity Type |  | *x*{nbsp}
+** DELETE |  HTTP Method |  | *x*
+| Path a| String |  Path to Entity Type |  | *x*
 | Collection Success Response a| One of:
-| Supported System Query Options - `$expand` a| Boolean |  Wether to enable support for `$expand` or not. |  `true` | {nbsp}
-| Ignore errors on expansion enabled a| Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. |  `false` | {nbsp}
-| Expandable navigation properties | List<String> | List of types that can be generically expanded from this flow. | `[]` | {nbsp}
+| Supported System Query Options - `$expand` a| Boolean |  Wether to enable support for `$expand` or not. |  `true` | 
+| Ignore errors on expansion enabled a| Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. |  `false` | 
+| Expandable navigation properties | List<String> | List of types that can be generically expanded from this flow. | `[]` | 
 
 * <<RawEntityCollectionSuccessResponse>>
-* <<EntityCollectionSuccessResponse>> |  |  | {nbsp}
+* <<EntityCollectionSuccessResponse>> |  |  | 
 |===
 
 === Output
@@ -278,7 +278,7 @@ Default configuration
 
 === For Configurations
 
-* <<Config>> {nbsp}
+* <<Config>> 
 
 
 
@@ -292,30 +292,30 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
-| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
-| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | {nbsp}
+| Configuration | String | The name of the configuration to use. | | *x*
+| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | 
+| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
+| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | 
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | {nbsp}
-| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | {nbsp}
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
+| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | 
 | Method a| Enumeration, one of:
 
 ** GET
 ** POST
 ** PUT
 ** PATCH
-** DELETE |  HTTP Method |  | *x*{nbsp}
-| Path a| String |  Path to Entity Type |  | *x*{nbsp}
-| Supported System Query Options - `$expand` a| Boolean |  Wether to enable support for `$expand` or not. |  `true` | {nbsp}
-| Ignore errors on expansion enabled a| Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. |  `false` | {nbsp}
-| Expandable navigation properties | List<String> | List of types that can generically expanded from this flow. | `[]` | {nbsp}
+** DELETE |  HTTP Method |  | *x*
+| Path a| String |  Path to Entity Type |  | *x*
+| Supported System Query Options - `$expand` a| Boolean |  Wether to enable support for `$expand` or not. |  `true` | 
+| Ignore errors on expansion enabled a| Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. |  `false` | 
+| Expandable navigation properties | List<String> | List of types that can generically expanded from this flow. | `[]` | 
 | Success Response a| One of:
 
 * <<RawEntitySuccessResponse>>
-* <<EntitySuccessResponse>> |  |  | {nbsp}
+* <<EntitySuccessResponse>> |  |  | 
 |===
 
 === Output
@@ -328,7 +328,7 @@ Default configuration
 
 === For Configurations
 
-* <<Config>> {nbsp}
+* <<Config>> 
 
 
 

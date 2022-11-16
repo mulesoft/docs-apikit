@@ -38,7 +38,7 @@ An application with the `generic expand` feature enabled works as any other ODat
 
 == The `generic expand` Operation
 
-The `generic expand` feature dispatches additional queries to the application when the original flow completes. Because this is done based on the application `EDM`, you need to make extra annotations to add enough context to the module:
+The `generic expand` feature dispatches additional queries to the application when the original flow completes. Because this is done based on the application `EDM`, you must make extra annotations to add enough context to the module:
 
 . The `EntitySet` where the expansion takes place should have a `NavigationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. +
 This is used to select which `<entity-collection-source/>` is executed when expanding that property.
