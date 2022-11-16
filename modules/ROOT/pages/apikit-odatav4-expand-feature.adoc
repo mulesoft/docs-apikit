@@ -40,7 +40,7 @@ An application with the `generic expand` feature enabled works as any other ODat
 
 The `generic expand` feature dispatches additional queries to the application when the original flow completes. Because this is done based on the application `EDM`, you need to make extra annotations to add enough context to the module:
 
-. The `EntitySet` where the expansion takes place should have a `NavitationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. +
+. The `EntitySet` where the expansion takes place should have a `NavigationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. +
 This is used to select which `<entity-collection-source/>` is executed when expanding that property.
 . Each expandable `NavigationProperty` should have a `ReferentialConstraint` attached. +
 This creates the inner query, where the value of `Property` is matched against the value of `ReferencedProperty`.
@@ -67,11 +67,11 @@ By default, the expansion of collections and single objects are resolved to empt
 - *Propagate errors during expansion:* Errors arise during generic expansion. +
 When an error reaches the OData v4 router, the original request is answered with an error response.
 
-Error handling is configured *per-source* on the *Capabilities* tab.
+You can configure error handling *per-source* on the *Capabilities* tab.
 
 === Limitations
 
-* Only the first `ReferencialConstraint` is considered. +
+* Only the first `ReferentialConstraint` is considered. +
 Navigation properties that use compound keys are not supported.
 * Expansion is done `field-by-field` instead of `EntitySet-by-EntitySet`. +
 This can cause more internal requests than necessary.
@@ -80,9 +80,9 @@ Expansion using `<entity-source/>` implementations are not executed due to perfo
 
 == Implementation Guidelines
 
-To implement the `generic expansion` feature, you must annotate each source must with the types that it can expand. Enabling `$expand` without restrictions enables API clients to write arbitrarily complex queries, which can create performance issues.
+To implement the `generic expansion` feature, you must annotate each source with the types that it can expand. Enabling `$expand` without restrictions enables API clients to write arbitrarily complex queries, which can create performance issues.
 
-If you implement `$expand` manually for some relationships, leave these relationships out of the list on the *Expandable Navigation Properties* option. Manual implementations inside the flow are needed for the navigation properties that don't use the `generic expansion` feature.
+If you implement `$expand` manually for some relationships, leave these relationships out of the list on the *Expandable Navigation Properties* option. The navigation properties that don't use the `generic expansion` feature need manual implementations inside the flow.
 
 === Implementation Checklist
 
@@ -90,10 +90,6 @@ If you implement `$expand` manually for some relationships, leave these relation
 ** Every `NavigationProperty` has one `ReferentialConstraint`.
 ** Every `EntitySet` has one `NavigationPropertyBinding` for each `NavigationProperty` of its entity type.
 ** Every `<entity-collection-source/>` supports the `in` operator for the `$filter` system query option.
-. For each source for which you want to enable `generic expand` support:
-.. Open the *Capabilities* tab.
-.. Edit inline the *Expandable navigation properties* field.
-.. Add the name of each navigation property that you want to be expandable by using `generic expand`.
 . For each source for which you want to enable `generic expand` support:
 .. Open the *Capabilities* tab.
 .. Edit inline the *Expandable navigation properties* field.
