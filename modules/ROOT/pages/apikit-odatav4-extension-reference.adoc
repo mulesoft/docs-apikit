@@ -215,7 +215,7 @@ Default configuration
 * APIKIT-ODATA:MALFORMED_URI 
 * APIKIT-ODATA:NOT_IMPLEMENTED 
 * APIKIT-ODATA:TRANSFORMATION 
-
+* APIKIT-ODATA:EXPANSION
 == Sources
 
 [[RequestEntityCollectionListener]]
