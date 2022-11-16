@@ -293,7 +293,7 @@ Default configuration
 | Path a| String |  Path to Entity Type |  | *x*
 | Supported System Query Options - `$expand` a| Boolean |  Wether to enable support for `$expand` or not. |  `true` | 
 | Ignore errors on expansion enabled a| Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. |  `false` | 
-| Expandable navigation properties | List<String> | List of types that can generically expanded from this flow. | `[]` | 
+| Expandable navigation properties | List<String> | List of types that can be generically expanded from this flow. | `[]` | 
 | Success Response a| One of:
 
 * <<RawEntitySuccessResponse>>
