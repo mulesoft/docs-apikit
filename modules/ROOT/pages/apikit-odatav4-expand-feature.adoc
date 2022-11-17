@@ -52,7 +52,7 @@ Internal requests use this, where the value of `Property` is matched against the
 
 === Flow Execution
 
-. The main flow is executed and completed resulting in a collection of `entities`.
+. The main flow executes and completes, resulting in a collection of `entities`.
 . The OData module gathers all the properties that need expansion.
 . For each `NavigationProperty`:
 .. Get the `source property` from its `ReferentialConstraint`.
