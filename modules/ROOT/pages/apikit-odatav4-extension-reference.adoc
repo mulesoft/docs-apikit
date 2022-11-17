@@ -40,7 +40,7 @@ Default configuration
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
 | Content a| Any |  |  #[payload] | 
-| Output Mime Type a| String |  The MIME type of the payload that this operation outputs. |  | 
+| Output MIME Type a| String |  The MIME type of the payload that this operation outputs. |  | 
 | Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
 | Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
@@ -101,7 +101,7 @@ Default configuration
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
 | Inbound Content a| Binary |  |  #[payload] | 
-| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | 
+| Output MIME Type a| String |  The MIME type of the payload that this operation outputs. |  | 
 | Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
 | Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
@@ -141,7 +141,7 @@ Default configuration
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
 | Inbound Content a| Binary |  |  #[payload] | 
-| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | 
+| Output MIME Type a| String |  The MIME type of the payload that this operation outputs. |  | 
 | Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
 | Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
