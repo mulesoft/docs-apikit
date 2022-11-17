@@ -79,7 +79,7 @@ You can configure error handling *per-source* on the *Capabilities* tab.
 * Only the first `ReferentialConstraint` is considered. +
 Navigation properties that use compound keys are not supported.
 * Expansion is done `field-by-field` instead of `EntitySet-by-EntitySet`. +
-This can cause more internal requests than necessary.
+This can create more internal requests than necessary.
 * The expanded entities always have an `<entity-collection-source/>` implementation. +
 Expansion using `<entity-source/>` implementations are not executed due to performance concerns.
 
