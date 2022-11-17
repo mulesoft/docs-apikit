@@ -12,7 +12,7 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-|Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*
+| Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*
 | Api Definition a| String |  API definition |  | *x*
 | Name a| String |  The identifier of this element used to reference it in other components |  | *x*
 |===
@@ -228,7 +228,7 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
-| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | 
+| Output MIME Type a| String |  The MIME type of the payload that this operation outputs. |  | 
 | Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
 | Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
 | Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | 
@@ -275,7 +275,7 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
-| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | 
+| Output MIME Type a| String |  The MIME type of the payload that this operation outputs. |  | 
 | Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
 | Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
 | Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | 
