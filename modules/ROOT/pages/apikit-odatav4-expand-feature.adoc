@@ -68,7 +68,7 @@ Error handling for OData v4 applications is local to each flow, whether you use 
 Handling errors during the expansion process is not supported, because the expansion process runs after the execution of the flow finishes. There are two options available for handling errors:
 
 - *Ignore errors during expansion:* Errors during generic expansion are ignored. +
-By default, the expansion of collections and single objects are resolved to empty lists and `null` values respectively.
+By default, the expansion of collections and single objects are resolved to empty lists and `null` values, respectively.
 - *Propagate errors during expansion:* Errors arise during generic expansion. +
 When an error reaches the OData v4 router, the original request is answered with an error response.
 
