@@ -40,3 +40,4 @@
  ** xref:creating-an-odatav4-api-with-apikit.adoc[Create an OData v4 API with APIkit]
   *** xref:apikit-odatav4-expand-feature.adoc[Implement the $expand Feature]
  ** xref:apikit-odatav4-extension-reference.adoc[APIkit OData v4 Extension Reference]
+* xref:apikit-4-for-graphql.adoc[APIkit for GraphQL]
