@@ -1,0 +1,505 @@
+= Querying a GraphQL API implementation
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This section showcases the implementation example of a GraphQL service to query data using APIkit for GraphQL.
+
+To run the set of examples described below, download and run the *apikit-graphql-example* application, which loads a sample dataset in memory for testing purposes. Get more information about https://graphql.org/learn/serving-over-http/[the format of the queries sent through an HTTP POST request^].
+
+The example application is based on the following GraphQL API:
+
+type Post {
+    id: ID!
+    user: User
+    title: String
+    body: String
+    comments: [Comment]
+}
+
+type Comment {
+    id: ID!
+    user: User
+    post: Post
+    body: String
+    replies: [Comment]
+}
+
+type User {
+    id: ID!
+    name: String
+    username: String
+    email: String
+    phone: String
+    website: String
+    address: Address
+}
+
+type Address {
+    id: ID!
+    street: String
+    city: String
+    zipcode: String
+    latitude: Float
+    longitude: Float
+}
+
+input AddressInput {
+    street: String
+    city: String
+    zipcode: String
+    latitude: Float
+    longitude: Float
+}
+
+input UserInput {
+    name: String
+    username: String
+    email: String
+    phone: String
+    website: String
+    address: AddressInput
+}
+
+type Query {
+    # Looks for a user by ID
+    getUser(id: ID!): User
+    # Looks for a post by ID
+    getPost(id: ID!): Post
+    # Returns the list of all users
+    allUsers: [User]
+    # Returns the list of all posts
+    allPosts: [Post]
+}
+
+type Mutation {
+    # Creates a new user
+    createUser(user: UserInput!): User!
+    # Creates a new post
+    createPost(userId: ID!, title: String!, body: String!): Post!
+    # Adds a comment to a post
+    postComment(userId: ID!, postId: ID!, body: String!): Comment!
+    # Adds a reply to a comment
+    replyToComment(commentId: ID!, userId: ID!, body: String!): Comment!
+}
+
+
+== Request Queries Examples
+
+In the following example, the type *Query* defines the list of queries that the service exposes.
+
+...
+type Query {
+    # Looks for a user by ID
+    getUser(id: ID!): User
+    # Looks for a post by ID
+    getPost(id: ID!): Post
+    # Returns the list of all users
+    allUsers: [User]
+    # Returns the list of all posts
+    allPosts: [Post]
+}
+...
+
+
+=== Retrieve All the Posts
+
+This use case makes a simple request for the data of each existing post.
+ 
+==== Make a Query
+
+{
+   allPosts {
+       id
+       title
+       body
+   }
+}
+
+
+==== Trigger a Request
+
+curl --location --request POST 'http://localhost:8081/graphql' \
+--header 'Content-Type: application/json' \
+--data-raw '{"query":"{allPosts{id title body}}","variables":{}}'
+
+
+==== Get a Response
+
+{
+   "data": {
+       "allPosts": [
+           {
+               "id": "88",
+               "title": "tellus nisi eu orci mauris lacinia sapien quis libero",
+               "body": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n\nProin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl."
+           },
+           {
+               "id": "89",
+               "title": "mauris lacinia sapien quis libero",
+               "body": "Sed ante. Vivamus tortor. Duis mattis egestas metus.\n\nAenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.\n\nQuisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros."
+           },
+           ...
+           {
+            "id": "87",
+               "title": "nam tristique",
+               "body": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.\n\nDonec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque."
+           }
+       ]
+   }
+}
+
+
+=== Retrieve All Users with Data Loader
+
+This query requests the data of all the users, including their address information. In terms of implementation, this is using a Data Loader to fetch the addresses of each user in only one request.
+
+==== Make a Query
+
+{
+   allUsers {
+       name
+       email
+       website
+       address {
+           street
+           city
+           zipcode
+       }
+   }
+}
+
+
+==== Trigger a Request
+
+curl --location --request POST 'http://localhost:8081/graphql' \
+--header 'Content-Type: application/json' \
+--data-raw '{"query":"{allUsers{name email website address{street city zipcode}}}","variables":{}}'
+
+
+==== Get a Response
+
+{
+   "data": {
+       "allUsers": [
+           {
+               "name": "Rollin Sebley",
+               "email": "rsebley2f@ucsd.edu",
+               "website": "homestead.com",
+               "address": {
+                   "street": "432 Myrtle Trail",
+                   "city": "Pau",
+                   "zipcode": "64029 CEDEX 9"
+               }
+           },
+           {
+               "name": "Bonny Madgewick",
+               "email": "bmadgewick2g@mozilla.com",
+               "website": "utexas.edu",
+               "address": {
+                   "street": "5 David Terrace",
+                   "city": "Oelaba",
+                   "zipcode": null
+               }
+           },
+           ...
+           {
+               "name": "Gretal Titmuss",
+               "email": "gtitmuss2e@soup.io",
+               "website": "creativecommons.org",
+               "address": {
+                   "street": "3201 Gale Place",
+                   "city": "Bolo",
+                   "zipcode": "4201"
+               }
+           }
+       ]
+   }
+}
+
+
+=== Retrieve a Post by ID
+
+This query example requests the post data by its ID, including the post comments and the usernames.
+
+==== Make a Query
+
+{
+   getPost(id: 10) {
+       id
+       user {
+           username
+       }
+       title
+       body
+       comments {
+           user {
+               username
+           }
+           body
+           replies {
+               body
+           }
+       }
+   }
+}
+
+
+==== Trigger a Request
+
+curl --location --request POST 'http://localhost:8081/graphql' \
+--header 'Content-Type: application/json' \
+--data-raw '{"query":"{getPost(id:10){id user{username}title body comments{user{username}body replies{body}}}}","variables":{}}'
+
+
+==== Get a Response
+
+{
+   "data": {
+       "getPost": {
+           "id": "10",
+           "user": {
+               "username": "bdearelli"
+           },
+           "title": "id luctus nec molestie sed justo pellentesque viverra pede ac",
+           "body": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.\n\nNullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
+           "comments": [
+               {
+                   "user": {
+                       "username": "cwalesby1p"
+                   },
+                   "body": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.\n\nMorbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+                   "replies": []
+               },
+               {
+                   "user": {
+                       "username": "rricci2d"
+                   },
+                   "body": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+                   "replies": []
+               }
+           ]
+       }
+   }
+}
+
+
+== Request Mutations Examples
+
+The type *Mutation* defines the list of mutations that the service enables.
+
+...
+type Mutation {
+    # Creates a new user
+    createUser(user: UserInput!): User!
+    # Creates a new post
+    createPost(userId: ID!, title: String!, body: String!): Post!
+    # Adds a comment to a post
+    postComment(userId: ID!, postId: ID!, body: String!): Comment!
+    # Adds a reply to a comment
+    replyToComment(commentId: ID!, userId: ID!, body: String!): Comment!
+}
+...
+
+
+=== Create a New Post
+
+This example request creates a new post and asks for some information on it.
+
+==== Make a Query
+
+mutation CreatePost($userId: ID!, $title: String!, $body: String!) {
+   createPost(userId: $userId,title: $title,body: $body) { 
+       id
+       user {
+           username
+       }
+       title
+       body
+       comments {
+           body
+       }
+   }
+}
+
+
+==== Make Variables
+
+{
+   "userId": 42,
+   "title": "GraphQL by example",
+   "body": "Let's talk about GraphQL"
+}
+
+
+==== Trigger a Request
+
+curl --location --request POST 'http://localhost:8081/graphql' \
+--header 'Content-Type: application/json' \
+--data-raw '{"query":"mutation CreatePost($userId:ID!,$title:String!,$body:String!){createPost(userId:$userId,title:$title,body:$body){id user{username}title body comments{body}}}","variables":{"userId":42,"title":"GraphQL by example","body":"Let'\''s talk about GraphQL"}}'
+
+
+==== Get a Response
+
+{
+   "data": {
+       "createPost": {
+           "id": "101",
+           "user": {
+               "username": "tblackmore15"
+           },
+           "title": "GraphQL by example",
+           "body": "Let's talk about GraphQL",
+           "comments": []
+       }
+   }
+}
+
+
+=== Add a Comment to the New Post
+
+This use case posts a comment in reply to the post created in the previous step. It also asks for the service to return the body of the comment created and the original post with its list of comments to check that the new one is included.
+
+==== Make a Query
+
+mutation PostComment($userId: ID!, $postId: ID!, $body: String!) {
+   postComment(userId: $userId, postId: $postId, body: $body) {
+       id
+       body
+       post {
+           id
+           title
+           comments {
+               id
+               user {
+                   username
+               }
+               body
+           }
+       }
+   }
+}
+
+
+==== Make Variables
+
+{
+   "userId": 34,
+   "postId": 101,
+   "body": "Nice post! Thanks for sharing! It's just what I was looking for"
+}
+
+
+==== Trigger a Request
+
+curl --location --request POST 'http://localhost:8081/graphql' \
+--header 'Content-Type: application/json' \
+--data-raw '{"query":"mutation PostComment($userId:ID!,$postId:ID!,$body:String!){postComment(userId:$userId,postId:$postId,body:$body){id body post{id title comments{id user{username}body}}}}","variables":{"userId":34,"postId":101,"body":"Nice post! Thanks for sharing! It'\''s just what I was looking for"}}'
+
+
+==== Get a Response
+
+{
+   "data": {
+       "postComment": {
+           "id": "201",
+           "body": "Nice post! Thanks for sharing! It's just what I was looking for",
+           "post": {
+               "id": "101",
+               "title": "GraphQL by example",
+               "comments": [
+                   {
+                       "id": "201",
+                       "user": {
+                           "username": "ekosex"
+                       },
+                       "body": "Nice post! Thanks for sharing! It's just what I was looking for"
+                   }
+               ]
+           }
+       }
+   }
+}
+
+
+=== Reply to the New Comment in the Post
+
+This example request adds a comment of the user that created the original post in response to the previous comment. The query asks the service to return all the information of the post in addition to the new reply.
+
+==== Make a Query
+
+mutation ReplyToComment($commentId: ID!, $userId: ID!, $body: String!) {
+   replyToComment(commentId: $commentId, userId: $userId, body: $body) {
+       id
+       body
+       post {
+           id
+           title
+           comments {
+               id
+               body
+               replies {
+                   id
+                   user {
+                       username
+                   }
+                   body
+               }
+           }
+       }  
+   }
+}
+
+
+==== Make Variables
+
+{
+   "commentId": 201,
+   "userId": 42,
+   "body": "Thank you!"
+}
+
+
+==== Trigger a Request
+
+curl --location --request POST 'http://localhost:8081/graphql' \
+--header 'Content-Type: application/json' \
+--data-raw '{"query":"mutation ReplyToComment($commentId:ID!,$userId:ID!,$body:String!){replyToComment(commentId:$commentId,userId:$userId,body:$body){id body post{id title comments{id body replies{id user{username}body}}}}}","variables":{"commentId":201,"userId":42,"body":"Thank you!"}}'
+
+
+==== Get a Response
+
+{
+   "data": {
+       "replyToComment": {
+           "id": "202",
+           "body": "Thank you!",
+           "post": {
+               "id": "101",
+               "title": "GraphQL by example",
+               "comments": [
+                   {
+                       "id": "201",
+                       "body": "Nice post! Thanks for sharing! It's just what I was looking for",
+                       "replies": [
+                           {
+                               "id": "202",
+                               "user": {
+                                   "username": "tblackmore15"
+                               },
+                               "body": "Thank you!"
+                           }
+                       ]
+                   }
+               ]
+           }
+       }
+   }
+}
+
+
+
+
+== See Also
+
+* xref:doc.adoc[Some Relevant Doc Article]
