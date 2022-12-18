@@ -1,0 +1,235 @@
+= APIkit for GraphQL Module Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+== Configurations
+---
+
+=== Config
+
+Default configuration
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*
+| API definition | String |  |  | *x*
+| Introspection Enabled | Boolean |  It enables schema introspection. |  false | 
+| Max Query Depth Allowed | Number |  The maximum depth a query can have. The value must be greater than 1. |  100 | 
+| Max Query Complexity Allowed | Number | The maximum number of data fields a query can include. The value must be greater than 1. |  100 | 
+| Name | String |  The identifier of this element is used to reference it in other components. |  | *x*
+|===
+
+==== Associated Operations
+
+* <<Route>> 
+* <<Serialize>> 
+* <<SerializeBatch>> 
+
+==== Associated Sources
+
+* <<DataFetcher>> 
+* <<DataLoader>> 
+
+== Operations
+
+=== Route
+
+`<graphql-router:route>`
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*
+| Content | Any |  |  #[payload] | 
+| Output MIME Type | String |  The MIME type of the payload that this operation outputs. |  | 
+| Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
+| Streaming Strategy | * <<RepeatableInMemoryStream>>
+* <<RepeatableFileStoreStream>>
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behavior. |  | 
+| Target Variable | String |  The name of a variable on which the operation output is placed. |  | 
+| Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
+|===
+
+==== Output
+
+|===
+| *Type* | Any
+|===
+
+==== For Configurations
+
+* <<Config>> 
+
+=== Serialize
+
+`<graphql-router:serialize>`
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration you use. | | *x*
+| Inbound Content | Any |  |  #[payload] | 
+| Config Ref | ConfigurationProvider |  The name of the configuration you use to execute this component. |  | *x*
+| Object Type Name | String |  Object Type Name |  | *x*
+| Field Name | String |  Field Name |  | 
+| Target Variable | String |  The name of a variable on which the operation output is placed. |  | 
+| Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
+|===
+
+==== Output
+
+|===
+| *Type* | Any
+|===
+
+==== For Configurations
+
+* <<Config>> 
+
+=== Serialize Batch
+
+`<graphql-router:serialize-batch>`
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration you use. | | *x*
+| Object Type Name | String |  |  | *x*
+| Inbound Content | Any |  |  #[payload] | 
+| Config Ref | ConfigurationProvider |  The name of the configuration you use to execute this component. |  | *x*
+| Target Variable a| String |  The name of a variable on which the operation output is placed. |  | 
+| Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
+|===
+
+==== Output
+
+|===
+| *Type* | Any
+|===
+
+==== For Configurations
+
+* <<Config>> 
+
+== Sources
+
+=== Data Fetcher
+
+`<graphql-router:data-fetcher>`
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration you use. | | *x*
+| Output MIME Type a| String |  The MIME type of the payload that this operation outputs. |  | 
+| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref | ConfigurationProvider |  The name of the configuration you use to execute this component. |  | *x*
+| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in cluster. |  | 
+| Streaming Strategy | * <<RepeatableInMemoryStream>>
+* <<RepeatableFileStoreStream>>
+* non-repeatable-stream |  Configure if repeatable streams should be used and their behavior. |  | 
+| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message. |  | 
+| Object Type Name | String |  Object Type Name |  | *x*
+| Field Name | String |  Field Name |  | 
+| Body Content | Any |  |  #[payload] | 
+|===
+
+==== Output
+
+|===
+| *Type* | Any
+| *Attributes Type* | <<DataFetcherAttributes>>
+|===
+
+==== For Configurations
+
+* <<Config>> 
+=== Data Loader
+
+`<graphql-router:data-loader>`
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration you use. | | *x*
+| Object Type Name | String |  Object Type Name |  | *x*
+| Config Ref | ConfigurationProvider |  The name of the configuration you use to execute this component. |  | *x*
+| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in cluster. |  | 
+| Redelivery Policy | <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message. |  | 
+| Body Content | Any |  |  #[payload] | 
+|===
+
+==== Output
+
+|===
+| *Type* | Array of Any
+|===
+
+==== For Configurations
+
+* <<Config>> 
+
+== Types
+
+=== Data Fetcher Attributes
+
+|======================
+| Field | Type | Description | Default Value | Required
+| Alias | String |  |  | 
+| Arguments | Object |  |  | 
+| Selected Fields | Object |  |  | 
+| Source | Any |  |  | 
+|======================
+
+=== Repeatable In Memory Stream
+
+|======================
+| Field | Type | Description | Default Value | Required
+| Initial Buffer Size | Number | This is the amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than buffer capacity, then it is expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  | 
+| Buffer Size Increment | Number | This is by how much buffer size is expanded if it exceeds its initial size. Setting a value of zero or lower means that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised when the buffer gets full. |  | 
+| Max Buffer Size | Number | This is the maximum amount of memory used. If more is used, a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised. A value lower or equal to zero means no limit. |  | 
+| Buffer Unit | Enumeration, one of:
+** BYTE
+** KB
+** MB
+** GB | These attributes are expressed in this unit. |  | 
+|======================
+
+=== Repeatable File Store Stream
+
+|======================
+| Field | Type | Description | Default Value | Required
+| In Memory Size | Number | Defines the maximum memory that the stream should use to keep data in memory. If more is consumed, it starts to buffer the content on disk. |  | 
+| Buffer Unit | Enumeration, one of:
+** BYTE
+** KB
+** MB
+** GB | The unit in which maxInMemorySize is expressed |  | 
+|======================
+
+=== Redelivery Policy
+
+|======================
+| Field | Type | Description | Default Value | Required
+| Max Redelivery Count a| Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message |  | 
+| Message Digest Algorithm a| String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  | 
+| Message Identifier | <<RedeliveryPolicyMessageIdentifier>> | Defines which strategy is used to identify the messages. |  | 
+| Object Store | ObjectStore | The object store where the redelivery counter for each message is going to be stored. |  | 
+|======================
+
+=== Redelivery Policy Message Identifier
+
+|======================
+| Field | Type | Description | Default Value | Required
+| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message. |  | 
+| Id Expression | String | Defines one or more expressions to use to determine when a message has been redelivered. This property may only be set if useSecureHash is false. |  | 
+|======================
