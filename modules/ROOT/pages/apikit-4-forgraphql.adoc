@@ -13,5 +13,5 @@ At run time, the APIkit for GraphQL router analyzes the query graph and orchestr
 
 == See Also
 
-* xref:graphql-api-mapping.adoc[Mapping a GraphQL API to your Data Sources]
-* xref:graphql-api-implementation.adoc[Querying a GraphQL API implementation]
+* xref:apikit-graphql-api-mapping.adoc[Mapping a GraphQL API to your Data Sources]
+* xref:apikit-graphql-api-implementation.adoc[Querying a GraphQL API implementation]
