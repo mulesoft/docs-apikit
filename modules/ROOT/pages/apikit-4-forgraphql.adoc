@@ -1,0 +1,6 @@
+= Overview
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+GraphQL is a data query and manipulation language that enables API consumers to ask for the data that is only relevant to them. With GraphQL, you can develop GraphQL APIs, which are type-system specifications written in a GraphQL-schema language. 
