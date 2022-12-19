@@ -15,3 +15,4 @@ At run time, the APIkit for GraphQL router analyzes the query graph and orchestr
 
 * xref:apikit-graphql-api-mapping.adoc[Mapping a GraphQL API to your Data Sources]
 * xref:apikit-graphql-api-implementation.adoc[Querying a GraphQL API implementation]
+* xref:apikit-graphql-module-reference.adoc[APIkit for GraphQL Module Reference]
