@@ -1,18 +1,12 @@
-= Overview
+= Mapping a GraphQL API to your Data Sources
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-GraphQL is a data query and manipulation language that enables API consumers to ask for the data that is only relevant to them. With GraphQL, you can develop GraphQL APIs, which are type-system specifications written in a GraphQL-schema language. 
+== Select Sources
 
-APIkit for GraphQL module supports the implementation of GraphQL services. These services use connectors to map GraphQL APIs to the existing backends where source data is stored.
-
-Leveraged by the type system, the APIkit scaffolder enables you to quickly implement your project by generating the initial skeleton of the application at design time. The application design maps queries, mutations, and types in your API to the Mule flows so you only specify how your data sources fulfill a particular data type.
-
-At run time, the APIkit for GraphQL router analyzes the query graph and orchestrates the execution of Mule flows based on the requests. The result of each flow execution is combined with other results to return a unique result that mirrors the shape of the requested query.
-
-== See Also
-
-* xref:apikit-graphql-api-mapping.adoc[Mapping a GraphQL API to your Data Sources]
-* xref:apikit-graphql-api-implementation.adoc[Querying a GraphQL API implementation]
-* xref:apikit-graphql-module-reference.adoc[APIkit for GraphQL Module Reference]
+The module sources vary depending on the implementation of your GraphQL API. APIkit for GraphQL provides two kind of sources:
+* Data Fetchers
+* Data Loaders
+Your selection depends on your implementation needs. 
+In addition, GraphQL is transport-layer agnostic so you choose the main connector listener depending on the protocol that you want to serve your data.
