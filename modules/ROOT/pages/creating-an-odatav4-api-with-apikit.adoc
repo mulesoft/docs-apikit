@@ -214,7 +214,7 @@ In Studio, right-click your odata.raml file and select *Mule* > *Generate CSDL f
 
 image::generate-csdl-file.png["*Generate CSDL file* option highlighted in the Mule section when right-clicking the OData file in the Package Explorer."]
 
-APIkit will generate an odata.csdl.xml file in the *api* folder.
+APIkit generates an odata.csdl.xml file in the *api* folder.
 
 image::csdl-xml.png["*odata.csdl.xml* new file highlighted in the *api* folder, in the *Package Explorer*, and the XML code of the *odata.csdl.xml* file after its transformation."]
 
