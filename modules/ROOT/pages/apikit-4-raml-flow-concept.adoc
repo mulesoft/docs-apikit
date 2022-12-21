@@ -30,9 +30,9 @@ image::apikit-flows.png["The package explorer is displayed with the project file
 
 A flow is generated for each resource method:
 
-image::apikit-flow-per-method.png[height=558,width=256]
+image::apikit-flow-per-method.png["Flows generated for each method.",height=558,width=256]
 
-The generated, minimal flows meets the communication operations required by a REST contract.
+The generated, minimal flows meet the communication operations required by a REST contract.
 
 == APIkit Router
 

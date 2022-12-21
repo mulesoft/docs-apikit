@@ -31,10 +31,13 @@ image::generate-odata.png["Window highlights the full path that was previously m
 . The OData extension generates the necessary files for your OData API implementation:
 +
 image::list-of-odata-files.png["The three files are highlighted in the tree: api.xml in the Mule folder, and api.raml and odatalibrary.raml files in the resource folder."]
-+
-<1> The Mule configuration file with the flows for the API implementation
-<1> The generated RAML definition
-<1> The generated RAML libraries
+
+[calloutlist]
+. The Mule configuration file with the flows for the API implementation
+. The generated RAML definition
+. The generated RAML libraries
+
+[start=7]
 . Add the necessary logic for your API implementation in the flows.
 
 == OData MySQL Example
@@ -46,14 +49,14 @@ First, you install a MySQL database and load tables using a provided script. Nex
 === Install and Populate a MySQL Database
 
 . Install a MySQL database and launch MySQL.
-. Download the MySQL project example link:{attachmentsdir}/apikit-odata-example-master.jar[apikit-odata-example-master.jar].
+. Download the MySQL project example link:{attachmentsdir}/apikit-odata-example-main.jar[apikit-odata-example-main.jar].
 . Run the `example.sql` script located in `src/main/resources` using MySQL commands to load data into a database named `apikit-odata-example`.
 
 === Implement the OData API
 
 . In Studio, Select *File* > *Import*.
 . Select *Anypoint Studio* > *Packaged mule application (.jar)* > *Next*.
-. Browse for the `apikit-odata-example-master.jar` file and click *Finish*.
+. Browse for the `apikit-odata-example-main.jar` file and click *Finish*.
 . In Studio, edit the `mule-configuration.properties` file inside the `src/main/resources` folder, and set the following properties to access the local MySQL database:
 +
 [source,html,linenums]

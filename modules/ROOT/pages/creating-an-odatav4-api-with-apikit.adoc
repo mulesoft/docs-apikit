@@ -63,11 +63,11 @@ For example, `odata-metadata.csdl.xml`:
 --
 +
 <1> `EntityType` defines the type and its properties
-<1> `key` defines which property or set of properties is the key for the entity. +
+<2> `key` defines which property or set of properties is the key for the entity. +
 For example, the entity set `Orders` is composed of two keys `OrderID` and `ShipName`.
-<1> `EntityContainer` defines the sets of exposed entities. +
+<3> `EntityContainer` defines the sets of exposed entities. +
 In this example, `Orders` and `Customers`.
-<1> `EntitySet` contains a name and EntityType. +
+<4> `EntitySet` contains a name and EntityType. +
 Both must be defined in the `schema` namespace.
 . In the Package Explorer view, right-click your *odata-metadata.csdl.xml* file > *Generate Mule OData 4 API*:
 +
@@ -76,13 +76,14 @@ image::generate-odata-v4-api.png["Window displays the previously mentioned path 
 +
 image::generated-odata-4-flow.png["The three flows created from the csdl.xml metadata file are highlighted."]
 +
-<1> The main flow that receives messages and routes the operation to the correct handler.
-<1> Five flows with `GET`, `PUT`, `POST`, and `DELETE` operations for each entity.
-<1> A flow with a `GET` operation to retrieve the collection of entities.
+[calloutlist]
+. The main flow that receives messages and routes the operation to the correct handler.
+. Five flows with `GET`, `PUT`, `POST`, and `DELETE` operations for each entity.
+. A flow with a `GET` operation to retrieve the collection of entities.
 
 == Handle OData System Query Options
 
-Within each *On Entity Request* and *On Entity Collection Request* listener you can access a `systemQueryOptions` attribute that maps to each OData query option (`$select`, `$orderBy`, `$count`, etc.). For example, to access the `$select` value you use the following expression:
+Within each *On Entity Request* and *On Entity Collection Request* listener you can access a `systemQueryOptions` attribute that maps to each OData query option (`$select`, `$orderby`, `$count`, etc.). For example, to access the `$select` value you use the following expression:
 
 [source]
 --
@@ -107,7 +108,7 @@ APIkit currently supports the following elements:
 ** $filter
 ** $select
 ** $search
-** $orderBy
+** $orderby
 ** $skip
 ** $top
 * Single entity

@@ -9,7 +9,7 @@ You can add APIkit components to an existing maven project, for example a legacy
 Familiarity with the following topics is recommended:
 
 * mvn man page or http://www.manpagez.com/man/1/mvn/[mvn help page]
-* xref:3.8@mule-runtime::using-maven-with-mule.adoc[Using Maven with Mule]
+* xref:3.9@mule-runtime::using-maven-with-mule.adoc[Using Maven with Mule]
 
 == Maven Settings File
 
@@ -76,7 +76,7 @@ The `mvn archetype` parameters define where to find the archetype.
 |`archetypeRepository` | `+http://repository.mulesoft.org/releases+`
 |===
 
-The archetype version is the APIKit project archetype and the APIKit version used for the generated artifact.
+The archetype version is the APIkit project archetype and the APIkit version used for the generated artifact.
 
 You can include the following parameters in the `mvn archetype` command, using values specific to your project.
 
