@@ -206,6 +206,18 @@ The operation builds a `where` clause based on the `$search` expression provided
 | Strict search term match | When set to `true`, it specifies that there is a match only if the field value contains exactly the same terms as the search expression.
 |====
 
+== Transforming an OData RAML API to a CSDL XML API
+
+If you were using the previous APIkit OData extension, this new APIkit feature enables you to reuse the type definition of an OData v2 API to scaffold an OData v4 API by transforming an odata.raml file to an odata.csdl.xml file automatically.
+
+In Studio, right-click your odata.raml file and select *Mule* > *Generate CSDL file*.
+
+image::generate-csdl-file.png["*Generate CSDL file* option highlighted in the Mule section when right-clicking the OData file in the Package Explorer."]
+
+APIkit generates an odata.csdl.xml file in the *api* folder.
+
+image::csdl-xml.png["*odata.csdl.xml* new file highlighted in the *api* folder, in the *Package Explorer*, and the XML code of the *odata.csdl.xml* file after its transformation."]
+
 == APIkit for OData 4 Implementation Example
 
 Download the full link:{attachmentsdir}/apikit-odata4-example.jar[apikit-odata4-example] application and run it.
