@@ -138,7 +138,7 @@ Default configuration
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behavior. |  | 
 | Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message. |  | 
 | Object Type Name | String |  The object type name |  | *x*
-| Field Name | String |  Field Name |  | 
+| Field Name | String |  The field name |  | 
 | Body Content | Any |  |  #[payload] | 
 |===
 
