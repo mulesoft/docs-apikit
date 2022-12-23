@@ -5,7 +5,7 @@ endif::[]
 
 The following examples showcase the implementation of a GraphQL service to query data using APIkit for GraphQL.
 
-To run the set of examples described below, download and run the *apikit-graphql-example* application, which loads a sample dataset in memory for testing purposes. Get more information about https://graphql.org/learn/serving-over-http/[the format of the queries sent through an HTTP POST request^].
+Before running these examples, download and run the *apikit-graphql-example* application, which loads a sample dataset in memory for testing purposes. Get more information about https://graphql.org/learn/serving-over-http/[the format of the queries sent through an HTTP POST request^].
 
 The example application is based on the following GraphQL API:
 
