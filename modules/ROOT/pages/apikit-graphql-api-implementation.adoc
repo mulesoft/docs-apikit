@@ -9,6 +9,7 @@ Before running these examples, download and run the *apikit-graphql-example* app
 
 The example application is based on the following GraphQL API:
 
+----
 type Post {
     id: ID!
     user: User
@@ -82,12 +83,13 @@ type Mutation {
     # Adds a reply to a comment
     replyToComment(commentId: ID!, userId: ID!, body: String!): Comment!
 }
-
+----
 
 == Request Queries Examples
 
 In the following example, the type *Query* defines the list of queries that the service exposes.
 
+----
 ...
 type Query {
     # Looks for a user by ID
@@ -100,7 +102,7 @@ type Query {
     allPosts: [Post]
 }
 ...
-
+----
 
 === Retrieve All the Posts
 
@@ -108,6 +110,7 @@ This use case makes a simple request for the data of each existing post.
  
 ==== Make a Query
 
+----
 {
    allPosts {
        id
@@ -115,17 +118,19 @@ This use case makes a simple request for the data of each existing post.
        body
    }
 }
-
+----
 
 ==== Trigger a Request
 
+----
 curl --location --request POST 'http://localhost:8081/graphql' \
 --header 'Content-Type: application/json' \
 --data-raw '{"query":"{allPosts{id title body}}","variables":{}}'
-
+----
 
 ==== Get a Response
 
+----
 {
    "data": {
        "allPosts": [
@@ -148,7 +153,7 @@ curl --location --request POST 'http://localhost:8081/graphql' \
        ]
    }
 }
-
+----
 
 === Retrieve All Users with Data Loader
 
@@ -156,6 +161,7 @@ This query requests the data of all users, including their address information. 
 
 ==== Make a Query
 
+----
 {
    allUsers {
        name
@@ -168,17 +174,19 @@ This query requests the data of all users, including their address information. 
        }
    }
 }
-
+----
 
 ==== Trigger a Request
 
+----
 curl --location --request POST 'http://localhost:8081/graphql' \
 --header 'Content-Type: application/json' \
 --data-raw '{"query":"{allUsers{name email website address{street city zipcode}}}","variables":{}}'
-
+----
 
 ==== Get a Response
 
+----
 {
    "data": {
        "allUsers": [
@@ -216,7 +224,7 @@ curl --location --request POST 'http://localhost:8081/graphql' \
        ]
    }
 }
-
+----
 
 === Retrieve a Post by ID
 
@@ -224,6 +232,7 @@ This query example requests the post data by its ID, including the post comments
 
 ==== Make a Query
 
+----
 {
    getPost(id: 10) {
        id
@@ -243,17 +252,19 @@ This query example requests the post data by its ID, including the post comments
        }
    }
 }
-
+----
 
 ==== Trigger a Request
 
+----
 curl --location --request POST 'http://localhost:8081/graphql' \
 --header 'Content-Type: application/json' \
 --data-raw '{"query":"{getPost(id:10){id user{username}title body comments{user{username}body replies{body}}}}","variables":{}}'
-
+----
 
 ==== Get a Response
 
+----
 {
    "data": {
        "getPost": {
@@ -282,12 +293,13 @@ curl --location --request POST 'http://localhost:8081/graphql' \
        }
    }
 }
-
+----
 
 == Request Mutations Examples
 
 The type *Mutation* defines the list of mutations that the service enables.
 
+----
 ...
 type Mutation {
     # Creates a new user
@@ -300,7 +312,7 @@ type Mutation {
     replyToComment(commentId: ID!, userId: ID!, body: String!): Comment!
 }
 ...
-
+----
 
 === Create a New Post
 
@@ -308,6 +320,7 @@ This example request creates a new post and asks for some information on it.
 
 ==== Make a Query
 
+----
 mutation CreatePost($userId: ID!, $title: String!, $body: String!) {
    createPost(userId: $userId,title: $title,body: $body) { 
        id
@@ -321,26 +334,29 @@ mutation CreatePost($userId: ID!, $title: String!, $body: String!) {
        }
    }
 }
-
+----
 
 ==== Make Variables
 
+----
 {
    "userId": 42,
    "title": "GraphQL by example",
    "body": "Let's talk about GraphQL"
 }
-
+----
 
 ==== Trigger a Request
 
+----
 curl --location --request POST 'http://localhost:8081/graphql' \
 --header 'Content-Type: application/json' \
 --data-raw '{"query":"mutation CreatePost($userId:ID!,$title:String!,$body:String!){createPost(userId:$userId,title:$title,body:$body){id user{username}title body comments{body}}}","variables":{"userId":42,"title":"GraphQL by example","body":"Let'\''s talk about GraphQL"}}'
-
+----
 
 ==== Get a Response
 
+----
 {
    "data": {
        "createPost": {
@@ -354,7 +370,7 @@ curl --location --request POST 'http://localhost:8081/graphql' \
        }
    }
 }
-
+----
 
 === Add a Comment to the New Post
 
@@ -362,6 +378,7 @@ This use case posts a comment in reply to the post created in the previous step.
 
 ==== Make a Query
 
+----
 mutation PostComment($userId: ID!, $postId: ID!, $body: String!) {
    postComment(userId: $userId, postId: $postId, body: $body) {
        id
@@ -379,16 +396,17 @@ mutation PostComment($userId: ID!, $postId: ID!, $body: String!) {
        }
    }
 }
-
+----
 
 ==== Make Variables
 
+----
 {
    "userId": 34,
    "postId": 101,
    "body": "Nice post! Thanks for sharing! It's just what I was looking for"
 }
-
+----
 
 ==== Trigger a Request
 
@@ -396,9 +414,9 @@ curl --location --request POST 'http://localhost:8081/graphql' \
 --header 'Content-Type: application/json' \
 --data-raw '{"query":"mutation PostComment($userId:ID!,$postId:ID!,$body:String!){postComment(userId:$userId,postId:$postId,body:$body){id body post{id title comments{id user{username}body}}}}","variables":{"userId":34,"postId":101,"body":"Nice post! Thanks for sharing! It'\''s just what I was looking for"}}'
 
-
 ==== Get a Response
 
+----
 {
    "data": {
        "postComment": {
@@ -420,7 +438,7 @@ curl --location --request POST 'http://localhost:8081/graphql' \
        }
    }
 }
-
+----
 
 === Reply to the New Comment in the Post
 
@@ -428,6 +446,7 @@ This example request adds a comment of the user that created the original post i
 
 ==== Make a Query
 
+----
 mutation ReplyToComment($commentId: ID!, $userId: ID!, $body: String!) {
    replyToComment(commentId: $commentId, userId: $userId, body: $body) {
        id
@@ -449,26 +468,29 @@ mutation ReplyToComment($commentId: ID!, $userId: ID!, $body: String!) {
        }  
    }
 }
-
+----
 
 ==== Make Variables
 
+----
 {
    "commentId": 201,
    "userId": 42,
    "body": "Thank you!"
 }
-
+----
 
 ==== Trigger a Request
 
+----
 curl --location --request POST 'http://localhost:8081/graphql' \
 --header 'Content-Type: application/json' \
 --data-raw '{"query":"mutation ReplyToComment($commentId:ID!,$userId:ID!,$body:String!){replyToComment(commentId:$commentId,userId:$userId,body:$body){id body post{id title comments{id body replies{id user{username}body}}}}}","variables":{"commentId":201,"userId":42,"body":"Thank you!"}}'
-
+----
 
 ==== Get a Response
 
+----
 {
    "data": {
        "replyToComment": {
@@ -496,9 +518,7 @@ curl --location --request POST 'http://localhost:8081/graphql' \
        }
    }
 }
-
-
-
+----
 
 == See Also
 
