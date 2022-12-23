@@ -44,7 +44,7 @@ The module provides a set of operations that are fundamental for the correct des
 
 === Route Queries
 
-The “Route” operation is the entry point of a GraphQL service. It parses, validates, and executes the query by traversing the graph and calling the data fetcher and data loaders required to fulfill the query result.
+The *Route* operation is the entry point of a GraphQL service. It parses, validates, and executes the query by traversing the graph and calling the data fetcher and data loaders required to fulfill the query result.
 
 === Serialize Data Fetchers
 
