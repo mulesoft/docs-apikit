@@ -1,4 +1,4 @@
-= Mapping a GraphQL API to your Data Sources
+= Mapping a GraphQL API to Your Data Sources
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
