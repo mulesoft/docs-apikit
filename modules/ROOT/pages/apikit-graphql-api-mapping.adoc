@@ -33,7 +33,7 @@ As data fetchers, data loaders are also sources of Mule flows. They batch reques
 
 Data loaders solve the optimization issue of the N+1 requests when implementing GraphQL APIs. This issue occurs when N additional query statements are executed to fetch data that could have been retrieved when performing the first query.
 
-At run time, the module looks for a data fetcher first. If it is not available, it looks for a data loader. Specifically, in case a data fetcher and a data loader exist for the same object type, it uses the data fetcher as the first choice for resolving a field. Note that this can impact your API performance because the data fetcher keeps getting invoked N+1 times.
+At run time, the module looks for a data fetcher first. If it is not available, it looks for a data loader. Specifically, in case a data fetcher and a data loader exist for the same object type, the module uses the data fetcher as the first choice for resolving a field. This process can impact your API performance because the data fetcher keeps getting invoked N+1 times.
 
 == Choose Operations
 
