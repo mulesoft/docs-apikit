@@ -162,7 +162,7 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration you use. | | *x*
-| Object Type Name | String |  Object Type Name |  | *x*
+| Object Type Name | String |  The object type name |  | *x*
 | Config Ref | ConfigurationProvider |  The name of the configuration you use to execute this component. |  | *x*
 | Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in cluster. |  | 
 | Redelivery Policy | <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message. |  | 
