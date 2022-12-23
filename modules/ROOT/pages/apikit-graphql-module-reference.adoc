@@ -137,7 +137,7 @@ Default configuration
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behavior. |  | 
 | Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message. |  | 
-| Object Type Name | String |  Object Type Name |  | *x*
+| Object Type Name | String |  The object type name |  | *x*
 | Field Name | String |  Field Name |  | 
 | Body Content | Any |  |  #[payload] | 
 |===
