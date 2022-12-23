@@ -224,7 +224,7 @@ Default configuration
 | Max Redelivery Count a| Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering a "Process failed" message. |  | 
 | Message Digest Algorithm a| String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  | 
 | Message Identifier | <<RedeliveryPolicyMessageIdentifier>> | Defines which strategy is used to identify the messages. |  | 
-| Object Store | ObjectStore | The object store where the redelivery counter for each message is going to be stored. |  | 
+| Object Store | ObjectStore | The object store where the redelivery counter for each message is stored. |  | 
 |======================
 
 === Redelivery Policy Message Identifier
