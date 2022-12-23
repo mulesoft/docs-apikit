@@ -77,7 +77,7 @@ Default configuration
 | Inbound Content | Any |  |  #[payload] | 
 | Config Ref | ConfigurationProvider |  The name of the configuration you use to execute this component. |  | *x*
 | Object Type Name | String |  The object type name |  | *x*
-| Field Name | String |  Field Name |  | 
+| Field Name | String |  The field name |  | 
 | Target Variable | String |  The name of a variable on which the operation output is placed. |  | 
 | Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
 |===
