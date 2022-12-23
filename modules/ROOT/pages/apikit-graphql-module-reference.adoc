@@ -152,6 +152,7 @@ Default configuration
 ==== For Configurations
 
 * <<Config>> 
+
 === Data Loader
 
 `<graphql-router:data-loader>`
