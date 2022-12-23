@@ -410,9 +410,11 @@ mutation PostComment($userId: ID!, $postId: ID!, $body: String!) {
 
 ==== Trigger a Request
 
+----
 curl --location --request POST 'http://localhost:8081/graphql' \
 --header 'Content-Type: application/json' \
 --data-raw '{"query":"mutation PostComment($userId:ID!,$postId:ID!,$body:String!){postComment(userId:$userId,postId:$postId,body:$body){id body post{id title comments{id user{username}body}}}}","variables":{"userId":34,"postId":101,"body":"Nice post! Thanks for sharing! It'\''s just what I was looking for"}}'
+----
 
 ==== Get a Response
 
