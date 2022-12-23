@@ -48,11 +48,11 @@ The *Route* operation is the entry point of a GraphQL service. It parses, valida
 
 === Serialize Data Fetchers
 
-The “Serialize” operation occurs at the end of a flow that has a data fetcher source. The same pair of keys that identify the data fetcher (object type name and field name) identifies it. 
+The *Serialize* operation occurs at the end of a flow that has a data fetcher source. The same pair of keys that identify the data fetcher (object type name and field name) identifies it. 
 
 === Serialize Batch Data Loaders
 
-The “Serialize Batch” operation occurs at the end of a flow that has a data loader source. The same key that identifies the data loader (object type name) identifies it. 
+The *Serialize Batch* operation occurs at the end of a flow that has a data loader source. The same key that identifies the data loader (object type name) identifies it. 
 
 NOTE: *Serialize* and *Serialize Batch* operations leverage the use of data sense at design time.
 
