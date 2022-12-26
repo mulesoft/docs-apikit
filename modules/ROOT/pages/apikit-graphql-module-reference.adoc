@@ -210,11 +210,11 @@ Default configuration
 |======================
 | Field | Type | Description | Default Value | Required
 | In Memory Size | Number | Defines the maximum memory that the stream should use to keep data in memory. If more is consumed, it starts to buffer the content on disk. |  | 
-| Buffer Unit | Enumeration, one of:
-** BYTE
-** KB
-** MB
-** GB | The unit in which maxInMemorySize is expressed |  | 
+| Buffer Unit a| Enumeration, one of:
+* BYTE
+* KB
+* MB
+* GB  | The unit in which maxInMemorySize is expressed |  | 
 |======================
 
 === Redelivery Policy
