@@ -55,7 +55,3 @@ The *Serialize* operation occurs at the end of a flow that has a data fetcher so
 The *Serialize Batch* operation occurs at the end of a flow that has a data loader source. The same key that identifies the data loader (object type name) identifies it. 
 
 *Serialize* and *Serialize Batch* operations leverage the use of data sense at design time.
-
-== See Also
-
-* xref:doc.adoc[Some Relevant Doc Article]
