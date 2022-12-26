@@ -6,8 +6,10 @@ endif::[]
 == Select Sources
 
 The module sources vary depending on the implementation of your GraphQL API. APIkit for GraphQL provides two kind of sources:
+
 * Data Fetchers
 * Data Loaders
+
 Your selection depends on your implementation needs. 
 
 GraphQL is transport-layer agnostic, so you choose the main connector listener depending on the protocol that you want to serve your data.
@@ -38,6 +40,7 @@ At run time, the module looks for a data fetcher first. If it is not available, 
 == Choose Operations
 
 The module provides a set of operations that are fundamental for the correct design and execution of a GraphQL API implementation:
+
 * Route
 * Serialize
 * Serialize Batch
