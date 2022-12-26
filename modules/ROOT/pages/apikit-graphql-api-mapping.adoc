@@ -1,12 +1,1 @@
-= Mapping a GraphQL API to your Data Sources
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
 
-== Select Sources
-
-The module sources vary depending on the implementation of your GraphQL API. APIkit for GraphQL provides two kind of sources:
-* Data Fetchers
-* Data Loaders
-Your selection depends on your implementation needs. 
-In addition, GraphQL is transport-layer agnostic so you choose the main connector listener depending on the protocol that you want to serve your data.
