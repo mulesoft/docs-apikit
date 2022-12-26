@@ -134,7 +134,8 @@ Default configuration
 | Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
 | Config Ref | ConfigurationProvider |  The name of the configuration you use to execute this component. |  | *x*
 | Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in cluster. |  | 
-| Streaming Strategy | * <<RepeatableInMemoryStream>>
+| Streaming Strategy a| 
+* <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behavior. |  | 
 | Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message. |  | 
