@@ -102,7 +102,7 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration you use. | | *x*
-| Object Type Name | String |  |  | *x*
+| Object Type Name | String | The object type name |  | *x*
 | Inbound Content | Any |  |  #[payload] | 
 | Config Ref | ConfigurationProvider |  The name of the configuration you use to execute this component. |  | *x*
 | Target Variable a| String |  The name of a variable on which the operation output is placed. |  | 
