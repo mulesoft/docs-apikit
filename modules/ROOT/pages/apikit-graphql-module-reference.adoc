@@ -48,7 +48,8 @@ Default configuration
 | Output MIME Type | String |  The MIME type of the payload that this operation outputs. |  | 
 | Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
 | Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
-| Streaming Strategy | * <<RepeatableInMemoryStream>>
+| Streaming Strategy  a| 
+* <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behavior. |  | 
 | Target Variable | String |  The name of a variable on which the operation output is placed. |  | 
