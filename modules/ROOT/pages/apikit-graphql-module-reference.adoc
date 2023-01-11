@@ -1,1 +1,244 @@
+= APIkit for GraphQL Module Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
+== Configurations
+---
+
+=== Config
+
+Default configuration
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*
+| API definition | String | Defines the path to the API definition resource, e.g.: resource::7ddfc767-c5b3-4583-9997-a468e251acd2:posts:1.0.0:graphql:zip:api.graphql |  | *x*
+| Introspection Enabled | Boolean | Enables schema introspection. | false | 
+| Max Query Depth Allowed | Number | The maximum depth a query can have. The value must be greater than 1. | 100 | 
+| Max Query Complexity Allowed | Number | The maximum number of data fields a query can include. The value must be greater than 1. | 100 | 
+| Name | String | The identifier of this element is used to reference it in other components. |  | *x*
+|===
+
+==== Associated Operations
+
+* xref:apikit-graphql-module-reference.adoc#route[Route]
+* xref:apikit-graphql-module-reference.adoc#serialize[Serialize]
+* xref:apikit-graphql-module-reference.adoc#serializebatch[Serialize Batch] 
+
+==== Associated Sources
+
+* xref:apikit-graphql-module-reference.adoc#data-fetcher[Data Fetcher] 
+* xref:apikit-graphql-module-reference.adoc#data-loader[Data Loader] 
+
+== Operations
+
+=== Route
+
+`<graphql-router:route>`
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*
+| Content | Any | Content of the message (usually, the payload). | #[payload] | 
+| Output MIME Type | String | The MIME type of the payload that this operation outputs. |  | 
+| Output Encoding | String | The encoding of the payload that this operation outputs. |  | 
+| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
+| Streaming Strategy | 
+* xref:apikit-graphql-module-reference.adoc#repeatable-in-memory-stream[Repeatable In Memory Stream] 
+* xref:apikit-graphql-module-reference.adoc#repeatable-file-store-stream[Repeatable File Store Stream]
+* Non-Repeatable Stream | Configure if repeatable streams should be used and their behavior. |  | 
+| Target Variable | String | The name of a variable on which the operation output is placed. |  | 
+| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. | #[payload] | 
+|===
+
+==== Output
+
+|===
+| *Type* | Any
+|===
+
+==== For Configurations
+
+* xref:apikit-graphql-module-reference.adoc#config[Config]
+
+=== Serialize
+
+`<graphql-router:serialize>`
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration you use. | | *x*
+| Inbound Content | Any | Content of the message (usually, the payload). | #[payload] | 
+| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
+| Object Type Name | String | The object-type name. |  | *x*
+| Field Name | String | The field name. |  | 
+| Target Variable | String | The name of a variable on which the operation output is placed. |  | 
+| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. | #[payload] | 
+|===
+
+==== Output
+
+|===
+| *Type* | Any
+|===
+
+==== For Configurations
+
+* xref:apikit-graphql-module-reference.adoc#config[Config]
+
+=== Serialize Batch
+
+`<graphql-router:serialize-batch>`
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration you use. | | *x*
+| Object Type Name | String | The object-type name. |  | *x*
+| Inbound Content | Any | Content of the message (usually, the payload). | #[payload] | 
+| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
+| Target Variable | String | The name of a variable on which the operation output is placed. |  | 
+| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. | #[payload] | 
+|===
+
+==== Output
+
+|===
+| *Type* | Any
+|===
+
+==== For Configurations
+
+* xref:apikit-graphql-module-reference.adoc#config[Config]
+
+== Sources
+
+=== Data Fetcher
+
+`<graphql-router:data-fetcher>`
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration you use. | | *x*
+| Output MIME Type | String | The MIME type of the payload that this operation outputs. |  | 
+| Output Encoding | String | The encoding of the payload that this operation outputs. |  | 
+| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
+| Primary Node Only | Boolean | Whether this source should only be executed on the primary node when running in cluster. |  | 
+| Streaming Strategy | 
+* xref:apikit-graphql-module-reference.adoc#repeatable-in-memory-stream[Repeatable In Memory Stream] 
+* xref:apikit-graphql-module-reference.adoc#repeatable-file-store-stream[Repeatable File Store Stream]
+* Non-Repeatable Stream | Configure if repeatable streams should be used and their behavior. |  | 
+| Redelivery Policy | xref:apikit-graphql-module-reference.adoc#redelivery-policy[Redelivery Policy] | Defines a policy for processing the redelivery of the same message. |  | 
+| Object Type Name | String | The object-type name |  | *x*
+| Field Name | String | The field name. |  | 
+| Body Content | Any | Content of the message (usually, the payload). | #[payload] | 
+|===
+
+==== Output
+
+|===
+| *Type* | Any
+| *Attributes Type* | * xref:apikit-graphql-module-reference.adoc#data-fetcher-attributes[Data Fetcher Attributes] 
+|===
+
+==== For Configurations
+
+* xref:apikit-graphql-module-reference.adoc#config[Config] 
+
+=== Data Loader
+
+`<graphql-router:data-loader>`
+
+==== Parameters
+
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration you use. | | *x*
+| Object Type Name | String | The object-type name. |  | *x*
+| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
+| Primary Node Only | Boolean | Whether this source should only be executed on the primary node when running in cluster. |  | 
+| Redelivery Policy | xref:apikit-graphql-module-reference.adoc#redelivery-policy[Redelivery Policy] | Defines a policy for processing the redelivery of the same message. |  | 
+| Body Content | Any | Content of the message (usually, the payload). | #[payload] | 
+|===
+
+==== Output
+
+|===
+| *Type* | Array of Any
+|===
+
+==== For Configurations
+
+* xref:apikit-graphql-module-reference.adoc#config[Config] 
+
+== Types
+
+=== Data Fetcher Attributes
+
+|======================
+| Field | Type | Description | Default Value | Required
+| Alias | String | Alias of the queried field. |  | false
+| Arguments | Object | Arguments of the queried field. |  | false
+| Selected Fields | Object | Map of subfields selected from this compound type. |  | 
+| Source | Any | Actual value of the fetched field parent. |  | false
+|======================
+
+=== Repeatable In Memory Stream
+
+|======================
+| Field | Type | Description | Default Value | Required
+| Initial Buffer Size | Number | This is the amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than buffer capacity, then it is expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  | 
+| Buffer Size Increment | Number | This is by how much buffer size is expanded if it exceeds its initial size. Setting a value of zero or lower means that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised when the buffer gets full. |  | 
+| Max Buffer Size | Number | This is the maximum amount of memory used. If more is used, a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised. A value lower or equal to zero means no limit. |  | 
+| Buffer Unit | Enumeration, one of:
+
+* BYTE
+* KB
+* MB
+* GB 
+
+| These attributes are expressed in this unit. |  | 
+|======================
+
+=== Repeatable File Store Stream
+
+|======================
+| Field | Type | Description | Default Value | Required
+| In Memory Size | Number | Defines the maximum memory that the stream should use to keep data in memory. If more is consumed, it starts to buffer the content on disk. |  | 
+| Buffer Unit | Enumeration, one of:
+
+* BYTE
+* KB
+* MB
+* GB 
+
+| The unit in which maxInMemorySize is expressed |  | 
+|======================
+
+=== Redelivery Policy
+
+|======================
+| Field | Type | Description | Default Value | Required
+| Max Redelivery Count | Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering a "Process failed" message. |  | 
+| Message Digest Algorithm | String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  | 
+| Message Identifier | * xref:apikit-graphql-module-reference.adoc#redelivery-policy-message-identifier[Redelivery Policy Message Identifier] | Defines which strategy is used to identify the messages. |  | 
+| Object Store | ObjectStore | The object store where the redelivery counter for each message is stored. |  | 
+|======================
+
+=== Redelivery Policy Message Identifier
+
+|======================
+| Field | Type | Description | Default Value | Required
+| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message. |  | 
+| Id Expression | String | Defines one or more expressions to use to determine when a message has been redelivered. This property may only be set if useSecureHash is false. |  | 
+|======================
