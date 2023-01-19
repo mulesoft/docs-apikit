@@ -1,15 +1,38 @@
 .xref:index.adoc[About APIkit]
+//The "overview-4.adoc" file should be renamed to "overview.adoc" since it will include the overview for APIkit v3 and v4.
 * xref:overview-4.adoc[Overview]
+
+//The "apikit4-for-graphql.adoc" file should be renamed to "apikit-for-graphql.adoc" since this overview will explain that APIkit for GraphQL is compatible only with Mule 4.
 * xref:apikit4-for-graphql.adoc[APIkit for GraphQL]
+
+//Level 3 article - No change needed
  ** xref:apikit-graphql-api-mapping.adoc[Mapping a GraphQL API to your Data Sources]
+
+//Level 3 article - No change needed
  ** xref:apikit-graphql-api-implementation.adoc[Querying a GraphQL API implementation]
+
+//Level 3 article - No change needed
  ** xref:apikit-graphql-module-reference.adoc[APIkit for GraphQL Module Reference]
+
+//The "apikit4-for-odatav2.adoc" file should be renamed to "apikit-for-odatav2.adoc" since the overview will explain that APIkit for OData is compatible with Mule 3 and Mule 4.
 * xref:apikit4-for-odatav2.adoc[APIkit for OData v2]
+
+//The "creating-an-odata-api-with-apikit.adoc" file should be renamed to "creating-an-odatav2-api-with-apikit.adoc" because there is another file for creating and OData4 API.
  ** xref:creating-an-odata-api-with-apikit.adoc[Create an OData v2 API with APIkit]
+
+//The "apikit-odata-extension-reference.adoc" file should be renamed to "apikit-odatav2-extension-reference.adoc" because there is another file for OData4 extension reference.
  ** xref:apikit-odata-extension-reference.adoc[APIkit OData v2 Extension Reference]
+
+//The "apikit4-for-odatav4.adoc" file should be renamed to "apikit-for-odatav4.adoc" since the overview will explain that APIkit for OData is compatible with Mule 4.
 * xref:apikit4-for-odatav4.adoc[APIkit for OData v4]
+
+//Level 3 article - No change needed
  ** xref:creating-an-odatav4-api-with-apikit.adoc[Create an OData v4 API with APIkit]
+
+//Level 4 article - This level is not permitted. This article should be included in some other article, or it should be moved one level up.
   *** xref:apikit-odatav4-expand-feature.adoc[Implement the $expand Feature]
+
+
  ** xref:apikit-odatav4-extension-reference.adoc[APIkit OData v4 Extension Reference]
 * xref:apikit3-for-restv3.adoc[APIkit for REST v3]
 * xref:apikit4-for-restv4.adoc[APIkit for REST v4]
