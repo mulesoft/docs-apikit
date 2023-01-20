@@ -23,12 +23,12 @@ In this example:
 
 Given this setup, the following requests retrieve employees and their managers:
 
-* Use `+GET https://example.com/api/Employees+`+ to retrieve a list of employees.
+* Use `+GET https://example.com/api/Employees+` to retrieve a list of employees.
 * Gather the `Manager` IDs through the `ReferentialConstraint` of their relationship.
 * Use `+GET https://example.com/api/Managers?$filter=ManagerID in (id1, id2, ..., idN)+` to retrieve a list of related managers.
 * Write a small program to merge the lists based on join criteria.
 
-If using the `$expand` feature, request is `+GET https://example.com/api/Employees?$expand=Manager+`+ to retrieve a list of employees with their `Manager` navigation property expanded.
+If using the `$expand` feature, request is `+GET https://example.com/api/Employees?$expand=Manager+` to retrieve a list of employees with their `Manager` navigation property expanded.
 
 == The `generic expand` Feature
 
