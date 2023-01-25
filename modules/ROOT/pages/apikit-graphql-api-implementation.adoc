@@ -318,7 +318,7 @@ type Mutation {
 
 === Create a New Post
 
-This example request creates a new post and asks for some information on it.
+This example request creates a new post and asks for some information about it.
 
 ==== Make a Query
 
