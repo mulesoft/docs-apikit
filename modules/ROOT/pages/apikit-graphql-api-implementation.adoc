@@ -376,7 +376,7 @@ curl --location --request POST 'http://localhost:8081/graphql' \
 
 === Add a Comment to the New Post
 
-This use case posts a comment in reply to the post created in the previous step. It also asks for the service to return the body of the comment created and the original post with its list of comments to check that the new one is included.
+This example posts a comment in a reply to the post created in the previous step. It also asks for the service to return the body of the comment created and the original post with its list of comments to check that the new one is included.
 
 ==== Make a Query
 
