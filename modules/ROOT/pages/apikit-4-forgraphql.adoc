@@ -13,7 +13,7 @@ At run time, the APIkit for GraphQL router analyzes the query graph and orchestr
 
 == See Also
 
-* xref:anypoint-code-builder::implement-an-api-specification.adoc[Implement a GraphQL API specification]
+* xref:anypoint-code-builder::implement-a-graphql-api.adoc[Implement a GraphQL API specification]
 * xref:apikit-graphql-api-mapping.adoc[Mapping a GraphQL API to your Data Sources]
 * xref:apikit-graphql-api-implementation.adoc[Querying a GraphQL API implementation]
 * xref:apikit-graphql-module-reference.adoc[APIkit for GraphQL Module Reference]
