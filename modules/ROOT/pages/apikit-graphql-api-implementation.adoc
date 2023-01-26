@@ -338,7 +338,7 @@ mutation CreatePost($userId: ID!, $title: String!, $body: String!) {
 }
 ----
 
-==== Make Variables
+==== Make a Variable
 
 ----
 {
@@ -400,7 +400,7 @@ mutation PostComment($userId: ID!, $postId: ID!, $body: String!) {
 }
 ----
 
-==== Make Variables
+==== Make a Variable
 
 ----
 {
@@ -474,7 +474,7 @@ mutation ReplyToComment($commentId: ID!, $userId: ID!, $body: String!) {
 }
 ----
 
-==== Make Variables
+==== Make a Variable
 
 ----
 {
