@@ -17,7 +17,7 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*
-| API definition | String | Defines the path to the API definition resource, e.g.: resource::7ddfc767-c5b3-4583-9997-a468e251acd2:posts:1.0.0:graphql:zip:api.graphql |  | *x*
+| API definition | String | Defines the path to the API definition resource, for example: `resource::7ddfc767-c5b3-4583-9997-a468e251acd2:posts:1.0.0:graphql:zip:api.graphql` |  | *x*
 | Introspection Enabled | Boolean | Enables schema introspection. | false | 
 | Max Query Depth Allowed | Number | The maximum depth a query can have. The value must be greater than 1. | 100 | 
 | Max Query Complexity Allowed | Number | The maximum number of data fields a query can include. The value must be greater than 1. | 100 | 
