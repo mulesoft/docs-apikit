@@ -446,7 +446,7 @@ curl --location --request POST 'http://localhost:8081/graphql' \
 
 === Reply to the New Comment in the Post
 
-This example request adds a comment of the user that created the original post in response to the previous comment. The query asks the service to return all the information of the post in addition to the new reply.
+This request example creates a reply in response to the comment posted in the previous step. The query asks the service to return all the information of the post in addition to the new reply.
 
 ==== Make a Query
 
