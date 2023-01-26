@@ -224,7 +224,7 @@ Default configuration
 * MB
 * GB 
 
-| The unit in which maxInMemorySize is expressed |  | 
+| The unit for expressing `maxInMemorySize` |  | 
 |======================
 
 === Redelivery Policy
