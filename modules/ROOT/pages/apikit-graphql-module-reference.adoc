@@ -242,5 +242,5 @@ Default configuration
 |======================
 | Field | Type | Description | Default Value | Required
 | Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message. |  | 
-| Id Expression | String | Defines one or more expressions to use to determine when a message has been redelivered. This property may only be set if useSecureHash is false. |  | 
+| Id Expression | String | Expressions to use to determine when a message has been redelivered. You can only set this property if useSecureHash is false. |  | 
 |======================
