@@ -159,7 +159,7 @@ curl --location --request POST 'http://localhost:8081/graphql' \
 
 === Retrieve All Users with Data Loader
 
-This query requests the data of all users, including their address information. In terms of implementation, this example uses a Data Loader to fetch the addresses of each user in only one request.
+This query requests the data of all users, including their address information. This example uses a Data Loader to fetch the addresses of each user with one request.
 
 ==== Make a Query
 
