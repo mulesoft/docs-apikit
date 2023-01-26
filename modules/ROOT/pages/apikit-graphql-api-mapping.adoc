@@ -33,7 +33,7 @@ You can add data fetchers for every object field defined on the schema, regardle
 
 As data fetchers, data loaders are also sources of Mule flows. They batch requests related to an object type. Unlike data fetchers, a unique key identifies them:
 
-* *Object type name*: The name of one of the object types in your schema.
+* *Object type name*: One of the object types in your schema
 
 Data loaders solve the optimization issue of the N+1 requests when implementing GraphQL APIs. This issue occurs when N additional query statements are executed to fetch data that could have been retrieved when performing the first query.
 
