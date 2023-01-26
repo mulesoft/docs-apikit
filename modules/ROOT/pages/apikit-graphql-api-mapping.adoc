@@ -47,15 +47,15 @@ The module provides a set of operations that are fundamental for the correct des
 * Serialize
 * Serialize Batch
 
-=== Route Queries
+=== Route a Query
 
 The *Route* operation is the entry point of a GraphQL service. It parses, validates, and executes the query by traversing the graph and calling the data fetcher and data loaders required to fulfill the query result.
 
-=== Serialize Data Fetchers
+=== Serialize a Data Fetcher
 
 The *Serialize* operation occurs at the end of a flow that has a data fetcher source. The same pair of keys that identify the data fetcher (object type name and field name) identifies it. 
 
-=== Serialize Batch Data Loaders
+=== Serialize Batch a Data Loader
 
 The *Serialize Batch* operation occurs at the end of a flow that has a data loader source. The same key that identifies the data loader (object type name) identifies it. 
 
