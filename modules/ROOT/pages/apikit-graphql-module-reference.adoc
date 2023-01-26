@@ -200,7 +200,7 @@ Default configuration
 |======================
 | Field | Type | Description | Default Value | Required
 | Initial Buffer Size | Number | This is the amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than buffer capacity, then it is expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  | 
-| Buffer Size Increment | Number | This is by how much buffer size is expanded if it exceeds its initial size. Setting a value of zero or lower means that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised when the buffer gets full. |  | 
+| Buffer Size Increment | Number | How much buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn't expand. When the buffer is full, a STREAM_MAXIMUM_SIZE_EXCEEDED error occurs. |  | 
 | Max Buffer Size | Number | This is the maximum amount of memory used. If more is used, a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised. A value lower or equal to zero means no limit. |  | 
 | Buffer Unit | Enumeration, one of:
 
