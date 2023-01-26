@@ -233,7 +233,7 @@ Default configuration
 | Field | Type | Description | Default Value | Required
 | Max Redelivery Count | Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering a "Process failed" message. |  | 
 | Message Digest Algorithm | String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  | 
-| Message Identifier | * xref:apikit-graphql-module-reference.adoc#redelivery-policy-message-identifier[Redelivery Policy Message Identifier] | Defines which strategy is used to identify the messages |  | 
+| Message Identifier | * xref:apikit-graphql-module-reference.adoc#redelivery-policy-message-identifier[Redelivery Policy Message Identifier] | The strategy to use to identify the messages |  | 
 | Object Store | ObjectStore | The object store where the redelivery counter for each message is stored |  | 
 |======================
 
