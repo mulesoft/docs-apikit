@@ -45,17 +45,17 @@ Default configuration
 
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*
-| Content | Any | Content of the message (usually, the payload). | #[payload] | 
-| Output MIME Type | String | The MIME type of the payload that this operation outputs. |  | 
-| Output Encoding | String | The encoding of the payload that this operation outputs. |  | 
-| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
+| Configuration | String | The name of the configuration to use | | *x*
+| Content | Any | Content of the message (usually, the payload) | #[payload] | 
+| Output MIME Type | String | The MIME type of the payload that this operation outputs |  | 
+| Output Encoding | String | The encoding of the payload that this operation outputs |  | 
+| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component |  | *x*
 | Streaming Strategy | 
 * xref:apikit-graphql-module-reference.adoc#repeatable-in-memory-stream[Repeatable In Memory Stream] 
 * xref:apikit-graphql-module-reference.adoc#repeatable-file-store-stream[Repeatable File Store Stream]
-* Non-Repeatable Stream | Configure if repeatable streams should be used and their behavior. |  | 
-| Target Variable | String | The name of a variable on which the operation output is placed. |  | 
-| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. | #[payload] | 
+* Non-Repeatable Stream | Configure repeatable streaming strategy |  | 
+| Target Variable | String | The name of a variable on which the operation output is placed |  | 
+| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | #[payload] | 
 |===
 
 ==== Output
@@ -76,13 +76,13 @@ Default configuration
 
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration you use. | | *x*
-| Inbound Content | Any | Content of the message (usually, the payload). | #[payload] | 
-| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
-| Object Type Name | String | The object-type name. |  | *x*
-| Field Name | String | The field name. |  | 
-| Target Variable | String | The name of a variable on which the operation output is placed. |  | 
-| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. | #[payload] | 
+| Configuration | String | The name of the configuration you use | | *x*
+| Inbound Content | Any | Content of the message (usually, the payload) | #[payload] | 
+| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component |  | *x*
+| Object Type Name | String | The object-type name |  | *x*
+| Field Name | String | The field name |  | 
+| Target Variable | String | The name of a variable on which the operation output is placed |  | 
+| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | #[payload] | 
 |===
 
 ==== Output
@@ -103,12 +103,12 @@ Default configuration
 
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration you use. | | *x*
-| Object Type Name | String | The object-type name. |  | *x*
-| Inbound Content | Any | Content of the message (usually, the payload). | #[payload] | 
-| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
-| Target Variable | String | The name of a variable on which the operation output is placed. |  | 
-| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. | #[payload] | 
+| Configuration | String | The name of the configuration you use | | *x*
+| Object Type Name | String | The object-type name |  | *x*
+| Inbound Content | Any | Content of the message (usually, the payload) | #[payload] | 
+| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component |  | *x*
+| Target Variable | String | The name of a variable on which the operation output is placed |  | 
+| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | #[payload] | 
 |===
 
 ==== Output
@@ -131,19 +131,19 @@ Default configuration
 
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration you use. | | *x*
-| Output MIME Type | String | The MIME type of the payload that this operation outputs. |  | 
-| Output Encoding | String | The encoding of the payload that this operation outputs. |  | 
-| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
-| Primary Node Only | Boolean | Whether this source should only be executed on the primary node when running in cluster. |  | 
+| Configuration | String | The name of the configuration you use | | *x*
+| Output MIME Type | String | The MIME type of the payload that this operation outputs |  | 
+| Output Encoding | String | The encoding of the payload that this operation outputs |  | 
+| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component |  | *x*
+| Primary Node Only | Boolean | Whether this source should only be executed on the primary node when running in cluster |  | 
 | Streaming Strategy | 
 * xref:apikit-graphql-module-reference.adoc#repeatable-in-memory-stream[Repeatable In Memory Stream] 
 * xref:apikit-graphql-module-reference.adoc#repeatable-file-store-stream[Repeatable File Store Stream]
-* Non-Repeatable Stream | Configure if repeatable streams should be used and their behavior. |  | 
-| Redelivery Policy | xref:apikit-graphql-module-reference.adoc#redelivery-policy[Redelivery Policy] | Defines a policy for processing the redelivery of the same message. |  | 
+* Non-Repeatable Stream | Configure repeatable streaming strategy |  | 
+| Redelivery Policy | xref:apikit-graphql-module-reference.adoc#redelivery-policy[Redelivery Policy] | Defines a policy for processing the redelivery of the same message |  | 
 | Object Type Name | String | The object-type name |  | *x*
-| Field Name | String | The field name. |  | 
-| Body Content | Any | Content of the message (usually, the payload). | #[payload] | 
+| Field Name | String | The field name |  | 
+| Body Content | Any | Content of the message (usually, the payload) | #[payload] | 
 |===
 
 ==== Output
@@ -165,12 +165,12 @@ Default configuration
 
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration you use. | | *x*
-| Object Type Name | String | The object-type name. |  | *x*
-| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component. |  | *x*
-| Primary Node Only | Boolean | Whether this source should only be executed on the primary node when running in cluster. |  | 
-| Redelivery Policy | xref:apikit-graphql-module-reference.adoc#redelivery-policy[Redelivery Policy] | Defines a policy for processing the redelivery of the same message. |  | 
-| Body Content | Any | Content of the message (usually, the payload). | #[payload] | 
+| Configuration | String | The name of the configuration you use | | *x*
+| Object Type Name | String | The object-type name |  | *x*
+| Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component |  | *x*
+| Primary Node Only | Boolean | Whether this source should only be executed on the primary node when running in cluster |  | 
+| Redelivery Policy | xref:apikit-graphql-module-reference.adoc#redelivery-policy[Redelivery Policy] | Defines a policy for processing the redelivery of the same message |  | 
+| Body Content | Any | Content of the message (usually, the payload) | #[payload] | 
 |===
 
 ==== Output
@@ -189,10 +189,10 @@ Default configuration
 
 |======================
 | Field | Type | Description | Default Value | Required
-| Alias | String | Alias of the queried field. |  | false
-| Arguments | Object | Arguments of the queried field. |  | false
-| Selected Fields | Object | Map of subfields selected from this compound type. |  | 
-| Source | Any | Actual value of the fetched field parent. |  | false
+| Alias | String | Alias of the queried field |  | false
+| Arguments | Object | Arguments of the queried field |  | false
+| Selected Fields | Object | Map of subfields selected from this compound type |  | 
+| Source | Any | Actual value of the fetched field parent |  | false
 |======================
 
 === Repeatable In Memory Stream
@@ -233,14 +233,14 @@ Default configuration
 | Field | Type | Description | Default Value | Required
 | Max Redelivery Count | Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering a "Process failed" message. |  | 
 | Message Digest Algorithm | String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  | 
-| Message Identifier | * xref:apikit-graphql-module-reference.adoc#redelivery-policy-message-identifier[Redelivery Policy Message Identifier] | Defines which strategy is used to identify the messages. |  | 
-| Object Store | ObjectStore | The object store where the redelivery counter for each message is stored. |  | 
+| Message Identifier | * xref:apikit-graphql-module-reference.adoc#redelivery-policy-message-identifier[Redelivery Policy Message Identifier] | Defines which strategy is used to identify the messages |  | 
+| Object Store | ObjectStore | The object store where the redelivery counter for each message is stored |  | 
 |======================
 
 === Redelivery Policy Message Identifier
 
 |======================
 | Field | Type | Description | Default Value | Required
-| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message. |  | 
+| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  | 
 | Id Expression | String | Expressions to use to determine when a message has been redelivered. You can only set this property if useSecureHash is false. |  | 
 |======================
