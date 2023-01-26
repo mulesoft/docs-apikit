@@ -89,7 +89,7 @@ type Mutation {
 
 == Request Queries Examples
 
-In the following example, the type *Query* defines the list of queries that the service exposes.
+In the following example, the type *Query* defines the list of queries that the service exposes:
 
 ----
 ...
