@@ -64,7 +64,7 @@ Default configuration
 | *Type* | Any
 |===
 
-==== For Configurations
+==== Configurations
 
 * xref:apikit-graphql-module-reference.adoc#config[Config]
 
@@ -91,7 +91,7 @@ Default configuration
 | *Type* | Any
 |===
 
-==== For Configurations
+==== Configurations
 
 * xref:apikit-graphql-module-reference.adoc#config[Config]
 
@@ -117,7 +117,7 @@ Default configuration
 | *Type* | Any
 |===
 
-==== For Configurations
+==== Configurations
 
 * xref:apikit-graphql-module-reference.adoc#config[Config]
 
@@ -153,7 +153,7 @@ Default configuration
 | *Attributes Type* | * xref:apikit-graphql-module-reference.adoc#data-fetcher-attributes[Data Fetcher Attributes] 
 |===
 
-==== For Configurations
+==== Configurations
 
 * xref:apikit-graphql-module-reference.adoc#config[Config] 
 
@@ -179,7 +179,7 @@ Default configuration
 | *Type* | Array of Any
 |===
 
-==== For Configurations
+==== Configurations
 
 * xref:apikit-graphql-module-reference.adoc#config[Config] 
 
