@@ -299,7 +299,7 @@ curl --location --request POST 'http://localhost:8081/graphql' \
 
 == Request Mutations Examples
 
-The type *Mutation* defines the list of mutations that the service enables.
+The *Mutation* type defines the list of mutations that the service enables.
 
 ----
 ...
