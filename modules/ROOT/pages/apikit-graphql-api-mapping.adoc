@@ -18,7 +18,7 @@ GraphQL is transport-layer agnostic, so you choose the main connector listener d
 
 === Add a Listener
 
-The inbound endpoint that triggers the main application flow is the connector listener specific to the client-server protocol of your choice. It is common that GraphQL communicates over HTTP, so APIkit scaffolder generates an HTTP listener by default, but you can choose another source for serving your data over a different protocol.
+The inbound endpoint that triggers the main application flow is the connector listener specific to the client-server protocol of your choice. GraphQL often communicates over HTTP, so APIkit scaffolder generates an HTTP listener by default, but you can choose another source for serving your data over a different protocol.
 
 === Add a Data Fetcher
 
