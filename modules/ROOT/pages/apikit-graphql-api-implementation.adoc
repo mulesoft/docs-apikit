@@ -108,7 +108,7 @@ type Query {
 
 === Retrieve All Posts
 
-This use case makes a simple request for the data of each existing post.
+This use case makes a simple request for the data of each existing post:
  
 ==== Make a Query
 
