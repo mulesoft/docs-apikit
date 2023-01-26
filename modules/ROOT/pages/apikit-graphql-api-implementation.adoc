@@ -106,7 +106,7 @@ type Query {
 ...
 ----
 
-=== Retrieve All the Posts
+=== Retrieve All Posts
 
 This use case makes a simple request for the data of each existing post.
  
