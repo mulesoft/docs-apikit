@@ -216,7 +216,7 @@ Default configuration
 
 |======================
 | Field | Type | Description | Default Value | Required
-| In Memory Size | Number | Defines the maximum memory that the stream should use to keep data in memory. If more is consumed, it starts to buffer the content on disk. |  | 
+| In Memory Size | Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on disk. |  | 
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
