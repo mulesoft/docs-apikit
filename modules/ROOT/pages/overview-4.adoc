@@ -1,55 +1,37 @@
-= APIkit 4.x Overview
+= About APIkit
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: apikit-4-index.adoc
 
-If you’re an APIkit 3.x user, you can get up and running quickly with APIkit 4.x. Basic use hasn’t changed. Key improvements and changes in this release are:
+APIkit is a toolkit that simplifies the development of API-led applications for Mule developers. It scaffolds applications from a given specification, validates inputs parameter validation, and creates MUnit test suites. APIkit has a module for each supported web service:
 
-* APIkit is now a Mule plugin.
-+
-** MuleSoft can update APIkit in a timely manner, independent from Mule Runtime updates.
-** To use a different APIkit version, just change the dependency in the POM.
-+
-image::apikit-pom.png["pom.xml file highlighted in the *Package Explorer*.",height=522,width=396]
-+
-* The API folder is located under resources. API definition files are no longer duplicated in the root folder.
-+
-image::api-folder.png["Pom file highlighted in the target folder, in the Package Explorer tab."]
-+
-* API Console 4.0 that simulates calls to the API is not embedded in Studio.
-+
-You enter a URL, which appears when you run the API, to open API Console in a browser.
-* Some APIkit XML elements and attributes, listed in the "APIkit XML Reference" changed.
-* Error handling aligns with Mule Runtime 4.0.
-* APIkit 4.x removes the following APIkit 3.x properties:
-** `consolePath`
-** `consoleEnabled`
+* APIkit for GraphQL supports GraphQL APIs. 
+* APIkit for OData v2 and APIkit for OData v4 support OData APIs. 
+* APIkit for REST supports RAML and OAS APIs.
+* APIkit for SOAP supports SOAP APIs. 
 
+Although each module is designed for a family of web services, all modules share common usage patterns. So if you are a Mule developer that works with SOAP APIs, you can easily get used to working with GraphQL, RAML, OData, or OAS APIs.
 
-== APIkit Distribution
+== Features
 
-The timing of future improvements and fixes are no longer constrained by Studio or Mule Runtime release schedules. In Studio, you use the installation wizard to check for updates. To change an APIkit version, just change the dependency in the POM of your application with the latest version of the module.
+* APIkit generates the structure of a Mule application based on a supported API specification.
+* APIkit includes sources and operations that perform complex input validations according to the requirements described in the API specification.
+* APIkit for REST module includes an API console that enables you to experiment with the * API project as you develop it.
 
-[source,xml,linenums]
-----
-<dependency>
-  <groupId>org.mule.modules</groupId>
-  <artifactId>mule-apikit-module</artifactId>
-  <version>1.1.0</version>
-  <classifier>mule-plugin</classifier>
-</dependency>
-----
+== Prerequisites
 
-== Customize APIkit
+You need to have access to Studio or ACB to scaffold a supported API specification with APIkit.
 
-You can customize the configuration of APIkit. For example, you can change the host, port, path, and scheme by editing the listener and listener-config in the configuration.xml of the project.
+== APIkit versions
 
+APIkit is designed to work as a module with Mule runtime version 4. Documentation for the Mule 3 implementation of APIkit is available here. If you use APIkit on Mule 3, the module version matches the runtime version.
+By default, Studio includes APIkit for REST and APIkit for SOAP modules. If you need GraphQL or OData modules, follow the installation instructions in each section.
 
 == See Also
+* APIkit for GraphQL
+* APIkit for OData
+* APIkit for REST
+* APIkit for SOAP
+* APIkit version 3
 
-* xref:apikit-simulate.adoc[To Simulate API Calls using API Console]
-* xref:validate-4-task.adoc[Validate Query Parameters and Headers Using APIkit]
-* xref:customize-console-url-4-task.adoc[To Customize the API Console URL]
-* xref:configure-headers4-task.adoc[To Configure Headers]
-* xref:execute-nonfunctional-requirements-4-task.adoc[To Execute Non-functional Requirements]
+Source link: https://docs.google.com/document/d/1mtyZ_9E8-4UbKlfqfHz6NTsfKFTY2Z8ma3-fMcsDRGc/edit?usp=sharing

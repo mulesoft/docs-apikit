@@ -3,13 +3,35 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit is a tool for building Mule REST or SOAP APIs. You develop APIs based on one of the following modeling languages:
+APIkit is a toolkit that simplifies the development of API-led applications for Mule developers. It scaffolds applications from a given specification, validates inputs parameter validation, and creates MUnit test suites. APIkit has a module for each supported web service:
 
-* RESTful API Modeling Language (RAML) 1.0 and 0.8 versions
-* Web Service Description Language (WSDL)
+* APIkit for GraphQL supports GraphQL APIs. 
+* APIkit for OData v2 and APIkit for OData v4 support OData APIs. 
+* APIkit for REST supports RAML and OAS APIs.
+* APIkit for SOAP supports SOAP APIs. 
 
-APIkit simplifies the design and implementation of REST APIs. APIkit generates minimal Mule flows based on either a RAML or WSDL that meet the communication operations required by a REST or web service contract, respectively.
+Although each module is designed for a family of web services, all modules share common usage patterns. So if you are a Mule developer that works with SOAP APIs, you can easily get used to working with GraphQL, RAML, OData, or OAS APIs.
 
-MuleSoft recommends Design Center for creating and synching RAML code; however, Studio includes a RAML editor that provides syntax validation and suggestions if you want to perform the entire development within Studio. For generating flows using APIkit, use Studio to automate the flow generation process, or you can create APIkit flows for Mule in an XML editor.
+== Features
 
-APIkit projects can run onsite or on CloudHub. After generating the API, you can simulate calls using API Console.
+* APIkit generates the structure of a Mule application based on a supported API specification.
+* APIkit includes sources and operations that perform complex input validations according to the requirements described in the API specification.
+* APIkit for REST module includes an API console that enables you to experiment with the * API project as you develop it.
+
+== Prerequisites
+
+You need to have access to Studio or ACB to scaffold a supported API specification with APIkit.
+
+== APIkit versions
+
+APIkit is designed to work as a module with Mule runtime version 4. Documentation for the Mule 3 implementation of APIkit is available here. If you use APIkit on Mule 3, the module version matches the runtime version.
+By default, Studio includes APIkit for REST and APIkit for SOAP modules. If you need GraphQL or OData modules, follow the installation instructions in each section.
+
+== See Also
+* APIkit for GraphQL
+* APIkit for OData
+* APIkit for REST
+* APIkit for SOAP
+* APIkit version 3
+
+Source link: https://docs.google.com/document/d/1mtyZ_9E8-4UbKlfqfHz6NTsfKFTY2Z8ma3-fMcsDRGc/edit?usp=sharing
