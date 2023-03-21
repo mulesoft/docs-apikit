@@ -1,0 +1,62 @@
+= Mapping a GraphQL API to Your Data Sources
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+include::reuse::partial$beta-banner.adoc[tag="apikit"]
+
+== Select Sources
+
+The module sources vary depending on the implementation of your GraphQL API. APIkit for GraphQL provides two kind of sources:
+
+* Data Fetchers
+* Data Loaders
+
+Your selection depends on your implementation needs. 
+
+GraphQL is transport-layer agnostic, so you choose the main connector listener depending on the protocol that you want to serve your data.
+
+=== Add a Listener
+
+The inbound endpoint that triggers the main application flow is the connector listener specific to the client-server protocol of your choice. GraphQL often communicates over HTTP, so APIkit scaffolder generates an HTTP listener by default, but you can choose another source for serving your data over a different protocol.
+
+=== Add a Data Fetcher
+
+Data fetchers are sources of Mule flows. They fulfill the data of a single-object field in a query result. The combination of the following key parts identify them:
+
+* *Object type name*: One of the object types in your schema
+* *Field name*: One of the fields that are part of the object type
+
+You can add data fetchers for every object field defined on the schema, regardless of the field type. If the Mule application does not have a data fetcher configured for a field, the parent type populates the field value. Otherwise, the client-requested data is not fulfilled, resulting in `null`.
+
+=== Add a Data Loader
+
+As data fetchers, data loaders are also sources of Mule flows. They batch requests related to an object type. Unlike data fetchers, a unique key identifies them:
+
+* *Object type name*: One of the object types in your schema
+
+Data loaders solve the optimization issue of the N+1 requests when implementing GraphQL APIs. This issue occurs when N additional query statements are executed to fetch data that could have been retrieved when performing the first query.
+
+At run time, the module looks for a data fetcher first. If the data fetcher is not available, the module looks for a data loader. Specifically, in case a data fetcher and a data loader exist for the same object type, the module uses the data fetcher as the first choice for resolving a field. This process can impact your API performance because the data fetcher keeps getting invoked N+1 times.
+
+== Choose Operations
+
+The module provides a set of operations that are fundamental for the correct design and execution of a GraphQL API implementation:
+
+* Route
+* Serialize
+* Serialize Batch
+
+=== Route a Query
+
+The *Route* operation is the entry point of a GraphQL service. It parses, validates, and executes the query by traversing the graph and calling the data fetcher and data loaders required to fulfill the query result.
+
+=== Serialize a Data Fetcher
+
+The *Serialize* operation occurs at the end of a flow that has a data fetcher source. The same pair of keys that identify the data fetcher (object type name and field name) identifies it. 
+
+=== Serialize Batch a Data Loader
+
+The *Serialize Batch* operation occurs at the end of a flow that has a data loader source. The same key that identifies the data loader (object type name) identifies it. 
+
+*Serialize* and *Serialize Batch* operations leverage the use of data sense at design time.
