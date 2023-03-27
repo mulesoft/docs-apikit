@@ -1,4 +1,7 @@
 = APIkit for OData
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
 APIkit supports OData (Open Data Protocol) versions 2.0 and 4.0 to create HTTP-based data services.
 

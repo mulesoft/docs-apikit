@@ -1,0 +1,41 @@
+= APIkit Compatibility
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The following table outlines the compatibility between APIkit versions, their respective supported web services, and the corresponding Mule versions:
+
+|===
+|Module |APIkit v3 |APIkit v4
+|APIkit for GraphQL |N/A |Mule 4 
+|APIkit for OData v2 |Mule 3 |Mule 4 
+|APIkit for OData v4 |N/A |Mule 4 
+|APIkit for REST |Mule 3 |Mule 4 
+|APIkit for SOAP |Mule 3 |Mule 4 
+|===
+
+== Language and Protocol Support
+
+* RESTful API Modeling Language (RAML): 1.0 and 0.8
+* OpenAPI Specification (OAS): 2.0 and 3.0
+* OData: 2.0 and 4.0
+* SOAP: 1.1 and 1.2
+If you are interested in APIkit for Mule 3 please refer to the Mule 3 overview.
+
+== Next Steps
+
+Depending on the language and protocols you want to use to develop your Mule application, choose the APIkit module that best suits your needs.
+
+* APIkit for GraphQL
+* APIkit for OData
+* APIkit for REST
+* APIkit for SOAP
+* APIkit version 3
+
+== See Also
+
+* APIkit for GraphQL
+* APIkit for OData
+* APIkit for REST
+* APIkit for SOAP
+* APIkit version 3
