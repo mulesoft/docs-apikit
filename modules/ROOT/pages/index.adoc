@@ -28,10 +28,9 @@ APIkit is designed to work as a module with Mule runtime version 4. Documentatio
 By default, Studio includes APIkit for REST and APIkit for SOAP modules. If you need GraphQL or OData modules, follow the installation instructions in each section.
 
 == See Also
-* APIkit for GraphQL
-* APIkit for OData
-* APIkit for REST
-* APIkit for SOAP
-* APIkit version 3
 
-Source link: https://docs.google.com/document/d/1mtyZ_9E8-4UbKlfqfHz6NTsfKFTY2Z8ma3-fMcsDRGc/edit?usp=sharing
+* xref:apikit-4-forgraphql.adoc[]
+* xref:apikit4-for-odatav2.adoc[APIkit for OData v2]
+* xref:apikit4-for-odatav4.adoc[]
+* xref:overview-apikit-for-rest.adoc[APIkit for REST]
+* xref:apikit-for-soap.adoc[APIkit for SOAP]
