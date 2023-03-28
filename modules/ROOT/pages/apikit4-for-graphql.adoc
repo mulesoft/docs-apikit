@@ -1,4 +1,4 @@
-= APIkit for GraphQL Overview
+= APIkit for GraphQL
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

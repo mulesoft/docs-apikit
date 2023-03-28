@@ -5,6 +5,7 @@ endif::[]
 
 The following table outlines the compatibility between APIkit versions, their respective supported web services, and the corresponding Mule versions:
 
+[%header,cols="s,a"]
 |===
 |Module |APIkit v3 |APIkit v4
 |APIkit for GraphQL |N/A |Mule 4 
