@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit is a toolkit that simplifies the development of API-led applications for Mule developers. It scaffolds applications from a given specification, validates inputs parameter validation, and creates https://docs.mulesoft.com/munit/2.3/munit-scaffold-test-task[MUnit test suites]. APIkit has a module for each supported web service:
+APIkit is a toolkit that simplifies the development of API-led applications for Mule developers. It scaffolds applications from a given specification, validates inputs parameter validation, and creates xref:munit::munit-scaffold-test-task.adoc[MUnit test suites]. APIkit has a module for each supported web service:
 
 * xref:apikit-4-forgraphql.adoc[APIkit for GraphQL] supports GraphQL APIs. 
 * xref:apikit4-for-odatav2.adoc[APIkit for OData v2] and xref:apikit4-for-odatav4.adoc[APIkit for OData v4] support OData APIs. 
@@ -17,11 +17,11 @@ Although each module is designed for a family of web services, all modules share
 * APIkit generates the structure of a Mule application based on a supported API specification.
 * APIkit includes sources and operations that perform complex input validations according to the requirements described in the API specification.
 * APIkit for REST module includes an API console that enables you to experiment with the API project as you develop it.
-* Some APIkit modules include extensions for https://docs.mulesoft.com/studio/latest/[Anypoint Studio] and https://docs.mulesoft.com/anypoint-code-builder/[Anypoint Code Builder] for enhancing your editing experience if you choose to use the supported development environments.
+* Some APIkit modules include extensions for xref:studio::index.adoc[Anypoint Studio] and xref:code-builder::index.adoc[Anypoint Code Builder] for enhancing your editing experience if you choose to use the supported development environments.
 
 == Prerequisites
 
-You need to have access to Studio or ACB to scaffold a supported API specification with APIkit.
+You need to have access to xref:studio::index.adoc[Anypoint Studio] or xref:code-builder::index.adoc[Anypoint Code Builder] to scaffold a supported API specification with APIkit.
 
 == APIkit versions
 
