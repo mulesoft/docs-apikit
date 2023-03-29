@@ -39,7 +39,7 @@
 * xref:creating-an-apikit-4-project-with-maven.adoc[Creating an APIkit Project with Maven]
 * xref:apikit-retrieve-raml.adoc[Retrieving RAML Resources Reference]
 * xref:handle-errors-4-concept.adoc[Error Handling]
-* xref:apikit-error-handling-reference.adoc[Error Handling Reference]
+ ** xref:apikit-error-handling-reference.adoc[Error Handling Reference]
 * xref:apikit-4-xml-reference.adoc[APIkit 4.x XML Reference]
 * xref:apikit-4-tasks-index.adoc[Key APIkit 4.x Tasks]
  ** xref:validate-4-task.adoc[Validate Query Parameters and Headers Using APIkit]
