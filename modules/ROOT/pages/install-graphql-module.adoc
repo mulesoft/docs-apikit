@@ -3,4 +3,19 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-TBD
+To install APIkit for GraphQL in Anypoint Studio:
+
+. Select *Help* > *Install New Software*.
+. Click *Add...*
++
+image::add-update-site.png["Window for installing new software with the Add button highlighted."]
+. In the *Name* field, type `APIkit for GraphQL Update Site`.
+. In the *Location* field, type the URL corresponding to the GraphQL version that you want to install.
+. Click *Add*.
++
+image::add-repository-odata.png["Window for adding a repository with the Add button and the name and location fields highlighted."]
+. Select the *Anypoint GraphQL Plugin* box, and click *Next*.
++
+image::select-odata-extension.png["Window highlighting the Anypoint OData plugin field and the Next button."]
+. Accept the terms and conditions of the product, then click *Finish*.
+. Restart Studio to complete the installation.
