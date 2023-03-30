@@ -5,7 +5,7 @@ endif::[]
 
 The following table outlines the compatibility between APIkit versions, their respective supported web services, and the corresponding Mule versions:
 
-[%header,cols="s,a"]
+[%header]
 |===
 |Module |APIkit v3 |APIkit v4
 |APIkit for GraphQL |N/A |Mule 4 
@@ -27,16 +27,9 @@ If you are interested in APIkit for Mule 3 please refer to the Mule 3 overview.
 
 Depending on the language and protocols you want to use to develop your Mule application, choose the APIkit module that best suits your needs.
 
-* APIkit for GraphQL
-* APIkit for OData
-* APIkit for REST
-* APIkit for SOAP
-* APIkit version 3
-
-== See Also
-
-* APIkit for GraphQL
-* APIkit for OData
-* APIkit for REST
-* APIkit for SOAP
-* APIkit version 3
+* xref:apikit-4-forgraphql.adoc[]
+* xref:apikit4-for-odatav2.adoc[]
+* xref:apikit4-for-odatav4.adoc[]
+* xref:overview-apikit-for-rest.adoc[]
+* xref:apikit-for-soap.adoc[]
+* https://docs.mulesoft.com/apikit/3.x/[APIkit version 3]
