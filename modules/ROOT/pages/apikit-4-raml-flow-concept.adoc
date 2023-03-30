@@ -1,4 +1,4 @@
-= About Generating RAML-based Flows
+= Generating RAML-based Flows
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

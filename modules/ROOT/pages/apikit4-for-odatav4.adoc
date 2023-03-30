@@ -1,1 +1,6 @@
-= TBD
+= APIkit for OData v4
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+TBD

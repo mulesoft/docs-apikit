@@ -1,4 +1,7 @@
 = Create an OData v4 API
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
 The OData MySQL example shows you how to use an HTTP-based data service to query a MySQL database.
 

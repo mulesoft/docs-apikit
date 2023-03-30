@@ -1,5 +1,7 @@
 = APIkit OData Extension Reference
-:keywords: apikit, apikit extension, odata, apikit odata reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
 The Entity Data Model (EDM) that you create using RAML is the basis for building an OData API. You use EDM-compatible data types to create the `odata.raml` file, as described in this reference. After generating flows using the APIkit OData Extension, you need to implement API endpoints.
 
