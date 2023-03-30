@@ -1,4 +1,7 @@
 = Implement the $expand Feature
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
 The `$expand` system query option reduces the amount of incoming network traffic and makes APIs easier to consume. Because API consumers request only inline representations of the related entities of query results, the returned information avoids multiple network roundtrips. This benefits metered and latency-sensitive consumers.
 

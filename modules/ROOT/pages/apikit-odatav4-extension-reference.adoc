@@ -1,4 +1,7 @@
 = APIkit for OData v4 Module Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
 == Configurations
 ---

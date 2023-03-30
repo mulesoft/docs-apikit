@@ -1,4 +1,4 @@
-= Workflow: Creating, Testing, and Implementing an API
+= Creating, Testing, and Implementing an API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
