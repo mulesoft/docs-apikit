@@ -2,7 +2,6 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: apikit, maven, raml
 
 You can add APIkit components to an existing maven project, for example a legacy project that you want to modernize using RAML and APIkit by using Maven commands. You need to have http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html[Apache Maven] installed on your local system.
 

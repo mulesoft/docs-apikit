@@ -2,7 +2,6 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: apikit, maven
 
 This reference contains dependency, namespace, schema, and other information about APIkit.
 

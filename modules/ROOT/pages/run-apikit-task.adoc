@@ -11,4 +11,4 @@ The application deploys and you can now simulate calling the API using APIkit Co
 
 == See Also
 
-* xref:apikit-simulate.adoc[To Simulate API Calls]
+* xref:apikit-simulate.adoc[]

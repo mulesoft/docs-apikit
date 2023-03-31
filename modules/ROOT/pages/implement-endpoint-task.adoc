@@ -41,4 +41,4 @@ Next, filter the list of users by ID.
 
 == See Also
 
-* xref:filter-users-id-task.adoc[To Filter Users By ID Using a Parameter]
+* xref:filter-users-id-task.adoc[]

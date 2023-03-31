@@ -63,5 +63,5 @@ Now, you are ready to implement the endpoint.
 
 == See Also
 
-* xref:implement-endpoint-task.adoc[To Implement the Endpoint]
-* xref:run-apikit-task.adoc[To Run an APIkit Project]
+* xref:implement-endpoint-task.adoc[]
+* xref:run-apikit-task.adoc[]

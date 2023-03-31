@@ -5,8 +5,7 @@ endif::[]
 
 APIkit generates error-handling code based on the main error handling mechanism in Mule 4. If something goes wrong with a component, you get an error that is typed accordingly with a message. The generated code is available for the most widely-used HTTP status code responses, which are mapped to the types and error messages in the following table.
 
-
-[%header,cols="10a,60a,30a"]
+[%header]
 |===
 | Status Code | Type| Message
 | 400 | APIKIT:BAD_REQUEST | Bad request

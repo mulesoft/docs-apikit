@@ -2,8 +2,6 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: apikit, apikit extension, odata
-:page-aliases: implement-endpoints-odata-task.adoc
 
 The OData MySQL example shows you how to use an HTTP-based data service to query a MySQL database.
 
@@ -90,7 +88,6 @@ Call the REST API to retrieve the list of customers:
 ----
 http://localhost:8081/api/customers
 ----
-
 
 The response is:
 [source,JSON,linenums]
@@ -287,5 +284,5 @@ The output for each flow must conform to the following format:
 
 == See Also
 
-* xref:apikit-odata-extension-reference.adoc[APIkit OData Extension Reference]
-* xref:runtime-manager::deploying-to-cloudhub.adoc[Deploying to CloudHub]
+* xref:apikit-odata-extension-reference.adoc[]
+* xref:runtime-manager::deploying-to-cloudhub.adoc[]

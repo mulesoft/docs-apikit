@@ -31,4 +31,4 @@ URL: `+http://localhost:8081/console/api/types/raml-types.raml?raml+`
 
 == See Also
 
-* xref:retrieve-raml-task.adoc[To Retrieve RAML Files]
+* xref:retrieve-raml-task.adoc[]

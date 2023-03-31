@@ -50,4 +50,4 @@ Next, add a service to get only user names
 
 == See Also
 
-* xref:add-names-service-task.adoc[To Add a Service to Get Only User Names]
+* xref:add-names-service-task.adoc[]
