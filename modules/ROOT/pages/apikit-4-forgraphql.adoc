@@ -1,4 +1,4 @@
-= APIkit for GraphQL Overview
+= APIkit for GraphQL
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -13,7 +13,7 @@ At run time, the APIkit for GraphQL router analyzes the query graph and orchestr
 
 == See Also
 
-* xref:anypoint-code-builder::implement-a-graphql-api.adoc[Implement a GraphQL API Specification]
-* xref:apikit-graphql-api-mapping.adoc[Mapping a GraphQL API to Your Data Sources]
-* xref:apikit-graphql-api-implementation.adoc[Querying a GraphQL API Implementation]
-* xref:apikit-graphql-module-reference.adoc[APIkit for GraphQL Module Reference]
+* xref:anypoint-code-builder::implement-a-graphql-api.adoc[]
+* xref:apikit-graphql-api-mapping.adoc[]
+* xref:apikit-graphql-api-implementation.adoc[]
+* xref:apikit-graphql-module-reference.adoc[]

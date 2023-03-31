@@ -13,7 +13,6 @@ Supports sending custom headers with the response.
 +
 Supports sending a custom HTTP status code in the response.
 
-
 == Add a Header to a Response
 
 Put the header you want to add inside the `outboundHeaders` map, as shown in the following example:
@@ -29,9 +28,7 @@ Put the header you want to add inside the `outboundHeaders` map, as shown in the
 </ee:transform>
 ----
 
-
 == See Also
 
-
-* xref:apikit-simulate.adoc[To Simulate API Calls using API Console]
-* xref:validate-4-task.adoc[Validate Query Parameters and Headers Using APIkit]
+* xref:apikit-simulate.adoc[]
+* xref:validate-4-task.adoc[]

@@ -2,7 +2,6 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: api, raml, json
 
 This workflow uses the free online REST service JSONPlaceholder at `+http://jsonplaceholder.typicode.com+` for example purposes.  The JSONPlaceholder service provides user information in JSON format. You design a RAML API specification and create an APIkit project in Studio based on the RAML. You simulate calls to the API, and add logic to implement the project as a Mule app. Resources are /users and /userbyid. The /users resource gets all user information. The /userbyid resource gets a particular user's information.
 
@@ -21,5 +20,5 @@ Alternatively, you can use a text editor instead of Design Center to create the 
 
 == See Also
 
-* xref:retrieve-raml-task.adoc[To Retrieve RAML Files]
-* http://jsonplaceholder.typicode.com[JSONPlaceholder]
+* xref:retrieve-raml-task.adoc[]
+* http://jsonplaceholder.typicode.com[]

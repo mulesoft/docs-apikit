@@ -2,7 +2,6 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: apikit-4-update-wsdl-task.adoc
 
 This process walks you through the creation of a new Mule project based on a SOAP API specification.
 
@@ -40,4 +39,4 @@ If you update your WSDL file, you can regenerate your flows:
 
 == See Also
 
-* xref:apikit-4-soap-prerequisites-task.adoc[To Meet Prerequisites for Using APIkit for Soap]
+* xref:apikit-4-soap-prerequisites-task.adoc[]

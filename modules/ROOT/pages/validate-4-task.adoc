@@ -2,7 +2,6 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-partial:
 
 This process assumes that you have generated flows using APIkit in Studio.
 
@@ -31,4 +30,4 @@ image::disable-verifications-apikit.png["Disable verifications option highlighte
 
 == See Also
 
-* xref:apikit-4-tasks-index.adoc[Key APIkit Tasks]
+* xref:apikit-4-tasks-index.adoc[]

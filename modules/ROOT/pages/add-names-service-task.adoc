@@ -29,4 +29,4 @@ Next, test the API Implementation.
 
 == See Also
 
-* xref:test-api-task.adoc[To Test the API Implementation]
+* xref:test-api-task.adoc[]

@@ -18,4 +18,4 @@ For this workflow, download the link:{attachmentsdir}/tshirt2.wsdl[WSDL tshirt2.
 
 == See Also
 
-* Next xref:apikit-4-soap-project-task.adoc[Create an APIkit for SOAP Project]
+* xref:apikit-4-soap-project-task.adoc[]

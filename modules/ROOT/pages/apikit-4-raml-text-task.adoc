@@ -2,7 +2,6 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: apikit-4-json-text-task.adoc
 
 This task shows you how to create a sample RAML specification using a plain text editor:
 
@@ -90,4 +89,4 @@ version: 1.0
 
 == See Also
 
-* xref:apikit-4-generate-workflow.adoc[Workflow: Generating a Mule Flow from an API Specification]
+* xref:apikit-4-generate-workflow.adoc[]

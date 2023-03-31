@@ -13,4 +13,4 @@ In this procedure, you view the code of the API specification and dependent file
 
 == See Also
 
-* xref:apikit-retrieve-raml.adoc[Retrieving RAML Resources Reference]
+* xref:apikit-retrieve-raml.adoc[]

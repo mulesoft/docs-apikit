@@ -99,6 +99,6 @@ Now, you are ready to run the new project and simulate calls using API Console.
 
 == See Also
 
-* xref:apikit-4-generate-workflow.adoc[Workflow: Generating a Mule Flow from an API Specification]
-* xref:run-apikit-task.adoc[To Run an APIkit Project]
-* xref:apikit-simulate.adoc[To Simulate API Calls]
+* xref:apikit-4-generate-workflow.adoc[]
+* xref:run-apikit-task.adoc[]
+* xref:apikit-simulate.adoc[]
