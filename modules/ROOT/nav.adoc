@@ -17,7 +17,7 @@
  ** xref:apikit-odatav4-extension-reference.adoc[APIkit OData v4 Extension Reference]
 * xref:overview-apikit-for-rest.adoc[APIkit for REST]
  ** xref:apikit-4-raml-flow-concept.adoc[Generating RAML-based Flows]
- ** xref:apikit-4-generate-workflow.adoc[Generating a Mule Flow from an API Specification]
+ ** xref:apikit-4-generate-workflow.adoc[Creating, Testing, and Implementing an API]
  ** xref:apikit-4-raml-text-task.adoc[Create a RAML Specification Using a Plain Text Editor]
   *** xref:start-project-task.adoc[To Start an APIkit Project]
   *** xref:run-apikit-task.adoc[To Run an APIkit Project]
