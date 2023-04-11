@@ -14,6 +14,4 @@ At run time, the APIkit for GraphQL router analyzes the query graph and orchestr
 == See Also
 
 * xref:anypoint-code-builder::implement-a-graphql-api.adoc[]
-* xref:apikit-graphql-api-mapping.adoc[]
-* xref:apikit-graphql-api-implementation.adoc[]
-* xref:apikit-graphql-module-reference.adoc[]
+* xref:install-graphql-module.adoc[]
