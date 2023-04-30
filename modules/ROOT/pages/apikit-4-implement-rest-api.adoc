@@ -1,14 +1,14 @@
-= Creating, Implementing and Testing a REST API
+= Creating, Implementing, and Testing a REST API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This workflow will guide you through the process of creating, implementing and testing a REST API.
+This workflow guides you through the process of creating, implementing, and testing a REST API.
 
-For example purposes we are using the free online REST service JSONPlaceholder at `+https://jsonplaceholder.typicode.com+`, which provides mocked user information in JSON format.
+For example purposes, this workflow uses the free online REST service https://jsonplaceholder.typicode.com[{JSON} Placeholder^], which provides mocked user information in JSON format.
 
 == Prerequisites
-Make sure to have the following software before going through the steps.
+You need the following software to follow this workflow:
 
 * Anypoint Studio 7.1.4 or later
 * Mule runtime engine 4.1.1 or later
