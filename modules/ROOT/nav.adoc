@@ -17,7 +17,7 @@
  ** xref:apikit-odatav4-extension-reference.adoc[APIkit for OData v4 Extension Reference]
 * xref:overview-apikit-for-rest.adoc[APIkit for REST]
  ** xref:apikit-4-raml-flow-concept.adoc[Generating RAML-based Flows]
- ** xref:apikit-4-implement-rest-api.adoc[Creating, Implementing and Testing a REST API]
+ ** xref:apikit-4-implement-rest-api.adoc[Creating, Implementing, and Testing a REST API]
  ** xref:apikit-4-xml-reference.adoc[APIkit 4.x XML Reference]
  ** xref:apikit-workflow-convert-existing.adoc[Convert an Existing Mule Project to an APIkit Project] 
  ** xref:validate-4-task.adoc[Validate Query Parameters and Headers]
