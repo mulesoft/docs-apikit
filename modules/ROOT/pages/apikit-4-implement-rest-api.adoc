@@ -8,6 +8,7 @@ This workflow guides you through the process of creating, implementing, and test
 For example purposes, this workflow uses the free online REST service https://jsonplaceholder.typicode.com[{JSON} Placeholder^], which provides mocked user information in JSON format.
 
 == Prerequisites
+
 You need the following software to follow this workflow:
 
 * Anypoint Studio 7.1.4 or later
