@@ -114,14 +114,15 @@ image::import-from-design-center.png["The Import from Design Center tab highligh
 image::import-from-local-file.png["Import RAML from local file tab highlighted in the API implementation section."]
 * If you are importing your API specification from Exchange, select *Import a published API* > *From Exchange*.
 +
-image::import-from-exchange.png["Import a published API highlighted when clicking on the plus button to select the From Exchange option."]
+image::import-from-exchange.png["Import a published API highlighted when clicking on plus to select the From Exchange option."]
 * Make sure the `*Scaffold flows from these API specifications*` option is checked.
 . Click *Finish*.
 +
 APIkit generates the necessary flows based on the API specification you imported.
-. *Run the APIkit project*. Right-click the project, and select *Run As* > *Mule Application*.
+. *Run the APIkit project*. 
+. Right-click the project, and select *Run As* > *Mule Application*.
 . *Simulate API calls to test it*.
-. In Anypoint Studio, locate the *APIkit Consoles* view and click the `Open console` button under the base point URL `http://localhost:8081/console/`.
+. In Anypoint Studio, locate the *APIkit Consoles* view and click `Open console` under the base point URL `http://localhost:8081/console/`.
 +
 // TODO: Outdated image. Replace it.
 image::apikit-consoles.png["APIkit console tab displays the location of the basepoint URL in the window."]
@@ -141,9 +142,9 @@ image::apikit-console3.png["APIkit response",height=524,width=395]
 . In *API Summary*, expand `*/userbyid*`. 
 . Click `*GET*` for the `*/usersbyid*` resource.
 +
-. Depending on the size of the browser window or screen resolution, you will see a `*Try it*` button to expand the view for sending a request. If so, click on it.
-. The *API Console* displays a section where you can add parameters and headers to try a request. Make sure the *Show optional parameters* is checked.
-. Enter a `3` as a query parameter value for the *id* parameter and click `*Send*` button.
+. Click `*Try it*` to expand the view for sending a request.
+. The *API Console* displays a section where you can add parameters and headers to try a request. Check *Show optional parameters* if not selected.
+. Enter `3` as a query parameter value for the *id* parameter and click `*Send*`.
 +
 An HTTP 200 response indicating that the request has succeeded is displayed in addition to a response body with the JSON example for the */usersbyid* resource, which is the user information for the user having ID 3.
 +
@@ -151,7 +152,9 @@ An HTTP 200 response indicating that the request has succeeded is displayed in a
 image::apikit-console4.png["Information for the user having id 3 appears."]
 
 === Add Business Logic to the API Implementation
+
 Modify the flows to return actual data from the JSON Placeholder service instead of the examples from the API.
+
 . Drag a new Flow component from the Core palette.
 . Rename the new flow as `user_request_flow`.
 . Drag an HTTP Request component to the flow process.
