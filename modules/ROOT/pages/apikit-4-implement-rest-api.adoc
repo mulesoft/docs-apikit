@@ -1,24 +1,23 @@
-= Creating, Implementing, and Testing a REST API
+= Create a REST API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This workflow guides you through the process of creating, implementing, and testing a REST API.
+This workflow guides you through the process of designing, implementing, and testing a REST API.
 
 For example purposes, this workflow uses the free online REST service https://jsonplaceholder.typicode.com[{JSON} Placeholder^], which provides mocked user information in JSON format.
 
 == Prerequisites
 
-You need the following software to follow this workflow:
+Before you begin, ensure you have the following software:
 
 * Anypoint Studio 7.1.4 or later
 * Mule runtime engine 4.1.1 or later
 
-== Workflow
+== Design Your API Specification
 
-=== Design an API Specification
-
-Design your API specification following the steps in xref:start-project-task.adoc[API Designer from Design Center], or in xref:api-development-studio.adoc[API Specification Project] in Anypoint Studio, or using your favourite text editor:
+//The links of the following paragraph do not work. Do we have to create these pages?
+Design your API specification following the steps in xref:start-project-task.adoc[API Designer from Design Center], or in xref:api-development-studio.adoc[API Specification Project] in Anypoint Studio, or using your favorite text editor:
 
 . Create a JSON file including a list of users that serve as an example of what the service returns:
 +
@@ -49,7 +48,7 @@ Design your API specification following the steps in xref:start-project-task.ado
   }
 ]
 ----
-. Save it as `user-example.json`
+. Save it as `user-example.json`.
 . Create a new blank file with the API specification:
 +
 [source,yaml,linenums]
@@ -116,12 +115,14 @@ image::import-from-local-file.png["Import RAML from local file tab highlighted i
 * If you are importing your API specification from Exchange, select *Import a published API* > *From Exchange*.
 +
 image::import-from-exchange.png["Import a published API highlighted when clicking on plus to select the From Exchange option."]
-* Make sure the `*Scaffold flows from these API specifications*` option is checked.
+* Check the *Scaffold flows from these API specifications* option if not already checked.
 . Click *Finish*.
 +
 APIkit generates the necessary flows based on the API specification you imported.
+//Check the following steps. Bolding may be wrong.
 . *Run the APIkit project*. 
 . Right-click the project, and select *Run As* > *Mule Application*.
+//Check the following steps. Bolding may be wrong.
 . *Simulate API calls to test it*.
 . In Anypoint Studio, locate the *APIkit Consoles* view and click `Open console` under the base point URL `http://localhost:8081/console/`.
 +
@@ -133,26 +134,26 @@ image::apikit-consoles.png["APIkit console tab displays the location of the base
 // TODO: Outdated image. Replace it.
 image::apikit-console1.png["API console version info.",height=313,width=398]
 +
-. In *API Summary*, click `*GET*` for the `*/users*` resource.
+. In *API Summary*, click `GET` for the `/users` resource.
 +
-It opens the details page of the resource showing, among others, the JSON example you expect for an HTTP 200 response.
+It opens the detail page of the resource showing, among others, the JSON example you expect for an HTTP 200 response.
 +
 // TODO: Outdated image. Replace it.
 image::apikit-console3.png["APIkit response",height=524,width=395]
 +
-. In *API Summary*, expand `*/userbyid*`. 
-. Click `*GET*` for the `*/usersbyid*` resource.
+. In *API Summary*, expand `/userbyid`. 
+. Click `GET` for the `/usersbyid` resource.
 +
-. Click `*Try it*` to expand the view for sending a request.
+. Click `Try it` to expand the view for sending a request.
 . The *API Console* displays a section where you can add parameters and headers to try a request. Check *Show optional parameters* if not selected.
-. Enter `3` as a query parameter value for the *id* parameter and click `*Send*`.
+. Enter `3` as a query parameter value for the *id* parameter and click `Send`.
 +
-An HTTP 200 response indicating that the request has succeeded is displayed in addition to a response body with the JSON example for the */usersbyid* resource, which is the user information for the user having ID 3.
+An HTTP 200 response indicating that the request has succeeded is displayed in addition to a response body with the JSON example for the `/usersbyid` resource, which is the user information for the user having ID 3.
 +
 // TODO: Outdated image. Replace it.
 image::apikit-console4.png["Information for the user having id 3 appears."]
 
-=== Add Business Logic to the API Implementation
+== Add Business Logic to Your API Implementation
 
 Modify the flows to return actual data from the JSON Placeholder service instead of the examples from the API.
 
@@ -160,9 +161,9 @@ Modify the flows to return actual data from the JSON Placeholder service instead
 . Rename the new flow as `user_request_flow`.
 . Drag an HTTP Request component to the flow process.
 . In the properties editor of Request, in General, set these HTTP Request options:
-*** Method: Leave the default, `GET`
-*** Path: Set to `/users`
-*** Select the Query Parameters tab, click on `Switch to expression mode` and paste this dataweave script:
+* Method: Leave the default, `GET`
+* Path: Set to `/users`
+* Select the Query Parameters tab, click on `Switch to expression mode` and paste the following DataWeave script:
 +
 ----
 output application/java
@@ -174,13 +175,14 @@ if (not isEmpty(attributes.queryParams))
 else
 {}
 ----
-. Delete Transform Message component in `get:\users:api-config` and `get:\users\userbyid:api-config` flows.
-. Drag one Flow Reference for each flow in replacement of the previously removed Transform Message components.
-. In the properties editor of Flow Reference components, set flow name as `user_request_flow`.
+. Delete *Transform Message* component in `get:\users:api-config` and `get:\users\userbyid:api-config` flows.
+. Drag one *Flow Reference* for each flow in replacement of the previously removed *Transform Message* components.
+. In the properties editor of *Flow Reference* components, set flow name as `user_request_flow`.
 . Save changes.
 
-=== Test Your API Implementation
-. In Package Explorer, right-click the project name, and choose *Run As* > *Mule Application*.
+== Test Your API Implementation
+
+. In Package Explorer, right-click the project name and choose *Run As* > *Mule Application*.
 . Open a browser, and go to `+http://localhost:8081/api/users+`.
 +
 All user information from the JSONPlaceholder service is returned:
@@ -250,10 +252,10 @@ All user information from the JSONPlaceholder service is returned:
 ]
 ----
 
-The REST API development, implementation, and testing is complete.
+Your REST API creation, implementation, and testing is complete.
 
 == See Also
 
 * http://jsonplaceholder.typicode.com[{JSON} Placeholder]
 * xref:api-led-overview.adoc[Tutorial: Build an API from Start to Finish]
-* xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment using Design Center].
+* xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment using Design Center]
