@@ -9,14 +9,14 @@ For example purposes, this workflow uses the free online REST service https://js
 
 == Prerequisites
 
-Before you begin, ensure you have the following software:
+Before you begin, ensure you have the following software installed:
 
 * Anypoint Studio 7.1.4 or later
 * Mule runtime engine 4.1.1 or later
 
 == Design Your API Specification
 
-//The links of the following paragraph do not work. Do we have to create these pages?
+//TODO: The links of the following paragraph do not work. Do we have to create these pages?
 Design your API specification following the steps in xref:start-project-task.adoc[API Designer from Design Center], or in xref:api-development-studio.adoc[API Specification Project] in Anypoint Studio, or using your favorite text editor:
 
 . Create a JSON file including a list of users that serve as an example of what the service returns:
@@ -49,7 +49,7 @@ Design your API specification following the steps in xref:start-project-task.ado
 ]
 ----
 . Save it as `user-example.json`.
-. Create a new blank file with the API specification:
+. Create a new blank file with the following API specification:
 +
 [source,yaml,linenums]
 --
@@ -115,15 +115,14 @@ image::import-from-local-file.png["Import RAML from local file tab highlighted i
 * If you are importing your API specification from Exchange, select *Import a published API* > *From Exchange*.
 +
 image::import-from-exchange.png["Import a published API highlighted when clicking on plus to select the From Exchange option."]
-* Check the *Scaffold flows from these API specifications* option if not already checked.
+* Check the *Scaffold flows from these API specifications* option if not already selected.
 . Click *Finish*.
 +
 APIkit generates the necessary flows based on the API specification you imported.
-//Check the following steps. Bolding may be wrong.
-. *Run the APIkit project*. 
-. Right-click the project, and select *Run As* > *Mule Application*.
-//Check the following steps. Bolding may be wrong.
-. *Simulate API calls to test it*.
+. Run your APIkit project by right-clicking the project and selecting *Run As* > *Mule Application*.
+
+== Simulate API Calls
+
 . In Anypoint Studio, locate the *APIkit Consoles* view and click `Open console` under the base point URL `http://localhost:8081/console/`.
 +
 // TODO: Outdated image. Replace it.
@@ -136,7 +135,7 @@ image::apikit-console1.png["API console version info.",height=313,width=398]
 +
 . In *API Summary*, click `GET` for the `/users` resource.
 +
-It opens the detail page of the resource showing, among others, the JSON example you expect for an HTTP 200 response.
+It opens the detail page of the resource showing, among others, the expected JSON example for an HTTP 200 response.
 +
 // TODO: Outdated image. Replace it.
 image::apikit-console3.png["APIkit response",height=524,width=395]
@@ -148,6 +147,7 @@ image::apikit-console3.png["APIkit response",height=524,width=395]
 . The *API Console* displays a section where you can add parameters and headers to try a request. Check *Show optional parameters* if not selected.
 . Enter `3` as a query parameter value for the *id* parameter and click `Send`.
 +
+// TODO: Break this long sentence into 2 or 3 sentences.
 An HTTP 200 response indicating that the request has succeeded is displayed in addition to a response body with the JSON example for the `/usersbyid` resource, which is the user information for the user having ID 3.
 +
 // TODO: Outdated image. Replace it.
@@ -157,13 +157,13 @@ image::apikit-console4.png["Information for the user having id 3 appears."]
 
 Modify the flows to return actual data from the JSON Placeholder service instead of the examples from the API.
 
-. Drag a new Flow component from the Core palette.
+. Drag a new Flow component from the *Core Palette*.
 . Rename the new flow as `user_request_flow`.
 . Drag an HTTP Request component to the flow process.
-. In the properties editor of Request, in General, set these HTTP Request options:
-* Method: Leave the default, `GET`
-* Path: Set to `/users`
-* Select the Query Parameters tab, click on `Switch to expression mode` and paste the following DataWeave script:
+. In the properties editor of *Request*, in *General*, set the following HTTP request options:
+* In *Method*, leave the default `GET`.
+* In *Path*, set to `/users`.
+* On the *Query Parameters* tab, click on *Switch to expression mode* and paste the following DataWeave script:
 +
 ----
 output application/java
@@ -185,7 +185,7 @@ else
 . In Package Explorer, right-click the project name and choose *Run As* > *Mule Application*.
 . Open a browser, and go to `+http://localhost:8081/api/users+`.
 +
-All user information from the JSONPlaceholder service is returned:
+All user information from the JSON Placeholder service is returned:
 +
 ----
 [
@@ -222,7 +222,7 @@ All user information from the JSONPlaceholder service is returned:
 ]
 ----
 +
-. Get information about the user having ID = 4 only. Go to `+http://localhost:8081/api/users/userbyid?id=4+`.
+. Get information about the user having ID = 4 only by going to `+http://localhost:8081/api/users/userbyid?id=4+`.
 +
 ----
 [
@@ -256,6 +256,6 @@ Your REST API creation, implementation, and testing is complete.
 
 == See Also
 
-* http://jsonplaceholder.typicode.com[{JSON} Placeholder]
+* http://jsonplaceholder.typicode.com[{JSON} Placeholder^]
 * xref:api-led-overview.adoc[Tutorial: Build an API from Start to Finish]
 * xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment using Design Center]
