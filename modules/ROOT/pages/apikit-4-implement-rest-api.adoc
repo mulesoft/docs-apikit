@@ -16,8 +16,7 @@ Before you begin, ensure you have the following software installed:
 
 == Design Your API Specification
 
-//TODO: The links of the following paragraph do not work. Do we have to create these pages?
-Design your API specification following the steps in xref:start-project-task.adoc[API Designer from Design Center], or in xref:api-development-studio.adoc[API Specification Project] in Anypoint Studio, or using your favorite text editor:
+Design your API specification with API Designer from Design Center, with the API Specification Project tool from Anypoint Studio, or with a text editor of your choice:
 
 . Create a JSON file including a list of users that serve as an example of what the service returns:
 +
@@ -106,20 +105,23 @@ version: 1.0
 . Save it as  `api.raml`.
 . In Studio, select *File* > *New* > *Mule Project*.
 . In the *Project Name* field, type the name of your Mule project.
-* If you are importing your API specification from Design Center, select the *Import from Design Center* tab.
+* If you are importing your API specification from Design Center, select the *Download RAML from Design Center* tab.
 +
+//TODO: Image outdated. Replace it.
 image::import-from-design-center.png["The Import from Design Center tab highlighted in the API implementation section."]
 * If you are importing your API specification from a local file in your file system, select the *Import RAML from Local File* tab.
 +
+//TODO: Image outdated. Replace it.
 image::import-from-local-file.png["Import RAML from local file tab highlighted in the API implementation section."]
-* If you are importing your API specification from Exchange, select *Import a published API* > *From Exchange*.
+* If you are importing your API specification from Exchange, select *Import a published API*, click the plus icon and select *From Exchange*.
 +
+//TODO: Image outdated. Replace it.
 image::import-from-exchange.png["Import a published API highlighted when clicking on plus to select the From Exchange option."]
 * Check the *Scaffold flows from these API specifications* option if not already selected.
 . Click *Finish*.
 +
 APIkit generates the necessary flows based on the API specification you imported.
-. Run your APIkit project by right-clicking the project and selecting *Run As* > *Mule Application*.
+. Run your APIkit project by clicking *Run* > *Run As* > *Mule Application*.
 
 == Simulate API Calls
 
