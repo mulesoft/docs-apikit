@@ -1,4 +1,4 @@
-= To Simulate API Calls
+= Simulating API Calls
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

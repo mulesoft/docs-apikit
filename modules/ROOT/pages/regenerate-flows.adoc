@@ -1,4 +1,4 @@
-= To Change an APIkit Project
+= Changing an APIkit Project
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

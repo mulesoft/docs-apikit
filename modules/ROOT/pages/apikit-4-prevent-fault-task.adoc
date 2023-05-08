@@ -1,4 +1,4 @@
-= To Prevent the SOAP Fault
+= Preventing the SOAP Fault
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

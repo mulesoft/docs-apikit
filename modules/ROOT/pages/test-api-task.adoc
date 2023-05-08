@@ -1,4 +1,4 @@
-= To Test the API Implementation
+= Testing the API Implementation
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

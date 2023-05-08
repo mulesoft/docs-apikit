@@ -1,4 +1,4 @@
-= To Display a Typed Fault
+= Displaying a Typed Fault
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

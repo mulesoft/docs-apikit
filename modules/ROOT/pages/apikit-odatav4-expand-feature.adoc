@@ -1,4 +1,4 @@
-= Implement the $expand Feature
+= Implementing the $expand Feature
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

@@ -1,4 +1,4 @@
-= To Implement the Endpoint
+= Implementing the Endpoint
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

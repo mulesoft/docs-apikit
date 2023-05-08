@@ -1,4 +1,4 @@
-= To Configure the Path for Deployment on CloudHub
+= Configuring the Path for Deployment on CloudHub
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
