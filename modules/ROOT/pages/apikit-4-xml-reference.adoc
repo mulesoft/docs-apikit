@@ -1,4 +1,4 @@
-= APIkit XML Reference
+= APIkit for REST Module Reference
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
