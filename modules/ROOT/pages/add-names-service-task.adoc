@@ -1,4 +1,4 @@
-= To Add a Service to Get Only User Names
+= Adding a Service to Get Only User Names
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

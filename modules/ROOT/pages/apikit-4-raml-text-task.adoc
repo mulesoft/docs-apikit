@@ -1,4 +1,4 @@
-= Create a RAML Specification Using a Plain Text Editor
+= Creating a RAML Specification Using a Plain Text Editor
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

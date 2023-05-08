@@ -1,4 +1,4 @@
-= To Filter Users By ID Using a Parameter
+= Filtering Users By ID Using a Parameter
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

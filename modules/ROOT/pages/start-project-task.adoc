@@ -1,4 +1,4 @@
-= Start an APIkit Project
+= Starting an APIkit Project
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

@@ -1,4 +1,4 @@
-= Convert an Existing Mule Project to an APIkit Project
+= Converting an Existing Mule Project to an APIkit Project
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
