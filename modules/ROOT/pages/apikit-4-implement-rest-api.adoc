@@ -105,18 +105,16 @@ version: 1.0
 . Save it as  `api.raml`.
 . In Studio, select *File* > *New* > *Mule Project*.
 . In the *Project Name* field, type the name of your Mule project.
-* If you are importing your API specification from Design Center, select the *Download RAML from Design Center* tab.
-+
-//TODO: Image outdated. Replace it.
-image::import-from-design-center.png["The Import from Design Center tab highlighted in the API implementation section."]
-* If you are importing your API specification from a local file in your file system, select the *Import RAML from Local File* tab.
-+
-//TODO: Image outdated. Replace it.
-image::import-from-local-file.png["Import RAML from local file tab highlighted in the API implementation section."]
 * If you are importing your API specification from Exchange, select *Import a published API*, click the plus icon and select *From Exchange*.
 +
-//TODO: Image outdated. Replace it.
 image::import-from-exchange.png["Import a published API highlighted when clicking on plus to select the From Exchange option."]
+
+* If you are importing your API specification from a local file in your file system, select the *Import RAML from Local File* tab.
++
+image::import-from-local-file.png["Import RAML from local file tab highlighted in the API implementation section."]
+* If you are importing your API specification from Design Center, select the *Download RAML from Design Center* tab.
++
+image::import-from-design-center.png["The Import from Design Center tab highlighted in the API implementation section."]
 * Check the *Scaffold flows from these API specifications* option if not already selected.
 . Click *Finish*.
 +
@@ -127,20 +125,17 @@ APIkit generates the necessary flows based on the API specification you imported
 
 . In Anypoint Studio, locate the *APIkit Consoles* view and click `Open console` under the base point URL `http://localhost:8081/console/`.
 +
-// TODO: Outdated image. Replace it.
 image::apikit-consoles.png["APIkit console tab displays the location of the basepoint URL in the window."]
 +
 . Your default browser opens. The *API Console* shows the API summary and information about the project, such as the title, version, and supported protocols.
 +
-// TODO: Outdated image. Replace it.
-image::apikit-console1.png["API console version info.",height=313,width=398]
+image::apikit-console1.png["API console version info."]
 +
 . In *API Summary*, click `GET` for the `/users` resource.
 +
 It opens the detail page of the resource showing, among others, the expected JSON example for an HTTP 200 response.
 +
-// TODO: Outdated image. Replace it.
-image::apikit-console3.png["APIkit response",height=524,width=395]
+image::apikit-console3.png["APIkit response"]
 +
 . In *API Summary*, expand `/userbyid`. 
 . Click `GET` for the `/usersbyid` resource.
@@ -149,17 +144,15 @@ image::apikit-console3.png["APIkit response",height=524,width=395]
 . The *API Console* displays a section where you can add parameters and headers to try a request. Check *Show optional parameters* if not selected.
 . Enter `3` as a query parameter value for the *id* parameter and click `Send`.
 +
-// TODO: Break this long sentence into 2 or 3 sentences.
-An HTTP 200 response indicating that the request has succeeded is displayed in addition to a response body with the JSON example for the `/usersbyid` resource, which is the user information for the user having ID 3.
+The successful request for the `/usersbyid` resource, which contains user information for the user with ID 3, is confirmed by an HTTP 200 response along with a response body that includes a JSON example.
 +
-// TODO: Outdated image. Replace it.
 image::apikit-console4.png["Information for the user having id 3 appears."]
 
 == Add Business Logic to Your API Implementation
 
 Modify the flows to return actual data from the JSON Placeholder service instead of the examples from the API.
 
-. Drag a new Flow component from the *Core Palette*.
+. Drag a new Flow component from the *Mule Palette*.
 . Rename the new flow as `user_request_flow`.
 . Drag an HTTP Request component to the flow process.
 . In the properties editor of *Request*, in *General*, set the following HTTP request options:
