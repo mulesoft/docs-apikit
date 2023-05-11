@@ -1,0 +1,256 @@
+= Create a REST API
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+This workflow guides you through the process of designing, implementing, and testing a REST API.
+
+For example purposes, this workflow uses the free online REST service https://jsonplaceholder.typicode.com[{JSON} Placeholder^], which provides mocked user information in JSON format.
+
+== Prerequisites
+
+Before you begin, ensure you have the following software installed:
+
+* Anypoint Studio 7.1.4 or later
+* Mule runtime engine 4.1.1 or later
+
+== Design Your API Specification
+
+Design your API specification with API Designer from Design Center, with the API Specification Project tool from Anypoint Studio, or with a text editor of your choice:
+
+. Create a JSON file including a list of users that serve as an example of what the service returns:
++
+----
+[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "bs": "harness real-time e-markets"
+    }
+  }
+]
+----
+. Save it as `user-example.json`.
+. Create a new blank file with the following API specification:
++
+[source,yaml,linenums]
+--
+#%RAML 1.0
+title: placeholder
+version: 1.0
+/users:
+  get:
+    description: Retrieve a list of all the users
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include user-example.json
+  /userbyid:
+    get:
+      description: Get information about a particular user
+      queryParameters:
+        id:
+          description: Specify the id of the user you want to retrieve
+          type: integer
+          required: false
+          example: 3
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                [
+                  {
+                    "id": 3,
+                    "name": "Clementine Bauch",
+                    "username": "Samantha",
+                    "email": "Nathan@yesenia.net",
+                    "address":
+                      {
+                        "street": "Douglas Extension",
+                        "suite": "Suite 847",
+                        "city": "McKenziehaven",
+                        "zipcode": "59590-4157",
+                        "geo": { "lat": "-68.6102", "lng": "-47.0653" },
+                      },
+                    "phone": "1-463-123-4447",
+                    "website": "ramiro.info",
+                    "company":
+                      {
+                        "name": "Romaguera-Jacobson",
+                        "catchPhrase": "Face to face bifurcated interface",
+                        "bs": "e-enable strategic applications",
+                      }
+                  }
+                ]
+--
+. Save it as  `api.raml`.
+. In Studio, select *File* > *New* > *Mule Project*.
+. In the *Project Name* field, type the name of your Mule project.
+* If you are importing your API specification from Exchange, select *Import a published API*, click the plus icon and select *From Exchange*.
++
+image::import-from-exchange.png["Import a published API highlighted when clicking on plus to select the From Exchange option."]
+
+* If you are importing your API specification from a local file in your file system, select the *Import RAML from Local File* tab.
++
+image::import-from-local-file.png["Import RAML from local file tab highlighted in the API implementation section."]
+* If you are importing your API specification from Design Center, select the *Download RAML from Design Center* tab.
++
+image::import-from-design-center.png["The Import from Design Center tab highlighted in the API implementation section."]
+* Check the *Scaffold flows from these API specifications* option if not already selected.
+. Click *Finish*.
++
+APIkit generates the necessary flows based on the API specification you imported.
+. Run your APIkit project by clicking *Run* > *Run As* > *Mule Application*.
+
+== Simulate API Calls
+
+. In Anypoint Studio, locate the *APIkit Consoles* view and click `Open console` under the base point URL `http://localhost:8081/console/`.
++
+image::apikit-consoles.png["APIkit console tab displays the location of the basepoint URL in the window."]
++
+. Your default browser opens. The *API Console* shows the API summary and information about the project, such as the title, version, and supported protocols.
++
+image::apikit-console1.png["API console version info."]
++
+. In *API Summary*, click `GET` for the `/users` resource.
++
+It opens the detail page of the resource showing, among others, the expected JSON example for an HTTP 200 response.
++
+image::apikit-console3.png["APIkit response"]
++
+. In *API Summary*, expand `/userbyid`. 
+. Click `GET` for the `/usersbyid` resource.
++
+. Click `Try it` to expand the view for sending a request.
+. The *API Console* displays a section where you can add parameters and headers to try a request. Check *Show optional parameters* if not selected.
+. Enter `3` as a query parameter value for the *id* parameter and click `Send`.
++
+The successful request for the `/usersbyid` resource, which contains user information for the user with ID 3, is confirmed by an HTTP 200 response along with a response body that includes a JSON example.
++
+image::apikit-console4.png["Information for the user having id 3 appears."]
+
+== Add Business Logic to Your API Implementation
+
+Modify the flows to return actual data from the JSON Placeholder service instead of the examples from the API.
+
+. Drag a new Flow component from the *Mule Palette*.
+. Rename the new flow as `user_request_flow`.
+. Drag an HTTP Request component to the flow process.
+. In the properties editor of *Request*, in *General*, set the following HTTP request options:
+* In *Method*, leave the default `GET`.
+* In *Path*, set to `/users`.
+* On the *Query Parameters* tab, click on *Switch to expression mode* and paste the following DataWeave script:
++
+----
+output application/java
+---
+if (not isEmpty(attributes.queryParams))
+{
+	id : attributes.queryParams.id
+}
+else
+{}
+----
+. Delete *Transform Message* component in `get:\users:api-config` and `get:\users\userbyid:api-config` flows.
+. Drag one *Flow Reference* for each flow in replacement of the previously removed *Transform Message* components.
+. In the properties editor of *Flow Reference* components, set flow name as `user_request_flow`.
+. Save changes.
+
+== Test Your API Implementation
+
+. In Package Explorer, right-click the project name and choose *Run As* > *Mule Application*.
+. Open a browser, and go to `+http://localhost:8081/api/users+`.
++
+All user information from the JSON Placeholder service is returned:
++
+----
+[
+   {
+      "id": 1,
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": "-37.3159",
+          "lng": "81.1496"
+
+    ...
+    {
+    "id": 10,
+    "name": "Clementina DuBuque",
+    "username": "Moriah.Stanton",
+    "email": "Rey.Padberg@karina.biz",
+    "address": {
+      "street": "Kattie Turnpike",
+      "suite": "Suite 198",
+      "city": "Lebsackbury",
+      "zipcode": "31428-2261",
+      "geo": {
+        "lat": "-38.2386",
+        "lng": "57.2232"
+      }
+...
+]
+----
++
+. Get information about the user having ID = 4 only by going to `+http://localhost:8081/api/users/userbyid?id=4+`.
++
+----
+[
+  {
+    "id": 4,
+    "name": "Patricia Lebsack",
+    "username": "Karianne",
+    "email": "Julianne.OConner@kory.org",
+    "address": {
+      "street": "Hoeger Mall",
+      "suite": "Apt. 692",
+      "city": "South Elvis",
+      "zipcode": "53919-4257",
+      "geo": {
+        "lat": "29.4572",
+        "lng": "-164.2990"
+      }
+    },
+    "phone": "493-170-9623 x156",
+    "website": "kale.biz",
+    "company": {
+      "name": "Robel-Corkery",
+      "catchPhrase": "Multi-tiered zero tolerance productivity",
+      "bs": "transition cutting-edge web services"
+    }
+  }
+]
+----
+
+Your REST API creation, implementation, and testing is complete.
+
+== See Also
+
+* http://jsonplaceholder.typicode.com[{JSON} Placeholder^]
+* xref:api-led-overview.adoc[Tutorial: Build an API from Start to Finish]
+* xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment using Design Center]
