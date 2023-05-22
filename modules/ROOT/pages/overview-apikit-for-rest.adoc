@@ -3,4 +3,4 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-TBD
+APIkit for REST is a framework that simplifies the development and integration of RESTful APIs. It supports RAML and OAS, industry-standard formats for describing RESTful APIs. With APIkit for REST, developers can define API contracts using RAML or OAS, enabling consistent design and collaboration. The framework offers features such as automatic validation of requests and responses, code generation for implementation templates, and intelligent routing of incoming requests based on defined endpoints. APIkit for REST streamlines API development and enhances reliability, making it an essential tool for efficient API-led implementations.
