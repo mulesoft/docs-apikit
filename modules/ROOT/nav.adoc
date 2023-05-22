@@ -1,5 +1,6 @@
 .xref:index.adoc[About APIkit 3.x]
 * xref:index.adoc[Overview]
+* xref:apikit-release-notes.adoc[Release Notes] 
 * xref:apikit-tutorial.adoc[Workflow: Create, Run, and Test an APIkit Project]
 * xref:apikit-tutorial-jsonplaceholder.adoc[To Generate a Mule Flow from an API Specification]
 * xref:apikit-add-raml-workflow.adoc[Workflow: Convert an Existing Mule Project to an APIkit Project]
