@@ -9,7 +9,7 @@ APIkit for REST fully supports RAML (RESTful API Modeling Language) and OAS (Ope
 
 Features:
 
-* *Automatic Validation*: APIkit for REST automatically validates incoming requests and outgoing responses against your API contracts defined in RAML or OAS. This ensures that your APIs adhere to the specified rules and constraints, enhancing the overall quality and reliability of your API implementation.
+* *Automatic Validation*: APIkit for REST automatically validates incoming requests against your API contracts defined in RAML or OAS. This ensures that requests adhere to the specified rules and constraints of the API, enhancing the overall quality and reliability of your API implementation.
 
 * *Code Generation*: The framework provides code generation capabilities that help streamline the implementation of your RESTful APIs. APIkit for REST can generate implementation templates based on your API contracts, reducing the amount of manual coding required and accelerating the development process.
 
