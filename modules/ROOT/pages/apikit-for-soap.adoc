@@ -3,7 +3,21 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+APIkit for SOAP is a dedicated framework for developing and integrating SOAP-based APIs. With APIkit for SOAP, you get a comprehensive suite of tools and features to streamline SOAP API development.
 
-APIkit for SOAP is a dedicated framework for developing and integrating SOAP-based APIs. It offers developers a comprehensive suite of tools and features to streamline SOAP API development. With a focus on SOAP/WSDL contracts, APIkit for SOAP simplifies the handling of SOAP message formats and headers, ensuring seamless integration with existing SOAP infrastructure. Its capabilities include automatic binding to WSDL, efficient handling of SOAP request and response messages, and support for data transformations. By leveraging these features, developers can create robust and reliable SOAP-based APIs more efficiently.
+Features:
 
-APIkit for SOAP is designed to facilitate SOAP API development by providing specialized functionalities. The framework's emphasis on SOAP/WSDL contracts allows developers to define and expose SOAP APIs with ease. APIkit for SOAP's capabilities in managing SOAP message formats and headers help ensure smooth integration with SOAP infrastructure. By utilizing its features such as automatic WSDL binding, SOAP message handling, and data transformations, developers can streamline the SOAP API development process, resulting in more efficient and reliable SOAP-based APIs.
+* Automatic binding to WSDL
+* Efficient handling of SOAP request and response messages
+* Support for data transformations. 
+
+With a focus on SOAP/WSDL contracts, it simplifies the handling of SOAP message formats and headers, ensuring seamless integration with existing SOAP infrastructure.
+APIkit for SOAP is designed to facilitate SOAP API development by providing specialized functionalities. 
+The framework emphasis on SOAP/WSDL contracts enables you to define and expose SOAP APIs with ease. 
+APIkit for SOAP capabilities in managing SOAP message formats and headers help ensure smooth integration with SOAP infrastructure. 
+By utilizing its features, you can streamline the SOAP API development process, resulting in more efficient and reliable SOAP-based APIs.
+With APIkit for SOAP, you can efficiently create robust and reliable SOAP-based APIs.
+
+== See Also
+
+* xref:apikit-4-soap-prerequisites-task.adoc[]
