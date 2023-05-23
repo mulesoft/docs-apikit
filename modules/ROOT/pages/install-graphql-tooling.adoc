@@ -1,4 +1,4 @@
-= Installing GraphQL Module
+= Installing GraphQL Tooling
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
