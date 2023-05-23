@@ -21,3 +21,4 @@ With APIkit for SOAP, you can efficiently create robust and reliable SOAP-based 
 == See Also
 
 * xref:apikit-4-soap-prerequisites-task.adoc[]
+* xref:apikit-4-for-soap[]
