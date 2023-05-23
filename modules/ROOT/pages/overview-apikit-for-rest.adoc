@@ -3,4 +3,25 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for REST is a framework that simplifies the development and integration of RESTful APIs. It supports RAML and OAS, industry-standard formats for describing RESTful APIs. With APIkit for REST, developers can define API contracts using RAML or OAS, enabling consistent design and collaboration. The framework offers features such as automatic validation of requests and responses, code generation for implementation templates, and intelligent routing of incoming requests based on defined endpoints. APIkit for REST streamlines API development and enhances reliability, making it an essential tool for efficient API-led implementations.
+APIkit for REST is a powerful framework designed to simplify the development and integration of RESTful APIs. REST (Representational State Transfer) is an architectural style for building web services, and APIkit for REST provides a comprehensive set of tools and features to streamline REST API development while ensuring compliance with industry standards.
+
+APIkit for REST fully supports RAML (RESTful API Modeling Language) and OAS (OpenAPI Specification), which are widely adopted formats for describing RESTful APIs. By leveraging RAML or OAS, you can define your API contracts, enabling consistent design, enhanced collaboration, and clear documentation.
+
+Features:
+
+* *Automatic Validation*: APIkit for REST automatically validates incoming requests and outgoing responses against your API contracts defined in RAML or OAS. This ensures that your APIs adhere to the specified rules and constraints, enhancing the overall quality and reliability of your API implementation.
+
+* *Code Generation*: The framework provides code generation capabilities that help streamline the implementation of your RESTful APIs. APIkit for REST can generate implementation templates based on your API contracts, reducing the amount of manual coding required and accelerating the development process.
+
+* *Intelligent Routing*: With APIkit for REST, incoming requests are intelligently routed to the appropriate endpoints based on the defined API contracts. This routing mechanism simplifies request handling, improves performance, and ensures that requests are processed by the correct API resources.
+
+APIkit for REST simplifies the development of RESTful APIs by providing a unified and consistent approach. By leveraging industry-standard formats like RAML or OAS, you can define your API contracts, ensuring a clear understanding of the API capabilities and behavior. The automatic validation, code generation, and intelligent routing features further streamline the development process, improving efficiency and reducing implementation effort.
+
+With APIkit for REST, you can build robust and reliable RESTful APIs. The automatic validation feature ensures that requests and responses conform to the defined API contracts, reducing the risk of errors and enhancing the overall quality of your APIs. This increased reliability is crucial for successful API-led implementations and seamless integration with other systems.
+
+APIkit for REST is an indispensable tool for efficient REST API development and integration. By leveraging its features and adhering to industry standards, you can accelerate your API development lifecycle, improve collaboration, and deliver high-quality RESTful APIs.
+
+== See Also
+
+* xref:apikit-4-raml-flow-concept.adoc[]
+* xref:apikit-4-implement-rest-api.adoc[]
