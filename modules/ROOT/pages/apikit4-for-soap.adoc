@@ -16,4 +16,4 @@ By placing emphasis on SOAP/WSDL contracts, APIkit for SOAP enables you to defin
 == See Also
 
 * xref:apikit-4-soap-prerequisites-task.adoc[]
-* xref:apikit-4-for-soap[]
+* xref:apikit-4-for-soap.adoc[]
