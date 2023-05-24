@@ -5,25 +5,26 @@ endif::[]
 
 This reference contains dependency, namespace, schema, and other information about APIkit.
 
-== APIkit Dependency Information
+== Dependency Information
 
 ----
 <dependency>
   <groupId>org.mule.modules</groupId>
   <artifactId>mule-apikit-module</artifactId>
-  <version>1.1.0</version>
+  <version>LATEST_VERSION</version> //<1>
   <classifier>mule-plugin</classifier>
 </dependency>
 ----
+<1> Check xref:https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] to get the *LATEST_VERSION*.
 
-*APIkit Namespace and Schema*
+== Namespace and Schema
 
 ----
-xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
-xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd"
+xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+xsi:schemaLocation="http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd"
 ----
 
-=== apikit Elements
+== Configuration and operations
 
 [%header,cols="30a,50a,8a"]
 |===

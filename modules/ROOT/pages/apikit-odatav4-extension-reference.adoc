@@ -3,6 +3,25 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+== Dependency Information
+
+----
+<dependency>
+  <groupId>org.mule.modules</groupId>
+  <artifactId>mule-odata-module</artifactId>
+  <version>LATEST_VERSION</version> //<1>
+  <classifier>mule-plugin</classifier>
+</dependency>
+----
+<1> Check xref:https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] to get the *LATEST_VERSION*.
+
+== Namespace and Schema
+
+----
+xmlns:apikit-odata="http://www.mulesoft.org/schema/mule/apikit-odata"
+xsi:schemaLocation="http://www.mulesoft.org/schema/mule/apikit-odata http://www.mulesoft.org/schema/mule/apikit-odata/current/mule-apikit-odata.xsd"
+----
+
 == Configurations
 ---
 [[Config]]
