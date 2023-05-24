@@ -3,35 +3,59 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit generates error-handling code based on the main error handling mechanism in Mule 4. If something goes wrong with a component, you get an error that is typed accordingly with a message. The generated code is available for the most widely-used HTTP status code responses, which are mapped to the types and error messages in the following table.
+== Error Types
+
+APIkit for REST defines the following error types:
 
 [%header]
 |===
-| Status Code | Type| Message
+| Error Type| Description
+| APIKIT:BAD_REQUEST | Bad request
+| APIKIT:NOT_FOUND | Resource not found
+| APIKIT:METHOD_NOT_ALLOWED | Method not allowed
+| APIKIT:NOT_ACCEPTABLE | Not acceptable
+| APIKIT:UNSUPPORTED_MEDIA_TYPE | Unsupported media type
+| APIKIT:NOT_IMPLEMENTED | Not Implemented
+|===
+
+== Error Handling
+
+APIkit scaffolder generates error-handling code based on the most widely-used HTTP status code responses, which are mapped to the error types and messages as described in the following table:
+
+[%header]
+|===
+| Status Code | Error Type| Response Message
 | 400 | APIKIT:BAD_REQUEST | Bad request
 | 404 | APIKIT:NOT_FOUND | Resource not found
 | 405 | APIKIT:METHOD_NOT_ALLOWED | Method not allowed
 | 406 | APIKIT:NOT_ACCEPTABLE | Not acceptable
 | 415 | APIKIT:UNSUPPORTED_MEDIA_TYPE | Unsupported media type
+| 501 | APIKIT:NOT_IMPLEMENTED | Not Implemented
 |===
 
-The following example of the HTTP 400 response shows the construction of the error handler. To add your own custom status code, following the pattern shown here.
+The subsequent code showcases the construction of an error handler for an HTTP 400 response. You can take this one as a reference to add your own custom status codes and messages.
 
 [source,xml,linenums]
 ----
- <on-error-propagate type="APIKIT:BAD_REQUEST" doc:name="On Error Propagate">
-                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-                    <ee:message>
-                        <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{message: "Bad request"}]]></ee:set-payload>
-                    </ee:message>
-                    <ee:variables>
-                        <ee:set-variable variableName="httpStatus">400</ee:set-variable>
-                    </ee:variables>
-                </ee:transform>
-            </on-error-propagate>
+...
+    <on-error-propagate type="APIKIT:BAD_REQUEST" doc:name="On Error Propagate">
+        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+    output application/json
+    ---
+    {message: "Bad request"}]]></ee:set-payload>
+            </ee:message>
+            <ee:variables>
+                <ee:set-variable variableName="httpStatus">400</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </on-error-propagate>
+...
 ----
 
-Every time a message throws an error, APIkit checks to see if the error matches the value of any on-error-propagate types defined in the project. The main flow in an APIkit project sends an HTTP error response consisting of an HTTP status code and corresponding plain-language message.
+The main flow is responsible for transmitting an HTTP error response that encompasses an HTTP status code paired with an associated message expressed in clear and straightforward language.
+
+== See Also
+
+* xref:4.1@mule-runtime::error-handling.adoc[]

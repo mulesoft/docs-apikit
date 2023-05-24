@@ -1,0 +1,9 @@
+= Key Configurations
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+In contrast to newer modules created using the Java SDK, APIkit for REST possesses distinctive aspects in its configuration and behavior that warrant a more comprehensive explanation. That's the reason why this section presents a series of crucial configurations that determine the behavior of the module during runtime.
+
+* xref:validate-4-task.adoc[Validating Query Parameters and Headers]
+* xref:configure-service-uri-task.adoc[Configuring Service URI]

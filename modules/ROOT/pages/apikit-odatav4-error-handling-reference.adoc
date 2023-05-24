@@ -1,0 +1,77 @@
+= Error Handling Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+== Error types
+
+APIkit for OData v4 defines the following error types:
+
+[%header]
+|===
+|Error Type |Description
+
+|APIKIT-ODATA:NOT_IMPLEMENTED
+|Requested service, feature or operation is not implemented.
+
+|APIKIT-ODATA:MALFORMED_URI
+|Request URI is invalid.
+
+|APIKIT-ODATA:MALFORMED_SEARCH
+|Request $search expression in URI is invalid.
+
+|APIKIT-ODATA:SERIALIZATION
+|Generic error for serialization issues.
+
+|APIKIT-ODATA:DESERIALIZATION
+|Generic error for deserialization issues.
+
+|APIKIT-ODATA:TRANSFORMATION
+|Generic error for issues related to URI to SQL transformations.
+
+|APIKIT-ODATA:INTERNAL_SERVER_ERROR
+|Generic error for internal server issues.
+
+|APIKIT-ODATA:NOT_FOUND
+|Generic error for not found.
+
+|APIKIT-ODATA:EXPANSION
+|Generic error for issues during expansion
+|===
+
+== Error Handling
+
+APIkit for OData v4 scaffolder generates an error handler with a single `On Error Propagate` catch that serves as a generalized error formatter.
+
+[source,xml,linenums]
+----
+...
+    <error-handler name="Error_Handler">
+      <on-error-propagate name="On_Error_Propagate" enableNotifications="true" logException="true" type="ANY">
+        <ee:transform>
+          <ee:message>
+            <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+	error: {
+		code: error.errorMessage.payload.code default "UNKNOWN",
+		message: error.errorMessage.payload.message default error.description,
+		target: error.errorMessage.payload.target,
+		details: error.errorMessage.payload.details default [{code: "UNKNOWN", message: error.detailedDescription, target: null}],
+		innererror: error.errorMessage.payload.innerError default error.childErrors
+	}
+}]]></ee:set-payload>
+          </ee:message>
+          <ee:variables>
+            <ee:set-variable variableName="statusCode"><![CDATA[error.errorMessage.payload.statusCode default 500]]></ee:set-variable>
+          </ee:variables>
+        </ee:transform>
+      </on-error-propagate>
+    </error-handler>
+...
+----
+
+== See Also
+
+* xref:4.1@mule-runtime::error-handling.adoc[]

@@ -1,11 +1,9 @@
-= Validating Query Parameters and Headers Using APIkit
+= Validating Query Parameters and Headers
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This process assumes that you have generated flows using APIkit in Studio.
-
-You can configure APIkit Router to validate headers and query parameters to limit both these attributes to those defined in your API specification:
+You can configure the APIkit Router to enforce validation on headers and query parameters, restricting them exclusively to the attributes specified within your API specification.
 
 // tag::process[]
 . In your Studio canvas, select *APIkit Router*.
@@ -15,18 +13,41 @@ image::apikit-router-selection.png["APIkit router highlighted."]
 +
 image::router-config.png["Edit button highlighted next to the plus button, in the APIkit router tab."]
 // end::process[]
-. Select *Query parameters Strict Validations*  to limit query parameters to those defined in your API specification, or *Headers Strict Validations* to limit headers to those defined in your API specification:
+. Enable *Query Parameters Strict Validations* to restrict the usage of query parameters solely to those that are defined in your API specification. Similarly, enable *Headers Strict Validations* to limit the headers to only those specified in your API specification:
 +
 image::enable-verifications.png["Query parameters strict validations and headers strict validations highlighted in the router configuration tab."]
 
+Or just update the APIkit configuration code as following:
+
+[source,xml,linenums]
+----
+<apikit:config  name="api-config"
+                api="api.raml"
+                outboundHeadersMapName="outboundHeaders"
+                httpStatusVarName="httpStatus"
+                queryParamsStrictValidation="true"
+                headersStrictValidation="true" />
+----
+
 == Disable Validation of Query Parameters and Headers
 
-Enabling validations can affect performance and cause a delay in response time. If your use case cannot tolerate latency, consider disabling strict validations:
+If minimizing latency is of utmost importance for your specific scenario and your use case can tolerate the absence of validations, it is possible to deactivate them.
 
 include::page$validate-4-task.adoc[tag=process]
 . Select *Disable Validations*:
 +
 image::disable-verifications-apikit.png["Disable verifications option highlighted and checked in the router configuration tab."]
+
+Or just update the APIkit configuration code as following:
+
+[source,xml,linenums]
+----
+<apikit:config  name="api-config"
+                api="api.raml"
+                outboundHeadersMapName="outboundHeaders"
+                httpStatusVarName="httpStatus"
+                disableValidations="true" />
+----
 
 == See Also
 

@@ -1,101 +1,233 @@
-= Converting an Existing Mule Project to an APIkit Project
+= Converting a Mule Project to an APIkit Project
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If you create a new Studio project and do _not_ specify an API definition file,  APIkit generates a skeletal RAML file and XML configuration that includes the following things:
+Whether you have chosen a backend-first design approach or already have a Mule application containing business logic that you wish to expose as a REST service, it is possible to convert your existing Mule Project into an APIkit project.
 
-* HTTP Listener configuration
-* APIkit Router component
-* Error handling flows
+Let's assume that you have chosen a backend-first implementation approach, and you have already created the following Mule application that retrieves users from a database:
 
-The following screenshot shows the Specify API Definition File Location or URL option, which you uncheck to create the backend first:
+[source,xml,linenums]
+----
+<mule>
+    <http:listener-config name="HTTP_Listener_config">
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<db:config name="Database_Config">
+		<db:my-sql-connection host="localhost" port="3306" user="admin" password="admin" database="usersdb" />
+	</db:config>
+	<flow name="GET-Users-FLOW">
+		<http:listener config-ref="HTTP_Listener_config" path="/users"/>
+		<db:select config-ref="Database_Config">
+			<db:sql ><![CDATA[SELECT * FROM USERS]]></db:sql>
+		</db:select>
+	</flow>
+	<flow name="GET-User-By-Id-FLOW">
+		<http:listener config-ref="HTTP_Listener_config" path="/userById" />
+		<db:select config-ref="Database_Config" >
+			<db:sql ><![CDATA[SELECT * FROM USERS WHERE :userIdParameter == userID]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{userIdParameter: attributes.queryParams.id}]]]></db:input-parameters>
+		</db:select>
+	</flow>
+</mule>
+----
 
-image::backend-first-project.png["The window displays the project name, the runtime server, and the unchecked option in the Specify API Definition File Location or URL option in the API implementation section."]
+== Manual Approach
 
-Later, you can add an API specification, and then use API Console to simulate the API.
+This workflow guides you step-by-step to manually configure a functional router for your existing flows.
 
-== Add APIkit to an Existing Design
+=== Step 1: Design Your API Specification
 
-You add APIkit components to an existing design, for example a legacy project that you want to modernize using RAML and APIkit, by creating the RAML code within Studio as follows:
+The initial step involves defining the API specification for your service.
 
-*RAML-based API*
+To accomplish this, you can refer to the options provided in the "Design Your API Specification" section of the document xref:apikit-4-implement-rest-api.adoc[Creating, Testing, and Implementing an API]. To illustrate this example, please create or copy the identical API specification and JSON example used in that workflow to the `/src/main/resources/api` folder.
 
-* Define the API definition files.
-* Create a main flow, or use an existing one, that includes an HTTP Listener and APIkit Router.
-* Generate backend flows.
+=== Step 2: Create a Main Flow
 
-The generated backend flows contain the core logic of the API, error handling flows, API Console. You need to add REST resource-action pairing.
+Within the APIkit project, construct a main flow that will serve as the entry point.
 
-== Define the API Definition Files
-
-If you want a RAML-backed API, you can use Studio to create the file: Studio: File > New > RAML API Definition.
-
-image::new-raml.png["Window displays the folder, the name, and the title for creating the new RAML API definition file."]
-
-For example:
-
-. Use the RAML specification and dependent JSON example files provided in the Workflow: Generating a Mule Flow from an API Specification.
-
-. Right-click the name of the RAML in /src/main/resources/api and select Validate. Proceed if there are no problems with the RAML.
-
-. Create any dependent files, or drag and drop them into Studio beside the main RAML. For example, drag the user-example.json to /src/main/resources/api.
+. Drag the following components from the Mule palette to the canvas:
 +
-Ignore error messages in the Problems window that pertain to undefined attributes.
-
-== Create a Main Flow
-
-Within the APIkit project, build a flow.
-
-. Drag the following components from the Mule palette:
+* An HTTP Listener as a flow source
+* An APIkit Router operation within the flow process
 +
-* An HTTP Listener
-* An APIkit Router
+. In the properties editor for HTTP Listener, in *Connector Configuration*, make sure to select the existing `HTTP_Listener_Config`.
+. Specify a listener path for the APIkit router. Enter `/api/*` in `Path` field.
+. In the properties editor for APIkit Router, in *Router Configuration*, click the `Add` button to create a new configuration.
 +
-. In the properties editor for APIkit Router, in Router Configuration, select `api-config`.
-. In the properties editor for HTTP Listener, in Connector Configuration, select api-httpListenerConfig, and set a path. For example, in Path, enter `/`.
+The *Global Element Properties* wizard appears.
+. In *API Definition*, select the path `api/api.raml`.
+. Accept configuration.
+. Delete HTTP listener from `GET-Users-FLOW`.
+. Delete HTTP listener from `GET-User-By-Id-FLOW`.
 
+[source,xml,linenums]
+----
+<mule>
+    <apikit:config outboundHeadersMapName="outboundHeadersMapName" httpStatusVarName="httpStatus" name="Router" api="api/api.raml" />
+    <http:listener-config name="HTTP_Listener_config">
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<db:config name="Database_Config">
+		<db:my-sql-connection host="localhost" port="3306" user="admin" password="admin" database="usersdb" />
+	</db:config>
+    <flow name="apiFlow">
+		<http:listener config-ref="HTTP_Listener_config" path="/api/*"/>
+		<apikit:router config-ref="Router"/>
+	</flow>
+	<flow name="GET-Users-FLOW">
+		<db:select config-ref="Database_Config">
+			<db:sql ><![CDATA[SELECT * FROM USERS]]></db:sql>
+		</db:select>
+	</flow>
+	<flow name="GET-User-By-Id-FLOW">
+		<db:select config-ref="Database_Config" >
+			<db:sql ><![CDATA[SELECT * FROM USERS WHERE :userIdParameter == userID]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{userIdParameter: attributes.queryParams.id}]]]></db:input-parameters>
+		</db:select>
+	</flow>
+</mule>
+----
 
-== Generate REST Backend Flows
+=== Step 3: Map API Resources-Actions to Flows
 
-When you create a RAML in Studio, generating backend flows is optional. Error handling is generated for a RAML-based API. You need to reference generated flows from the main flow. This procedure assumes you have already created a main flow.
+By default, each APIkit flow adheres to a naming convention for routing purposes, characterized by the following pattern:
 
-To generate backend flows:
+`action:\resource[:content-type][:config-name]`
 
-. In the Package Explorer, right-click the project name.
-. Select Mule > Generate Flows From REST API.
-+
-The backend flows appear below the main flow.
+Where:
 
-== Map RAML Resources to Actions
+* `action`: The HTTP method
+* `resource`: The HTTP resource
+* `content-type`: Payload content-type (optional)
+* `config-name`: APIkit router configuration name (optional)
 
-As part of the backend-first design process, you map RAML resources to actions as shown in the following procedure. This procedure assumes you have generated backend flows.
+To retain the original flow names and map each API resource-action to them, you can override this behavior by following these steps:
 
-To map resources to actions:
-
-. Click the APIkit Router to open the *Properties Editor*. In *Router configuration*, click image:add-16x16.png["Add button."].
+. Click the APIkit Router to open the *Properties Editor*. In *Router configuration*, click `Edit` button.
 +
 The *Global Element Properties* wizard appears.
 +
-. Enter the relative path to the RAML file you created within Studio, for example: src/main/resources/api/api.raml. If you browse, the file name alone is used and that isn't sufficient.
-. In Mappings, click image:add-16x16.png["Add button"] to create a new mapping.
+. In *Mappings*, click `Add` button to create a new mapping configuration.
 +
 The *New Mapping* dialog appears.
 . Use the drop-down to map the resources to actions.
 +
 * In the Resource drop-down, select `/users`.
 +
-* In the Action drop-down, select `GET`.
+* In the Action drop-down, select `Get`.
 +
-* In the Flow drop-down, select the flow that contains the get users action: `get:\users:api-config`.
+* In the Flow drop-down, select the flow that contains the get users action: `GET-Users-FLOW`.
 +
-Click *OK*.
+* Click *OK*.
 +
-image::map-resource-to-action.png["*New Mapping" window with *get:\users:api-config* data populated."]
+. In *Mappings*, click `Add` button again.
 +
-. Repeat the previous step for each resource-action pairing in the API.
+The *New Mapping* dialog appears.
+. Use the drop-down to map the resources to actions.
++
+* In the Resource drop-down, select `/users/userbyid`.
++
+* In the Action drop-down, select `Get`.
++
+* In the Flow drop-down, select the flow that contains the get users action: `GET-User-By-Id-FLOW`.
++
+* Click *OK*.
 
-Now, you are ready to run the new project and simulate calls using API Console.
+[source,xml,linenums]
+----
+<mule>
+    <apikit:config outboundHeadersMapName="outboundHeadersMapName" httpStatusVarName="httpStatus" name="Router" api="api/api.raml" >
+		<apikit:flow-mappings >
+			<apikit:flow-mapping resource="/users" action="get" flow-ref="GET-Users-FLOW" />
+			<apikit:flow-mapping resource="/users/userbyid" action="get" flow-ref="GET-User-By-Id-FLOW" />
+		</apikit:flow-mappings>
+	</apikit:config>
+    <http:listener-config name="HTTP_Listener_config">
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<db:config name="Database_Config">
+		<db:my-sql-connection host="localhost" port="3306" user="admin" password="admin" database="usersdb" />
+	</db:config>
+    <flow name="apiFlow">
+		<http:listener config-ref="HTTP_Listener_config" path="/api/*"/>
+		<apikit:router config-ref="Router"/>
+	</flow>
+	<flow name="GET-Users-FLOW">
+		<db:select config-ref="Database_Config">
+			<db:sql ><![CDATA[SELECT * FROM USERS]]></db:sql>
+		</db:select>
+	</flow>
+	<flow name="GET-User-By-Id-FLOW">
+		<db:select config-ref="Database_Config" >
+			<db:sql ><![CDATA[SELECT * FROM USERS WHERE :userIdParameter == userID]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{userIdParameter: attributes.queryParams.id}]]]></db:input-parameters>
+		</db:select>
+	</flow>
+</mule>
+----
+
+== Scaffolding Approach
+
+Following the same *Step 1: Design Your API Specification* as in the previous approach, once it is completed, an alternative workflow could involve scaffolding the API definition.
+
+=== Step 2: Scaffold the API
+
+Scaffold the API to auto-generate the main, console and resources flows:
+
+. In *Package Explorer*, right-click on the `/src/main/resources/api/api.raml` file
+. Select *Mule*
+. Click on *Generate Flows from Local REST API*
+
+A new XML file with the same name as the API will be created containing the scaffolded flows.
+
+_Note that the main advantage of this approach is that you get the APIkit Router configuration, an error handler and the console flow out of the box, in addition to each flow that map the resources._
+
+=== Step 3: Reference Flows
+
+At this point, you have several options:
+
+* Delete the flows that were scaffolded for each resource and map the original flows as mentioned in step 3 of the manual workflow.
+* Remove any operations from the scaffolded flows and instead add a flow reference. This introduces an additional layer of indirection, which may not be desired.
+
+[source,xml,linenums]
+----
+<mule>
+...
+    <flow name="get:\users\userbyid:api-config">
+		<flow-ref name="GET-User-By-Id-FLOW"/>
+    </flow>
+    <flow name="get:\users:api-config">
+		<flow-ref name="GET-Users-FLOW"/>
+    </flow>
+</mule>
+----
+
+* Transfer the content of the existing flows to the scaffolded flows that adhere to the routing naming convention. Indeed, if the application is extensive, performing the mentioned modifications can be a laborious task.
+
+[source,xml,linenums]
+----
+<mule>
+...
+    <flow name="get:\users:api-config">
+		<db:select config-ref="Database_Config">
+			<db:sql ><![CDATA[SELECT * FROM USERS]]></db:sql>
+		</db:select>
+	</flow>
+	<flow name="get:\users\userbyid:api-config">
+		<db:select config-ref="Database_Config" >
+			<db:sql ><![CDATA[SELECT * FROM USERS WHERE :userIdParameter == userID]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{userIdParameter: attributes.queryParams.id}]]]></db:input-parameters>
+		</db:select>
+	</flow>
+</mule>
+----
+
+It is important to consider the size and complexity of the application when deciding on the best approach.
+
+== Test the API
+
+Now that your new project is set up, you are prepared to run it.
 
 == See Also
 
