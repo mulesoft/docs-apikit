@@ -1,4 +1,4 @@
-= Creating a REST API
+= Building, implementing and testing a REST API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
