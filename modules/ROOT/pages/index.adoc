@@ -10,6 +10,8 @@ APIkit is a toolkit that simplifies the development of API-led applications for 
 * xref:overview-apikit-for-rest.adoc[APIkit for REST] supports RAML and OAS APIs.
 * xref:apikit-for-soap.adoc[APIkit for SOAP] supports SOAP APIs. 
 
+With APIkit, incoming requests are intelligently routed to the appropriate endpoints based on the defined API contracts. This routing mechanism simplifies request handling, improves performance, and ensures that requests are processed by the correct API resources.
+
 Although each module is designed for a family of web services, all modules share common usage patterns. So if you are a Mule developer that works with SOAP APIs, you can easily get used to working with GraphQL, RAML, OData, or OAS APIs.
 
 == Features
@@ -23,7 +25,7 @@ Although each module is designed for a family of web services, all modules share
 
 You need to have access to xref:studio::index.adoc[Anypoint Studio] or xref:anypoint-code-builder::index.adoc[Anypoint Code Builder] to scaffold a supported API specification with APIkit.
 
-== APIkit versions
+== APIkit Versions
 
 APIkit is designed to work as a module with Mule runtime version 4. Documentation for the Mule 3 implementation of APIkit is available https://docs.mulesoft.com/apikit/3.x/[here]. If you use APIkit on Mule 3, the module version matches the runtime version.
 
