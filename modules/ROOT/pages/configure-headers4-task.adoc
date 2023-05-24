@@ -1,17 +1,46 @@
-= Configuring Headers
+= Configuring Response Headers and Status Code
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In the HTTP Listener, you can configure a verbose form of the response HTTP headers and status code. You configure two properties:
+Within the HTTP Listener configuration, you have the option to customize the HTTP response body, headers, status code and reason phrase.
 
-* `outboundHeadersMapName`
+== Configure variable names
+
+The APIkit Router configuration encompasses two specific properties that allow you to configure the variables that the HTTP listener will search for by default:
+
+* `outboundHeadersMapName`: Name of the variable that contains a headers map added in the response (`outboundHeaders` by default).
 +
-Supports sending custom headers with the response.
-+
-* `httpStatusVarName`
-+
-Supports sending a custom HTTP status code in the response.
+* `httpStatusVarName`: Name of the variable that stores the status code to be set in the response (`httpStatus` by default).
+
+Both variables are created by the APIkit Router and facilitate the inclusion of custom HTTP headers and status codes in the response.
+
+// TODO Maybe an image of the Router configuration as well?
+
+[source,xml,linenums]
+----
+<apikit:config  name="api-config"
+                api="api.raml"
+                outboundHeadersMapName="outboundHeaders"
+                httpStatusVarName="httpStatus"/>
+----
+
+If you opt to modify the default names of these variables, it is crucial to update the default HTTP listener configuration accordingly to ensure alignment between the variable names and the configuration.
+
+[source,xml,linenums]
+----
+<http:listener config-ref="api-httpListenerConfig" path="/api/*">
+    <http:response
+        statusCode="#[vars.httpStatus default 200]">
+        <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+    </http:response>
+    <http:error-response
+        statusCode="#[vars.httpStatus default 500]">
+        <http:body>#[payload]</http:body>
+        <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+    </http:error-response>
+</http:listener>
+----
 
 == Add a Header to a Response
 
@@ -19,16 +48,22 @@ Put the header you want to add inside the `outboundHeaders` map, as shown in the
 
 [source,xml,linenums]
 ----
-<ee:transform>
-    <ee:set-variables>
-    <ee:set-variable name="outboundHeaders">
-        variables.outboundHeaders ++{headerName:"value"}
-    </ee:set-variable>
-</ee:set-variables>
-</ee:transform>
+<set-variable
+    value='#[vars.outboundHeaders default {} ++ {newHeaderName: "Header value"}]'
+    variableName="outboundHeaders"/>
+----
+
+== Set the Status Code of a Response
+
+To assign a specific value to the `httpStatus` variable, you can utilize the following example as a reference:
+
+[source,xml,linenums]
+----
+<set-variable
+    value="201"
+    variableName="httpStatus"/>
 ----
 
 == See Also
-
-* xref:apikit-simulate.adoc[]
-* xref:validate-4-task.adoc[]
+// TODO Fix the reference to the HTTP listener
+* xref:http-connector_sending-http-responses.adoc[https://docs.mulesoft.com/http-connector/1.7/http-listener-ref#sending-http-responses]

@@ -1,0 +1,240 @@
+= Scaffolding Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+APIkit for REST scaffolder allows to generate the backbone of a REST API implementation based on RAML or OpenAPI Specifications (OAS).
+
+== Tooling
+
+Studio offers several ways to get an API scaffolded:
+
+* From *New Mule Project wizard*, having the option to execute it while importing published API in Exchange or Maven, importing from a local file or downloading from Design Center.
+* From *Package Explorer*, right-clicking the API file the *Mule* context menu is enabled to execute *Generate flows from Local REST API*.
+* From *Package Explorer*, right-clicking the API dependency a context menu having the same name as the dependency is enabled to execute *Generate flows*.
+* From *Package Explorer*, right-clicking on the project, depending on the API detected, one of the context menus mentioned above will be enabled.
+
+_It is important to note that scaffolding from a local file is not supported for OAS. In the case of OAS APIs, scaffolding can only be done from published assets in Exchange._
+
+== Implementation reference
+
+When utilizing the APIkit scaffolding technique based on a REST API specification, it generates the following components:
+
+* A *main flow* that act as the entry point including:
+** *HTTP Listener* as a source
+** *APIkit router* as the main operation
++
+The APIkit router is a crucial message processor that directs messages from incoming API requests to the corresponding Mule flows and generates a serialized response. It enhances messages by including default values as needed. For instance, if a request is invalid, APIkit produces a Bad request response, and if the requested API resource lacks an associated flow, a Not implemented response is returned.
++
+While the APIkit router can validate aspects such as request payload, headers, query parameters, and URI parameters, *it does not encompass validation for all elements specified in an API specification*. Specifically, security-related validation, such as authentication enforcement, is not performed by the router itself. Instead, this responsibility lies with API Gateway policies, which are executed before the request reaches the router.
+** *Error handler*
+
++
+* A *secondary flow* that exposes the API console including:
+** *HTTP Listener* as a source
+** *APIkit Console* as the main operation
+** *Error handler*
++
+* In addition to *N flows, one per API action-resource-content-type combination*, each of them including:
+** No source (this is a special design characteristic of APIkit for REST and SOAP applications only)
+** A mock implementation to be substituted with your actual business logic later
+
+Consider the following example as a reference:
+
+[source,xml,linenums]
+----
+<mule>
+    <apikit:config name="api-config" api="api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <flow name="api-main">
+        <http:listener config-ref="HTTP_Listener_config" path="/api/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body>#[payload]</http:body>
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:router config-ref="api-config" />
+        <error-handler>
+            <on-error-propagate type="APIKIT:BAD_REQUEST">
+                <ee:transform>
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Bad request"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">400</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+            <on-error-propagate type="APIKIT:NOT_FOUND">
+                <ee:transform>
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Resource not found"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">404</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+            <on-error-propagate type="APIKIT:METHOD_NOT_ALLOWED">
+                <ee:transform>
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Method not allowed"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">405</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+            <on-error-propagate type="APIKIT:NOT_ACCEPTABLE">
+                <ee:transform>
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Not acceptable"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">406</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+            <on-error-propagate type="APIKIT:UNSUPPORTED_MEDIA_TYPE">
+                <ee:transform>
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Unsupported media type"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">415</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+            <on-error-propagate type="APIKIT:NOT_IMPLEMENTED">
+                <ee:transform>
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Not Implemented"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">501</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+        </error-handler>
+    </flow>
+    <flow name="api-console">
+        <http:listener config-ref="HTTP_Listener_config" path="/console/*">
+            <http:response statusCode="#[vars.httpStatus default 200]">
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:response>
+            <http:error-response statusCode="#[vars.httpStatus default 500]">
+                <http:body>#[payload]</http:body>
+                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+            </http:error-response>
+        </http:listener>
+        <apikit:console config-ref="api-config" />
+        <error-handler>
+            <on-error-propagate type="APIKIT:NOT_FOUND">
+                <ee:transform>
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{message: "Resource not found"}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus">404</ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>
+        </error-handler>
+    </flow>
+    <flow name="get:\users\userbyid:api-config">
+        <ee:transform>
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+[
+  {
+    id: 3,
+    name: "Clementine Bauch",
+    username: "Samantha",
+    email: "Nathan@yesenia.net",
+    address: {
+      street: "Douglas Extension",
+      suite: "Suite 847",
+      city: "McKenziehaven",
+      zipcode: "59590-4157",
+      geo: {
+        lat: "-68.6102",
+        lng: "-47.0653"
+      }
+    },
+    phone: "1-463-123-4447",
+    website: "ramiro.info",
+    company: {
+      name: "Romaguera-Jacobson",
+      catchPhrase: "Face to face bifurcated interface",
+      bs: "e-enable strategic applications"
+    }
+  }
+]]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+    </flow>
+    <flow name="get:\users:api-config">
+        <ee:transform>
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+[
+  {
+    id: 1,
+    name: "Leanne Graham",
+    username: "Bret",
+    email: "Sincere@april.biz",
+    address: {
+      street: "Kulas Light",
+      suite: "Apt. 556",
+      city: "Gwenborough",
+      zipcode: "92998-3874",
+      geo: {
+        lat: "-37.3159",
+        lng: "81.1496"
+      }
+    },
+    phone: "1-770-736-8031 x56442",
+    website: "hildegard.org",
+    company: {
+      name: "Romaguera-Crona",
+      catchPhrase: "Multi-layered client-server neural-net",
+      bs: "harness real-time e-markets"
+    }
+  }
+]]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+    </flow>
+</mule>
+----
+
+== See also
+
+* xref:apikit-error-handling-reference.adoc[Error Handling Reference]
