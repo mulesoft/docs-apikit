@@ -21,7 +21,6 @@ The following table outlines the compatibility between APIkit versions, their re
 * OpenAPI Specification (OAS): 2.0 and 3.0
 * OData: 2.0 and 4.0
 * SOAP: 1.1 and 1.2
-If you are interested in APIkit for Mule 3 please refer to the Mule 3 overview.
 
 == Next Steps
 

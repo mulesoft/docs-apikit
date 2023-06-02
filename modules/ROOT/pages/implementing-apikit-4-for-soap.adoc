@@ -5,7 +5,8 @@ endif::[]
 
 In this workflow, you create an API using Studio and APIkit for SOAP. APIkit for SOAP supports consuming a remote WSDL. This workflow, however, uses a local WSDL that you download. The SOAP interface you create accesses data resources and integrates the interface with backend processes that function as an API.
 
-. xref:apikit-4-soap-prerequisites-task.adoc[]
+Before you begin, make sure you read the xref:apikit-4-soap-prerequisites-task.adoc[].
+
 . xref:apikit-4-soap-project-task.adoc[]
 . xref:apikit-4-soap-fault-task.adoc[]
 . xref:apikit-4-prevent-fault-task.adoc[]
