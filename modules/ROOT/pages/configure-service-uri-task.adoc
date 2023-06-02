@@ -7,7 +7,7 @@ When using a load balancer in front of a RAML or OAS API implementation, you can
 
 // TODO Add an image pointing toi the property in the configuration if necessary
 
-If you prefer to edit the code, then make sure to set the `keepRamlBaseUri` to `true`:
+If you prefer to edit the code, then make sure to set the `keepApiBaseUri` to `true`:
 
 [source,xml,linenums]
 ----
