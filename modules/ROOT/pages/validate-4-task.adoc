@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can configure the APIkit Router to enforce validation on headers and query parameters, restricting them exclusively to the attributes specified within your API specification.
+You can configure the APIkit Router to enforce validation on headers and query parameters, restricting them only to the attributes specified within your API specification.
 
 // tag::process[]
 . In your Studio canvas, select *APIkit Router*.
@@ -51,10 +51,7 @@ Or just update the APIkit configuration code as following:
 
 == See Also
 
-* xref:regenerate-flows.adoc[]
-* xref:customize-console-url-4-task.adoc[]
-* xref:execute-nonfunctional-requirements-4-task.adoc[]
 * xref:configure-headers4-task.adoc[]
-* xref:update-4-task.adoc[]
-* xref:configure-cloudhub-path-task.adoc[]
-* xref:configure-load-balancer-task.adoc[]
+* xref:configure-service-uri-task.adoc[]
+* xref:regenerate-flows.adoc[]
+

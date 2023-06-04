@@ -1,0 +1,181 @@
+= APIkit for SOAP Module Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+== Configurations
+---
+[[config]]
+
+=== Configuration
+
++++
+Configuration element for a SOAP Router.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+|Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*{nbsp}
+| Soap Version a| Enumeration, one of:
+
+** SOAP11
+** SOAP12 |  +++The soap version of the WSDL.+++ |  | {nbsp}
+| Address a| String |  +++The address of the web service.+++ |  | {nbsp}
+| Mtom Enabled a| Boolean |  +++If should use the MTOM protocol to manage the attachments or not.+++ |  +++false+++ | {nbsp}
+| Inbound Validation Enabled a| Boolean |  +++If should use the MTOM protocol to manage the attachments or not.+++ |  +++false+++ | {nbsp}
+| Http Status Var Name a| String |  +++The variable name for the http status.+++ |  +++httpStatus+++ | {nbsp}
+| Namespace Prefixes a| Object |  |  | {nbsp}
+| Expiration Policy a| <<ExpirationPolicy>> |  +++Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.+++ |  | {nbsp}
+| Wsdl Location a| String |  +++The WSDL file URL remote or local.+++ |  | *x*{nbsp}
+| Service a| String |  +++The service name.+++ |  | *x*{nbsp}
+| Port a| String |  +++The port name.+++ |  | *x*{nbsp}
+|======================
+
+
+==== Associated Operations
+* <<fault>> {nbsp}
+* <<router>> {nbsp}
+
+
+
+== Operations
+
+[[fault]]
+=== SOAP Fault
+`<apikit-soap:fault>`
+
++++
+APIKit for SOAP Fault
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Payload a| Binary |  |  +++#[payload]+++ | {nbsp}
+| Streaming Strategy a| * <<repeatable-in-memory-stream>>
+* <<repeatable-file-store-stream>>
+* <<non-repeatable-stream>> |  +++Configure if repeatable streams should be used and their behaviour+++ |  | {nbsp}
+| Operation a| String |  |  | *x*{nbsp}
+| Fault a| String |  |  | *x*{nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| Binary
+|======================
+
+==== For Configurations.
+* <<config>> {nbsp}
+
+==== Throws
+* APIKIT-SOAP:FAULT {nbsp}
+* APIKIT-SOAP:ROUTER {nbsp}
+
+
+[[router]]
+=== SOAP Router
+`<apikit-soap:router>`
+
++++
+APIKit for SOAP Router
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Message a| Binary |  |  +++#[payload]+++ | {nbsp}
+| Attributes a| Object |  |  | *x*{nbsp}
+| Output Mime Type a| String |  +++The mime type of the payload that this operation outputs.+++ |  | {nbsp}
+| Output Encoding a| String |  +++The encoding of the payload that this operation outputs.+++ |  | {nbsp}
+| Streaming Strategy a| * <<repeatable-in-memory-stream>>
+* <<repeatable-file-store-stream>>
+* <<non-repeatable-stream>> |  +++Configure if repeatable streams should be used and their behaviour+++ |  | {nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| Binary
+| *Attributes Type* a| <<SoapAttributes>>
+|======================
+
+==== For Configurations.
+* <<config>> {nbsp}
+
+==== Throws
+* APIKIT-SOAP:FAULT {nbsp}
+* APIKIT-SOAP:ROUTER {nbsp}
+
+
+
+== Types
+[[ExpirationPolicy]]
+=== Expiration Policy
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Max Idle Time a| Number | A scalar time value for the maximum amount of time a dynamic configuration instance should be allowed to be idle before it's considered eligible for expiration |  | 
+| Time Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS | A time unit that qualifies the maxIdleTime attribute |  | 
+|======================
+
+[[repeatable-in-memory-stream]]
+=== Repeatable In Memory Stream
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Initial Buffer Size a| Number | This is the amount of memory that will be allocated in order to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it will be expanded by according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  | 
+| Buffer Size Increment a| Number | This is by how much will be buffer size by expanded if it exceeds its initial size. Setting a value of zero or lower will mean that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised when the buffer gets full. |  | 
+| Max Buffer Size a| Number | This is the maximum amount of memory that will be used. If more than that is used then a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised. A value lower or equal to zero means no limit. |  | 
+| Buffer Unit a| Enumeration, one of:
+
+** BYTE
+** KB
+** MB
+** GB | The unit in which all these attributes are expressed |  | 
+|======================
+
+[[repeatable-file-store-stream]]
+=== Repeatable File Store Stream
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| In Memory Size a| Number | Defines the maximum memory that the stream should use to keep data in memory. If more than that is consumed then it will start to buffer the content on disk. |  | 
+| Buffer Unit a| Enumeration, one of:
+
+** BYTE
+** KB
+** MB
+** GB | The unit in which maxInMemorySize is expressed |  | 
+|======================
+
+[[SoapAttributes]]
+=== Soap Attributes
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Protocol Headers a| Object |  |  | 
+|======================
+

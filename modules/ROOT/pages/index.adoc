@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit is a toolkit that simplifies the development of API-led applications for Mule developers. It scaffolds applications from a given specification, validates inputs parameter validation, and creates xref:munit::munit-scaffold-test-task.adoc[MUnit test suites]. APIkit has a module for each supported web service:
+APIkit is a toolkit that simplifies the development of API-led applications for Mule developers. It scaffolds applications from a given specification, validates inputs parameter validation, and creates xref:munit::munit-scaffold-test-task.adoc[MUnit test suites]. APIkit has a module for each supported web-service type:
 
 * xref:apikit-4-forgraphql.adoc[APIkit for GraphQL] supports GraphQL APIs. 
 * xref:apikit4-for-odatav2.adoc[APIkit for OData v2] and xref:apikit4-for-odatav4.adoc[APIkit for OData v4] support OData APIs. 

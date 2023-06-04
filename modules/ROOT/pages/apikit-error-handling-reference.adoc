@@ -33,7 +33,7 @@ APIkit scaffolder generates error-handling code based on the most widely-used HT
 | 501 | APIKIT:NOT_IMPLEMENTED | Not Implemented
 |===
 
-The subsequent code showcases the construction of an error handler for an HTTP 400 response. You can take this one as a reference to add your own custom status codes and messages.
+The following code shows the construction of an error handler for an HTTP 400 response. You can take this one as a reference to add your own custom status codes and messages.
 
 [source,xml,linenums]
 ----

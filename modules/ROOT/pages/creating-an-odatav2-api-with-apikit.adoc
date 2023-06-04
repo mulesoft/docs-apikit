@@ -1,4 +1,4 @@
-= Building, implementing and testing an OData v2 API
+= Building, Implementing, and Testing an OData V2 API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -284,5 +284,5 @@ The output for each flow must conform to the following format:
 
 == See Also
 
-* xref:apikit-odata-extension-reference.adoc[]
+* xref:apikit-odatav2-extension-reference.adoc[]
 * xref:runtime-manager::deploying-to-cloudhub.adoc[]

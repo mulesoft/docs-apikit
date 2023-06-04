@@ -3,18 +3,17 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In this workflow, you create an API using Studio and APIkit for SOAP. APIkit for SOAP supports consuming a remote WSDL. This workflow, however, uses a local WSDL that you download. The SOAP interface you create accesses data resources and integrates the interface with backend processes that function as an API.
+In this workflow, you create an API using Studio and APIkit for SOAP. APIkit for SOAP supports consuming a remote WSDL. This workflow uses a local link:{attachmentsdir}/tshirt2.wsdl[WSDL tshirt2.wsdl] example you must download. The SOAP interface you create accesses data resources and integrates the interface with backend processes that function as an API.
 
-. xref:apikit-4-soap-prerequisites-task.adoc[]
+Before you begin, make sure you read the xref:apikit-4-soap-prerequisites-task.adoc[].
+
 . xref:apikit-4-soap-project-task.adoc[]
 . xref:apikit-4-soap-fault-task.adoc[]
 . xref:apikit-4-prevent-fault-task.adoc[]
+. xref:apikit-4-display-fault-task.adoc[]
 . xref:apikit-4-get-header-task.adoc[]
 . xref:apikit-4-set-header-task.adoc[]
-. xref:apikit-4-display-fault-task.adoc[]
-
 
 == See Also
 
-* xref:configure-cloudhub-path-task.adoc[]
 * xref:apikit-4-xml-reference.adoc[]

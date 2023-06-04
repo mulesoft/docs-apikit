@@ -28,7 +28,7 @@ Default configuration
 
 * xref:apikit-graphql-module-reference.adoc#route[Route]
 * xref:apikit-graphql-module-reference.adoc#serialize[Serialize]
-* xref:apikit-graphql-module-reference.adoc#serializebatch[Serialize Batch] 
+* xref:apikit-graphql-module-reference.adoc#serialize-batch[Serialize Batch] 
 
 ==== Associated Sources
 
@@ -195,7 +195,7 @@ Default configuration
 | Source | Any | Actual value of the fetched field parent |  | false
 |======================
 
-=== Repeatable In Memory Stream
+=== Repeatable in Memory Stream
 
 |======================
 | Field | Type | Description | Default Value | Required

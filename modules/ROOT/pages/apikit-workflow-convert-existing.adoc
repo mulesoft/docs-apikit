@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Whether you have chosen a backend-first design approach or already have a Mule application containing business logic that you wish to expose as a REST service, it is possible to convert your existing Mule Project into an APIkit project.
+Whether you have chosen a backend-first design approach or already have a Mule application containing business logic that you want to expose as a REST service, it is possible to convert your existing Mule Project into an APIkit project.
 
 Let's assume that you have chosen a backend-first implementation approach, and you have already created the following Mule application that retrieves users from a database:
 
@@ -40,11 +40,11 @@ This workflow guides you step-by-step to manually configure a functional router 
 
 The initial step involves defining the API specification for your service.
 
-To accomplish this, you can refer to the options provided in the "Design Your API Specification" section of the document xref:apikit-4-implement-rest-api.adoc[Creating, Testing, and Implementing an API]. To illustrate this example, please create or copy the identical API specification and JSON example used in that workflow to the `/src/main/resources/api` folder.
+To carry out this, you can refer to the options provided in the "Design Your API Specification" section of the document xref:apikit-4-implement-rest-api.adoc[Creating, Testing, and Implementing an API]. To illustrate this example, please create or copy the identical API specification and JSON example used in that workflow to the `/src/main/resources/api` folder.
 
 === Step 2: Create a Main Flow
 
-Within the APIkit project, construct a main flow that will serve as the entry point.
+Within the APIkit project, construct a main flow that serves as the entry point.
 
 . Drag the following components from the Mule palette to the canvas:
 +
@@ -179,9 +179,9 @@ Scaffold the API to auto-generate the main, console and resources flows:
 . Select *Mule*
 . Click on *Generate Flows from Local REST API*
 
-A new XML file with the same name as the API will be created containing the scaffolded flows.
+A new XML file with the same name as the API is created containing the scaffolded flows.
 
-_Note that the main advantage of this approach is that you get the APIkit Router configuration, an error handler and the console flow out of the box, in addition to each flow that map the resources._
+NOTE: The main advantage of this approach is that you get the APIkit Router configuration, an error handler and the console flow out of the box, in addition to each flow that map the resources.
 
 === Step 3: Reference Flows
 
@@ -223,7 +223,7 @@ At this point, you have several options:
 </mule>
 ----
 
-It is important to consider the size and complexity of the application when deciding on the best approach.
+Consider the size and complexity of the application when deciding on the best approach.
 
 == Test the API
 
@@ -231,6 +231,5 @@ Now that your new project is set up, you are prepared to run it.
 
 == See Also
 
-* xref:apikit-4-generate-workflow.adoc[]
-* xref:run-apikit-task.adoc[]
-* xref:apikit-simulate.adoc[]
+* xref:apikit-4-xml-reference.adoc[]
+* xref:apikit-error-handling-reference.adoc[]
