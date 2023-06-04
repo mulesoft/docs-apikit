@@ -7,7 +7,7 @@ APIkit for REST is a framework designed to simplify the development and integrat
 
 APIkit for REST fully supports RAML (RESTful API Modeling Language) and OAS (OpenAPI Specification), which are widely adopted formats for describing RESTful APIs. By leveraging RAML or OAS, you can define your API contracts, enabling consistent design, enhanced collaboration, and clear documentation.
 
-Features:
+== Features
 
 * *Automatic Validation*: APIkit for REST automatically validates incoming requests against your API contracts defined in RAML or OAS. This ensures that requests adhere to the specified rules and constraints of the API.
 
@@ -19,5 +19,5 @@ APIkit for REST is a tool for efficient REST API development and integration. By
 
 == See Also
 
-* xref:apikit-4-raml-flow-concept.adoc[]
 * xref:apikit-4-implement-rest-api.adoc[]
+* xref:apikit-4-xml-reference.adoc[]

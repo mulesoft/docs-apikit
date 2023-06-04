@@ -11,4 +11,4 @@ Unlike the APIkit for OData v2 extension that is based on RAML APIs, APIkit for 
 
 == See also
 
-* xref:apikit4-for-odatav2.adoc[]
+* xref:apikit-4-for-odatav2.adoc[]

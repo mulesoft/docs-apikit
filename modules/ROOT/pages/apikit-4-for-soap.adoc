@@ -5,7 +5,7 @@ endif::[]
 
 APIkit for SOAP is a framework designed to simplify the development and integration of SOAP-based APIs. SOAP (Simple Object Access Protocol) is a messaging protocol used for exchanging structured information between web services. With APIkit for SOAP, you get a set of tools and features that streamline SOAP API development, ensuring seamless integration with your existing SOAP infrastructure. APIkit for SOAP simplifies the handling of SOAP message formats and headers, so you can focus on the core logic of your APIs. Additionally, it automates the binding to WSDL (Web Services Description Language), reducing manual configuration efforts and ensuring accuracy.
 
-Features:
+== Features
 
 * Automatic binding to you WSDL definitions
 * Efficient handling of SOAP messages

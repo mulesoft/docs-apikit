@@ -26,9 +26,9 @@ The following table outlines the compatibility between APIkit versions, their re
 
 Depending on the language and protocols you want to use to develop your Mule application, choose the APIkit module that best suits your needs.
 
-* xref:apikit-4-forgraphql.adoc[]
-* xref:apikit4-for-odatav2.adoc[]
-* xref:apikit4-for-odatav4.adoc[]
-* xref:overview-apikit-for-rest.adoc[]
-* xref:apikit-for-soap.adoc[]
+* xref:apikit-4-for-graphql.adoc[]
+* xref:apikit-4-for-odatav2.adoc[]
+* xref:apikit-4-for-odatav4.adoc[]
+* xref:apikit-4-for-rest.adoc[]
+* xref:apikit-4-for-soap.adoc[]
 * https://docs.mulesoft.com/apikit/3.x/[APIkit version 3]

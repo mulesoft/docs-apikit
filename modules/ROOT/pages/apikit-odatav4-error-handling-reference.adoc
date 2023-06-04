@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-== Error types
+== Error Types
 
 APIkit for OData v4 defines the following error types:
 
