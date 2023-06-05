@@ -27,7 +27,6 @@
   *** xref:validate-4-task.adoc[Validating Query Parameters and Headers]
   *** xref:configure-headers4-task.adoc[Configuring Response Headers and Status Code]
   *** xref:configure-service-uri-task.adoc[Configuring Service URI]
-  *** xref:regenerate-flows.adoc[Changing an APIkit Project]
  ** xref:apikit-error-handling-reference.adoc[Error Handling Reference]
 * xref:apikit-4-for-soap.adoc[APIkit for SOAP]
  ** xref:apikit-4-soap-prerequisites-task.adoc[Prerequisites for Using APIkit for SOAP]
