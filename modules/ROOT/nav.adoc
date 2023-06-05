@@ -37,4 +37,5 @@
   *** xref:apikit-4-display-fault-task.adoc[Displaying a Typed Fault]
   *** xref:apikit-4-get-header-task.adoc[Getting a SOAP Header]
   *** xref:apikit-4-set-header-task.adoc[Setting a SOAP Header]
+ ** xref:apikit-for-soap-module-reference.adoc[APIkit for SOAP Module Reference]
  ** xref:apikit-4-soap-error-handling-reference.adoc[Error Handling Reference]

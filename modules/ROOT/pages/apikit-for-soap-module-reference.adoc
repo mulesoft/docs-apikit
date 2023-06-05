@@ -16,9 +16,9 @@ Configuration element for a *SOAP Router*
 | Name | String | The name for this configuration. Connectors reference the configuration with this name | | *x*
 | Soap Version | Enumeration, one of:
 
-SOAP11
+* SOAP11
  
-SOAP12 
+* SOAP12 
 
 | The SOAP version of the WSDL |  | 
 | Address | String |  The address of the web service |  | 
@@ -26,7 +26,7 @@ SOAP12
 | Inbound Validation Enabled | Boolean | Defines if the MTOM protocol is used to manage the attachments or not. |  false | 
 | HTTP Status Var Name | String |  The variable name for the HTTP status |  httpStatus | 
 | Namespace Prefixes | Object |  |  | 
-| Expiration Policy | xref:apikit-for-soap-module-reference.adoc#expiration-policy[Expiration Policy] |  Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform expires the instance at the exact moment that it becomes eligible. The runtime actually purges the instances when it sees it fit. |  | 
+| Expiration Policy | xref:apikit-for-soap-module-reference.adoc#expiration-policy[Expiration Policy] |  Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. The platform does not necessarily expire the instance at the exact moment that it becomes eligible. The runtime actually purges the instances when it sees it fit. |  | 
 | WSDL Location | String |  The WSDL file URL, remote or local |  | *x*
 | Service | String |  The name of the service |  | *x*
 | Port | String |  The name of the port |  | *x*
@@ -34,9 +34,9 @@ SOAP12
 
 ==== Associated Operations
 
-* xref:apikit-for-soap-module-reference.adoc#fault[Fault]
+* xref:apikit-for-soap-module-reference.adoc#soap-fault[Fault]
 
-* xref:apikit-for-soap-module-reference.adoc#router[Router]
+* xref:apikit-for-soap-module-reference.adoc#soap-router[Router]
 
 == Operations
 
@@ -54,11 +54,11 @@ APIKit for SOAP Fault
 | Payload | Binary |  |  #[payload] | 
 | Streaming Strategy | 
 
-xref:apikit-for-soap-module-reference.adoc#repeatable-in-memory-stream[Repeatable in memory stream]
+** xref:apikit-for-soap-module-reference.adoc#repeatable-in-memory-stream[Repeatable in memory stream]
 
-xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Repeatable file store stream]
+** xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Repeatable file store stream]
 
-xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Non repeatable stream] |  Configure if repeatable streams is used and their behavior |  | 
+** Non repeatable stream |  Configure if repeatable streams is used and their behavior |  | 
 | Operation | String |  |  | *x*
 | Fault | String |  |  | *x*
 | Target Variable | String | The name of a variable on which the operation output is placed |  | 
@@ -97,11 +97,11 @@ APIkit for SOAP Router
 | Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
 | Streaming Strategy | 
 
-xref:apikit-for-soap-module-reference.adoc#repeatable-in-memory-stream[Repeatable in memory stream]
+* xref:apikit-for-soap-module-reference.adoc#repeatable-in-memory-stream[Repeatable in memory stream]
 
-xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Repeatable file store stream]
+* xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Repeatable file store stream]
 
-xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Non repeatable stream] |  Configure if repeatable streams is used and their behavior |  | 
+* Non repeatable stream |  Configure if repeatable streams is used and their behavior |  | 
 | Target Variable | String |  The name of a variable on which the operation output is placed |  | 
 | Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | #[payload] | 
 |===
@@ -131,19 +131,19 @@ xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Non repe
 | Max Idle Time | Number | A scalar time value for the maximum amount of time a dynamic configuration instance is allowed to be idle before it's considered eligible for expiration |  | 
 | Time Unit | Enumeration, one of:
 
-NANOSECONDS
+* NANOSECONDS
 
-MICROSECONDS
+* MICROSECONDS
 
-MILLISECONDS
+* MILLISECONDS
 
-SECONDS
+* SECONDS
 
-MINUTES
+* MINUTES
 
-HOURS
+* HOURS
 
-DAYS | A time unit that qualifies the `maxIdleTime` attribute |  | 
+* DAYS | A time unit that qualifies the `maxIdleTime` attribute |  | 
 |===
 
 === Repeatable in Memory Stream
@@ -155,13 +155,13 @@ DAYS | A time unit that qualifies the `maxIdleTime` attribute |  |
 | Max Buffer Size | Number | The maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. |  | 
 | Buffer Unit | Enumeration, one of:
 
-BYTE
+* BYTE
 
-KB
+* KB
 
-MB
+* MB
 
-GB | The unit in which all these attributes are expressed |  | 
+* GB | The unit in which all these attributes are expressed |  | 
 |===
 
 === Repeatable File Store Stream
