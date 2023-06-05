@@ -4,178 +4,185 @@ include::_attributes.adoc[]
 endif::[]
 
 == Configurations
----
-[[config]]
 
-=== Configuration
+=== Config
 
-+++
-Configuration element for a SOAP Router.
-+++
+Configuration element for a *SOAP Router*
 
 ==== Parameters
-[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
-|======================
+
+|===
 | Name | Type | Description | Default Value | Required
-|Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*{nbsp}
-| Soap Version a| Enumeration, one of:
+| Name | String | The name for this configuration. Connectors reference the configuration with this name | | *x*
+| Soap Version | Enumeration, one of:
 
-** SOAP11
-** SOAP12 |  +++The soap version of the WSDL.+++ |  | {nbsp}
-| Address a| String |  +++The address of the web service.+++ |  | {nbsp}
-| Mtom Enabled a| Boolean |  +++If should use the MTOM protocol to manage the attachments or not.+++ |  +++false+++ | {nbsp}
-| Inbound Validation Enabled a| Boolean |  +++If should use the MTOM protocol to manage the attachments or not.+++ |  +++false+++ | {nbsp}
-| Http Status Var Name a| String |  +++The variable name for the http status.+++ |  +++httpStatus+++ | {nbsp}
-| Namespace Prefixes a| Object |  |  | {nbsp}
-| Expiration Policy a| <<ExpirationPolicy>> |  +++Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.+++ |  | {nbsp}
-| Wsdl Location a| String |  +++The WSDL file URL remote or local.+++ |  | *x*{nbsp}
-| Service a| String |  +++The service name.+++ |  | *x*{nbsp}
-| Port a| String |  +++The port name.+++ |  | *x*{nbsp}
-|======================
+SOAP11
+ 
+SOAP12 
 
+| The SOAP version of the WSDL |  | 
+| Address | String |  The address of the web service |  | 
+| MTOM Enabled | Boolean |  Defines if the MTOM protocol is used to manage the attachments or not. |  false | 
+| Inbound Validation Enabled | Boolean | Defines if the MTOM protocol is used to manage the attachments or not. |  false | 
+| HTTP Status Var Name | String |  The variable name for the HTTP status |  httpStatus | 
+| Namespace Prefixes | Object |  |  | 
+| Expiration Policy | xref:apikit-for-soap-module-reference.adoc#expiration-policy[Expiration Policy] |  Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform expires the instance at the exact moment that it becomes eligible. The runtime actually purges the instances when it sees it fit. |  | 
+| WSDL Location | String |  The WSDL file URL, remote or local |  | *x*
+| Service | String |  The name of the service |  | *x*
+| Port | String |  The name of the port |  | *x*
+|===
 
 ==== Associated Operations
-* <<fault>> {nbsp}
-* <<router>> {nbsp}
 
+* xref:apikit-for-soap-module-reference.adoc#fault[Fault]
 
+* xref:apikit-for-soap-module-reference.adoc#router[Router]
 
 == Operations
 
-[[fault]]
 === SOAP Fault
+
 `<apikit-soap:fault>`
 
-+++
 APIKit for SOAP Fault
-+++
 
 ==== Parameters
-[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
-|======================
+
+|===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
-| Payload a| Binary |  |  +++#[payload]+++ | {nbsp}
-| Streaming Strategy a| * <<repeatable-in-memory-stream>>
-* <<repeatable-file-store-stream>>
-* <<non-repeatable-stream>> |  +++Configure if repeatable streams should be used and their behaviour+++ |  | {nbsp}
-| Operation a| String |  |  | *x*{nbsp}
-| Fault a| String |  |  | *x*{nbsp}
-| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
-| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
-|======================
+| Configuration | String | The name of the configuration to use | | *x*
+| Payload | Binary |  |  #[payload] | 
+| Streaming Strategy | 
+
+xref:apikit-for-soap-module-reference.adoc#repeatable-in-memory-stream[Repeatable in memory stream]
+
+xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Repeatable file store stream]
+
+xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Non repeatable stream] |  Configure if repeatable streams is used and their behavior |  | 
+| Operation | String |  |  | *x*
+| Fault | String |  |  | *x*
+| Target Variable | String | The name of a variable on which the operation output is placed |  | 
+| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable |  #[payload] | 
+|===
 
 ==== Output
-[cols=".^50%,.^50%"]
-|======================
-| *Type* a| Binary
-|======================
 
-==== For Configurations.
-* <<config>> {nbsp}
+|===
+| *Type* | Binary
+|===
+
+==== For Configurations
+
+* xref:apikit-for-soap-module-reference.adoc#config[Config]
 
 ==== Throws
-* APIKIT-SOAP:FAULT {nbsp}
-* APIKIT-SOAP:ROUTER {nbsp}
 
+* APIKIT-SOAP:FAULT 
+* APIKIT-SOAP:ROUTER 
 
-[[router]]
 === SOAP Router
+
 `<apikit-soap:router>`
 
-+++
-APIKit for SOAP Router
-+++
+APIkit for SOAP Router
 
 ==== Parameters
-[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
-|======================
+
+|===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
-| Message a| Binary |  |  +++#[payload]+++ | {nbsp}
-| Attributes a| Object |  |  | *x*{nbsp}
-| Output Mime Type a| String |  +++The mime type of the payload that this operation outputs.+++ |  | {nbsp}
-| Output Encoding a| String |  +++The encoding of the payload that this operation outputs.+++ |  | {nbsp}
-| Streaming Strategy a| * <<repeatable-in-memory-stream>>
-* <<repeatable-file-store-stream>>
-* <<non-repeatable-stream>> |  +++Configure if repeatable streams should be used and their behaviour+++ |  | {nbsp}
-| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
-| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
-|======================
+| Configuration | String | The name of the configuration to use. | | *x*
+| Message | Binary |  |  #[payload] | 
+| Attributes | Object |  |  | *x*
+| Output Mime Type | String |  The MIME type of the payload that this operation outputs. |  | 
+| Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
+| Streaming Strategy | 
+
+xref:apikit-for-soap-module-reference.adoc#repeatable-in-memory-stream[Repeatable in memory stream]
+
+xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Repeatable file store stream]
+
+xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Non repeatable stream] |  Configure if repeatable streams is used and their behavior |  | 
+| Target Variable | String |  The name of a variable on which the operation output is placed |  | 
+| Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | #[payload] | 
+|===
 
 ==== Output
-[cols=".^50%,.^50%"]
-|======================
-| *Type* a| Binary
-| *Attributes Type* a| <<SoapAttributes>>
-|======================
 
-==== For Configurations.
-* <<config>> {nbsp}
+|===
+| *Type* | Binary
+| *Attributes Type* | xref:apikit-for-soap-module-reference.adoc#soap-attributes[SOAP Attributes]
+|===
+
+==== For Configurations
+
+* xref:apikit-for-soap-module-reference.adoc#config[Config]
 
 ==== Throws
-* APIKIT-SOAP:FAULT {nbsp}
-* APIKIT-SOAP:ROUTER {nbsp}
 
-
+* APIKIT-SOAP:FAULT 
+* APIKIT-SOAP:ROUTER 
 
 == Types
-[[ExpirationPolicy]]
+
 === Expiration Policy
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
-| Max Idle Time a| Number | A scalar time value for the maximum amount of time a dynamic configuration instance should be allowed to be idle before it's considered eligible for expiration |  | 
-| Time Unit a| Enumeration, one of:
+| Max Idle Time | Number | A scalar time value for the maximum amount of time a dynamic configuration instance is allowed to be idle before it's considered eligible for expiration |  | 
+| Time Unit | Enumeration, one of:
 
-** NANOSECONDS
-** MICROSECONDS
-** MILLISECONDS
-** SECONDS
-** MINUTES
-** HOURS
-** DAYS | A time unit that qualifies the maxIdleTime attribute |  | 
-|======================
+NANOSECONDS
 
-[[repeatable-in-memory-stream]]
-=== Repeatable In Memory Stream
+MICROSECONDS
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+MILLISECONDS
+
+SECONDS
+
+MINUTES
+
+HOURS
+
+DAYS | A time unit that qualifies the `maxIdleTime` attribute |  | 
+|===
+
+=== Repeatable in Memory Stream
+
+|===
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size a| Number | This is the amount of memory that will be allocated in order to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it will be expanded by according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  | 
-| Buffer Size Increment a| Number | This is by how much will be buffer size by expanded if it exceeds its initial size. Setting a value of zero or lower will mean that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised when the buffer gets full. |  | 
-| Max Buffer Size a| Number | This is the maximum amount of memory that will be used. If more than that is used then a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised. A value lower or equal to zero means no limit. |  | 
-| Buffer Unit a| Enumeration, one of:
+| Initial Buffer Size | Number | The amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than buffer capacity, then it is expanded according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. |  | 
+| Buffer Size Increment | Number | How much buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer does not expand. When the buffer is full, `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. |  | 
+| Max Buffer Size | Number | The maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. |  | 
+| Buffer Unit | Enumeration, one of:
 
-** BYTE
-** KB
-** MB
-** GB | The unit in which all these attributes are expressed |  | 
-|======================
+BYTE
 
-[[repeatable-file-store-stream]]
+KB
+
+MB
+
+GB | The unit in which all these attributes are expressed |  | 
+|===
+
 === Repeatable File Store Stream
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
-| In Memory Size a| Number | Defines the maximum memory that the stream should use to keep data in memory. If more than that is consumed then it will start to buffer the content on disk. |  | 
-| Buffer Unit a| Enumeration, one of:
+| In Memory Size | Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on disk. |  | 
+| Buffer Unit | Enumeration, one of:
 
-** BYTE
-** KB
-** MB
-** GB | The unit in which maxInMemorySize is expressed |  | 
-|======================
+* BYTE
 
-[[SoapAttributes]]
-=== Soap Attributes
+* KB
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+* MB
+
+* GB | The unit in which maxInMemorySize is expressed |  | 
+|===
+
+=== SOAP Attributes
+
+|===
 | Field | Type | Description | Default Value | Required
-| Protocol Headers a| Object |  |  | 
-|======================
-
+| Protocol Headers | Object |  |  | 
+|===
