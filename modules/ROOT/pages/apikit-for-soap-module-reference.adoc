@@ -26,7 +26,7 @@ SOAP12
 | Inbound Validation Enabled | Boolean | Defines if the MTOM protocol is used to manage the attachments or not. |  false | 
 | HTTP Status Var Name | String |  The variable name for the HTTP status |  httpStatus | 
 | Namespace Prefixes | Object |  |  | 
-| Expiration Policy | xref:apikit-for-soap-module-reference.adoc#expiration-policy[Expiration Policy] |  Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform expires the instance at the exact moment that it becomes eligible. The runtime actually purges the instances when it sees it fit. |  | 
+| Expiration Policy | xref:apikit-for-soap-module-reference.adoc#expiration-policy[Expiration Policy] |  Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. The platform does not necessarily expire the instance at the exact moment that it becomes eligible. The runtime actually purges the instances when it sees it fit. |  | 
 | WSDL Location | String |  The WSDL file URL, remote or local |  | *x*
 | Service | String |  The name of the service |  | *x*
 | Port | String |  The name of the port |  | *x*
@@ -171,13 +171,13 @@ GB | The unit in which all these attributes are expressed |  |
 | In Memory Size | Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on disk. |  | 
 | Buffer Unit | Enumeration, one of:
 
-* BYTE
+BYTE
 
-* KB
+KB
 
-* MB
+MB
 
-* GB | The unit in which maxInMemorySize is expressed |  | 
+GB | The unit in which maxInMemorySize is expressed |  | 
 |===
 
 === SOAP Attributes
