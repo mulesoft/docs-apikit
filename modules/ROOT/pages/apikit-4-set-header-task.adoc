@@ -13,7 +13,7 @@ In this example, you add the `APIUsageInformation` header to the response of you
 . In Studio, open the `tshirt2.wsdl` in `src/main/resources/api` and scroll to `APIUsageInformation` element, which is the element expected by the contract.
 
 . On the canvas, select the Transform Message component in the `OrderTshirt:/soapkit-config` flow.
-. In the existing Dataweave code:
+. In the existing DataWeave code:
 +
 [source,linenums]
 ----
@@ -52,7 +52,7 @@ Add the `APIUsageInformation` header declaration:
 
 }
 ----
-<1> This piece of Dataweave code adds headers to the produced output in the Transform Message component.
+<1> This piece of DataWeave code adds headers to the produced output in the Transform Message component.
 . Add the `apiCallsRemaining` header to the `APIUsageInformation` element:
 +
 [code,linenums]

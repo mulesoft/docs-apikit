@@ -5,9 +5,9 @@ endif::[]
 
 Within the HTTP Listener configuration, you have the option to customize the HTTP response body, headers, status code and reason phrase.
 
-== Configure variable names
+== Configure Variable Names
 
-The APIkit Router configuration encompasses two specific properties that allow you to configure the variables that the HTTP listener will search for by default:
+The APIkit Router configuration encompasses two specific properties that enable you to configure the variables that the HTTP listener searches for by default:
 
 * `outboundHeadersMapName`: Name of the variable that contains a headers map added in the response (`outboundHeaders` by default).
 +
@@ -25,7 +25,7 @@ Both variables are created by the APIkit Router and facilitate the inclusion of 
                 httpStatusVarName="httpStatus"/>
 ----
 
-If you opt to modify the default names of these variables, it is crucial to update the default HTTP listener configuration accordingly to ensure alignment between the variable names and the configuration.
+If you opt to modify the default names of these variables, it is crucial to update the default HTTP listener configuration so to ensure alignment between the variable names and the configuration.
 
 [source,xml,linenums]
 ----
@@ -55,7 +55,7 @@ Put the header you want to add inside the `outboundHeaders` map, as shown in the
 
 == Set the Status Code of a Response
 
-To assign a specific value to the `httpStatus` variable, you can utilize the following example as a reference:
+To assign a specific value to the `httpStatus` variable, you can use the following example as a reference:
 
 [source,xml,linenums]
 ----

@@ -12,11 +12,11 @@ Studio offers several ways to get an API scaffolded:
 * From *New Mule Project wizard*, having the option to execute it while importing published API in Exchange or Maven, importing from a local file or downloading from Design Center.
 * From *Package Explorer*, right-clicking the API file the *Mule* context menu is enabled to execute *Generate flows from Local REST API*.
 * From *Package Explorer*, right-clicking the API dependency a context menu having the same name as the dependency is enabled to execute *Generate flows*.
-* From *Package Explorer*, right-clicking on the project, depending on the API detected, one of the context menus mentioned above will be enabled.
+* From *Package Explorer*, right-clicking on the project. Depending on the API detected, one of the context menus mentioned is enabled.
 
-_It is important to note that scaffolding from a local file is not supported for OAS. In the case of OAS APIs, scaffolding can only be done from published assets in Exchange._
+NOTE: Scaffolding from a local file is not supported for OAS. In the case of OAS APIs, scaffolding can only be done from published assets in Exchange.
 
-== Implementation reference
+== Implementation Reference
 
 When utilizing the APIkit scaffolding technique based on a REST API specification, it generates the following components:
 
@@ -235,6 +235,6 @@ output application/json
 </mule>
 ----
 
-== See also
+== See Also
 
 * xref:apikit-error-handling-reference.adoc[Error Handling Reference]

@@ -1,4 +1,4 @@
-= Building, implementing and testing an OData v4 API
+= Building, Implementing, and Testing an OData V4 API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]

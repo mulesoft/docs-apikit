@@ -81,7 +81,7 @@ Default configuration
 ** HTTP
 ** HTTPS |  HTTP request scheme. |  | *x*
 | Host a| String |  Request host. |  | *x*
-| Listener Path a| String |  Listener path, ending with "*". |  | *x*
+| Listener Path a| String |  Listener path, ending with "*." |  | *x*
 | Http Headers a| Object |  HTTP request headers. |  | 
 | Query String a| String |  HTTP query string. |  | 
 | Target Variable a| String |  The name of a variable on which the operation's output is be placed. |  | 
@@ -212,7 +212,7 @@ Default configuration
 | Entity Type Name a| String |  Entity type name specified by the Entity Data Model. |  | *x*
 | Entity Type Fields a| Array of String |  List of property fields from the Entity type. |  | *x*
 | Entity Type Keys a| Object |  Map of entity key names and values. |  | *x*
-| System Query Options a| Object |  System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], in order to simplify usability we remove initial dollar sign to avoid escaping withing DataWeave, in example to access System Query Option $skip user should use the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
+| System Query Options a| Object |  System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], to simplify usability we remove initial dollar sign to avoid escaping withing DataWeave, in example to access System Query Option $skip user should use the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
 | Search Transformation Enabled a| Boolean |  Enables $search transformation to WHERE clause. |  true | 
 | Strict Search Term Match a| Boolean |  Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. |  false | 
 | Target Variable a| String |  The name of a variable on which the operation output is placed. |  | 
@@ -389,7 +389,7 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size a| Number | This is the amount of memory that is allocated in order to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it is expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  |
+| Initial Buffer Size a| Number | This is the amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it is expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  |
 | Buffer Size Increment a| Number | This is by how much is buffer size by expanded if it exceeds its initial size. Setting a value of zero or lower means that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised when the buffer gets full. |  |
 | Max Buffer Size a| Number | This is the maximum amount of memory used. If more than that is used, then a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised. A value lower or equal to zero means no limit. |  |
 | Buffer Unit a| Enumeration, one of:

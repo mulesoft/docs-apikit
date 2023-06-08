@@ -1,4 +1,4 @@
-= Installing OData v2 Tooling
+= Installing OData V2 Tooling
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
