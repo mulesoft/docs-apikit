@@ -1,4 +1,4 @@
-= APIkit for OData v2
+= APIkit for OData V2
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -7,7 +7,7 @@ APIkit for OData v2 is a framework designed to simplify the development of RESTf
 
 APIkit for OData v2 was developed as an extension of APIkit for REST, building upon its foundation and utilizing RAML APIs. This integration between APIkit for OData v2 and APIkit for REST allows for a seamless combination of their functionalities and benefits.
 
-However, it is important to acknowledge that APIkit for OData v2 does have certain limitations. These limitations may impact its functionality and may not provide all the advanced features and capabilities that are available in newer versions of OData or other frameworks. Therefore, it is essential to consider these limitations when deciding whether APIkit for OData v2 is the appropriate choice for your specific use case.
+However, APIkit for OData v2 does have certain limitations. These limitations may impact its functionality and may not provide all the advanced features and capabilities that are available in newer versions of OData or other frameworks. Therefore, it is essential to consider these limitations when deciding whether APIkit for OData v2 is the appropriate choice for your specific use case.
 
 While OData 2 was widely used and adopted, it has been succeeded by OData 4, which is the latest major version of the protocol. OData 4 introduces several enhancements, including improved query capabilities and better alignment with other web standards.
 

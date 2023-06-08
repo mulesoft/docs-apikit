@@ -31,4 +31,4 @@ Depending on the language and protocols you want to use to develop your Mule app
 * xref:apikit-4-for-odatav4.adoc[]
 * xref:apikit-4-for-rest.adoc[]
 * xref:apikit-4-for-soap.adoc[]
-* https://docs.mulesoft.com/apikit/3.x/[APIkit version 3]
+* xref:v3.x@apikit::index.adoc[]

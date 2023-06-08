@@ -171,7 +171,7 @@ else
 {}
 ----
 . Delete *Transform Message* component in `get:\users:api-config` and `get:\users\userbyid:api-config` flows.
-. Drag one *Flow Reference* for each flow in replacement of the previously removed *Transform Message* components.
+. Drag one *Flow Reference* for each flow in replacement of the removed *Transform Message* components.
 . In the properties editor of *Flow Reference* components, set flow name as `user_request_flow`.
 . Save changes.
 
@@ -252,5 +252,5 @@ Your REST API creation, implementation, and testing is complete.
 == See Also
 
 * http://jsonplaceholder.typicode.com[{JSON} Placeholder^]
-* xref:general::api-led-overview.adoc[] https://docs.mulesoft.com/general/api-led-overview[Tutorial: Build an API from Start to Finish]
+* xref:general::api-led-overview.adoc[]
 * xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment using Design Center]

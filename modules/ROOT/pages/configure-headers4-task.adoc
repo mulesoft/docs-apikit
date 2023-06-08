@@ -66,4 +66,4 @@ To assign a specific value to the `httpStatus` variable, you can use the followi
 
 == See Also
 // TODO Fix the reference to the HTTP listener
-* xref:http-connector_sending-http-responses.adoc[https://docs.mulesoft.com/http-connector/1.7/http-listener-ref#sending-http-responses]
+* https://docs.mulesoft.com/http-connector/1.7/http-listener-ref#sending-http-responses[Sending HTTP Responses when configuring HTTP listener source in Mule 4]
