@@ -47,8 +47,9 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 
 `<apikit-odata:transform-to-sql-select>` is the name of the XML element that represents this operation, which has the following parameters:
 
+[options="header"]
 |====
-| *Parameter name* | *Description*
+| Parameter name | Description
 | Display name | This parameter configures the operation name.
 | Module configuration | Name of the related-module configuration.
 | Entity set name | The name of the entity set that you are trying to fetch #[attributes.entitySetName].
@@ -71,8 +72,9 @@ OData supports a variety of expressions for filtering that you can find in its h
 
 ==== Binary Operators in OData and in SQL
 
+[options="header"]
 |====
-| *OData Operator* | *SQL Operator*
+| OData Operator | SQL Operator
 | add | +
 | and | AND
 | div | /
@@ -90,16 +92,18 @@ OData supports a variety of expressions for filtering that you can find in its h
 
 ==== Unary Operators in OData and in SQL
 
+[options="header"]
 |====
-| *OData Operator* | *SQL Operator*
+| OData Operator | SQL Operator
 | not | NOT
 | - | -
 |====
 
 ==== Method Operators in OData and in SQL
 
+[options="header"]
 |====
-| *OData Operator* | *SQL Operator*
+| OData Operator | SQL Operator
 | contains | LIKE %value%
 | startswith | LIKE value%
 | endswith | LIKE %value
@@ -109,8 +113,9 @@ OData supports a variety of expressions for filtering that you can find in its h
 
 The operation builds a `where` clause based on the `$search` expression provided by the system query option. The implementation translates the search expression to select all the elements that have property values that match the condition. By default, a term matches if the field value “contains” the term, but it does not match if it is set as “strict” in the configuration. The following parameters define the `$search` feature:
 
+[options="header"]
 |====
-| *Parameter name* | *Description*
+| Parameter name | Description
 | Search transformation enabled | When set to `true`, it enables the transformation support for this option.
 | Strict search term match | When set to `true`, it specifies that there is a match only if the field value contains exactly the same terms as the search expression.
 |====

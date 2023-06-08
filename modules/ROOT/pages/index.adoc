@@ -5,10 +5,10 @@ endif::[]
 
 APIkit is a toolkit that simplifies the development of API-led applications for Mule developers. It scaffolds applications from a given specification, validates inputs parameter validation, and creates xref:munit::munit-scaffold-test-task.adoc[MUnit test suites]. APIkit has a module for each supported web-service type:
 
-* xref:apikit-4-forgraphql.adoc[APIkit for GraphQL] supports GraphQL APIs. 
-* xref:apikit4-for-odatav2.adoc[APIkit for OData v2] and xref:apikit4-for-odatav4.adoc[APIkit for OData v4] support OData APIs. 
-* xref:overview-apikit-for-rest.adoc[APIkit for REST] supports RAML and OAS APIs.
-* xref:apikit-for-soap.adoc[APIkit for SOAP] supports SOAP APIs. 
+* xref:apikit-4-for-graphql.adoc[] supports GraphQL APIs. 
+* xref:apikit-4-for-odatav2.adoc[] and xref:apikit-4-for-odatav4.adoc[] support OData APIs. 
+* xref:apikit-4-for-rest.adoc[] supports RAML and OAS APIs.
+* xref:apikit-4-for-soap.adoc[] supports SOAP APIs. 
 
 With APIkit, incoming requests are intelligently routed to the appropriate endpoints based on the defined API contracts. This routing mechanism simplifies request handling, improves performance, and ensures that requests are processed by the correct API resources.
 
@@ -33,8 +33,8 @@ By default, Studio includes APIkit for REST and APIkit for SOAP modules. If you 
 
 == See Also
 
-* xref:apikit-4-forgraphql.adoc[]
-* xref:apikit4-for-odatav2.adoc[]
-* xref:apikit4-for-odatav4.adoc[]
-* xref:overview-apikit-for-rest.adoc[]
-* xref:apikit-for-soap.adoc[]
+* xref:apikit-4-for-graphql.adoc[]
+* xref:apikit-4-for-odatav2.adoc[]
+* xref:apikit-4-for-odatav4.adoc[]
+* xref:apikit-4-for-rest.adoc[]
+* xref:apikit-4-for-soap.adoc[]

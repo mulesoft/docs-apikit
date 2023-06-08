@@ -31,7 +31,7 @@ Default configuration
 
 ==== Parameters
 
-[%header%autowidth.spread]
+[cols="1a,2a,3a,4a,5a"]
 |===
 | Name | Type | Description | Default Value | Required
 | Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*
@@ -57,7 +57,7 @@ Default configuration
 
 === Parameters
 
-[%header%autowidth.spread]
+[cols="1a,2a,3a,4a,5a"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
@@ -118,7 +118,7 @@ Default configuration
 
 === Parameters
 
-[%header%autowidth.spread]
+[cols="1a,2a,3a,4a,5a"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
@@ -158,7 +158,7 @@ Default configuration
 
 === Parameters
 
-[%header%autowidth.spread]
+[cols="1a,2a,3a,4a,5a"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
@@ -193,12 +193,14 @@ Default configuration
 * <<Config>> 
 
 [[TransformToSqlSelect]]
+
 == Transform To Sql Select
+
 `<apikit-odata:transform-to-sql-select>`
 
 === Parameters
 
-[%header%autowidth.spread]
+[cols="1a,2a,3a,4a,5a"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
@@ -238,15 +240,18 @@ Default configuration
 * APIKIT-ODATA:MALFORMED_URI 
 * APIKIT-ODATA:NOT_IMPLEMENTED 
 * APIKIT-ODATA:TRANSFORMATION 
+
 == Sources
 
 [[RequestEntityCollectionListener]]
+
 == On Entity Collection Request
+
 `<apikit-odata:request-entity-collection-listener>`
 
 === Parameters
 
-[%header%autowidth.spread]
+[cols="1a,2a,3a,4a,5a"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
@@ -288,12 +293,14 @@ Default configuration
 * <<Config>> 
 
 [[RequestEntityListener]]
+
 == On Entity Request
+
 `<apikit-odata:request-entity-listener>`
 
 === Parameters
 
-[%header%autowidth.spread]
+[cols="1a,2a,3a,4a,5a"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
@@ -335,7 +342,9 @@ Default configuration
 * <<Config>> 
 
 == Types
+
 [[ListenerRequestAttributes]]
+
 === Listener Request Attributes
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]

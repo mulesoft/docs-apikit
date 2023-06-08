@@ -53,5 +53,3 @@ Or just update the APIkit configuration code as following:
 
 * xref:configure-headers4-task.adoc[]
 * xref:configure-service-uri-task.adoc[]
-* xref:regenerate-flows.adoc[]
-

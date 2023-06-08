@@ -11,6 +11,7 @@ Configuration element for a *SOAP Router*
 
 ==== Parameters
 
+[cols="1a,2a,3a,4a,5a"]
 |===
 | Name | Type | Description | Default Value | Required
 | Name | String | The name for this configuration. Connectors reference the configuration with this name | | *x*
@@ -48,6 +49,7 @@ APIKit for SOAP Fault
 
 ==== Parameters
 
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use | | *x*
@@ -88,6 +90,7 @@ APIkit for SOAP Router
 
 ==== Parameters
 
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
@@ -126,6 +129,7 @@ APIkit for SOAP Router
 
 === Expiration Policy
 
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
 | Max Idle Time | Number | A scalar time value for the maximum amount of time a dynamic configuration instance is allowed to be idle before it's considered eligible for expiration |  | 
@@ -148,6 +152,7 @@ APIkit for SOAP Router
 
 === Repeatable in Memory Stream
 
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
 | Initial Buffer Size | Number | The amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than buffer capacity, then it is expanded according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. |  | 
@@ -166,6 +171,7 @@ APIkit for SOAP Router
 
 === Repeatable File Store Stream
 
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
 | In Memory Size | Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on disk. |  | 
@@ -182,6 +188,7 @@ APIkit for SOAP Router
 
 === SOAP Attributes
 
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
 | Protocol Headers | Object |  |  | 
