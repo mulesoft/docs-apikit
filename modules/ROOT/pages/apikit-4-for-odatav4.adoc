@@ -1,4 +1,4 @@
-= APIkit for OData v4
+= APIkit for OData V4
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -9,6 +9,6 @@ With APIkit for OData, you can generate Mule flows that handle OData requests an
 
 Unlike the APIkit for OData v2 extension that is based on RAML APIs, APIkit for OData v4 leverages the Entity Data Model (EDM) used by OData services to build HTTP-based data services. The EDM formalizes the resource descriptions and structures within the OData service. However, please note that API Designer and API Console do not support OData APIs for the time being.
 
-== See also
+== See Also
 
 * xref:apikit-4-for-odatav2.adoc[]

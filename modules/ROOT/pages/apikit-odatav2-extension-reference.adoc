@@ -34,6 +34,6 @@ xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
 xsi:schemaLocation="http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd"
 ----
 
-== See also
+== See Also
 
 * xref:apikit-4-xml-reference.adoc[]

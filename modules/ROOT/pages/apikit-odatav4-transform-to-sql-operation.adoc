@@ -38,12 +38,12 @@ APIkit does not currently support the following elements:
 * $compute
 * $expand
 
-=== How Does Transform to SQL Select Work in Odata 4?
+=== Transform to SQL Select Operation in OData V4
 
 The OData protocol defines a series of conventions that enable clients to query identified resources using URLs. The list of queryable entities, their fields, and the relationships between them are defined in a data model using simple HTTP messages.
 As OData shares some similarities with Java database connectivity (JDBC), the `transform-to-sql-select` operation takes advantage of such similarities to help the user create SQL queries for those resources. The resulting message of the operation is a prepared statement with the SQL `select` sentence as the payload along with the parameters name and values map as the attributes.
 
-=== How Do I Implement the Transform to SQL Select Operation Using Apikit for Odata 4?
+=== Implement the Transform to SQL Select Operation Using APIkit for OData V4
 
 `<apikit-odata:transform-to-sql-select>` is the name of the XML element that represents this operation, which has the following parameters:
 
@@ -61,7 +61,7 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 | Strict search term match | Parameter to define the behavior of the transformation.
 |====
 
-=== $filter Expressions in OData 4
+=== $filter Expressions in OData V4
 
 ​​The `$filter` expression in OData uses comparison, logical, arithmetic, and grouping operators. You can access the list operators with their corresponding meaning at http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[the OData4 Specification^]. APIkit does not support `has` and `divby` operators.
 
