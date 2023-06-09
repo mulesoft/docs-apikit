@@ -7,4 +7,4 @@ In contrast to newer modules created using the Java SDK, APIkit for REST possess
 
 * xref:validate-4-task.adoc[]
 * xref:configure-headers4-task.adoc[]
-* xref:configure-service-uri-task[]
+* xref:configure-service-uri-task.adoc[]

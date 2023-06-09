@@ -1,4 +1,4 @@
-= Prerequisites for Using APIkit for Soap
+= Prerequisites for Using APIkit for SOAP
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -12,7 +12,7 @@ This procedure describes how to set up the development environment for creating 
 +
 Studio includes the Anypoint APIkit SOAP Extension.
 * Download a SOAP client. +
-For example, https://www.soapui.org/downloads/soapui.html[SoapUI].
+For example, https://www.soapui.org/downloads/soapui.html[SoapUI^].
 * Download or obtain the URL for a WSDL file. +
 
 == See Also
