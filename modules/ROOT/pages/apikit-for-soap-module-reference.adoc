@@ -45,7 +45,7 @@ Configuration element for a *SOAP Router*
 
 `<apikit-soap:fault>`
 
-APIKit for SOAP Fault
+APIkit for SOAP Fault
 
 ==== Parameters
 

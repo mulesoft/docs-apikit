@@ -356,7 +356,7 @@ Default configuration
 |======================
 
 [[ODataHttpAttributes]]
-=== O Data Http Attributes
+=== OData Http Attributes
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
@@ -380,7 +380,7 @@ Default configuration
 |======================
 
 [[ODataRequestAttributes]]
-=== O Data Request Attributes
+=== OData Request Attributes
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
