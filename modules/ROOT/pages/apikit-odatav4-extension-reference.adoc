@@ -13,7 +13,7 @@ endif::[]
   <classifier>mule-plugin</classifier>
 </dependency>
 ----
-<1> Check xref:https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] to get the *LATEST_VERSION*.
+<1> Check https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] to get the *LATEST_VERSION*.
 
 == Namespace and Schema
 
