@@ -25,7 +25,7 @@ The APIkit for OData v2 extension requires to be declared along with APIkit for 
 ----
 <1> They are subject to the version of the scaffolding tooling. Make sure to keep the Anypoint Studio plugin up to date.
 
-_Even though you can check the xref:https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] to upgrade each to the latest version, the compatibility between both is only warranted by the combination of versions that the tooling scaffolds. Upgrading them separately could lead to potential issues._
+NOTE: Even though you can check the https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] to upgrade each to the latest version, the compatibility between both is only warranted by the combination of versions that the tooling scaffolds. Upgrading them separately could lead to potential issues.
 
 == Namespace and Schema
 
