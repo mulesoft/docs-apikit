@@ -1,4 +1,4 @@
-= Prerequisites for Using APIkit for SOAP
+= Before You Begin Using APIkit for SOAP
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
