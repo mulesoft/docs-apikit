@@ -1,4 +1,4 @@
-== Using the Transform to SQL Operation
+== Transforming to SQL Query
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
