@@ -13,7 +13,7 @@
  ** xref:apikit-odatav2-extension-reference.adoc[APIkit for OData v2 Module Reference]
 * xref:apikit-4-for-odatav4.adoc[APIkit for OData v4]
  ** xref:install-odatav4-tooling.adoc[Installing OData v4 Tooling]
- ** xref:apikit-odatav4-migrating-api.adoc[Transforming an RAML OData v2 API to a CSDL OData v4 API]
+ ** xref:apikit-odatav4-migrating-api.adoc[Transforming a RAML OData v2 API to a CSDL OData v4 API]
  ** xref:creating-an-odatav4-api-with-apikit.adoc[Building, Implementing, and Testing an API]
  ** xref:apikit-odatav4-transform-to-sql-operation.adoc[Transforming to SQL Query]
  ** xref:apikit-odatav4-expand-feature.adoc[Enhancing API Consumption and Minimizing Network Traffic]
