@@ -16,7 +16,7 @@
  ** xref:apikit-odatav4-migrating-api.adoc[Transforming an RAML OData v2 API to a CSDL OData v4 API]
  ** xref:creating-an-odatav4-api-with-apikit.adoc[Building, implementing and testing an API]
  ** xref:apikit-odatav4-transform-to-sql-operation.adoc[Transforming to SQL Query]
- ** xref:apikit-odatav4-expand-feature.adoc[Implementing the $expand Feature]
+ ** xref:apikit-odatav4-expand-feature.adoc[Enhancing API Consumption and Minimizing Network Traffic]
  ** xref:apikit-odatav4-extension-reference.adoc[APIkit for OData v4 Module Reference]
  ** xref:apikit-odatav4-error-handling-reference.adoc[Error Handling Reference]
 * xref:apikit-4-for-rest.adoc[APIkit for REST]
