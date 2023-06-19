@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: creating-an-odata-api-with-apikit.adoc
 
 The OData MySQL example shows you how to use an HTTP-based data service to query a MySQL database.
 
