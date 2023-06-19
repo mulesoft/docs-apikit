@@ -2,7 +2,6 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: apikit-workflow-convert-existing.adoc
 
 Whether you have chosen a backend-first design approach or already have a Mule application containing business logic that you want to expose as a REST service, it is possible to convert your existing Mule Project into an APIkit project.
 
