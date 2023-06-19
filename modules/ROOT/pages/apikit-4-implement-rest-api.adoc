@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: apikit-simulate.adoc
 
 This workflow guides you through the process of designing, implementing, and testing a REST API.
 
@@ -123,7 +124,7 @@ APIkit generates the necessary flows based on the API specification you imported
 
 == Simulate API Calls
 
-. In Anypoint Studio, locate the *APIkit Consoles* view and click `Open console` under the base point URL `http://localhost:8081/console/`.
+. In Anypoint Studio, locate the *APIkit Consoles* view and click `Open console` under the base point URL `+http://localhost:8081/console/+`.
 +
 image::apikit-consoles.png["APIkit console tab displays the location of the basepoint URL in the window."]
 +

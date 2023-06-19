@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: apikit-4-generate-workflow.adoc
 
 APIkit for REST is a framework designed to simplify the development and integration of RESTful APIs. REST (Representational State Transfer) is an architectural style for building web services. With APIkit for REST, you get a set of tools and features to streamline REST API development while ensuring compliance with industry standards.
 

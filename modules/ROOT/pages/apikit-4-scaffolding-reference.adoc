@@ -2,6 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
+:page-aliases: creating-an-apikit-4-project-with-maven.adoc
 
 APIkit for REST scaffolder allows to generate the backbone of a REST API implementation based on RAML or OpenAPI Specifications (OAS).
 
