@@ -24,7 +24,7 @@ Although each module is designed for a family of web services, all modules share
 
 == Before You Begin Using APIkit
 
-You need to have access to xref:studio::index.adoc[Anypoint Studio] or xref:anypoint-code-builder::index.adoc[Anypoint Code Builder] to scaffold a supported API specification with APIkit.
+You must have access to xref:studio::index.adoc[Anypoint Studio] or xref:anypoint-code-builder::index.adoc[Anypoint Code Builder] to scaffold a supported API specification with APIkit.
 
 == APIkit Versions
 
