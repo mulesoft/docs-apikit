@@ -28,7 +28,7 @@ You must have access to xref:studio::index.adoc[Anypoint Studio] or xref:anypoin
 
 == APIkit Versions
 
-APIkit is designed to work as a module with Mule runtime version 4. Documentation for the Mule 3 implementation of APIkit is available https://docs.mulesoft.com/apikit/3.x/[here]. If you use APIkit on Mule 3, the module version matches the runtime version.
+APIkit works as a module with Mule runtime version 4. Documentation for the Mule 3 implementation of APIkit is available https://docs.mulesoft.com/apikit/3.x/[here]. If you use APIkit on Mule 3, the module version matches the runtime version.
 
 By default, Studio includes APIkit for REST and APIkit for SOAP modules. If you need GraphQL or OData modules, follow the installation instructions in each section.
 
