@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The following table outlines the compatibility between APIkit versions, their respective supported web services, and the corresponding Mule versions:
+The following table shows the compatibility between APIkit versions, their respective supported web services, and the corresponding Mule versions:
 
 [%header]
 |===
