@@ -19,7 +19,7 @@ Although each module is designed for a family of web services, all modules share
 
 * APIkit generates the structure of a Mule application based on a supported API specification.
 * APIkit includes sources and operations that perform complex input validations according to the requirements in the API specification.
-* APIkit for REST module includes an API console that enables you to experiment with the API project as you develop it.
+* The APIkit for REST module includes an API console that enables you to experiment with the API project as you develop it.
 * Some APIkit modules include extensions for xref:studio::index.adoc[Anypoint Studio] and xref:anypoint-code-builder::index.adoc[Anypoint Code Builder] for enhancing your editing experience if you choose to use the supported development environments.
 
 == Prerequisites
