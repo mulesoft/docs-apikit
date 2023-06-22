@@ -34,6 +34,7 @@ By default, Studio includes APIkit for REST and APIkit for SOAP modules. If you 
 
 == See Also
 
+* xref:apikit-compatibility.adoc[]
 * xref:apikit-4-for-graphql.adoc[]
 * xref:apikit-4-for-odatav2.adoc[]
 * xref:apikit-4-for-odatav4.adoc[]
