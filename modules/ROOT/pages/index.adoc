@@ -13,7 +13,7 @@ APIkit is a toolkit that simplifies the development of API-led applications for 
 
 With APIkit, incoming requests are intelligently routed to the appropriate endpoints based on the defined API contracts. This routing mechanism simplifies request handling, improves performance, and ensures that requests are processed by the correct API resources.
 
-Although each module is designed for a family of web services, all modules share common usage patterns. So if you are a Mule developer that works with SOAP APIs, you can easily get used to working with GraphQL, RAML, OData, or OAS APIs.
+Although each module is designed for a family of web services, all modules share common usage patterns. So if you are a Mule developer who works with SOAP APIs, you can easily work with GraphQL, RAML, OData, or OAS APIs.
 
 == Features
 
