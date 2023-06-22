@@ -22,7 +22,7 @@ Although each module is designed for a family of web services, all modules share
 * The APIkit for REST module includes an API console that enables you to experiment with the API project as you develop it.
 * Some APIkit modules include extensions for xref:studio::index.adoc[Anypoint Studio] and xref:anypoint-code-builder::index.adoc[Anypoint Code Builder] for enhancing your editing experience if you use the supported development environments.
 
-== Prerequisites
+== Before You Begin Using APIkit
 
 You need to have access to xref:studio::index.adoc[Anypoint Studio] or xref:anypoint-code-builder::index.adoc[Anypoint Code Builder] to scaffold a supported API specification with APIkit.
 
