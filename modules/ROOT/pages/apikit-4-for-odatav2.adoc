@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for OData v2 is a framework designed to simplify the development of RESTful APIs that adhere to the OData v2 specification. OData, also known as the Open Data Protocol, is a protocol that enables the creation and consumption of RESTful APIs. It allows data querying and manipulation through standard HTTP requests.
+APIkit for OData v2 is a framework that simplifies the development of RESTful APIs that adhere to the OData v2 specification. OData, also called the Open Data Protocol, enables the creation and consumption of RESTful APIs. It allows data querying and manipulation through standard HTTP requests.
 
 APIkit for OData v2 was developed as an extension of APIkit for REST. It builds upon its foundation and utilizes RAML APIs. This integration between APIkit for OData v2 and APIkit for REST combines their functionalities and benefits.
 
