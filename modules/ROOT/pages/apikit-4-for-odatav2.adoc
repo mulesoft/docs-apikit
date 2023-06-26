@@ -9,7 +9,7 @@ APIkit for OData v2 was developed as an extension of APIkit for REST. It builds 
 
 However, APIkit for OData v2 has certain limitations. These limitations can impact its functionality and provide fewer capabilities than newer versions of OData or other frameworks. Consider these limitations when deciding whether APIkit for OData v2 is the appropriate choice for your specific use case.
 
-While OData v2 was widely used and adopted, OData v4 is the latest major version. OData v4 introduces several enhancements, including improved query capabilities and better alignment with other web standards.
+While OData v2 is still widely used, OData v4 is the latest major version. It introduces several enhancements, including improved query capabilities and better alignment with other web standards.
 
 == See Also
 
