@@ -3,14 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for OData v2 is a framework designed to simplify the development of RESTful APIs that adhere to the OData v2 specification. OData, also known as the Open Data Protocol, is a protocol that enables the creation and consumption of RESTful APIs, allowing for data querying and manipulation through standard HTTP requests.
+APIkit for OData v2 is a framework designed to simplify the development of RESTful APIs that adhere to the OData v2 specification. OData, also known as the Open Data Protocol, is a protocol that enables the creation and consumption of RESTful APIs. It allows data querying and manipulation through standard HTTP requests.
 
-APIkit for OData v2 was developed as an extension of APIkit for REST, building upon its foundation and utilizing RAML APIs. This integration between APIkit for OData v2 and APIkit for REST allows for a seamless combination of their functionalities and benefits.
+APIkit for OData v2 was developed as an extension of APIkit for REST. It builds upon its foundation and utilizes RAML APIs. This integration between APIkit for OData v2 and APIkit for REST combines their functionalities and benefits.
 
-However, APIkit for OData v2 does have certain limitations. These limitations may impact its functionality and may not provide all the advanced features and capabilities that are available in newer versions of OData or other frameworks. Therefore, it is essential to consider these limitations when deciding whether APIkit for OData v2 is the appropriate choice for your specific use case.
+However, APIkit for OData v2 does have certain limitations. These limitations can impact its functionality and provide less features and capabilities than newer versions of OData or other frameworks. Consider these limitations when deciding whether APIkit for OData v2 is the appropriate choice for your specific use case.
 
-While OData 2 was widely used and adopted, it has been succeeded by OData 4, which is the latest major version of the protocol. OData 4 introduces several enhancements, including improved query capabilities and better alignment with other web standards.
+While OData v2 was widely used and adopted, OData v4 is the latest major version. OData v4 introduces several enhancements, including improved query capabilities and better alignment with other web standards.
 
 == See Also
 
 * xref:apikit-4-for-odatav4.adoc[]
+* xref:install-odatav2-tooling.adoc[]
