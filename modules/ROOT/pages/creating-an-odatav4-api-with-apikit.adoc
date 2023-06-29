@@ -150,6 +150,23 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 | System query options | Parameter obtained from the OData request using #[attributes.odataRequestAttributes].
 | Search transformation enabled | Parameter to define the behavior of the transformation.
 | Strict search term match | Parameter to define the behavior of the transformation.
+| SQL identifiers delimiter | Option to delimit identifiers in the generated SQL sentence. Available options are DOUBLE_QUOTES, BRACKETS, and BACK_TICKS.
+
+Examples :
+
+* DOUBLE_QUOTES : ``SELECT "TrackId", "Name" FROM "Tracks"``
+
+* BRACKETS : ``SELECT [TrackId], [Name] FROM [Tracks]``
+
+* BACK_TICKS : ``SELECT \`TrackId`, \`Name` FROM \`Tracks` ``
+
+| SQL limit rows | Option to limit the numbers of rows. Available options are LIMIT and FETCH_NEXT_ROWS_ONLY.
+
+Examples :
+
+* LIMIT : ``SELECT OrderID, ShippedDate, ShipCountry FROM Orders LIMIT :parameter1``
+
+* FETCH_NEXT_ROWS_ONLY : ``SELECT OrderID, ShippedDate, ShipCountry FROM Orders ORDER BY OrderID ASC OFFSET :parameter2 ROWS FETCH NEXT :parameter1 ROWS ONLY`` ORDER BY is automatically included if not present in the request using the entity key defined in CSDL.
 |====
 
 === $filter Expressions in OData 4 
