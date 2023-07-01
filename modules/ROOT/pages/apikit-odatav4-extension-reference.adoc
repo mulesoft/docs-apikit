@@ -35,8 +35,8 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*
-| Api Definition a| String |  API definition |  | *x*
-| Name a| String |  The identifier of this element used to reference it in other components |  | *x*
+| Api Definition | String |  API definition |  | *x*
+| Name | String |  The identifier of this element used to reference it in other components |  | *x*
 |===
 
 ==== Associated Operations
@@ -61,11 +61,11 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
-| Content a| Any |  |  #[payload] | 
-| Output MIME Type a| String |  The MIME type of the payload that this operation outputs. |  | 
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
-| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+| Content | Any |  |  #[payload] | 
+| Output MIME Type | String |  The MIME type of the payload that this operation outputs. |  | 
+| Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref | ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
+| Streaming Strategy | * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
 | Method a| Enumeration, one of:
@@ -75,17 +75,17 @@ Default configuration
 ** PUT
 ** PATCH
 ** DELETE |  HTTP request method name. |  | *x*
-| Masked Request Path a| String |  OData request path, relative to listener. |  | *x*
-| Scheme a| Enumeration, one of:
+| Masked Request Path | String |  OData request path, relative to listener. |  | *x*
+| Scheme | Enumeration, one of:
 
 ** HTTP
 ** HTTPS |  HTTP request scheme. |  | *x*
 | Host a| String |  Request host. |  | *x*
-| Listener Path a| String |  Listener path, ending with "*." |  | *x*
-| Http Headers a| Object |  HTTP request headers. |  | 
-| Query String a| String |  HTTP query string. |  | 
-| Target Variable a| String |  The name of a variable on which the operation's output is be placed. |  | 
-| Target Value a| String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
+| Listener Path | String |  Listener path, ending with "*." |  | *x*
+| Http Headers | Object |  HTTP request headers. |  | 
+| Query String | String |  HTTP query string. |  | 
+| Target Variable | String |  The name of a variable on which the operation's output is be placed. |  | 
+| Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
 |===
 
 === Output
@@ -93,7 +93,7 @@ Default configuration
 [%autowidth.spread]
 |===
 | *Type* a| Any
-| *Attributes Type* a| <<RouteOutputAttributes>>
+| *Attributes Type* | <<RouteOutputAttributes>>
 |===
 
 === For Configurations
@@ -122,11 +122,11 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
-| Inbound Content a| Binary |  |  #[payload] | 
-| Output MIME Type a| String |  The MIME type of the payload that this operation outputs. |  | 
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
-| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+| Inbound Content | Binary |  |  #[payload] | 
+| Output MIME Type | String |  The MIME type of the payload that this operation outputs. |  | 
+| Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref | ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
+| Streaming Strategy | * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
 | Method a| Enumeration, one of:
@@ -136,9 +136,9 @@ Default configuration
 ** PUT
 ** PATCH
 ** DELETE |  HTTP Method. |  | *x*
-| Path a| String |  Path to Entity Type. |  | *x*
-| Target Variable a| String |  The name of a variable on which the operation output is placed. |  | 
-| Target Value a| String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
+| Path | String |  Path to Entity Type. |  | *x*
+| Target Variable | String |  The name of a variable on which the operation output is placed. |  | 
+| Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
 |===
 
 === Output
@@ -162,30 +162,30 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
-| Inbound Content a| Binary |  |  #[payload] | 
-| Output MIME Type a| String |  The MIME type of the payload that this operation outputs. |  | 
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
-| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+| Inbound Content | Binary |  |  #[payload] | 
+| Output MIME Type | String |  The MIME type of the payload that this operation outputs. |  | 
+| Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref | ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
+| Streaming Strategy | * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
-| Method a| Enumeration, one of:
+| Method | Enumeration, one of:
 
 ** GET
 ** POST
 ** PUT
 ** PATCH
 ** DELETE |  HTTP Method. |  | *x*
-| Path a| String |  Path to Entity Type. |  | *x*
-| Target Variable a| String |  The name of a variable on which the operation output is placed. |  | 
-| Target Value a| String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
+| Path | String |  Path to Entity Type. |  | *x*
+| Target Variable | String |  The name of a variable on which the operation output is placed. |  | 
+| Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
 |===
 
 === Output
 
 [%autowidth.spread]
 |===
-| *Type* a| Binary
+| *Type* | Binary
 |===
 
 === For Configurations
@@ -204,10 +204,10 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
-| Entity Set Name a| String | The table name in the database for the requested entity set |  | *x*
+| Entity Set Name | String | The table name in the database for the requested entity set |  | *x*
 | Database Schema | String | The name of the database schema to which the entity set belongs. If not empty, it is prefixed to the table name in the WHERE clause. |  | 
-| Page Size a| Number |  |  | 
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
+| Page Size | Number |  |  | 
+| Config Ref | ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
