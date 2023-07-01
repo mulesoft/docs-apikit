@@ -68,7 +68,7 @@ Default configuration
 | Streaming Strategy | * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
-| Method a| Enumeration, one of:
+| Method | Enumeration, one of:
 
 ** GET
 ** POST
@@ -80,7 +80,7 @@ Default configuration
 
 ** HTTP
 ** HTTPS |  HTTP request scheme. |  | *x*
-| Host a| String |  Request host. |  | *x*
+| Host | String |  Request host. |  | *x*
 | Listener Path | String |  Listener path, ending with "*." |  | *x*
 | Http Headers | Object |  HTTP request headers. |  | 
 | Query String | String |  HTTP query string. |  | 
@@ -92,7 +92,7 @@ Default configuration
 
 [%autowidth.spread]
 |===
-| *Type* a| Any
+| *Type* | Any
 | *Attributes Type* | <<RouteOutputAttributes>>
 |===
 
@@ -129,7 +129,7 @@ Default configuration
 | Streaming Strategy | * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
-| Method a| Enumeration, one of:
+| Method | Enumeration, one of:
 
 ** GET
 ** POST
@@ -145,7 +145,7 @@ Default configuration
 
 [%autowidth.spread]
 |===
-| *Type* a| Binary
+| *Type* | Binary
 |===
 
 === For Configurations
@@ -208,25 +208,37 @@ Default configuration
 | Database Schema | String | The name of the database schema to which the entity set belongs. If not empty, it is prefixed to the table name in the WHERE clause. |  | 
 | Page Size | Number |  |  | 
 | Config Ref | ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
-| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+| Streaming Strategy | * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
-| Entity Type Name a| String |  Entity type name specified by the Entity Data Model. |  | *x*
-| Entity Type Fields a| Array of String |  List of property fields from the Entity type. |  | *x*
-| Entity Type Keys a| Object |  Map of entity key names and values. |  | *x*
-| System Query Options a| Object |  System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], to simplify usability we remove initial dollar sign to avoid escaping withing DataWeave, in example to access System Query Option $skip user should use the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
-| Search Transformation Enabled a| Boolean |  Enables $search transformation to WHERE clause. |  true | 
-| Strict Search Term Match a| Boolean |  Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. |  false | 
-| Target Variable a| String |  The name of a variable on which the operation output is placed. |  | 
-| Target Value a| String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
+| Entity Type Name | String |  Entity type name specified by the Entity Data Model. |  | *x*
+| Entity Type Fields | Array of String |  List of property fields from the Entity type. |  | *x*
+| Entity Type Keys | Object |  Map of entity key names and values. |  | *x*
+| System Query Options | Object |  System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], to simplify usability we remove initial dollar sign to avoid escaping withing DataWeave, in example to access System Query Option $skip user should use the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
+| Search Transformation Enabled | Boolean |  Enables $search transformation to WHERE clause. |  true | 
+| Strict Search Term Match | Boolean |  Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. |  false | 
+| Sql Limit Rows | Enumeration, one of:
+
+* LIMIT
+
+* FETCH_NEXT_ROWS_ONLY |  Option to limit the number of rows |  | 
+| Sql Identifiers Delimiter a| Enumeration, one of:
+
+* DOUBLE_QUOTES
+
+* BRACKETS
+
+* BACK_TICKS |  Option to delimit identifiers |  |
+| Target Variable | String |  The name of a variable on which the operation output is placed. |  | 
+| Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
 |===
 
 === Output
 
 [%autowidth.spread]
 |===
-| *Type* a| Binary
-| *Attributes Type* a| <<SqlTransformerOutputAttributes>>
+| *Type* | Binary
+| *Attributes Type* | <<SqlTransformerOutputAttributes>>
 |===
 
 === For Configurations
@@ -255,25 +267,25 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
-| Output MIME Type a| String |  The MIME type of the payload that this operation outputs. |  | 
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
-| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | 
-| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+| Output MIME Type | String |  The MIME type of the payload that this operation outputs. |  | 
+| Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref | ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
+| Primary Node Only | Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | 
+| Streaming Strategy | * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
-| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | 
-| Method a| Enumeration, one of:
+| Redelivery Policy | <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | 
+| Method | Enumeration, one of:
 
 ** GET
 ** POST
 ** PUT
 ** PATCH
 ** DELETE |  HTTP Method |  | *x*
-| Path a| String |  Path to Entity Type |  | *x*
-| Collection Success Response a| One of:
-| Supported System Query Options - `$expand` a| Boolean |  Wether to enable support for `$expand` or not. |  `true` | 
-| Ignore errors on expansion enabled a| Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. |  `false` | 
+| Path | String |  Path to Entity Type |  | *x*
+| Collection Success Response | One of:
+| Supported System Query Options - `$expand` | Boolean |  Wether to enable support for `$expand` or not. |  `true` | 
+| Ignore errors on expansion enabled | Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. |  `false` | 
 | Expandable navigation properties | List<String> | List of types that can be generically expanded from this flow. | `[]` | 
 
 * <<RawEntityCollectionSuccessResponse>>
@@ -284,8 +296,8 @@ Default configuration
 
 [%autowidth.spread]
 |===
-| *Type* a| Any
-| *Attributes Type* a| <<ListenerRequestAttributes>>
+| *Type* | Any
+| *Attributes Type* | <<ListenerRequestAttributes>>
 |===
 
 === For Configurations
@@ -304,26 +316,26 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
-| Output MIME Type a| String |  The MIME type of the payload that this operation outputs. |  | 
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | 
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
-| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | 
-| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+| Output MIME Type | String |  The MIME type of the payload that this operation outputs. |  | 
+| Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
+| Config Ref | ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
+| Primary Node Only | Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | 
+| Streaming Strategy | * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
-| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | 
-| Method a| Enumeration, one of:
+| Redelivery Policy | <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | 
+| Method | Enumeration, one of:
 
 ** GET
 ** POST
 ** PUT
 ** PATCH
 ** DELETE |  HTTP Method |  | *x*
-| Path a| String |  Path to Entity Type |  | *x*
-| Supported System Query Options - `$expand` a| Boolean |  Wether to enable support for `$expand` or not. |  `true` | 
-| Ignore errors on expansion enabled a| Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. |  `false` | 
+| Path | String |  Path to Entity Type |  | *x*
+| Supported System Query Options - `$expand` | Boolean |  Wether to enable support for `$expand` or not. |  `true` | 
+| Ignore errors on expansion enabled | Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. |  `false` | 
 | Expandable navigation properties | List<String> | List of types that can be generically expanded from this flow. | `[]` | 
-| Success Response a| One of:
+| Success Response | One of:
 
 * <<RawEntitySuccessResponse>>
 * <<EntitySuccessResponse>> |  |  | 
@@ -333,8 +345,8 @@ Default configuration
 
 [%autowidth.spread]
 |===
-| *Type* a| Any
-| *Attributes Type* a| <<ListenerRequestAttributes>>
+| *Type* | Any
+| *Attributes Type* | <<ListenerRequestAttributes>>
 |===
 
 === For Configurations
@@ -350,34 +362,39 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Entity Set Name a| String |  |  |
-| Odata Http Attributes a| <<ODataHttpAttributes>> |  |  |
-| Odata Request Attributes a| <<ODataRequestAttributes>> |  |  |
+| Entity Set Name | String |  |  |
+| Odata Http Attributes | <<ODataHttpAttributes>> |  |  |
+| Odata Request Attributes | <<ODataRequestAttributes>> |  |  |
 |======================
 
 [[ODataHttpAttributes]]
 === OData Http Attributes
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
-| Headers a| Object |  |  |
-| Method a| Enumeration, one of:
+| Headers | Object |  |  |
+| Method | Enumeration, one of:
 
-** GET
-** POST
-** PUT
-** PATCH
-** DELETE |  |  |
-| Raw Base Uri a| String |  |  |
-| Raw Odata Path a| String |  |  |
-| Raw Query Path a| String |  |  |
-| Raw Request Uri a| String |  |  |
-| Scheme a| Enumeration, one of:
+* GET
 
-** HTTP
-** HTTPS |  |  |
-|======================
+* POST
+
+* PUT
+
+* PATCH
+
+* DELETE |  |  |
+| Raw Base Uri | String |  |  |
+| Raw Odata Path | String |  |  |
+| Raw Query Path | String |  |  |
+| Raw Request Uri | String |  |  |
+| Scheme | Enumeration, one of:
+
+* HTTP
+
+* HTTPS |  |  |
+|===
 
 [[ODataRequestAttributes]]
 === OData Request Attributes
@@ -385,11 +402,11 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Custom Query Options a| Object |  |  |
-| Entity Type Fields a| Array of String |  |  |
-| Entity Type Keys a| Object |  |  |
-| Entity Type Name a| String |  |  |
-| System Query Options a| Object |  |  |
+| Custom Query Options | Object |  |  |
+| Entity Type Fields | Array of String |  |  |
+| Entity Type Keys | Object |  |  |
+| Entity Type Name | String |  |  |
+| System Query Options | Object |  |  |
 |======================
 
 [[RepeatableInMemoryStream]]
@@ -398,15 +415,18 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size a| Number | This is the amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it is expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  |
-| Buffer Size Increment a| Number | This is by how much is buffer size by expanded if it exceeds its initial size. Setting a value of zero or lower means that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised when the buffer gets full. |  |
-| Max Buffer Size a| Number | This is the maximum amount of memory used. If more than that is used, then a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised. A value lower or equal to zero means no limit. |  |
-| Buffer Unit a| Enumeration, one of:
+| Initial Buffer Size | Number | This is the amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it is expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  |
+| Buffer Size Increment | Number | This is by how much is buffer size by expanded if it exceeds its initial size. Setting a value of zero or lower means that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised when the buffer gets full. |  |
+| Max Buffer Size | Number | This is the maximum amount of memory used. If more than that is used, then a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised. A value lower or equal to zero means no limit. |  |
+| Buffer Unit | Enumeration, one of:
 
-** BYTE
-** KB
-** MB
-** GB | The unit in which all these attributes are expressed |  |
+* BYTE
+
+* KB
+
+* MB
+
+* GB | The unit in which all these attributes are expressed |  |
 |======================
 
 [[RepeatableFileStoreStream]]
@@ -415,13 +435,16 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| In Memory Size a| Number | Defines the maximum memory that the stream should use to keep data in memory. If more than that is consumed, it starts to buffer the content on disk. |  |
-| Buffer Unit a| Enumeration, one of:
+| In Memory Size | Number | Defines the maximum memory that the stream should use to keep data in memory. If more than that is consumed, it starts to buffer the content on disk. |  |
+| Buffer Unit | Enumeration, one of:
 
-** BYTE
-** KB
-** MB
-** GB | The unit in which maxInMemorySize is expressed |  |
+* BYTE
+
+* KB
+
+* MB
+
+* GB | The unit in which maxInMemorySize is expressed |  |
 |======================
 
 [[RedeliveryPolicy]]
@@ -430,10 +453,10 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Max Redelivery Count a| Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message |  |
-| Message Digest Algorithm a| String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  |
-| Message Identifier a| <<RedeliveryPolicyMessageIdentifier>> | Defines which strategy is used to identify the messages. |  |
-| Object Store a| ObjectStore | The object store where the redelivery counter for each message is going to be stored. |  |
+| Max Redelivery Count | Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message |  |
+| Message Digest Algorithm | String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  |
+| Message Identifier | <<RedeliveryPolicyMessageIdentifier>> | Defines which strategy is used to identify the messages. |  |
+| Object Store | ObjectStore | The object store where the redelivery counter for each message is going to be stored. |  |
 |======================
 
 [[RedeliveryPolicyMessageIdentifier]]
@@ -442,8 +465,8 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Use Secure Hash a| Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  |
-| Id Expression a| String | Defines one or more expressions to use to determine when a message has been redelivered. This property may only be set if useSecureHash is false. |  |
+| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  |
+| Id Expression | String | Defines one or more expressions to use to determine when a message has been redelivered. This property may only be set if useSecureHash is false. |  |
 |======================
 
 [[RouteOutputAttributes]]
@@ -452,8 +475,8 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Headers a| Object |  |  |
-| Status Code a| Number |  |  |
+| Headers | Object |  |  |
+| Status Code | Number |  |  |
 |======================
 
 [[SqlTransformerOutputAttributes]]
@@ -462,7 +485,7 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Query Parameters a| Object |  |  |
+| Query Parameters | Object |  |  |
 |======================
 
 [[RawEntitySuccessResponse]]
@@ -471,7 +494,7 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Raw Content a| Binary | The raw response content of the response message. | #[payload] |
+| Raw Content | Binary | The raw response content of the response message. | #[payload] |
 |======================
 
 [[EntitySuccessResponse]]
@@ -480,7 +503,7 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Body Content a| Binary | The body of the response message. | #[payload] |
+| Body Content | Binary | The body of the response message. | #[payload] |
 |======================
 
 [[RawEntityCollectionSuccessResponse]]
@@ -489,7 +512,7 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Raw Content a| Binary | The raw response message. | #[payload] |
+| Raw Content | Binary | The raw response message. | #[payload] |
 |======================
 
 [[EntityCollectionSuccessResponse]]
@@ -498,8 +521,8 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Body Content a| Binary | The body of the response message. | #[payload] |
-| Serialization Parameters a| <<SerializationParameters>> | Set of serialization-related parameters. |  | x
+| Body Content | Binary | The body of the response message. | #[payload] |
+| Serialization Parameters | <<SerializationParameters>> | Set of serialization-related parameters. |  | x
 |======================
 
 [[SerializationParameters]]
@@ -508,7 +531,7 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Count a| Number |  |  |
-| Page Size a| Number |  |  |
-| Token a| String |  |  |
+| Count | Number |  |  |
+| Page Size | Number |  |  |
+| Token | String |  |  |
 |======================
