@@ -216,7 +216,7 @@ Default configuration
 | Entity Type Keys | Object |  Map of entity key names and values. |  | *x*
 | System Query Options | Object |  System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], to simplify usability we remove initial dollar sign to avoid escaping withing DataWeave, in example to access System Query Option $skip user should use the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
 | Search Transformation Enabled | Boolean |  Enables $search transformation to WHERE clause. |  true | 
-| Strict Search Term Match | Boolean |  Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. |  false | 
+| Strict Search Term Match | Boolean |  Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. | false | 
 | Sql Limit Rows | Enumeration, one of:
 
 * LIMIT
