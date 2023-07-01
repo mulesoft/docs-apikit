@@ -195,13 +195,16 @@ Default configuration
 | Strict Search Term Match a| Boolean |  Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. |  false | 
 | Sql Limit Rows a| Enumeration, one of:
 
-** LIMIT
-** FETCH_NEXT_ROWS_ONLY |  Option to limit the number of rows |  | 
+* LIMIT
+
+* FETCH_NEXT_ROWS_ONLY |  Option to limit the number of rows |  | 
 | Sql Identifiers Delimiter a| Enumeration, one of:
 
-** DOUBLE_QUOTES
-** BRACKETS
-** BACK_TICKS |  Option to delimit identifiers |  | 
+* DOUBLE_QUOTES
+
+* BRACKETS
+
+* BACK_TICKS |  Option to delimit identifiers |  | 
 | Target Variable a| String |  The name of a variable on which the operation's output is placed |  | 
 | Target Value a| String |  An expression that is evaluated against the operation's output and the outcome of that expression is stored in the target variable |  #[payload] | 
 |===
