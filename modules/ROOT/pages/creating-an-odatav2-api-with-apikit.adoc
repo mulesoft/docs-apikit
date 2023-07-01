@@ -55,7 +55,7 @@ First, you install a MySQL database and load tables using a provided script. Nex
 . In Studio, Select *File* > *Import*.
 . Select *Anypoint Studio* > *Packaged mule application (.jar)* > *Next*.
 . Browse for the `apikit-odata-example-main.jar` file and click *Finish*.
-. In Studio, edit the `mule-configuration.properties` file inside the `src/main/resources` folder, and set the following properties to access the local MySQL database:
+. In Studio, edit the `mule-configuration.properties` file in the `src/main/resources` folder, and set the following properties to access the local MySQL database:
 +
 [source,html,linenums]
 ----
@@ -74,7 +74,7 @@ You can now access the REST and OData Service.
 To run the API locally:
 
 . Right-click the project, and select *Run As* > *Mule Application*.
-. Access the REST and OData Service using the following URLs:
+. Access the REST and OData Service by using the following URLs:
 +
 * REST API: `/api`
 * OData API: `/api/odata.svc`
@@ -136,9 +136,9 @@ The response is:
 
 === Get OData Service Metadata
 
-The Service Metadata exposes the structure of OData service resources, its operations, and EDM for a given service.
+The service metadata exposes the structure of OData service resources, its operations, and EDM for a given service.
 
-Get the metadata for HTTP Services:
+Get the metadata for HTTP services:
 
 ----
 http://localhost:8081/api/odata.svc/$metadata
@@ -259,7 +259,7 @@ var valuesFromPayload = {
 }
 ----
 +
-. Declare two variables, and use joinBy to transform your keys and values into comma-separated-values (CSV). For example:
+. Declare two variables, and use 'joinBy' to transform your keys and values into comma-separated-values (CSV). For example:
 +
 [source,javascript,linenums]
 ----
