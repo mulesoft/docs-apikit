@@ -181,7 +181,7 @@ Default configuration
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*
 | Entity Set Name a| String | The table name in the database for the requested entity set |  | *x*
-| Database Schema a| String | The name of the database schema to which the entity set belongs. If not empty, it is prefixed to the table name in the WHERE clause. |  | 
+| Database Schema | String | The name of the database schema to which the entity set belongs. If not empty, it is prefixed to the table name in the WHERE clause. |  | 
 | Page Size a| Number |  |  | 
 | Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
