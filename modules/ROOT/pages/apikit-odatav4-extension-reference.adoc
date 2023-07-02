@@ -18,9 +18,9 @@ Default configuration
 ==== Associated Operations
 
 * xref:apikit-odatav4-extension-reference.adoc#route[Route]
-* xref:apikit-odatav4-extension-reference.adoc#serializeentity[Serialize Entity]
-* xref:apikit-odatav4-extension-reference.adoc#serializeentitycollection[Serialize Entity Collection]
-* xref:apikit-odatav4-extension-reference.adoc#transformtosqlselect[Transform To SQL Select]
+* xref:apikit-odatav4-extension-reference.adoc#serialize-entity[Serialize Entity]
+* xref:apikit-odatav4-extension-reference.adoc#serialize-entity-collection[Serialize Entity Collection]
+* xref:apikit-odatav4-extension-reference.adoc#transform-to-sql-select[Transform To SQL Select]
 
 ==== Associated Sources
 
