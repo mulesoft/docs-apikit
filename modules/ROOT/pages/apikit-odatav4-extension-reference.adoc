@@ -193,7 +193,7 @@ Default configuration
 | System Query Options a| Object |  System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], in order to simplify usability we remove initial dollar sign to avoid escaping withing DataWeave, in example to access System Query Option $skip user should use the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
 | Search Transformation Enabled a| Boolean |  Enables $search transformation to WHERE clause. |  true | 
 | Strict Search Term Match a| Boolean |  Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. |  false | 
-| Sql Limit Rows | Enumeration, one of:
+| Sql Limit Rows a| Enumeration, one of:
 
 * LIMIT
 
