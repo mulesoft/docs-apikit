@@ -198,7 +198,7 @@ Default configuration
 * LIMIT
 
 * FETCH_NEXT_ROWS_ONLY |  Option to limit the number of rows |  | 
-| Sql Identifiers Delimiter | Enumeration, one of:
+| Sql Identifiers Delimiter a| Enumeration, one of:
 
 * DOUBLE_QUOTES
 
