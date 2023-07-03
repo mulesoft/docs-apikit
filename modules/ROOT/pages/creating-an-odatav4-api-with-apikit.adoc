@@ -162,7 +162,7 @@ Examples:
 
 | SQL limit rows a| Option to limit the numbers of rows. Available options are LIMIT and FETCH_NEXT_ROWS_ONLY.
 
-Examples :
+Examples:
 
 * LIMIT: ``SELECT OrderID, ShippedDate, ShipCountry FROM Orders LIMIT :parameter1``
 
