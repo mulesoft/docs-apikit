@@ -160,7 +160,7 @@ Examples:
 
 * BACK_TICKS: ``SELECT \`TrackId`, \`Name` FROM \`Tracks` ``
 
-| SQL limit rows | Option to limit the numbers of rows. Available options are LIMIT and FETCH_NEXT_ROWS_ONLY.
+| SQL limit rows a| Option to limit the numbers of rows. Available options are LIMIT and FETCH_NEXT_ROWS_ONLY.
 
 Examples :
 
