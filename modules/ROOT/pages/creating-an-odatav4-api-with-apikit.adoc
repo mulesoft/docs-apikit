@@ -150,7 +150,7 @@ As OData shares some similarities with Java database connectivity (JDBC), the `t
 | System query options | Parameter obtained from the OData request using #[attributes.odataRequestAttributes].
 | Search transformation enabled | Parameter to define the behavior of the transformation.
 | Strict search term match | Parameter to define the behavior of the transformation.
-| SQL identifiers delimiter | Option to delimit identifiers in the generated SQL sentence. Available options are DOUBLE_QUOTES, BRACKETS, and BACK_TICKS.
+| SQL identifiers delimiter a| Option to delimit identifiers in the generated SQL sentence. Available options are DOUBLE_QUOTES, BRACKETS, and BACK_TICKS.
 
 Examples:
 
