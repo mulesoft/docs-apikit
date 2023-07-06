@@ -25,7 +25,7 @@ The following example shows you how to implement an OData-enabled REST API:
 . Copy the `odata.raml` file you downloaded in the prerequisites section to the `/src/main/resources/api` directory in your project.
 . In the project explorer, right-click `odata.raml` and select *Mule* > *Generate OData API from RAML Types*.
 +
-image::generate-odata.png["Window highlights the full path that was mentioned before to get to the generate OData API from RAML types option."]
+image::generate-odata.png["A window highlighting the full path to the generate OData API from RAML types option"]
 . The OData extension generates the necessary files for your OData API implementation:
 +
 image::list-of-odata-files.png["The three files are highlighted in the tree: api.xml in the Mule folder, and api.raml and odatalibrary.raml files in the resource folder."]
