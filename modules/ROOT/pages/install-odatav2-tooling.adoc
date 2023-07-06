@@ -13,7 +13,7 @@ image::add-update-site.png["Window for installing new software with the *Add* bu
 . Click *Add*.
 +
 image::add-repository-odata.png["Window for adding a repository with the *Add* button, and the name and the location fields highlighted"]
-. Select *Anypoint ODATA Plugin*, and click *Next*.
+. Select *Anypoint ODATA Plugin* and click *Next*.
 +
 image::select-odata-extension.png["Window highlighting the Anypoint OData plugin field and the Next button"]
 . Accept the terms and conditions of the product, and click *Finish*.
