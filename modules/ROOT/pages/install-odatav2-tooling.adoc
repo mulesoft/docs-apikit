@@ -5,7 +5,7 @@ endif::[]
 
 To install the APIkit for OData v2 plugin in Anypoint Studio:
 
-. Select *Help* > *Install New Software* and click *Add*.
+. Click *Help* > *Install New Software* > *Add*.
 +
 image::add-update-site.png["Window for installing new software with the *Add* button highlighted"]
 . In *Name*, type `APIkit for ODATA v2 Update Site`.
