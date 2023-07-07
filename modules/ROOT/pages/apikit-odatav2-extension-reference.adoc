@@ -1,13 +1,13 @@
-= APIkit for OData v2 Module Module Reference
+= APIkit for OData v2 Module Reference
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This reference contains dependency, namespace and schema information.
+This reference contains dependency, namespace, and schema information.
 
 == Dependency Information
 
-The APIkit for OData v2 extension requires to be declared along with APIkit for REST module dependency as well.
+The APIkit for OData v2 extension must be declared along with the APIkit for REST module dependency.
 
 ----
 <dependency>
@@ -23,9 +23,9 @@ The APIkit for OData v2 extension requires to be declared along with APIkit for 
     <classifier>mule-plugin</classifier>
 </dependency>
 ----
-<1> They are subject to the version of the scaffolding tooling. Make sure to keep the Anypoint Studio plugin up to date.
+<1> They are subject to the version of the scaffolding tooling. Anypoint Studio plugin must be up to date.
 
-NOTE: Even though you can check the https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] to upgrade each to the latest version, the compatibility between both is only warranted by the combination of versions that the tooling scaffolds. Upgrading them separately could lead to potential issues.
+NOTE: You can check the https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] to upgrade each to the latest version, the compatibility between both is only warranted by the combination of versions that the tooling scaffolds. Upgrading them separately could lead to potential issues.
 
 == Namespace and Schema
 
