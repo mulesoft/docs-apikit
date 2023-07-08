@@ -3,12 +3,13 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for OData v4 is a framework that simplifies the process of building RESTful APIs that conform to the OData v4 specification. OData (Open Data Protocol) is a protocol for building and consuming RESTful APIs that enable the querying and manipulation of data using standard HTTP requests.
+APIkit for OData v4 is a framework that simplifies the development of RESTful APIs that adhere to the OData v4 specification. OData, also called Open Data Protocol, enables the creation and consumption of RESTful APIs. It allows data querying and manipulation through standard HTTP requests.
 
-With APIkit for OData, you can generate Mule flows that handle OData requests and facilitate the creation of OData APIs. For example, you can use APIkit for OData to expose a legacy API as an OData API, orchestrate and transform data before exposing it in Salesforce, or create a bidirectional OData API for databases such as Oracle, DB2, or Azure DB.
+APIkit for OData enables you to generate Mule flows that handle OData requests to create OData APIs. For example, you can expose a legacy API as an OData API, orchestrate and transform data before exposing it in Salesforce, or create a bidirectional OData API for databases such as Oracle, DB2, or Azure DB.
 
-Unlike the APIkit for OData v2 extension that is based on RAML APIs, APIkit for OData v4 leverages the Entity Data Model (EDM) used by OData services to build HTTP-based data services. The EDM formalizes the resource descriptions and structures within the OData service. However, API Designer and API Console do not support OData APIs for the time being.
+While APIkit for OData v2 extension is based on RAML APIs, APIkit for OData v4 leverages the Entity Data Model (EDM) used by OData services to build HTTP-based data services. The EDM formalizes the resource descriptions and structures within the OData service. 
 
 == See Also
 
 * xref:apikit-4-for-odatav2.adoc[]
+* xref:install-odatav4-tooling.adoc[]
