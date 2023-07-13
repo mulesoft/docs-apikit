@@ -7,7 +7,7 @@ APIkit for OData v4 is a framework that simplifies the development of RESTful AP
 
 APIkit for OData enables you to generate Mule flows that handle OData requests to create OData APIs. For example, you can expose a legacy API as an OData API, orchestrate and transform data before exposing it in Salesforce, or create a bidirectional OData API for databases such as Oracle, DB2, or Azure DB.
 
-While APIkit for OData v2 extension is based on RAML APIs, APIkit for OData v4 leverages the Entity Data Model (EDM) used by OData services to build HTTP-based data services. The EDM formalizes the resource descriptions and structures within the OData service. 
+While the APIkit for OData v2 extension is based on RAML APIs, APIkit for OData v4 leverages the Entity Data Model (EDM) used by OData services to build HTTP-based data services. The EDM formalizes the resource descriptions and structures within the OData service. 
 
 == See Also
 
