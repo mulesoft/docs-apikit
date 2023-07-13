@@ -23,7 +23,7 @@ The APIkit for OData v2 extension must be declared with the APIkit for REST modu
     <classifier>mule-plugin</classifier>
 </dependency>
 ----
-<1> They are subject to the version of the scaffolding tooling. Anypoint Studio plugin must be up to date.
+<1> They are subject to the version of the scaffolding tooling. The Anypoint Studio plugin must be up to date.
 
 NOTE: To ensure compatibility, refer to the https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] before upgrading each component to the latest version. The tooling scaffolds a specific combination of versions, which guarantees compatibility. Upgrading the components individually can lead to potential issues.
 
