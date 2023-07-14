@@ -25,9 +25,9 @@ The APIkit for OData v2 extension must be declared with the APIkit for REST modu
 ----
 
 [calloutlist]
-.. They are subject to the version of the scaffolding tooling. The Anypoint Studio plugin must be up to date.
+.. The tooling determines the appropriate version of each dependency when scaffolding to guarantee compatibility. Manually setting dependency versions can produce issues. See the https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] before upgrading each component to the latest version.
 
-NOTE: To ensure compatibility, refer to the https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] before upgrading each component to the latest version. The tooling scaffolds a specific combination of versions, which guarantees compatibility. Upgrading the components individually can lead to potential issues.
+NOTE: The Anypoint Studio plugin must be up to date to work correctly.
 
 == Namespace and Schema
 
