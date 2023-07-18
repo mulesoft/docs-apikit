@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This reference contains dependency, namespace, and schema information.
+Learn the fundamental building blocks about dependency, namespace, and schema information in APIkit for OData v2 to collaborate, build applications, and maintain codebases.
 
 == Dependency Information
 
