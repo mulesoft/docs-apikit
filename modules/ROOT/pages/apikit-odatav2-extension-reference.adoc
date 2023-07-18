@@ -13,13 +13,13 @@ Declare the APIkit for OData v2 extension with the APIkit for REST module depend
 <dependency>
     <groupId>org.mule.modules</groupId>
     <artifactId>mule-module-apikit-odata</artifactId>
-    <version>2.2.0</version> //<!--(1)-->
+    <version>2.2.0</version> //(1)
     <classifier>mule-plugin</classifier>
 </dependency>
 <dependency>
     <groupId>org.mule.modules</groupId>
     <artifactId>mule-apikit-module</artifactId>
-    <version>1.8.3</version> //<!--(1)-->
+    <version>1.8.3</version> //(1)
     <classifier>mule-plugin</classifier>
 </dependency>
 ----
