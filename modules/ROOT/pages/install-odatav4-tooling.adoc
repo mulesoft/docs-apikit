@@ -5,22 +5,20 @@ endif::[]
 
 To install APIkit for OData v4 plugin in Anypoint Studio:
 
-. Select *Help* > *Install New Software...*.
-. Click *Add...*
+. Select *Help* > *Install New Software* > *Add*.
 +
-image::add-update-site.png["Window for installing new software with the Add button highlighted."]
-. In the *Name* field, type `APIkit for ODATA v4 Update Site`.
-. In the *Location* field, type the URL corresponding to the update site
-** `+https://studio.mulesoft.org/s4/apikit-for-odata4/+`.
-. Click *Add*.
+image::add-update-site.png["Window for installing new software with the *Add* button highlighted"]
+. In *Name*, type `APIkit for ODATA v4 Update Site`.
+. In *Location*, type the URL of the site: `+https://studio.mulesoft.org/s4/apikit-for-odata4/+`.
+. Select *Add*.
 +
-// TODO Update image according to parameters mentioned above for Odata v4
-image::add-repository-odata.png["Window for adding a repository with the Add button and the name and location fields highlighted."]
-. Select the *Anypoint ODATA Plugin* box, and click *Next*.
+// TODO: Update image according to parameters mentioned above for Odata v4
+image::add-repository-odata.png["Window for adding a repository with the *Add* button, and the name and location fields highlighted"]
+. Select *Anypoint ODATA Plugin* and *Next*.
 +
-// TODO Update image according to OData v4
-image::select-odata-extension.png["Window highlighting the Anypoint OData plugin field and the Next button."]
-. Accept the terms and conditions of the product, then click *Finish*.
+// TODO: Update image according to OData v4
+image::select-odata-extension.png["Window highlighting the Anypoint OData plugin field and the Next button"]
+. Accept the terms and conditions of the product and select *Finish*.
 . Restart Studio to complete the installation.
 
 == See Also
