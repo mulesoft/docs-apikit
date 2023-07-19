@@ -5,18 +5,18 @@ endif::[]
 
 To install the APIkit for OData v4 plugin in Anypoint Studio:
 
-. Select *Help* > *Install New Software* > *Add*.
+. Select *Help* > *Install New Software* and then click *Add*.
 +
 image::add-update-site.png["Window for installing new software with the *Add* button highlighted"]
 . In *Name*, type `APIkit for ODATA v4 Update Site`.
 . In *Location*, type the URL of the site: `+https://studio.mulesoft.org/s4/apikit-for-odata4/+`.
-. Select *Add*.
+. Click *Add*.
 +
 image::add-repository-odatav4.png["Window for adding a repository with the *Add* button, and the name and location fields highlighted"]
 . Select *Anypoint ODATA Plugin* and then click *Next*.
 +
 image::select-odatav4-extension.png["Window highlighting the Anypoint OData plugin field and the Next button"]
-. Accept the terms and conditions of the product and click *Finish*.
+. Accept the terms and conditions of the product and then click *Finish*.
 . Restart Studio to complete the installation.
 
 == See Also
