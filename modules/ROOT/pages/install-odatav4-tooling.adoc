@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To install APIkit for OData v4 plugin in Anypoint Studio:
+To install the APIkit for OData v4 plugin in Anypoint Studio:
 
 . Select *Help* > *Install New Software* > *Add*.
 +
