@@ -1,17 +1,17 @@
-== Transforming to SQL Query
+= Transforming to SQL Query
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for OData 4 contains a `Transform to SQL Select` operation to transform the input OData `GET` request to a SQL SELECT query. The operation is useful when combined with the `select` operation of the Database Connector. The output payload is a prepared statement and the attributes are a map of prepared statement parameters. This operation has been designed to work with the Mule DB connector to help the user expose databases with OData 4 easily.
+You can transform the input OData `GET` request to a SQL SELECT query with the `Transform to SQL Select` operation. This operation is useful when combined with the `select` operation of the Database Connector. The output payload is a prepared statement and the attributes are a map of prepared statement parameters. This operation has been designed to work with the Mule DB connector to help you expose databases with OData V4.
 
-image::transform-to-sql-transformer.png["Transform to SQL select element and tab are highlighted."]
+image::transform-to-sql-transformer.png["Transform to SQL select element and tab highlighted"]
 
-image::add-db-transform-to-sql.png["Select element and tab are highlighted, as well as the attributes.queryparameters in the input parameters field."]
+image::add-db-transform-to-sql.png["Select element and tab highlighted, as well as the attributes.queryparameters in the input parameters field"]
 
-image::serialize-transform-to-sql.png["Serialized entity element and tab are highlighted, as well as the inbound content in the General section."]
+image::serialize-transform-to-sql.png["Serialized entity element and tab highlighted, as well as the inbound content in the General section"]
 
-APIkit currently supports the following elements:
+APIkit supports the following elements:
 
 * System query options:
 ** $filter
@@ -24,13 +24,13 @@ APIkit currently supports the following elements:
 * Entity relation
 * Server-side pagination
 
-APIkit does not currently support the following elements:
+APIkit does not support the following elements:
 
 * Parameter Aliases
 * Built-in Filter Operations:
 ** has
 ** divby
-* Built-in Query Functions, all but:
+* Built-in Query Functions, all except:
 ** contains
 ** startswith
 ** endwith
@@ -38,12 +38,12 @@ APIkit does not currently support the following elements:
 * $compute
 * $expand
 
-=== Transform to SQL Select Operation in OData V4
+== Transform to SQL Select Operation in OData V4
 
 The OData protocol defines a series of conventions that enable clients to query identified resources using URLs. The list of queryable entities, their fields, and the relationships between them are defined in a data model using simple HTTP messages.
 As OData shares some similarities with Java database connectivity (JDBC), the `transform-to-sql-select` operation takes advantage of such similarities to help the user create SQL queries for those resources. The resulting message of the operation is a prepared statement with the SQL `select` sentence as the payload along with the parameters name and values map as the attributes.
 
-=== Implement the Transform to SQL Select Operation Using APIkit for OData V4
+== Implement the Transform to SQL Select Operation Using APIkit for OData V4
 
 `<apikit-odata:transform-to-sql-select>` is the name of the XML element that represents this operation, which has the following parameters:
 
@@ -79,15 +79,15 @@ Examples:
 * FETCH_NEXT_ROWS_ONLY: ``SELECT OrderID, ShippedDate, ShipCountry FROM Orders ORDER BY OrderID ASC OFFSET :parameter2 ROWS FETCH NEXT :parameter1 ROWS ONLY`` ORDER BY is automatically included if not present in the request using the entity key defined in CSDL.
 |====
 
-=== $filter Expressions in OData V4
+== $filter Expressions in OData V4
 
 ​​The `$filter` expression in OData uses comparison, logical, arithmetic, and grouping operators. You can access the list operators with their corresponding meaning at http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[the OData4 Specification^]. APIkit does not support `has` and `divby` operators.
 
-=== Expressions Supported by Transform to SQL Select
+== Expressions Supported by Transform to SQL Select
 
 OData supports a variety of expressions for filtering that you can find in its http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[specification^]. The `transform-to-sql-select` operation supports the following subset of unary and binary operators, along with the following method operators.
 
-==== Binary Operators in OData and in SQL
+=== Binary Operators in OData and in SQL
 
 [options="header"]
 |====
@@ -107,7 +107,7 @@ OData supports a variety of expressions for filtering that you can find in its h
 | sub | -
 |====
 
-==== Unary Operators in OData and in SQL
+=== Unary Operators in OData and in SQL
 
 [options="header"]
 |====
@@ -116,7 +116,7 @@ OData supports a variety of expressions for filtering that you can find in its h
 | - | -
 |====
 
-==== Method Operators in OData and in SQL
+=== Method Operators in OData and in SQL
 
 [options="header"]
 |====
@@ -126,7 +126,7 @@ OData supports a variety of expressions for filtering that you can find in its h
 | endswith | LIKE %value
 |====
 
-=== $search Support
+== $search Support
 
 The operation builds a `where` clause based on the `$search` expression provided by the system query option. The implementation translates the search expression to select all the elements that have property values that match the condition. By default, a term matches if the field value “contains” the term, but it does not match if it is set as “strict” in the configuration. The following parameters define the `$search` feature:
 
