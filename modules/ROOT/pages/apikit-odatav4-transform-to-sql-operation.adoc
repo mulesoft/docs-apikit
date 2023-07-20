@@ -3,11 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can transform the input OData `GET` request to a SQL SELECT query with the `Transform to SQL Select` operation. This operation is useful when combined with the `select` operation of the Database Connector. The output payload is a prepared statement and the attributes are a map of prepared statement parameters. This operation has been designed to work with the Mule DB connector to help you expose databases with OData V4.
+You can transform the input OData `GET` request to a SQL SELECT query with the `Transform to SQL Select` operation. This operation is useful when combined with the `select` operation of the Database Connector. 
 
 image::transform-to-sql-transformer.png["Transform to SQL select element and tab highlighted"]
 
+The output payload is a prepared statement and the attributes are a map of prepared statement parameters. 
+
 image::add-db-transform-to-sql.png["Select element and tab highlighted, as well as the attributes.queryparameters in the input parameters field"]
+
+You can use this operation to work with the Mule DB connector to expose databases with OData V4.
 
 image::serialize-transform-to-sql.png["Serialized entity element and tab highlighted, as well as the inbound content in the General section"]
 
@@ -40,27 +44,29 @@ APIkit does not support the following elements:
 
 == Transform to SQL Select Operation in OData V4
 
-The OData protocol defines a series of conventions that enable clients to query identified resources using URLs. The list of queryable entities, their fields, and the relationships between them are defined in a data model using simple HTTP messages.
-As OData shares some similarities with Java database connectivity (JDBC), the `transform-to-sql-select` operation takes advantage of such similarities to help the user create SQL queries for those resources. The resulting message of the operation is a prepared statement with the SQL `select` sentence as the payload along with the parameters name and values map as the attributes.
+The OData protocol defines a series of conventions that enable clients to query identified resources by using URLs.
+The list of queryable entities, their fields, and the relationships between them are defined in a data model using simple HTTP messages.
+OData shares some similarities with Java database connectivity (JDBC). The `transform-to-sql-select` operation uses such similarities to help you create SQL queries for the resources.
+The operation results in a message that has a prepared statement with the SQL `select` sentence as the payload and the parameters name and values map as the attributes.
 
 == Implement the Transform to SQL Select Operation Using APIkit for OData V4
 
-`<apikit-odata:transform-to-sql-select>` is the name of the XML element that represents this operation, which has the following parameters:
+You can implement the transform to SQL operation with the `<apikit-odata:transform-to-sql-select>` XML element, which has the following parameters:
 
 [options="header"]
 |====
 | Parameter name | Description
-| Display name | This parameter configures the operation name.
-| Module configuration | Name of the related-module configuration.
-| Entity set name | The name of the entity set that you are trying to fetch #[attributes.entitySetName].
-| Page size | A number that defines the amount of results per page during server-side-pagination.
-| Entity type name | A string obtained from the OData request using #[attributes.odataRequestAttributes], which is specified by the entity data model.
-| Entity type fields | An array of strings obtained from the OData request using #[attributes.odataRequestAttributes], which provides the list of property fields from the entity type.
-| Entity type keys | An object obtained from the OData request using #[attributes.odataRequestAttributes], which provides the map of entity key names and values.
-| System query options | Parameter obtained from the OData request using #[attributes.odataRequestAttributes].
-| Search transformation enabled | Parameter to define the behavior of the transformation.
-| Strict search term match | Parameter to define the behavior of the transformation.
-| SQL identifiers delimiter a| Option to delimit identifiers in the generated SQL sentence. Available options are DOUBLE_QUOTES, BRACKETS, and BACK_TICKS.
+| Display name | Name of the operation
+| Module configuration | Name of the related-module configuration
+| Entity set name | Name of the entity set that you fetch #[attributes.entitySetName]
+| Page size | A number that defines the amount of results per page during server-side-pagination
+| Entity type name | A string obtained from the OData request using #[attributes.odataRequestAttributes], which the entity data model specifies
+| Entity type fields | An array of strings obtained from the OData request using #[attributes.odataRequestAttributes], which provides the list of property fields from the entity type
+| Entity type keys | An object obtained from the OData request using #[attributes.odataRequestAttributes], which provides the map of entity key names and values
+| System query options | Parameter obtained from the OData request using #[attributes.odataRequestAttributes]
+| Search transformation enabled | Enables $search transformation to WHERE clause
+| Strict search term match | Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'.
+| SQL identifiers delimiter a| Option that delimits identifiers in the generated SQL sentence (Options: DOUBLE_QUOTES, BRACKETS, and BACK_TICKS)
 
 Examples:
 
@@ -70,13 +76,16 @@ Examples:
 
 * BACK_TICKS: ``SELECT \`TrackId`, \`Name` FROM \`Tracks` ``
 
-| SQL limit rows a| Option to limit the numbers of rows. Available options are LIMIT and FETCH_NEXT_ROWS_ONLY.
+| SQL limit rows a| Option that limits the numbers of rows (Options: LIMIT and FETCH_NEXT_ROWS_ONLY)
 
 Examples:
 
 * LIMIT: ``SELECT OrderID, ShippedDate, ShipCountry FROM Orders LIMIT :parameter1``
 
-* FETCH_NEXT_ROWS_ONLY: ``SELECT OrderID, ShippedDate, ShipCountry FROM Orders ORDER BY OrderID ASC OFFSET :parameter2 ROWS FETCH NEXT :parameter1 ROWS ONLY`` ORDER BY is automatically included if not present in the request using the entity key defined in CSDL.
+* FETCH_NEXT_ROWS_ONLY: ``SELECT OrderID, ShippedDate, ShipCountry FROM Orders ORDER BY OrderID ASC OFFSET :parameter2 ROWS FETCH NEXT :parameter1 ROWS ONLY``
+
+`ORDER BY` is automatically included if not present in the request using the entity key defined in CSDL.
+
 |====
 
 == $filter Expressions in OData V4
@@ -85,7 +94,7 @@ Examples:
 
 == Expressions Supported by Transform to SQL Select
 
-OData supports a variety of expressions for filtering that you can find in its http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[specification^]. The `transform-to-sql-select` operation supports the following subset of unary and binary operators, along with the following method operators.
+You can find the filtering expressions that OData supports in its http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[specification^]. The `transform-to-sql-select` operation supports the following subset of unary and binary operators, and the following method operators.
 
 === Binary Operators in OData and in SQL
 
@@ -128,11 +137,16 @@ OData supports a variety of expressions for filtering that you can find in its h
 
 == $search Support
 
-The operation builds a `where` clause based on the `$search` expression provided by the system query option. The implementation translates the search expression to select all the elements that have property values that match the condition. By default, a term matches if the field value “contains” the term, but it does not match if it is set as “strict” in the configuration. The following parameters define the `$search` feature:
+The operation builds a `where` clause based on the `$search` expression the system query option provides. The implementation translates the search expression to select all the elements that have property values that match the condition. By default, a term matches if the field value “contains” the term, but it does not match if set as “strict” in the configuration. The following parameters define the `$search` feature:
 
 [options="header"]
 |====
-| Parameter name | Description
-| Search transformation enabled | When set to `true`, it enables the transformation support for this option.
-| Strict search term match | When set to `true`, it specifies that there is a match only if the field value contains exactly the same terms as the search expression.
+| Parameter Name | Description
+| Search transformation enabled | If `true`, it enables the transformation support for this option.
+| Strict search term match | If `true`, it specifies that there is a match only if the field value contains exactly the same terms as the search expression.
 |====
+
+== See Also
+
+* xref:apikit-odatav4-extension-reference.adoc[]
+* xref:apikit-odatav4-error-handling-reference[]
