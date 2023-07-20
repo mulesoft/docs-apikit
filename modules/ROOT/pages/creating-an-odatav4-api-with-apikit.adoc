@@ -4,22 +4,24 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases: creating-an-odata-api-with-apikit.adoc
 
-The OData MySQL example shows you how to use an HTTP-based data service to query a MySQL database.
+You can query a MySQL database with the xref:creating-an-odatav4-api-with-apikit.adoc#apikit-for-odata-4-implementation-example[OData MySQL example] by using an HTTP-based data service.
 
-== Prerequisites
+== Before You Begin
 
-The following software is required to create and use an OData REST API with APIkit:
+You must install the following software to create and use an OData REST API with APIkit:
 
 * OData Plugin
 * Mule runtime engine 4.3.0 or later
 * Anypoint Studio 7.9.0 or later
 
-== Scaffold an OData v4 API Using APIkit for OData
+Additionally, you must download the link:{attachmentsdir}/apikit-odata4-example.jar[OData 4 implementation example].
+
+== Scaffold an OData V4 API Using APIkit for OData
 
 . In Studio, select *File* > *New* > *Mule Project*.
 . In the *Project Name* field, type the name of your Mule project.
 . Click *Finish*.
-. In `+src/main/resources/api+`, create a new file with a _.csdl.xml_ extension. +
+. In `+src/main/resources/api+`, create a new file with a `.csdl.xml` extension. +
 For example, `odata-metadata.csdl.xml`:
 +
 [source,xml]
@@ -28,8 +30,8 @@ For example, `odata-metadata.csdl.xml`:
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="odata4.namespace">
-      <EntityType Name="Customers"> //<1>
-        <Key> //<2>
+      <EntityType Name="Customers"> <!--1-->
+        <Key> <!--2-->
           <PropertyRef Name="CustomerID" />
         </Key>
         <Property Name="CompanyName" Type="Edm.String" MaxLength="40" Unicode="false" />
@@ -55,8 +57,8 @@ For example, `odata-metadata.csdl.xml`:
         	<ReferentialConstraint Property="CustomerID" ReferencedProperty="CustomerID" />
         </NavigationProperty>
       </EntityType>
-      <EntityContainer Name="OData4EntityContainer"> //<3>
-        <EntitySet Name="Customers" EntityType="odata4.namespace.Customers"> //<4>
+      <EntityContainer Name="OData4EntityContainer"> <!--3-->
+        <EntitySet Name="Customers" EntityType="odata4.namespace.Customers"> <!--4-->
         	<NavigationPropertyBinding Path="Orders" Target="Orders"/>
         </EntitySet>
         <EntitySet Name="Orders" EntityType="odata4.namespace.Orders"/>
@@ -65,25 +67,25 @@ For example, `odata-metadata.csdl.xml`:
   </edmx:DataServices>
 </edmx:Edmx>
 --
-+
-<1> `EntityType` defines the type and its properties
-<2> `key` defines which property or set of properties is the key for the entity. +
-For example, the entity set `Orders` is composed of two keys `OrderID` and `ShipName`.
-<3> `EntityContainer` defines the sets of exposed entities. +
+[calloutlist]
+.. `EntityType` defines the type and its properties.
+.. `key` defines which property or set of properties is the key for the entity. +
+For example, the entity set `Orders` is composed of two keys: `OrderID` and `ShipName`.
+.. `EntityContainer` defines the sets of exposed entities. +
 In this example, `Orders` and `Customers`.
-<4> `EntitySet` contains a name and EntityType. +
-Both must be defined in the `schema` namespace.
-. In the Package Explorer view, right-click your *odata-metadata.csdl.xml* file > *Generate Mule OData 4 API*:
+.. `EntitySet` contains a name and EntityType. +
+You must define them in the `schema` namespace.
+. In the *Package Explorer*, right-click your `odata-metadata.csdl.xml` file and select *Generate Mule OData 4 API*:
 +
-image::generate-odata-v4-api.png["Window displays the previously mentioned path to get to the Generate Mule OData 4 API option."]
-. APIkit generates the corresponding flows based on your _.csdl.xml_ metadata file.
+image::generate-odata-v4-api.png["The path to the Generate Mule OData 4 API option highlighted"]
+. APIkit generates the corresponding flows based on your `.csdl.xml` metadata file.
 +
-image::generated-odata-4-flow.png["The three flows created from the csdl.xml metadata file are highlighted."]
+image::generated-odata-4-flow.png["The three flows created from the `csdl.xml` metadata file are highlighted."]
 +
 [calloutlist]
-. The main flow that receives messages and routes the operation to the correct handler.
-. Five flows with `GET`, `PUT`, `POST`, and `DELETE` operations for each entity.
-. A flow with a `GET` operation to retrieve the collection of entities.
+.. The main flow receives messages and routes the operation to the correct handler.
+.. Five flows with `GET`, `PUT`, `POST`, and `DELETE` operations for each entity.
+.. A flow with a `GET` operation to retrieve the collection of entities.
 
 == Handle OData System Query Options
 
@@ -94,7 +96,7 @@ Within each *On Entity Request* and *On Entity Collection Request* listener you 
 #[attributes.odataRequestAttributes.systemQueryOptions.select]
 --
 
-image::odata-query-option-attributes.png["odataRequestAttributes is highlighted in the output tab, within the Mule message, under attributes."]
+image::odata-query-option-attributes.png["odataRequestAttributes highlighted in the output tab, within the Mule message, under attributes"]
 
 == APIkit for OData 4 Implementation Example
 
@@ -176,7 +178,7 @@ curl --location --request POST 'http://localhost:8081/api/Orders' \
 
 === Update Example
 
-OData v4 recommends using PATCH to update entities because it only changes the provided fields:
+OData V4 recommends using PATCH to update entities because it only changes the provided fields:
 
 .PATCH
 [source,curl]
@@ -197,7 +199,7 @@ curl --location --request PATCH 'http://localhost:8081/api/Orders(OrderID=10251,
 }'
 --
 
-OData v4 discourages the usage of PUT to update your entities because it replaces the entire entity with a new one risking you a possible data loss.
+OData V4 discourages the usage of PUT to update your entities because it replaces the entire entity with a new one and this operation can lead to data loss.
 
 .PUT
 [source,curl]
@@ -258,19 +260,19 @@ Returns five records starting from the second position.
 
 === Server-Side Pagination in APIkit for OData 4
 
-Server-side pagination is a way of controlling a subset of data requests that were fetched from a client-side server using a fixed `pageSize` parameter. It divides the response data set into discrete pages to improve data readability. The server defines the page size, which is the maximum number of records returned by the server in a request.
+Server-side pagination is a way of controlling a subset of data requests fetched from a client-side server by using a fixed `pageSize` parameter. It divides the response data set into discrete pages to improve data readability. The server defines the page size, which is the maximum number of records the server returns in a request.
 
-==== How Server-Side Pagination Works in OData 4
+==== Server-Side Pagination Operation in OData 4
 
 OData defines a `@odata.nextLink` to indicate that a response is only a subset of the requested collection of entities. As such, `@odata.nextLink` contains a URL that enables the client to retrieve the next subset of the requested collection. The URL contains a query parameter `$skiptoken` that indicates the server where the next page starts.
 
-==== How to Implement This Feature in Apikit for OData 4
+==== Implement Server-Side Pagination in APIkit for OData 4
 
-`<apikit-odata:request-entity-collection-listener>` enables you to define a set of fields in the *Responses* tab, in Anypoint Studio, to implement the server-side pagination.
+You can implement the server-side pagination by defining a set of fields with `<apikit-odata:request-entity-collection-listener>` in the *Responses* tab in Anypoint Studio.
 
-image::pagesize.png[alt text:"pageSize set to ${service.orders.pageSize} in the On Entity Collection Request tab."]
+image::pagesize.png["pageSize set to ${service.orders.pageSize} in the On Entity Collection Request tab"]
 
-After it is populated, APIkit creates the XML representation of the previous fields.
+After it is populated, APIkit creates the XML representation of the previous fields:
 
 [source,xml]
 --
@@ -286,3 +288,9 @@ After it is populated, APIkit creates the XML representation of the previous fie
 `Page size` is a fixed number that represents the maximum number of records the `request-entity-collection` listener can retrieve for each request.
 In case you cannot use a numeric pagination, set a token in the `Token field`, so a developer can generate it in the corresponding flow.
 APIkit for OData includes this token value in the `@odata.nextLink` URL with a query parameter `$skiptoken=<Token_Value>`.
+
+== See Also
+
+* xref:apikit-odatav4-extension-reference.adoc[]
+* xref:apikit-odatav4-error-handling-reference.adoc[]
+* xref:runtime-manager::deploying-to-cloudhub.adoc[]

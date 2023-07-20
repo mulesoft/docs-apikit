@@ -5,9 +5,9 @@ endif::[]
 
 The OData MySQL example shows you how to use an HTTP-based data service to query a MySQL database.
 
-== Prerequisites
+== Before You Begin
 
-The following software is required to create and use an OData REST API with APIkit:
+You must install the following software to create and use an OData REST API with APIkit:
 
 * OData Plugin
 * Mule runtime engine 4.1.1 or later
@@ -31,9 +31,9 @@ image::generate-odata.png["A window highlighting the full path to the generate O
 image::list-of-odata-files.png["The three files are highlighted in the tree: api.xml in the Mule folder, and api.raml and odatalibrary.raml files in the resource folder."]
 
 [calloutlist]
-. The Mule configuration file with the flows for the API implementation
-. The generated RAML definition
-. The generated RAML libraries
+.. The Mule configuration file with the flows for the API implementation
+.. The generated RAML definition
+.. The generated RAML libraries
 
 [start=7]
 . Add the necessary logic for your API implementation in the flows.
