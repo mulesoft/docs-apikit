@@ -51,7 +51,7 @@ The operation results in a message that has a prepared statement with the SQL `s
 
 == Implement the Transform to SQL Select Operation by Using APIkit for OData V4
 
-You can implement the transform to SQL operation with the `<apikit-odata:transform-to-sql-select>` XML element, which has the following parameters:
+You can implement the transform to SQL operation by using the `<apikit-odata:transform-to-sql-select>` XML element, which has the following parameters:
 
 [options="header"]
 |====
