@@ -146,7 +146,7 @@ The operation builds a `where` clause based on the `$search` expression the syst
 [options="header"]
 |====
 | Parameter Name | Description
-| Search transformation enabled | If `true`, it enables the transformation support for this option.
+| Search transformation enabled | If `true`, this option enables transformation support.
 | Strict search term match | If `true`, it specifies that there is a match only if the field value contains exactly the same terms as the search expression.
 |====
 
