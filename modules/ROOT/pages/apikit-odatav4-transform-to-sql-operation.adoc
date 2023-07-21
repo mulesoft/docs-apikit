@@ -96,7 +96,9 @@ APIkit does not support the `has` and `divby` operators.
 
 == Expressions Supported by Transform to SQL Select
 
-You can find the filtering expressions that OData supports in its http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[specification^]. The `transform-to-sql-select` operation supports the following subset of unary and binary operators, and the following method operators.
+For the filtering expressions that OData supports see the http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[specification^]. 
+
+The `transform-to-sql-select` operation supports the following subset of unary and binary operators, and the following method operators.
 
 === Binary Operators in OData and in SQL
 
