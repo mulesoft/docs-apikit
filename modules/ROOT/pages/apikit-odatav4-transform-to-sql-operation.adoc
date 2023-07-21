@@ -9,7 +9,7 @@ image::transform-to-sql-transformer.png["*Transform to SQL select* element and *
 
 The output payload is a prepared statement and the attributes are a map of prepared statement parameters. 
 
-image::add-db-transform-to-sql.png["Select element and tab highlighted, as well as the attributes.queryparameters in the input parameters field"]
+image::add-db-transform-to-sql.png["*Select database* and *Input Parameters* field highlighted"]
 
 You can use this operation to work with the Mule DB connector to expose databases with OData V4.
 
