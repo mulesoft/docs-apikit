@@ -58,7 +58,7 @@ You can implement the transform to SQL operation with the `<apikit-odata:transfo
 | Parameter name | Description
 | Display name | Name of the operation
 | Module configuration | Name of the related-module configuration
-| Entity set name | Name of the entity set that you fetch #[attributes.entitySetName]
+| Entity set name | Name of the entity set to fetch #[attributes.entitySetName]
 | Page size | A number that defines the amount of results per page during server-side-pagination
 | Entity type name | A string obtained from the OData request using #[attributes.odataRequestAttributes], which the entity data model specifies
 | Entity type fields | An array of strings obtained from the OData request using #[attributes.odataRequestAttributes], which provides the list of property fields from the entity type
