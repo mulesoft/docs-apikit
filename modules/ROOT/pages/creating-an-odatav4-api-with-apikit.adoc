@@ -70,7 +70,7 @@ For example, `odata-metadata.csdl.xml`:
 [calloutlist]
 .. `EntityType` defines the type and its properties.
 .. `key` defines which property or set of properties is the key for the entity. +
-For example, the entity set `Orders` is composed of two keys: `OrderID` and `ShipName`.
+For example, the entity set `Orders` comprises two keys: `OrderID` and `ShipName`.
 .. `EntityContainer` defines the sets of exposed entities. +
 In this example, `Orders` and `Customers`.
 .. `EntitySet` contains a name and EntityType. +
