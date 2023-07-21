@@ -62,7 +62,7 @@ You can implement the transform to SQL operation with the `<apikit-odata:transfo
 | Page size | Number that defines the amount of results per page during server-side pagination
 | Entity type name | String obtained from the OData request by using #[attributes.odataRequestAttributes], which the entity data model specifies
 | Entity type fields | Array of strings obtained from the OData request by using #[attributes.odataRequestAttributes], which provides the list of property fields from the entity type
-| Entity type keys | An object obtained from the OData request using #[attributes.odataRequestAttributes], which provides the map of entity key names and values
+| Entity type keys | Object obtained from the OData request by using #[attributes.odataRequestAttributes], which provides a map of entity key names and values
 | System query options | Parameter obtained from the OData request by using #[attributes.odataRequestAttributes]
 | Search transformation enabled | Enables the $search transformation option for a WHERE clause
 | Strict search term match | Enables full term matching for $search. If enabled, terms in the WHERE clause are not enclosed between '%'.
