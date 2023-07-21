@@ -45,7 +45,7 @@ APIkit does not support the following elements:
 == Transform to SQL Select Operation in OData V4
 
 The OData protocol defines a series of conventions that enable clients to query identified resources by using URLs.
-The list of queryable entities, their fields, and the relationships between them are defined in a data model using simple HTTP messages.
+The list of queryable entities, their fields, and the relationships between them are defined in a data model by using HTTP messages.
 OData shares some similarities with Java database connectivity (JDBC). The `transform-to-sql-select` operation uses such similarities to help you create SQL queries for the resources.
 The operation results in a message that has a prepared statement with the SQL `select` sentence as the payload and the parameters name and values map as the attributes.
 
