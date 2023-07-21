@@ -13,7 +13,7 @@ image::add-db-transform-to-sql.png["*Select database* and *Input Parameters* fie
 
 You can use this operation with the Database connector to expose databases that use OData V4.
 
-image::serialize-transform-to-sql.png["Serialized entity element and tab highlighted, as well as the inbound content in the General section"]
+image::serialize-transform-to-sql.png["*Serialized entity* element and the *Inbound content* field highlighted"]
 
 APIkit supports the following elements:
 
