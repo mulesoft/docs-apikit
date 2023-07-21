@@ -90,7 +90,9 @@ Examples:
 
 == $filter Expressions in OData V4
 
-​​The `$filter` expression in OData uses comparison, logical, arithmetic, and grouping operators. You can access the list operators with their corresponding meaning at http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[the OData4 Specification^]. APIkit does not support `has` and `divby` operators.
+​​The OData `$filter` expression uses comparison, logical, arithmetic, and grouping operators. For a list of operators and their meaning, see http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[the OData4 Specification^]. 
+
+APIkit does not support the `has` and `divby` operators.
 
 == Expressions Supported by Transform to SQL Select
 
