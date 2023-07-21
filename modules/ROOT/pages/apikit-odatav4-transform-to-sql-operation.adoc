@@ -49,7 +49,7 @@ The list of queryable entities, their fields, and the relationships between them
 OData shares some similarities with Java database connectivity (JDBC). The `transform-to-sql-select` operation uses such similarities to help you create SQL queries for the resources.
 The operation results in a message that has a prepared statement with the SQL `select` sentence as the payload and the parameters name and values map as the attributes.
 
-== Implement the Transform to SQL Select Operation Using APIkit for OData V4
+== Implement the Transform to SQL Select Operation by Using APIkit for OData V4
 
 You can implement the transform to SQL operation with the `<apikit-odata:transform-to-sql-select>` XML element, which has the following parameters:
 
