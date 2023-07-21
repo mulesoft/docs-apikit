@@ -22,6 +22,7 @@ Additionally, you must download the link:{attachmentsdir}/apikit-odata4-example.
 . In the *Project Name* field, type the name of your Mule project.
 . Click *Finish*.
 . In `+src/main/resources/api+`, create a new file with a `.csdl.xml` extension. +
++
 For example, `odata-metadata.csdl.xml`:
 +
 [source,xml]
@@ -69,11 +70,14 @@ For example, `odata-metadata.csdl.xml`:
 --
 [calloutlist]
 .. `EntityType` defines the type and its properties.
-.. `key` defines which property or set of properties is the key for the entity. +
+.. `key` defines which property or set of properties is the key for the entity. 
++
 For example, the entity set `Orders` comprises two keys: `OrderID` and `ShipName`.
-.. `EntityContainer` defines the sets of exposed entities. +
+.. `EntityContainer` defines the sets of exposed entities. 
++
 In this example, `Orders` and `Customers`.
-.. `EntitySet` contains a name and EntityType. +
+.. `EntitySet` contains a name and EntityType. 
++
 You must define them in the `schema` namespace.
 . In the *Package Explorer*, right-click your `odata-metadata.csdl.xml` file and select *Generate Mule OData 4 API*:
 +
