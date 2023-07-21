@@ -84,7 +84,7 @@ Examples:
 
 * FETCH_NEXT_ROWS_ONLY: ``SELECT OrderID, ShippedDate, ShipCountry FROM Orders ORDER BY OrderID ASC OFFSET :parameter2 ROWS FETCH NEXT :parameter1 ROWS ONLY``
 
-`ORDER BY` is automatically included if not present in the request using the entity key defined in CSDL.
+`ORDER BY` is automatically included if not present in the request by using the entity key defined in CSDL.
 
 |====
 
