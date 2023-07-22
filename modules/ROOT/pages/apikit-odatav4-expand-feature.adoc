@@ -3,13 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The `$expand` system query option reduces the amount of incoming network traffic and makes APIs easier to consume. Because API consumers request only inline representations of the related entities of query results, the returned information avoids multiple network roundtrips. This benefits metered and latency-sensitive consumers.
+You can reduce the amount of incoming network traffic  and make APIs easier to consume with the `$expand` system query option. Because API consumers request only inline representations of the related entities of query results, the returned information avoids multiple network roundtrips. This benefits metered and latency-sensitive consumers.
 
 From APIkit for OData 1.3.0 onwards, this module supports automatic routing for ease of implementing the `$expand` system query option in the most common cases. Although this feature requires more preparation and configuration, it enables the reuse of implemented flows when processing the `$expand` requests.
 
 For more information about the system query option, see http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptionexpand[the OASIS specification^].
 
-== Requirements
+== Before You Begin
+
+You must fulfill the following requirements to use the `$expand` Feature:
 
 - APIkit for OData Module (version 1.3.0)
 - A `<request-entity-collection-listener/>` implementation for each expandable entity
@@ -35,7 +37,7 @@ If using the `$expand` feature, the request` to retrieve a list of employees wit
 
 == The `generic expand` Feature
 
-The `generic expand` feature enables you to reuse existing flow implementations as a starting point for expanding requests. Using this feature, you can focus on the relevant data retrieval operations while the module performs the necessary steps to ensure that the `$expand` fields complete.
+The `generic expand` feature enables you to reuse existing flow implementations as a starting point for expanding requests. Using this feature, you can focus on the relevant data retrieval operations while the module performs the necessary steps to ensure that the `$expand` fields are complete.
 
 An application with the `generic expand` feature enabled works like any other OData Mule application. However, during the flow execution, once the module retrieves information for the main entity set, it performs additional internal requests to gather the information for any `expand` field. 
 
@@ -48,10 +50,10 @@ You can configure how the software handles errors during the expansion operation
 
 The `generic expand` feature dispatches additional queries to the application when the original flow completes. Because this is done based on the application `EDM`, you must make extra annotations to add enough context to the module:
 
-. The `EntitySet` where the expansion takes place has a `NavigationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. +
+* The `EntitySet` where the expansion takes place has a `NavigationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. +
 This is used to select which `<entity-collection-source/>` is executed when expanding that property.
-. Each expandable `NavigationProperty` has a `ReferentialConstraint` attached. +
-Internal requests use this, when the value of `Property` is matched against the value of `ReferencedProperty`.
+* Each expandable `NavigationProperty` has a `ReferentialConstraint` attached. +
+Internal requests use it when the value of `Property` is matched against the value of `ReferencedProperty`.
 
 === Flow Execution
 
