@@ -141,7 +141,9 @@ The `transform-to-sql-select` operation supports the following subset of unary a
 
 == $search Support
 
-This operation builds a `where` clause based on the `$search` expression that the system query option provides. The implementation translates the search expression to select all of the elements that have property values that match the condition. By default, a term matches if the field value contains the term, but it does not match if set as `strict` in the configuration. 
+This operation builds a `where` clause based on the `$search` expression that the system query option provides. The implementation translates the search expression to select all of the elements that have property values that match the condition. 
+
+By default, a term matches if the field value contains the term, but it does not match if set as `strict` in the configuration. 
 
 The following parameters define the `$search` feature:
 
