@@ -37,7 +37,7 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Name | String | Name for this configuration. Connectors reference the configuration with this name | | *x*
-| Api Definition | String |  API definition |  | *x*
+| Api Definition | String | API definition |  | *x*
 | Name | String | Identifier of this element used to reference it in other components |  | *x*
 |===
 
@@ -237,10 +237,10 @@ Default configuration
 * non-repeatable-stream 
 
 | Configure if repeatable streams and their behavior are used |  | 
-| Entity Type Name | String | Entity type name specified by the Entity Data Model |  | *x*
+| Entity Type Name | String | Entity Data Model specifies the entity type name |  | *x*
 | Entity Type Fields | Array of String | List of property fields from the Entity type |  | *x*
 | Entity Type Keys | Object | Map of entity key names and values |  | *x*
-| System Query Options | Object | System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], to simplify usability the initial dollar sign is removed to avoid escaping withing DataWeave, in example to access System Query Option $skip user should use the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
+| System Query Options | Object | System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], to simplify usability the initial dollar sign is removed to avoid escaping withing DataWeave, in example to access System Query Option $skip user uses the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
 | Search Transformation Enabled | Boolean | Enabling $search transformation to WHERE clause | true | 
 | Strict Search Term Match | Boolean | Enabling full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. | false | 
 | Sql Limit Rows | Enumeration, one of: 
@@ -316,7 +316,7 @@ Default configuration
 | Path | String | Path to Entity Type |  | *x*
 | Collection Success Response | One of:
 | Supported System Query Options - `$expand` | Boolean | Enabling support for `$expand` | `true` | 
-| Ignore errors on expansion enabled | Boolean | Disallowing errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. | `false` | 
+| Ignore errors on expansion enabled | Boolean | Disallowing errors from the flows that generic expansion calls to propagate to this flow. When `true`, failed expansions render as `null`. | `false` | 
 | Expandable navigation properties | List<String> | List of types that can be generically expanded from this flow. | `[]` | 
 
 * xref:apikit-odatav4-extension-reference#raw-entity-collection-success-response[RawEntityCollectionSuccessResponse]
@@ -370,7 +370,7 @@ Default configuration
 | HTTP Method |  | *x*
 | Path | String | Path to Entity Type |  | *x*
 | Supported System Query Options - `$expand` | Boolean | Enabling support for `$expand` | `true` | 
-| Ignore errors on expansion enabled | Boolean | Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null` | `false` | 
+| Ignore errors on expansion enabled | Boolean | Disallowing errors from the flows that generic expansion calls to propagate to this flow. When `true`, failed expansions render as `null` | `false` | 
 | Expandable navigation properties | List<String> | List of types that can be generically expanded from this flow | `[]` |
 | Success Response | One of: 
 
@@ -447,8 +447,8 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it is expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  |
-| Buffer Size Increment | Number | This is by how much is buffer size by expanded if it exceeds its initial size. Setting a value of zero or lower means that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised when the buffer gets full. |  |
+| Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream has more data than buffer capacity, it expands according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  |
+| Buffer Size Increment | Number | Expansion of the buffer size if exceeding its initial size. Setting a value of zero or lower means that the buffer does not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised when the buffer gets full. |  |
 | Max Buffer Size | Number | This is the maximum amount of memory used. If more than that is used, then a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised. A value lower or equal to zero means no limit. |  |
 | Buffer Unit | Enumeration, one of:
 
@@ -465,7 +465,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| In Memory Size | Number | Maximum memory that the stream should use to keep data in memory. If more is consumed, it starts to buffer the content on disk |  |
+| In Memory Size | Number | Maximum memory that the stream use to keep data in memory. If more is consumed, it starts to buffer the content on disk |  |
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
@@ -493,7 +493,7 @@ Default configuration
 |===
 | Field | Type | Description | Default Value | Required
 | Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  |
-| Id Expression | String | One or more expressions that determine when a message has been redelivered. This property may only be set if useSecureHash is false |  |
+| Id Expression | String | One or more expressions that determine when a message has been redelivered. You can set this property if useSecureHash is false |  |
 |===
 
 === Route Output Attributes
