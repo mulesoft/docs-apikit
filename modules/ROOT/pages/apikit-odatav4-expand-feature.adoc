@@ -55,7 +55,7 @@ The `generic expand` feature dispatches additional queries to the application wh
 This is used to select which `<entity-collection-source/>` is executed when expanding that property.
 * Each expandable `NavigationProperty` has a `ReferentialConstraint` attached. 
 +
-Internal requests use it when the value of `Property` is matched against the value of `ReferencedProperty`.
+Internal requests use `ReferentialConstraint` when matching the value of `Property` against the value of `ReferencedProperty`.
 
 === Flow Execution
 
