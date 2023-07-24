@@ -33,7 +33,7 @@ Default configuration
 
 ==== Parameters
 
-[cols="1a,2a,3a,4a,5a"]
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Name | String | Name for this configuration. Connectors reference the configuration with this name | | *x*
@@ -61,36 +61,43 @@ Default configuration
 
 === Parameters
 
-[cols="1a,2a,3a,4a,5a"]
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | | *x*
 | Content | Any |  |  #[payload] | 
 | Output MIME Type | String | MIME type of the payload that this operation outputs |  | 
 | Output Encoding | String | Encoding of the payload that this operation outputs |  | 
-| Config Ref | ConfigurationProvider | Name of the configuration to be used to execute this component |  | *x*
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
 | Streaming Strategy | 
+
 * xref:apikit-odatav4-extension-reference#repeatable-in-memory-stream[RepeatableInMemoryStream]
 * xref:apikit-odatav4-extension-reference#repeatable-file-store-stream[RepeatableFileStoreStream]
-* non-repeatable-stream | Configure if repeatable streams and their behavior are used  |  | 
+* non-repeatable-stream 
+
+| Configure if repeatable streams and their behavior are used  |  | 
 | Method | Enumeration, one of:
 
 * GET
 * POST
 * PUT
 * PATCH
-* DELETE |  HTTP request method name |  | *x*
+* DELETE 
+
+|  HTTP request method name |  | *x*
 | Masked Request Path | String |  OData request path, relative to listener |  | *x*
 | Scheme | Enumeration, one of:
 
 * HTTP
-* HTTPS |  HTTP request scheme |  | *x*
+* HTTPS 
+
+|  HTTP request scheme |  | *x*
 | Host | String |  Request host |  | *x*
 | Listener Path | String |  Listener path ending with "*" |  | *x*
 | Http Headers | Object |  HTTP request headers |  | 
 | Query String | String |  HTTP query string |  | 
-| Target Variable | String | Name of a variable on which the operation output is be placed |  | 
-| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable |  #[payload] | 
+| Target Variable | String | Name of a variable on which the operation output is placed |  | 
+| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | #[payload] | 
 |===
 
 === Output
@@ -123,27 +130,33 @@ Default configuration
 
 === Parameters
 
-[cols="1a,2a,3a,4a,5a"]
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | | *x*
 | Inbound Content | Binary |  |  #[payload] | 
 | Output MIME Type | String | MIME type of the payload that this operation outputs |  | 
 | Output Encoding | String |  Encoding of the payload that this operation outputs |  | 
-| Config Ref | ConfigurationProvider | Name of the configuration to be used to execute this component |  | *x*
-| Streaming Strategy | * xref:apikit-odatav4-extension-reference#repeatable-in-memory-stream[RepeatableInMemoryStream]
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
+| Streaming Strategy | 
+
+* xref:apikit-odatav4-extension-reference#repeatable-in-memory-stream[RepeatableInMemoryStream]
 * xref:apikit-odatav4-extension-reference#repeatable-file-store-stream[RepeatableFileStoreStream]
-* non-repeatable-stream |  Configure if repeatable streams and their behavior are used  |  | 
+* non-repeatable-stream 
+
+| Configure if repeatable streams and their behavior are used  |  | 
 | Method | Enumeration, one of:
 
 * GET
 * POST
 * PUT
 * PATCH
-* DELETE |  HTTP Method |  | *x*
+* DELETE 
+
+| HTTP Method |  | *x*
 | Path | String |  Path to Entity Type |  | *x*
-| Target Variable | String |  Name of a variable on which the operation output is placed |  | 
-| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable |  #[payload] | 
+| Target Variable | String | Name of a variable on which the operation output is placed |  | 
+| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | #[payload] | 
 |===
 
 === Output
@@ -155,34 +168,41 @@ Default configuration
 
 === For Configurations
 
-* <<Config>> 
+* xref:apikit-odatav4-extension-reference#config[Config]
 
 == Serialize Entity Collection
+
 `<apikit-odata:serialize-entity-collection>`
 
 === Parameters
 
-[cols="1a,2a,3a,4a,5a"]
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*
+| Configuration | String | Name of the configuration | | *x*
 | Inbound Content | Binary |  |  #[payload] | 
-| Output MIME Type | String |  The MIME type of the payload that this operation outputs. |  | 
-| Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
-| Config Ref | ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
-| Streaming Strategy | * <<RepeatableInMemoryStream>>
-* <<RepeatableFileStoreStream>>
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
+| Output MIME Type | String | MIME type of the payload that this operation outputs |  | 
+| Output Encoding | String | Encoding of the payload that this operation outputs|  | 
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
+| Streaming Strategy | 
+
+* xref:apikit-odatav4-extension-reference#repeatable-in-memory-stream[RepeatableInMemoryStream]
+* xref:apikit-odatav4-extension-reference#repeatable-file-store-stream[RepeatableFileStoreStream]
+* non-repeatable-stream 
+
+| Configure if repeatable streams and their behavior are used |  | 
 | Method | Enumeration, one of:
 
-** GET
-** POST
-** PUT
-** PATCH
-** DELETE |  HTTP Method. |  | *x*
-| Path | String |  Path to Entity Type. |  | *x*
-| Target Variable | String |  The name of a variable on which the operation output is placed. |  | 
-| Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
+* GET
+* POST
+* PUT
+* PATCH
+* DELETE 
+
+| HTTP Method |  | *x*
+| Path | String | Path to Entity Type |  | *x*
+| Target Variable | String | Name of a variable on which the operation output is placed |  | 
+| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | #[payload] | 
 |===
 
 === Output
@@ -194,45 +214,50 @@ Default configuration
 
 === For Configurations
 
-* <<Config>> 
+* xref:apikit-odatav4-extension-reference#config[Config]
 
-== Transform To Sql Select
+== Transform to SQL Select
 
 `<apikit-odata:transform-to-sql-select>`
 
 === Parameters
 
-[cols="1a,2a,3a,4a,5a"]
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*
-| Entity Set Name | String | The table name in the database for the requested entity set |  | *x*
-| Database Schema | String | The name of the database schema to which the entity set belongs. If not empty, it is prefixed to the table name in the WHERE clause. |  | 
+| Configuration | String | Name of the configuration to use | | *x*
+| Entity Set Name | String | Table name in the database for the requested entity set |  | *x*
+| Database Schema | String | Database schema name to which the entity set belongs. If not empty, it is prefixed to the table name in the WHERE clause |  | 
 | Page Size | Number |  |  | 
-| Config Ref | ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
-| Streaming Strategy | * <<RepeatableInMemoryStream>>
-* <<RepeatableFileStoreStream>>
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
-| Entity Type Name | String |  Entity type name specified by the Entity Data Model. |  | *x*
-| Entity Type Fields | Array of String |  List of property fields from the Entity type. |  | *x*
-| Entity Type Keys | Object |  Map of entity key names and values. |  | *x*
-| System Query Options | Object |  System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], to simplify usability we remove initial dollar sign to avoid escaping withing DataWeave, in example to access System Query Option $skip user should use the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
-| Search Transformation Enabled | Boolean |  Enables $search transformation to WHERE clause. |  true | 
-| Strict Search Term Match | Boolean |  Enables full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. | false | 
-| Sql Limit Rows a| Enumeration, one of:
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
+| Streaming Strategy | 
+
+* xref:apikit-odatav4-extension-reference#repeatable-in-memory-stream[RepeatableInMemoryStream]
+* xref:apikit-odatav4-extension-reference#repeatable-file-store-stream[RepeatableFileStoreStream]
+* non-repeatable-stream 
+
+| Configure if repeatable streams and their behavior are used |  | 
+| Entity Type Name | String | Entity type name specified by the Entity Data Model |  | *x*
+| Entity Type Fields | Array of String | List of property fields from the Entity type |  | *x*
+| Entity Type Keys | Object | Map of entity key names and values |  | *x*
+| System Query Options | Object | System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], to simplify usability the initial dollar sign is removed to avoid escaping withing DataWeave, in example to access System Query Option $skip user should use the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
+| Search Transformation Enabled | Boolean | Enabling $search transformation to WHERE clause | true | 
+| Strict Search Term Match | Boolean | Enabling full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. | false | 
+| Sql Limit Rows | Enumeration, one of: 
 
 * LIMIT
-
-* FETCH_NEXT_ROWS_ONLY |  Option to limit the number of rows |  | 
-| Sql Identifiers Delimiter a| Enumeration, one of:
+* FETCH_NEXT_ROWS_ONLY
+ 
+| Option to limit the number of rows |  | 
+| Sql Identifiers Delimiter | Enumeration, one of: 
 
 * DOUBLE_QUOTES
-
 * BRACKETS
+* BACK_TICKS 
 
-* BACK_TICKS |  Option to delimit identifiers |  | 
-| Target Variable | String |  The name of a variable on which the operation output is placed. |  | 
-| Target Value | String |  An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
+| Option to delimit identifiers |  | 
+| Target Variable | String | Name of a variable on which the operation output is placed |  | 
+| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | #[payload] | 
 |===
 
 === Output
@@ -240,12 +265,12 @@ Default configuration
 [%autowidth.spread]
 |===
 | *Type* | Binary
-| *Attributes Type* | <<SqlTransformerOutputAttributes>>
+| *Attributes Type* | * xref:apikit-odatav4-extension-reference#sql-transformer-output-attributes[SqlTransformerOutputAttributes]
 |===
 
 === For Configurations
 
-* <<Config>> 
+* xref:apikit-odatav4-extension-reference#config[Config]
 
 === Throws
 
@@ -263,33 +288,41 @@ Default configuration
 
 === Parameters
 
-[cols="1a,2a,3a,4a,5a"]
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*
-| Output MIME Type | String |  The MIME type of the payload that this operation outputs. |  | 
-| Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
-| Config Ref | ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
-| Primary Node Only | Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | 
-| Streaming Strategy | * <<RepeatableInMemoryStream>>
-* <<RepeatableFileStoreStream>>
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
-| Redelivery Policy | <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | 
+| Configuration | String | Name of the configuration to use | | *x*
+| Output MIME Type | String | MIME type of the payload that this operation outputs |  | 
+| Output Encoding | String | Encoding of the payload that this operation outputs |  | 
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
+| Primary Node Only | Boolean | If this source must only be executed on the primary node when running in Cluster |  | 
+| Streaming Strategy | 
+
+* xref:apikit-odatav4-extension-reference#repeatable-in-memory-stream[RepeatableInMemoryStream]
+* xref:apikit-odatav4-extension-reference#repeatable-file-store-stream[RepeatableFileStoreStream]
+* non-repeatable-stream 
+
+| Configure if repeatable streams and their behavior are used |  | 
+| Redelivery Policy | * xref:apikit-odatav4-extension-reference#redelivery-policy[RedeliveryPolicy] | Policy for processing the redelivery of the same message |  | 
 | Method | Enumeration, one of:
 
-** GET
-** POST
-** PUT
-** PATCH
-** DELETE |  HTTP Method |  | *x*
-| Path | String |  Path to Entity Type |  | *x*
+* GET
+* POST
+* PUT
+* PATCH
+* DELETE 
+
+| HTTP Method |  | *x*
+| Path | String | Path to Entity Type |  | *x*
 | Collection Success Response | One of:
-| Supported System Query Options - `$expand` | Boolean |  Wether to enable support for `$expand` or not. |  `true` | 
-| Ignore errors on expansion enabled | Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. |  `false` | 
+| Supported System Query Options - `$expand` | Boolean | Enabling support for `$expand` | `true` | 
+| Ignore errors on expansion enabled | Boolean | Disallowing errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. | `false` | 
 | Expandable navigation properties | List<String> | List of types that can be generically expanded from this flow. | `[]` | 
 
-* <<RawEntityCollectionSuccessResponse>>
-* <<EntityCollectionSuccessResponse>> |  |  | 
+* xref:apikit-odatav4-extension-reference#raw-entity-collection-success-response[RawEntityCollectionSuccessResponse]
+* xref:apikit-odatav4-extension-reference#entity-collection-success-response[EntityCollectionSuccessResponse]
+
+|  |  | 
 |===
 
 === Output
@@ -297,12 +330,12 @@ Default configuration
 [%autowidth.spread]
 |===
 | *Type* | Any
-| *Attributes Type* | <<ListenerRequestAttributes>>
+| *Attributes Type* | xref:apikit-odatav4-extension-reference#listener-request-attributes[ListenerRequestAttributes]
 |===
 
 === For Configurations
 
-* <<Config>> 
+* xref:apikit-odatav4-extension-reference#config[Config]
 
 == On Entity Request
 
@@ -310,33 +343,40 @@ Default configuration
 
 === Parameters
 
-[cols="1a,2a,3a,4a,5a"]
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*
-| Output MIME Type | String |  The MIME type of the payload that this operation outputs. |  | 
-| Output Encoding | String |  The encoding of the payload that this operation outputs. |  | 
-| Config Ref | ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*
-| Primary Node Only | Boolean |  Whether this source should only be executed on the primary node when running in Cluster |  | 
-| Streaming Strategy | * <<RepeatableInMemoryStream>>
-* <<RepeatableFileStoreStream>>
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behaviour |  | 
-| Redelivery Policy | <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | 
+| Configuration | String | Name of the configuration to use | | *x*
+| Output MIME Type | String | MIME type of the payload that this operation outputs |  | 
+| Output Encoding | String | Encoding of the payload that this operation outputs |  | 
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
+| Primary Node Only | Boolean | If this source must only be executed on the primary node when running in Cluster |  | 
+| Streaming Strategy | 
+
+* xref:apikit-odatav4-extension-reference#repeatable-in-memory-stream[RepeatableInMemoryStream]
+* xref:apikit-odatav4-extension-reference#repeatable-file-store-stream[RepeatableFileStoreStream]
+* non-repeatable-stream 
+
+| Configure if repeatable streams and their behavior are used |  | 
+| Redelivery Policy | * xref:apikit-odatav4-extension-reference#redelivery-policy[RedeliveryPolicy] | Policy for processing the redelivery of the same message |  | 
 | Method | Enumeration, one of:
 
-** GET
-** POST
-** PUT
-** PATCH
-** DELETE |  HTTP Method |  | *x*
-| Path | String |  Path to Entity Type |  | *x*
-| Supported System Query Options - `$expand` | Boolean |  Wether to enable support for `$expand` or not. |  `true` | 
-| Ignore errors on expansion enabled | Boolean |  Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null`. |  `false` | 
-| Expandable navigation properties | List<String> | List of types that can be generically expanded from this flow. | `[]` | 
-| Success Response | One of:
+* GET
+* POST
+* PUT
+* PATCH
+* DELETE 
 
-* <<RawEntitySuccessResponse>>
-* <<EntitySuccessResponse>> |  |  | 
+| HTTP Method |  | *x*
+| Path | String | Path to Entity Type |  | *x*
+| Supported System Query Options - `$expand` | Boolean | Enabling support for `$expand` | `true` | 
+| Ignore errors on expansion enabled | Boolean | Disallows errors from flows called by generic expansion to be propagated to this flow. When `true`, failed expansions render as `null` | `false` | 
+| Expandable navigation properties | List<String> | List of types that can be generically expanded from this flow | `[]` |
+| Success Response | One of: 
+
+* xref:apikit-odatav4-extension-reference#raw-entity-success-response[RawEntitySuccessResponse] 
+* xref:apikit-odatav4-extension-reference#entity-success-response[EntitySuccessResponse]
+
 |===
 
 === Output
@@ -344,45 +384,40 @@ Default configuration
 [%autowidth.spread]
 |===
 | *Type* | Any
-| *Attributes Type* | <<ListenerRequestAttributes>>
+| *Attributes Type* | xref:apikit-odatav4-extension-reference#listener-request-attributes[ListenerRequestAttributes]
 |===
 
 === For Configurations
 
-* <<Config>> 
+* xref:apikit-odatav4-extension-reference#config[Config]
 
 == Types
 
-[[ListenerRequestAttributes]]
-
 === Listener Request Attributes
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
 | Entity Set Name | String |  |  |
-| Odata Http Attributes | <<ODataHttpAttributes>> |  |  |
-| Odata Request Attributes | <<ODataRequestAttributes>> |  |  |
-|======================
+| Odata Http Attributes | xref:apikit-odatav4-extension-reference#odata-http-attributes[ODataHttpAttributes] |  |  |
+| Odata Request Attributes | xref:apikit-odatav4-extension-reference#odata-request-attributes[ODataRequestAttributes] |  |  |
+|===
 
-[[ODataHttpAttributes]]
 === OData Http Attributes
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
 | Headers | Object |  |  |
 | Method | Enumeration, one of:
 
 * GET
-
 * POST
-
 * PUT
-
 * PATCH
+* DELETE 
 
-* DELETE |  |  |
+|  |  |
 | Raw Base Uri | String |  |  |
 | Raw Odata Path | String |  |  |
 | Raw Query Path | String |  |  |
@@ -390,148 +425,136 @@ Default configuration
 | Scheme | Enumeration, one of:
 
 * HTTP
+* HTTPS 
 
-* HTTPS |  |  |
+|  |  |
 |===
 
-[[ODataRequestAttributes]]
 === OData Request Attributes
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
 | Custom Query Options | Object |  |  |
 | Entity Type Fields | Array of String |  |  |
 | Entity Type Keys | Object |  |  |
 | Entity Type Name | String |  |  |
 | System Query Options | Object |  |  |
-|======================
+|===
 
-[[RepeatableInMemoryStream]]
-=== Repeatable In Memory Stream
+=== Repeatable in Memory Stream
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size | Number | This is the amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it is expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  |
+| Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it is expanded according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  |
 | Buffer Size Increment | Number | This is by how much is buffer size by expanded if it exceeds its initial size. Setting a value of zero or lower means that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised when the buffer gets full. |  |
 | Max Buffer Size | Number | This is the maximum amount of memory used. If more than that is used, then a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised. A value lower or equal to zero means no limit. |  |
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
-
 * KB
-
 * MB
+* GB 
 
-* GB | The unit in which all these attributes are expressed |  |
-|======================
+| Unit to express these attributes |  |
+|===
 
 === Repeatable File Store Stream
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
-| In Memory Size | Number | Defines the maximum memory that the stream should use to keep data in memory. If more than that is consumed, it starts to buffer the content on disk. |  |
+| In Memory Size | Number | Maximum memory that the stream should use to keep data in memory. If more is consumed, it starts to buffer the content on disk |  |
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
-
 * KB
-
 * MB
+* GB 
 
-* GB | The unit in which maxInMemorySize is expressed |  |
-|======================
+| Unit to express maxInMemorySize |  |
+|===
 
-[[RedeliveryPolicy]]
 === Redelivery Policy
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
-| Max Redelivery Count | Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message |  |
-| Message Digest Algorithm | String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  |
-| Message Identifier | <<RedeliveryPolicyMessageIdentifier>> | Defines which strategy is used to identify the messages. |  |
-| Object Store | ObjectStore | The object store where the redelivery counter for each message is going to be stored. |  |
-|======================
+| Max Redelivery Count | Number | Maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message |  |
+| Message Digest Algorithm | String | Secure hashing algorithm (default: SHA-256) |  |
+| Message Identifier | xref:apikit-odatav4-extension-reference#redelivery-policy-message-identifier[RedeliveryPolicyMessageIdentifier] | Strategy to identify the messages |  |
+| Object Store | ObjectStore | The object store where the redelivery counter for each message is stored |  |
+|===
 
-[[RedeliveryPolicyMessageIdentifier]]
 === Redelivery Policy Message Identifier
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
 | Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  |
-| Id Expression | String | Defines one or more expressions to use to determine when a message has been redelivered. This property may only be set if useSecureHash is false. |  |
-|======================
+| Id Expression | String | One or more expressions that determine when a message has been redelivered. This property may only be set if useSecureHash is false |  |
+|===
 
-[[RouteOutputAttributes]]
 === Route Output Attributes
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
 | Headers | Object |  |  |
 | Status Code | Number |  |  |
-|======================
+|===
 
-[[SqlTransformerOutputAttributes]]
 === SQL Transformer Output Attributes
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
 | Query Parameters | Object |  |  |
-|======================
+|===
 
-[[RawEntitySuccessResponse]]
 === Raw Entity Success Response
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
-| Raw Content | Binary | The raw response content of the response message. | #[payload] |
-|======================
+| Raw Content | Binary | Raw response content of the response message | #[payload] |
+|===
 
-[[EntitySuccessResponse]]
 === Entity Success Response
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
-| Body Content | Binary | The body of the response message. | #[payload] |
-|======================
+| Body Content | Binary | Body of the response message | #[payload] |
+|===
 
-[[RawEntityCollectionSuccessResponse]]
 === Raw Entity Collection Success Response
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
-| Raw Content | Binary | The raw response message. | #[payload] |
-|======================
+| Raw Content | Binary | Raw response message | #[payload] |
+|===
 
-[[EntityCollectionSuccessResponse]]
 === Entity Collection Success Response
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
-| Body Content | Binary | The body of the response message. | #[payload] |
-| Serialization Parameters | <<SerializationParameters>> | Set of serialization-related parameters. |  | x
-|======================
+| Body Content | Binary | Body of the response message | #[payload] |
+| Serialization Parameters | xref:apikit-odatav4-extension-reference#serialization-parameters[SerializationParameters] | Set of serialization-related parameters. |  | x
+|===
 
-[[SerializationParameters]]
 === Serialization Parameters
 
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
 | Field | Type | Description | Default Value | Required
 | Count | Number |  |  |
 | Page Size | Number |  |  |
 | Token | String |  |  |
-|======================
+|===
 
 == See Also
 
