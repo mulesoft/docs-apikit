@@ -33,7 +33,7 @@ Given this setup, the following requests retrieve employees and their managers:
 * Use `+GET https://example.com/api/Managers?$filter=ManagerID in (id1, id2, ..., idN)+` to retrieve a list of related managers.
 * Write a small program to merge the lists based on join criteria.
 
-If using the `$expand` feature, the request to retrieve a list of employees with their `Manager` navigation property expanded is `+GET https://example.com/api/Employees?$expand=Manager+`.
+If you use the `$expand` feature, the request to retrieve a list of employees with their `Manager` navigation property expanded is `+GET https://example.com/api/Employees?$expand=Manager+`.
 
 == The `generic expand` Feature
 
