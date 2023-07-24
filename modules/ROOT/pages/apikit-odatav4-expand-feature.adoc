@@ -37,7 +37,7 @@ If you use the `$expand` feature, the request to retrieve a list of employees wi
 
 == The `generic expand` Feature
 
-You can reuse existing flow implementations as a starting point for expanding requests by using the `generic expand` feature. You can focus on the relevant data retrieval operations while the module performs the necessary steps to ensure that the `$expand` fields are complete.
+Reuse existing flow implementations as a starting point for expanding requests by using the `generic expand` feature, which enables you to focus on the relevant data retrieval operations while the module performs the necessary steps to ensure that the `$expand` fields are complete.
 
 An application with the `generic expand` feature enabled works like any other OData Mule application. However, during the flow execution, once the module retrieves information for the main entity set, it performs additional internal requests to gather the information for any `expand` field. 
 
