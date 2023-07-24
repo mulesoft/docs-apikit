@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can reduce the amount of incoming network traffic and make APIs easier to consume with the `$expand` system query option. Because API consumers request only inline representations of the related entities of query results, the returned information avoids multiple network roundtrips. This benefits metered and latency-sensitive consumers.
+To reduce the amount of incoming network traffic and make APIs easier to consume, use the `$expand` system query option. Because API consumers request only inline representations of the related entities of query results, the returned information avoids multiple network roundtrips. Using this query option benefits metered and latency-sensitive consumers.
 
 From APIkit for OData 1.3.0 onwards, this module supports automatic routing for ease of implementing the `$expand` system query option in the most common cases. Although this feature requires more preparation and configuration, it enables the reuse of implemented flows when processing the `$expand` requests.
 
