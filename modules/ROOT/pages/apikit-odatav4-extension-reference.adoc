@@ -535,3 +535,7 @@ Default configuration
 | Page Size | Number |  |  |
 | Token | String |  |  |
 |======================
+
+== See Also
+
+* xref:apikit-odatav4-error-handling-reference.adoc[]

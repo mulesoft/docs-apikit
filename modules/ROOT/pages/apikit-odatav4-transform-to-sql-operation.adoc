@@ -157,4 +157,4 @@ The following parameters define the `$search` feature:
 == See Also
 
 * xref:apikit-odatav4-extension-reference.adoc[]
-* xref:apikit-odatav4-error-handling-reference[]
+* xref:apikit-odatav4-error-handling-reference.adoc[]

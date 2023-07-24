@@ -7,11 +7,11 @@ You can reduce the amount of incoming network traffic and make APIs easier to co
 
 From APIkit for OData 1.3.0 onwards, this module supports automatic routing for ease of implementing the `$expand` system query option in the most common cases. Although this feature requires more preparation and configuration, it enables the reuse of implemented flows when processing the `$expand` requests.
 
-For more information about the system query option, see http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptionexpand[the OASIS specification^].
+See http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptionexpand[the OASIS specification^] for more information about the system query option.
 
 == Before You Begin
 
-You must fulfill the following requirements to use the `$expand` Feature:
+You must fulfill the following requirements to use the `$expand` feature:
 
 - APIkit for OData Module (version 1.3.0)
 - A `<request-entity-collection-listener/>` implementation for each expandable entity
@@ -33,11 +33,11 @@ Given this setup, the following requests retrieve employees and their managers:
 * Use `+GET https://example.com/api/Managers?$filter=ManagerID in (id1, id2, ..., idN)+` to retrieve a list of related managers.
 * Write a small program to merge the lists based on join criteria.
 
-If using the `$expand` feature, the request` to retrieve a list of employees with their `Manager` navigation property expanded is `+GET https://example.com/api/Employees?$expand=Manager+.
+If using the `$expand` feature, the request to retrieve a list of employees with their `Manager` navigation property expanded is `+GET https://example.com/api/Employees?$expand=Manager+`.
 
 == The `generic expand` Feature
 
-The `generic expand` feature enables you to reuse existing flow implementations as a starting point for expanding requests. Using this feature, you can focus on the relevant data retrieval operations while the module performs the necessary steps to ensure that the `$expand` fields are complete.
+You can reuse existing flow implementations as a starting point for expanding requests by using the `generic expand` feature. You can focus on the relevant data retrieval operations while the module performs the necessary steps to ensure that the `$expand` fields are complete.
 
 An application with the `generic expand` feature enabled works like any other OData Mule application. However, during the flow execution, once the module retrieves information for the main entity set, it performs additional internal requests to gather the information for any `expand` field. 
 
@@ -50,9 +50,11 @@ You can configure how the software handles errors during the expansion operation
 
 The `generic expand` feature dispatches additional queries to the application when the original flow completes. Because this is done based on the application `EDM`, you must make extra annotations to add enough context to the module:
 
-* The `EntitySet` where the expansion takes place has a `NavigationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. +
+* The `EntitySet` where the expansion takes place has a `NavigationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. 
++
 This is used to select which `<entity-collection-source/>` is executed when expanding that property.
-* Each expandable `NavigationProperty` has a `ReferentialConstraint` attached. +
+* Each expandable `NavigationProperty` has a `ReferentialConstraint` attached. 
++
 Internal requests use it when the value of `Property` is matched against the value of `ReferencedProperty`.
 
 === Flow Execution
@@ -72,37 +74,45 @@ Error handling for OData v4 applications is local to each flow, whether you use 
 
 Handling errors during the expansion process is not supported, because the expansion process runs after the execution of the flow finishes. There are two options available for handling errors:
 
-- *Ignore errors during expansion:* Errors during generic expansion are ignored. +
+* *Ignore errors during expansion:* Errors during generic expansion are ignored. +
 By default, the expansion of collections and single objects are resolved to empty lists and `null` values respectively.
-- *Propagate errors during expansion:* Errors arise during generic expansion. +
+* *Propagate errors during expansion:* Errors arise during generic expansion. +
 When an error reaches the OData v4 router, the original request is answered with an error response.
 
 You can configure error handling *per-source* on the *Capabilities* tab.
 
 === Limitations
 
-* Only the first `ReferentialConstraint` is considered. +
+* Only the first `ReferentialConstraint` is considered. 
++
 Navigation properties that use compound keys are not supported.
-* Expansion is done `field-by-field` instead of `EntitySet-by-EntitySet`. +
+* Expansion is done `field-by-field` instead of `EntitySet-by-EntitySet`. 
++
 This can cause more internal requests than necessary.
-* The expanded entities always have an `<entity-collection-source/>` implementation. +
+* The expanded entities always have an `<entity-collection-source/>` implementation. 
++
 Expansion using `<entity-source/>` implementations are not executed due to performance concerns.
 
 == Implementation Guidelines
 
 To implement the `generic expansion` feature, you must annotate each source with the types that it can expand. Enabling `$expand` without restrictions enables API clients to write complex queries, which can create performance issues.
 
-If you implement `$expand` manually for some relationships, leave these relationships out of the list on the *Expandable Navigation Properties* option. The navigation properties that don't use the `generic expansion` feature need manual implementations inside the flow.
+If you implement `$expand` manually for some relationships, leave these relationships out of the list on the *Expandable Navigation Properties* option. The navigation properties that don't use the `generic expansion` feature need manual implementations in the flow.
 
 === Implementation Checklist
 
-. Check that your CSDL file and Mule application meet the expected requirements:
-** Every `NavigationProperty` has one `ReferentialConstraint`.
-** Every `EntitySet` has one `NavigationPropertyBinding` for each `NavigationProperty` of its entity type.
-** Every `<entity-collection-source/>` supports the `in` operator for the `$filter` system query option.
-. For each source for which you want to enable `generic expand` support:
+. Verify that your CSDL file and Mule application meet the expected requirements:
+* Every `NavigationProperty` has one `ReferentialConstraint`.
+* Every `EntitySet` has one `NavigationPropertyBinding` for each `NavigationProperty` of its entity type.
+* Every `<entity-collection-source/>` supports the `in` operator for the `$filter` system query option.
+. For each source for which you enable `generic expand` support:
 .. Open the *Capabilities* tab.
 .. Edit inline the *Expandable navigation properties* field.
-.. Add the name of each navigation property that you want to be expandable by using `generic expand`.
-.. Depending on your use case, check *Ignore errors on expand* to avoid errors during the generic expansion and to generate errors on the main flow.
+.. Add the name of each navigation property to be expandable by using `generic expand`.
+.. Depending on your use case, select *Ignore errors on expand* to avoid errors during the generic expansion and to generate errors on the main flow.
 . Verify that your existing flows support the `$expand` feature.
+
+== See Also
+
+* xref:apikit-odatav4-extension-reference.adoc[]
+* xref:apikit-odatav4-error-handling-reference.adoc[]
