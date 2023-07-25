@@ -61,7 +61,7 @@ You can implement the transform to SQL operation by using the `<apikit-odata:tra
 | Entity set name | Name of the entity set to fetch #[attributes.entitySetName]
 | Page size | Number that defines the amount of results per page during server-side pagination
 | Entity type name | String obtained from the OData request by using #[attributes.odataRequestAttributes], which the entity data model specifies
-| Entity type fields | Array of strings obtained from the OData request by using #[attributes.odataRequestAttributes], which provides the list of property fields from the entity type
+| Entity type fields | Array of strings obtained from the OData request by using #[attributes.odataRequestAttributes], which provides the list of property fields obtained from the entity type
 | Entity type keys | Object obtained from the OData request by using #[attributes.odataRequestAttributes], which provides a map of entity key names and values
 | System query options | Parameter obtained from the OData request by using #[attributes.odataRequestAttributes]
 | Search transformation enabled | Enables the $search transformation option for a WHERE clause
