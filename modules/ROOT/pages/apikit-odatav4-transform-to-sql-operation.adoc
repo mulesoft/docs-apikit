@@ -56,17 +56,17 @@ You can implement the transform to SQL operation by using the `<apikit-odata:tra
 [options="header"]
 |====
 | Parameter name | Description
-| Display name | Name of the operation
-| Module configuration | Name of the related-module configuration
-| Entity set name | Name of the entity set to fetch #[attributes.entitySetName]
-| Page size | Number that defines the amount of results per page during server-side pagination
-| Entity type name | String obtained from the OData request by using #[attributes.odataRequestAttributes], which the entity data model specifies
-| Entity type fields | Array of strings obtained from the OData request by using #[attributes.odataRequestAttributes], which provides the list of property fields obtained from the entity type
-| Entity type keys | Object obtained from the OData request by using #[attributes.odataRequestAttributes], which provides a map of entity key names and values
-| System query options | Parameter obtained from the OData request by using #[attributes.odataRequestAttributes]
-| Search transformation enabled | Enables the $search transformation option for a WHERE clause
+| Display name | Name of the operation.
+| Module configuration | Name of the related-module configuration.
+| Entity set name | Name of the entity set to fetch #[attributes.entitySetName].
+| Page size | Number that defines the amount of results per page during server-side pagination.
+| Entity type name | String obtained from the OData request by using #[attributes.odataRequestAttributes], which the entity data model specifies.
+| Entity type fields | Array of strings obtained from the OData request by using #[attributes.odataRequestAttributes], which provides the list of property fields obtained from the entity type.
+| Entity type keys | Object obtained from the OData request by using #[attributes.odataRequestAttributes], which provides a map of entity key names and values.
+| System query options | Parameter obtained from the OData request by using #[attributes.odataRequestAttributes].
+| Search transformation enabled | Enables the $search transformation option for a WHERE clause.
 | Strict search term match | Enables full term matching for $search. If enabled, terms in the WHERE clause are not enclosed between '%'.
-| SQL identifiers delimiter a| Option that delimits identifiers in the generated SQL statement (Options: DOUBLE_QUOTES, BRACKETS, and BACK_TICKS)
+| SQL identifiers delimiter a| Option that delimits identifiers in the generated SQL statement (Options: DOUBLE_QUOTES, BRACKETS, and BACK_TICKS).
 
 Examples:
 
