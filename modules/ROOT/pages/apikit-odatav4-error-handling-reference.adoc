@@ -9,34 +9,34 @@ APIkit for OData v4 defines the following error types:
 
 [%header]
 |===
-|Error Type |Description
+| Error Type | Description
 
-|APIKIT-ODATA:NOT_IMPLEMENTED
-|Requested service, feature or operation is not implemented.
+| APIKIT-ODATA:NOT_IMPLEMENTED
+| Requested service, feature or operation not implemented
 
-|APIKIT-ODATA:MALFORMED_URI
-|Request URI is invalid.
+| APIKIT-ODATA:MALFORMED_URI
+| Invalid request URI
 
-|APIKIT-ODATA:MALFORMED_SEARCH
-|Request $search expression in URI is invalid.
+| APIKIT-ODATA:MALFORMED_SEARCH
+| Invalid request $search expression in URI
 
-|APIKIT-ODATA:SERIALIZATION
-|Generic error for serialization issues.
+| APIKIT-ODATA:SERIALIZATION
+| Generic error for serialization issues
 
-|APIKIT-ODATA:DESERIALIZATION
-|Generic error for deserialization issues.
+| APIKIT-ODATA:DESERIALIZATION
+| Generic error for deserialization issues
 
-|APIKIT-ODATA:TRANSFORMATION
-|Generic error for issues related to URI to SQL transformations.
+| APIKIT-ODATA:TRANSFORMATION
+| Generic error for issues related to URI to SQL transformations
 
-|APIKIT-ODATA:INTERNAL_SERVER_ERROR
-|Generic error for internal server issues.
+| APIKIT-ODATA:INTERNAL_SERVER_ERROR
+| Generic error for internal server issues
 
-|APIKIT-ODATA:NOT_FOUND
-|Generic error for not found.
+| APIKIT-ODATA:NOT_FOUND
+| Generic error for not found
 
-|APIKIT-ODATA:EXPANSION
-|Generic error for issues during expansion
+| APIKIT-ODATA:EXPANSION
+| Generic error for issues during expansion
 |===
 
 == Error Handling
