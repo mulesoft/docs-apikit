@@ -295,7 +295,7 @@ Default configuration
 | Output MIME Type | String | MIME type of the payload that this operation outputs |  | 
 | Output Encoding | String | Encoding of the payload that this operation outputs |  | 
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
-| Primary Node Only | Boolean | If this source must only be executed on the primary node when running in Cluster |  | 
+| Primary Node Only | Boolean | Specify if this source executes only on the primary node when running in Cluster |  | 
 | Streaming Strategy | 
 
 * xref:apikit-odatav4-extension-reference#repeatable-in-memory-stream[RepeatableInMemoryStream]
