@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Learn the fundamental building blocks about dependency, namespace, and schema information in APIkit for OData v4 to collaborate, build applications, and maintain codebases.
+Learn the fundamentals about dependency, namespace, and schema information in APIkit for OData v4 to collaborate, build applications, and maintain codebases.
 
 == Dependency Information
 
@@ -65,7 +65,7 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | | *x*
-| Content | Any |  |  #[payload] | 
+| Content | Any |  |  `#[payload]` | 
 | Output MIME Type | String | MIME type of the payload that this operation outputs |  | 
 | Output Encoding | String | Encoding of the payload that this operation outputs |  | 
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
@@ -97,7 +97,7 @@ Default configuration
 | Http Headers | Object |  HTTP request headers |  | 
 | Query String | String |  HTTP query string |  | 
 | Target Variable | String | Name of a variable on which the operation output is placed |  | 
-| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | #[payload] | 
+| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | `#[payload]` | 
 |===
 
 === Output
@@ -134,7 +134,7 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | | *x*
-| Inbound Content | Binary |  |  #[payload] | 
+| Inbound Content | Binary |  | `#[payload]` | 
 | Output MIME Type | String | MIME type of the payload that this operation outputs |  | 
 | Output Encoding | String |  Encoding of the payload that this operation outputs |  | 
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
@@ -156,7 +156,7 @@ Default configuration
 | HTTP Method |  | *x*
 | Path | String |  Path to Entity Type |  | *x*
 | Target Variable | String | Name of a variable on which the operation output is placed |  | 
-| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | #[payload] | 
+| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | `#[payload]` | 
 |===
 
 === Output
@@ -180,7 +180,7 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration | | *x*
-| Inbound Content | Binary |  |  #[payload] | 
+| Inbound Content | Binary |  |  `#[payload]` | 
 | Output MIME Type | String | MIME type of the payload that this operation outputs |  | 
 | Output Encoding | String | Encoding of the payload that this operation outputs|  | 
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
@@ -202,7 +202,7 @@ Default configuration
 | HTTP Method |  | *x*
 | Path | String | Path to Entity Type |  | *x*
 | Target Variable | String | Name of a variable on which the operation output is placed |  | 
-| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | #[payload] | 
+| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | `#[payload]` | 
 |===
 
 === Output
@@ -227,7 +227,7 @@ Default configuration
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | | *x*
 | Entity Set Name | String | Table name in the database for the requested entity set |  | *x*
-| Database Schema | String | Database schema name to which the entity set belongs. If not empty, it is prefixed to the table name in the WHERE clause |  | 
+| Database Schema | String | Database schema name to which the entity set belongs. If not empty, it is prefixed to the table name in the `WHERE` clause |  | 
 | Page Size | Number |  |  | 
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
 | Streaming Strategy | 
@@ -240,9 +240,9 @@ Default configuration
 | Entity Type Name | String | Entity Data Model specifies the entity type name |  | *x*
 | Entity Type Fields | Array of String | List of property fields from the Entity type |  | *x*
 | Entity Type Keys | Object | Map of entity key names and values |  | *x*
-| System Query Options | Object | System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF]. To simplify usability, the initial dollar sign is removed to avoid escaping within DataWeave. For example, to access System Query Option, $skip uses the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
-| Search Transformation Enabled | Boolean | Enabling $search transformation to WHERE clause | true | 
-| Strict Search Term Match | Boolean | Enabling full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. | false | 
+| System Query Options | Object | System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF]. To simplify usability, the initial dollar sign is removed to avoid escaping within DataWeave. For example, to access System Query Option, `$skip` uses the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
+| Search Transformation Enabled | Boolean | Enabling `$search` transformation to `WHERE` clause | `true` | 
+| Strict Search Term Match | Boolean | Enabling full term match for `$search`. If enabled, terms in `WHERE` clause are not enclosed between '%'. | `false` | 
 | Sql Limit Rows | Enumeration, one of: 
 
 * LIMIT
@@ -257,7 +257,7 @@ Default configuration
 
 | Option to delimit identifiers |  | 
 | Target Variable | String | Name of a variable on which the operation output is placed |  | 
-| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | #[payload] | 
+| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | `#[payload]` | 
 |===
 
 === Output
@@ -447,9 +447,9 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream has more data than buffer capacity, it expands according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  |
-| Buffer Size Increment | Number | Expansion of the buffer size if exceeding its initial size. If you set a value of zero or lower, the buffer does not expand and raises a STREAM_MAXIMUM_SIZE_EXCEEDED error when the buffer gets full. |  |
-| Max Buffer Size | Number | The maximum amount of memory for the buffer to use. When the memory usage exceeds this limit, a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised. A value lower or equal to zero means no limit. |  |
+| Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream has more data than buffer capacity, it expands according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. |  |
+| Buffer Size Increment | Number | Expansion of the buffer size if exceeding its initial size. If you set a value of zero or lower, the buffer does not expand and raises a `STREAM_MAXIMUM_SIZE_EXCEEDED` error when the buffer gets full. |  |
+| Max Buffer Size | Number | The maximum amount of memory for the buffer to use. When the memory usage exceeds this limit, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. |  |
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
@@ -473,7 +473,7 @@ Default configuration
 * MB
 * GB 
 
-| Unit to express maxInMemorySize |  |
+| Unit to express `maxInMemorySize` |  |
 |===
 
 === Redelivery Policy
@@ -493,7 +493,7 @@ Default configuration
 |===
 | Field | Type | Description | Default Value | Required
 | Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  |
-| Id Expression | String | One or more expressions that determine when a message has been redelivered. You can set this property if useSecureHash is false |  |
+| Id Expression | String | One or more expressions that determine when a message has been redelivered. You can set this property if `useSecureHash` is `false` |  |
 |===
 
 === Route Output Attributes
@@ -518,7 +518,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Raw Content | Binary | Raw response content of the response message | #[payload] |
+| Raw Content | Binary | Raw response content of the response message | `#[payload]` |
 |===
 
 === Entity Success Response
@@ -526,7 +526,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Body Content | Binary | Body of the response message | #[payload] |
+| Body Content | Binary | Body of the response message | `#[payload]` |
 |===
 
 === Raw Entity Collection Success Response
@@ -534,7 +534,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Raw Content | Binary | Raw response message | #[payload] |
+| Raw Content | Binary | Raw response message | `#[payload]` |
 |===
 
 === Entity Collection Success Response
@@ -542,7 +542,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Body Content | Binary | Body of the response message | #[payload] |
+| Body Content | Binary | Body of the response message | `#[payload]` |
 | Serialization Parameters | xref:apikit-odatav4-extension-reference#serialization-parameters[SerializationParameters] | Set of serialization-related parameters. |  | x
 |===
 
