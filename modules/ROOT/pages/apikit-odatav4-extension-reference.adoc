@@ -465,7 +465,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| In Memory Size | Number | Maximum memory that the stream use to keep data in memory. If more is consumed, it starts to buffer the content on disk |  |
+| In Memory Size | Number | Maximum memory that the stream uses to keep data in memory. If more memory is consumed, the stream starts to buffer the content on the disk |  |
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
