@@ -240,7 +240,7 @@ Default configuration
 | Entity Type Name | String | Entity Data Model specifies the entity type name |  | *x*
 | Entity Type Fields | Array of String | List of property fields from the Entity type |  | *x*
 | Entity Type Keys | Object | Map of entity key names and values |  | *x*
-| System Query Options | Object | System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF], to simplify usability the initial dollar sign is removed to avoid escaping withing DataWeave, in example to access System Query Option $skip user uses the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
+| System Query Options | Object | System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF]. To simplify usability, the initial dollar sign is removed to avoid escaping within DataWeave. For example, to access System Query Option, $skip uses the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
 | Search Transformation Enabled | Boolean | Enabling $search transformation to WHERE clause | true | 
 | Strict Search Term Match | Boolean | Enabling full term match for $search. If enabled, terms in WHERE clause are not enclosed between '%'. | false | 
 | Sql Limit Rows | Enumeration, one of: 
