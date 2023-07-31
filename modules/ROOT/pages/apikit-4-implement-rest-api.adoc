@@ -8,9 +8,9 @@ This workflow guides you through the process of designing, implementing, and tes
 
 For example purposes, this workflow uses the free online REST service https://jsonplaceholder.typicode.com[{JSON} Placeholder^], which provides mocked user information in JSON format.
 
-== Prerequisites
+== Before You Begin
 
-Before you begin, ensure you have the following software installed:
+Ensure you have the following software installed:
 
 * Anypoint Studio 7.1.4 or later
 * Mule runtime engine 4.1.1 or later
@@ -103,20 +103,20 @@ version: 1.0
                   }
                 ]
 --
-. Save it as  `api.raml`.
+. Save it as `api.raml`.
 . In Studio, select *File* > *New* > *Mule Project*.
-. In the *Project Name* field, type the name of your Mule project.
-* If you are importing your API specification from Exchange, select *Import a published API*, click the plus icon and select *From Exchange*.
+. In *Project Name*, type the name of your Mule project.
+* If you are importing your API specification from Exchange, select *Import a published API*, click the plus icon, and select *From Exchange*.
 +
-image::import-from-exchange.png["Import a published API highlighted when clicking on plus to select the From Exchange option."]
+image::import-from-exchange.png["*Import a published API* highlighted when clicking on plus to select the From Exchange option"]
 
-* If you are importing your API specification from a local file in your file system, select the *Import RAML from Local File* tab.
+* If you are importing your API specification from a local file in your file system, select *Import RAML from Local File*.
 +
-image::import-from-local-file.png["Import RAML from local file tab highlighted in the API implementation section."]
-* If you are importing your API specification from Design Center, select the *Download RAML from Design Center* tab.
+image::import-from-local-file.png["*Import RAML from local file* highlighted in the API implementation section"]
+* If you are importing your API specification from Design Center, select *Download RAML from Design Center*.
 +
-image::import-from-design-center.png["The Import from Design Center tab highlighted in the API implementation section."]
-* Check the *Scaffold flows from these API specifications* option if not already selected.
+image::import-from-design-center.png["*Import from Design Center* highlighted in the API implementation section"]
+* Select *Scaffold flows from these API specifications* if not already selected.
 . Click *Finish*.
 +
 APIkit generates the necessary flows based on the API specification you imported.
@@ -124,42 +124,42 @@ APIkit generates the necessary flows based on the API specification you imported
 
 == Simulate API Calls
 
-. In Anypoint Studio, locate the *APIkit Consoles* view and click `Open console` under the base point URL `+http://localhost:8081/console/+`.
+. In Anypoint Studio, locate the *APIkit Consoles* view and click *Open console* under the base point URL `+http://localhost:8081/console/+`.
 +
 image::apikit-consoles.png["APIkit console tab displays the location of the basepoint URL in the window."]
 +
 . Your default browser opens. The *API Console* shows the API summary and information about the project, such as the title, version, and supported protocols.
 +
-image::apikit-console1.png["API console version info."]
+image::apikit-console1.png["API console version info"]
 +
-. In *API Summary*, click `GET` for the `/users` resource.
+. In *API Summary*, select `GET` for the `/users` resource.
 +
-It opens the detail page of the resource showing, among others, the expected JSON example for an HTTP 200 response.
+It opens a detail page of the resource showing, among others, the expected JSON example for an HTTP 200 response.
 +
 image::apikit-console3.png["APIkit response"]
 +
 . In *API Summary*, expand `/userbyid`. 
-. Click `GET` for the `/usersbyid` resource.
+. Select `GET` for the `/usersbyid` resource.
 +
 . Click `Try it` to expand the view for sending a request.
-. The *API Console* displays a section where you can add parameters and headers to try a request. Check *Show optional parameters* if not selected.
-. Enter `3` as a query parameter value for the *id* parameter and click `Send`.
+. The *API Console* displays a section to add parameters and headers to try a request. Select *Show optional parameters* if not selected.
+. Type `3` as a query parameter value for the *id* parameter and click `Send`.
 +
-The successful request for the `/usersbyid` resource, which contains user information for the user with ID 3, is confirmed by an HTTP 200 response along with a response body that includes a JSON example.
+An HTTP 200 response confirms the successful request for the `/usersbyid` resource, which contains user information for the user with ID 3. This response also includes the body with a JSON example.
 +
-image::apikit-console4.png["Information for the user having id 3 appears."]
+image::apikit-console4.png["Information for the user having id 3 highlighted"]
 
 == Add Business Logic to Your API Implementation
 
 Modify the flows to return actual data from the JSON Placeholder service instead of the examples from the API.
 
-. Drag a new Flow component from the *Mule Palette*.
+. Drag a new *Flow* component from the *Mule Palette*.
 . Rename the new flow as `user_request_flow`.
-. Drag an HTTP Request component to the flow process.
+. Drag an *HTTP Request* component to the flow process.
 . In the properties editor of *Request*, in *General*, set the following HTTP request options:
 * In *Method*, leave the default `GET`.
 * In *Path*, set to `/users`.
-* On the *Query Parameters* tab, click on *Switch to expression mode* and paste the following DataWeave script:
+* On *Query Parameters*, select *Switch to expression mode* and paste the following DataWeave script:
 +
 ----
 output application/java
@@ -179,9 +179,9 @@ else
 == Test Your API Implementation
 
 . In Package Explorer, right-click the project name and choose *Run As* > *Mule Application*.
-. Open a browser, and go to `+http://localhost:8081/api/users+`.
+. Open a browser and go to `+http://localhost:8081/api/users+`.
 +
-All user information from the JSON Placeholder service is returned:
+The user information from the JSON Placeholder service is returned:
 +
 ----
 [
@@ -254,4 +254,4 @@ Your REST API creation, implementation, and testing is complete.
 
 * http://jsonplaceholder.typicode.com[{JSON} Placeholder^]
 * xref:general::api-led-overview.adoc[]
-* xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment using Design Center]
+* xref:design-center::design-create-publish-api-specs.adoc[Create and Publish an API Specification or API Fragment with Design Center]
