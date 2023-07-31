@@ -248,7 +248,7 @@ The user information from the JSON Placeholder service is returned:
 ]
 ----
 
-Your REST API creation, implementation, and testing is complete.
+Your REST API creation, implementation, and testing are complete.
 
 == See Also
 
