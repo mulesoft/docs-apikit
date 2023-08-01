@@ -3,8 +3,6 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-include::reuse::partial$beta-banner.adoc[tag="apikit"]
-
 == Select Sources
 
 The module sources vary depending on the implementation of your GraphQL API. APIkit for GraphQL provides two kind of sources:
