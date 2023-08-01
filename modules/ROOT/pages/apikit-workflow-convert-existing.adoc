@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If you chose a backend-first design approach for your Mule project, or if you have a Mule application containing business logic, you can convert them into an APIkit project and expose them as a REST service. Fulfill this task following two approaches:
+If you chose a backend-first design approach for your Mule project or a Mule application containing business logic, you can convert them into an APIkit project and expose them as a REST service. Fulfill this task following two approaches:
  
 * xref:apikit-workflow-convert-existing.adoc#manual-approach[]
 * xref:apikit-workflow-convert-existing.adoc#scaffolding-approach[]
@@ -37,9 +37,9 @@ For example, you chose a backend-first implementation approach and you created t
 
 == Manual Approach
 
-You can follow this workflow to manually configure a functional router for your existing flows.
+You can follow this workflow to configure a functional router for your existing flows manually.
 
-=== Step 1: Design Your API Specification
+=== Step 1 Design Your API Specification
 
 To define the API specification for your service, see xref:apikit-4-implement-rest-api.adoc#design-your-api-specification[Design Your API Specification at Building, Implementing, and Testing a REST API]. To illustrate this example, create or copy the API specification and JSON example used in that workflow to the `/src/main/resources/api` folder.
 
@@ -172,7 +172,7 @@ The *New Mapping* dialog appears.
 
 == Scaffolding Approach
 
-Follow the process at xref:apikit-workflow-convert-existing.adoc#step-1:-design-your-api-specification[]. When completed, include an alternative workflow for scaffolding your API specification.
+Follow the process at xref:apikit-workflow-convert-existing.adoc#step-1-design-your-api-specification[]. When completed, include an alternative workflow for scaffolding your API specification.
 
 === Step 2: Scaffold Your API Specification
 
