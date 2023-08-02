@@ -18,7 +18,7 @@ APIkit for OData v4 defines the following error types:
 | Invalid request URI
 
 | APIKIT-ODATA:MALFORMED_SEARCH
-| Invalid request $search expression in URI
+| Invalid request `$search` expression in URI
 
 | APIKIT-ODATA:SERIALIZATION
 | Generic error for serialization issues
