@@ -6,7 +6,7 @@ endif::[]
 
 Use APIkit for REST to streamline REST API development while ensuring compliance with industry standards. APIkit for REST is a framework designed to simplify the development and integration of RESTful APIs. REST (Representational State Transfer) is an architectural style for building web services. 
 
-APIkit for REST fully supports RAML (RESTful API Modeling Language) and OAS (OpenAPI Specification), which are widely adopted formats for describing RESTful APIs. By leveraging RAML or OAS, you can define your API contracts, enabling consistent design, enhanced collaboration, and clear documentation.
+APIkit for REST fully supports RAML (RESTful API Modeling Language) and OAS (OpenAPI Specification), which are widely adopted formats for describing RESTful APIs. Define your API contracts using RAML or OAS to benefit from consistent design, enhanced collaboration, and clear documentation.
 
 == Features
 
