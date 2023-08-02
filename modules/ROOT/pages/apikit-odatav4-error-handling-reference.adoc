@@ -12,7 +12,7 @@ APIkit for OData v4 defines the following error types:
 | Error Type | Description
 
 | APIKIT-ODATA:NOT_IMPLEMENTED
-| Requested service, feature or operation not implemented
+| Requested service, feature, or operation not implemented
 
 | APIKIT-ODATA:MALFORMED_URI
 | Invalid request URI
