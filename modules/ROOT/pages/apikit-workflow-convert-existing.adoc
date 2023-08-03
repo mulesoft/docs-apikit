@@ -189,7 +189,7 @@ NOTE: With this approach you get the APIkit router configuration, the error hand
 
 === Step 3: Reference Flows
 
-At this point, you have some options:
+Do either of the following:
 
 * Delete the scaffolded flows for each resource and map the original flows as mentioned in xref:apikit-workflow-convert-existing.adoc#step-3:-map-api-resources-actions-to-flows
 [].
