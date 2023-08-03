@@ -31,7 +31,7 @@ Or just update the APIkit configuration code as following:
 
 == Disable Validation of Query Parameters and Headers
 
-If minimizing latency is of utmost importance for your specific scenario and your use case can tolerate the absence of validations, it is possible to deactivate them.
+If minimizing latency is important for your specific scenario and your use case can tolerate the absence of validations, you can deactivate them.
 
 include::page$validate-4-task.adoc[tag=process]
 . Select *Disable Validations*:
