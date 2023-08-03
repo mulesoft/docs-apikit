@@ -183,7 +183,7 @@ Scaffold your API to auto-generate the main, console, and resources flows:
 . Select *Mule*.
 . Click *Generate Flows from Local REST API*.
 
-A new XML file with the same name as the API is created containing the scaffolded flows.
+A new XML file with the same name as the API is created. This file contains the scaffolded flows.
 
 NOTE: With this approach you get the APIkit router configuration, the error handler, and the console flow out of the box. You also get a flow that maps each resource.
 
