@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Within the HTTP Listener configuration, you have the option to customize the HTTP response body, headers, status code and reason phrase.
+Within the HTTP Listener configuration, you can customize the HTTP response body, headers, status code, and reason phrase.
 
 == Configure Variable Names
 
