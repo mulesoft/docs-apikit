@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If you chose a backend-first design approach for your Mule project or a Mule application containing business logic, you can convert them into an APIkit project and expose them as a REST service. Fulfill this task following two approaches:
+If you choose a backend-first design approach for Mule projects and applications that contains business logic, you can convert them into an APIkit project and expose them as REST services. Use one of these approaches:
  
 * xref:apikit-workflow-convert-existing.adoc#manual-approach[]
 * xref:apikit-workflow-convert-existing.adoc#scaffolding-approach[]
