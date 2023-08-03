@@ -203,7 +203,7 @@ curl --location --request PATCH 'http://localhost:8081/api/Orders(OrderID=10251,
 }'
 --
 
-OData V4 discourages the usage of PUT to update your entities because it replaces the entire entity with the new one, which can lead to data loss.
+OData V4 discourages the usage of PUT to update your entities because PUT replaces the entire entity with the new one, which can lead to data loss.
 
 .PUT
 [source,curl]
