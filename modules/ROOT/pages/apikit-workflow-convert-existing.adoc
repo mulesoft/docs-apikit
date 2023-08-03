@@ -107,7 +107,8 @@ By default, each APIkit flow adheres to a naming convention for routing purposes
 
 To retain the original flow names and map each API resource-action to them, override this behavior by following these steps:
 
-. Select *APIkit Router* to open the *Properties Editor*. In *Router configuration*, click *Edit*.
+. Select *APIkit Router* to open the *Properties Editor*. 
+. In *Router configuration*, click *Edit*.
 +
 The *Global Element Properties* wizard appears.
 +
