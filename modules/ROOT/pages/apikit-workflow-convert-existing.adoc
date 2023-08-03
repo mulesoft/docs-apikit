@@ -37,7 +37,7 @@ For example, you chose a backend-first implementation approach and you created t
 
 == Manual Approach
 
-You can follow this workflow to configure a functional router for your existing flows manually.
+Follow these steps to configure a functional router for your existing flows manually.
 
 === Step 1 Design Your API Specification
 
