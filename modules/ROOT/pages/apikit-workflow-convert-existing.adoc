@@ -49,7 +49,7 @@ Within the APIkit project, create a main flow that serves as the entry point:
 
 . Drag the following components from the Mule palette to the canvas:
 +
-* An *HTTP Listener* as a flow source
+* An *HTTP Listener* source as a flow source
 * An *APIkit Router* operation within the flow process
 +
 . In the properties editor for the *HTTP Listener*, in *Connector Configuration*, select the existing `HTTP_Listener_Config`.
