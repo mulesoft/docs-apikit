@@ -208,7 +208,7 @@ Do either of the following:
 </mule>
 ----
 
-* Transfer the content of the existing flows to the scaffolded flows that adhere to the routing naming convention. If the application is extensive, performing these modifications can be a laborious task.
+* Transfer the content of the existing flows to the scaffolded flows that adhere to the routing naming convention. If the application is large, performing these modifications can be a laborious task.
 
 [source,xml,linenums]
 ----
