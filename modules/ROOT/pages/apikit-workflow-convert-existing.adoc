@@ -60,7 +60,7 @@ The *Global Element Properties* wizard appears.
 . In *API Definition*, select the path `api/api.raml`.
 . Accept the configuration.
 . Delete *HTTP Listener*  from `GET-Users-FLOW`.
-. Delete the HTTP listener from `GET-User-By-Id-FLOW`.
+. Delete the *HTTP Listener* from `GET-User-By-Id-FLOW`.
 
 [source,xml,linenums]
 ----
