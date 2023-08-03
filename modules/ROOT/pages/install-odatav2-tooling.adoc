@@ -12,7 +12,7 @@ image::add-update-site.png["Window for installing new software with the *Add* bu
 . In *Location*, type the URL of the site: `+https://studio.mulesoft.org/s4/apikit-for-odata/+`.
 . Select *Add*.
 +
-image::add-repository-odata.png["Window for adding a repository with the *Add* button, and the name and the location fields highlighted"]
+image::add-repository-odata.png["Window for adding a repository with the *Add* button, with the name the location fields highlighted"]
 . Select *Anypoint ODATA Plugin* and *Next*.
 +
 image::select-odata-extension.png["Window highlighting the Anypoint OData plugin field and the Next button"]
