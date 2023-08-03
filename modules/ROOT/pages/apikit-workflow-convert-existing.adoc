@@ -8,7 +8,7 @@ If you choose a backend-first design approach for Mule projects and applications
 * xref:apikit-workflow-convert-existing.adoc#manual-approach[]
 * xref:apikit-workflow-convert-existing.adoc#scaffolding-approach[]
 
-For example, you chose a backend-first implementation approach and you created the following Mule application that retrieves users from a database:
+The examples for these approaches are based on the following Mule application that retrieves users from a database:
 
 [source,xml,linenums]
 ----
