@@ -45,7 +45,7 @@ To define the API specification for your service, see xref:apikit-4-implement-re
 
 === Step 2: Create a Main Flow
 
-Within the APIkit project, construct a main flow that serves as the entry point.
+Within the APIkit project, create a main flow that serves as the entry point:
 
 . Drag the following components from the Mule palette to the canvas:
 +
