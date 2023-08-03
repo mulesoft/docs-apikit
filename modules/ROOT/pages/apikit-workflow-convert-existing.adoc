@@ -39,7 +39,7 @@ The examples for these approaches are based on the following Mule application th
 
 Follow these steps to configure a functional router for your existing flows manually.
 
-=== Step 1 Design Your API Specification
+=== Step 1: Design Your API Specification
 
 To define the API specification for your service, see xref:apikit-4-implement-rest-api.adoc#design-your-api-specification[Design Your API Specification at Building, Implementing, and Testing a REST API]. To illustrate this example, create or copy the API specification and JSON example used in that workflow to the `/src/main/resources/api` folder.
 
