@@ -1,4 +1,4 @@
-= Configuring Response Headers and Status Code
+= Configuring the Response Headers and Status Code
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
