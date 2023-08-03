@@ -53,7 +53,7 @@ Within the APIkit project, create a main flow that serves as the entry point:
 * An *APIkit Router* operation within the flow process
 +
 . In the properties editor for *HTTP Listener* in *Connector Configuration*, select the existing `HTTP_Listener_Config`.
-. Specify a listener path for the APIkit router. Enter `/api/*` in `Path` field.
+. Specify a listener path for the APIkit router by entering `/api/*` in `Path` field.
 . In the properties editor for the APIkit router, in *Router Configuration*, click `Add` to create a new configuration.
 +
 The *Global Element Properties* wizard appears.
