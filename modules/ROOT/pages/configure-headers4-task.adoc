@@ -7,7 +7,7 @@ Within the HTTP Listener configuration, you can customize the HTTP response body
 
 == Configure Variable Names
 
-The APIkit Router configuration encompasses two specific properties that enable you to configure the variables that the HTTP listener searches for by default:
+The APIkit Router configuration has two properties that enable you to configure the variables that the HTTP listener searches for by default:
 
 * `outboundHeadersMapName`: Name of the variable that contains a headers map added in the response (`outboundHeaders` by default).
 +
