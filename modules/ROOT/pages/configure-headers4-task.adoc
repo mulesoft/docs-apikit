@@ -25,7 +25,7 @@ Both variables are created by the APIkit Router and facilitate the inclusion of 
                 httpStatusVarName="httpStatus"/>
 ----
 
-If you opt to modify the default names of these variables, it is crucial to update the default HTTP listener configuration so to ensure alignment between the variable names and the configuration.
+To modify the default names of these variables, it is crucial to update the default HTTP listener configuration to ensure alignment between the variable names and the configuration.
 
 [source,xml,linenums]
 ----
