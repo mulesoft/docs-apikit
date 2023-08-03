@@ -16,7 +16,7 @@ image::add-repository-odatav4.png["Window for adding a repository with the *Add*
 . Select *Anypoint ODATA Plugin* and then click *Next*.
 +
 image::select-odatav4-extension.png["Window highlighting the Anypoint OData plugin field and the Next button"]
-. Accept the terms and conditions of the product and then click *Finish*.
+. Accept the terms and conditions of the product and click *Finish*.
 . Restart Studio to complete the installation.
 
 == See Also
