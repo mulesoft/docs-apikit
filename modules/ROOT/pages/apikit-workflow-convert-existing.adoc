@@ -121,7 +121,7 @@ The *New Mapping* dialog appears.
 +
 * In the *Action* drop-down, select `Get`.
 +
-* In the *Flow* drop-down, select the flow that contains the get users action: `GET-Users-FLOW`.
+* In the *Flow* drop-down, select `GET-Users-FLOW`.
 +
 * Click *OK*.
 +
