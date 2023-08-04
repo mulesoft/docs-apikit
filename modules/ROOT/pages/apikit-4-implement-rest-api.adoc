@@ -142,7 +142,8 @@ image::apikit-console3.png["APIkit response"]
 . Select `GET` for the `/usersbyid` resource.
 +
 . Click `Try it` to expand the view for sending a request.
-+ The *API Console* displays a section to add parameters and headers to try a request.
++ 
+The *API Console* displays a section to add parameters and headers to try a request.
 . Select *Show optional parameters* if not selected.
 . Type `3` as a query parameter value for the *id* parameter and click `Send`.
 +
