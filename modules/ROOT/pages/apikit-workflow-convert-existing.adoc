@@ -191,7 +191,7 @@ NOTE: With this approach you get the APIkit router configuration, the error hand
 
 Do either of the following:
 
-* Delete the scaffolded flows for each resource and map the original flows as described in xref:apikit-workflow-convert-existing.adoc#step-3:-map-api-resources-actions-to-flows
+* Delete the scaffolded flows for each resource and map the original flows as described in xref:apikit-workflow-convert-existing.adoc#step-3-map-api-resources-actions-to-flows
 [].
 * Remove any operations from the scaffolded flows and add a flow reference instead. By choosing this option you introduce an additional layer of indirection, which can be inconvenient in some scenarios.
 
