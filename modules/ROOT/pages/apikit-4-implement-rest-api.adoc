@@ -219,7 +219,7 @@ The user information from the JSON Placeholder service is returned:
 ]
 ----
 +
-. Get information about the user having ID = 4 only by going to `+http://localhost:8081/api/users/userbyid?id=4+`.
+. Get information about the user having ID = 4 by going to `+http://localhost:8081/api/users/userbyid?id=4+`.
 +
 ----
 [
