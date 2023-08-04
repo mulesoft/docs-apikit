@@ -8,6 +8,8 @@ If you choose a backend-first design approach for Mule projects and applications
 * xref:apikit-workflow-convert-existing.adoc#manual-approach[]
 * xref:apikit-workflow-convert-existing.adoc#scaffolding-approach[]
 
+Consider the size and complexity of the application when deciding on the best approach.
+
 The examples for these approaches are based on the following Mule application that retrieves users from a database:
 
 [source,xml,linenums]
@@ -35,15 +37,15 @@ The examples for these approaches are based on the following Mule application th
 </mule>
 ----
 
+== Before You Begin
+
+To define the API specification for your service, see xref:apikit-4-implement-rest-api.adoc#design-your-api-specification[Design Your API Specification at Building, Implementing, and Testing a REST API]. To illustrate this example, create or copy the API specification and JSON example used in that workflow to the `/src/main/resources/api` folder.
+
 == Manual Approach
 
 Follow these steps to configure a functional router for your existing flows manually.
 
-=== Step 1: Design Your API Specification
-
-To define the API specification for your service, see xref:apikit-4-implement-rest-api.adoc#design-your-api-specification[Design Your API Specification at Building, Implementing, and Testing a REST API]. To illustrate this example, create or copy the API specification and JSON example used in that workflow to the `/src/main/resources/api` folder.
-
-=== Step 2: Create a Main Flow
+=== Step 1: Create a Main Flow
 
 Within the APIkit project, create a main flow that serves as the entry point:
 
@@ -90,7 +92,7 @@ The *Global Element Properties* wizard appears.
 </mule>
 ----
 
-=== Step 3: Map API Resources-Actions to Flows
+=== Step 2: Map API Resources-Actions to Flows
 
 By default, each APIkit flow adheres to a naming convention for routing purposes, characterized by the following pattern:
 
@@ -173,9 +175,9 @@ The *New Mapping* dialog appears.
 
 == Scaffolding Approach
 
-Follow the process at xref:apikit-workflow-convert-existing.adoc#step-1-design-your-api-specification[]. When completed, include an alternative workflow for scaffolding your API specification.
+Follow the process at xref:apikit-workflow-convert-existing.adoc#before-you-begin[]. When completed, include an alternative workflow for scaffolding your API specification.
 
-=== Step 2: Scaffold Your API Specification
+=== Step 1: Scaffold Your API Specification
 
 Scaffold your API to auto-generate the main, console, and resources flows:
 
@@ -187,13 +189,12 @@ A new XML file with the same name as the API is created. This file contains the 
 
 NOTE: With this approach you get the APIkit router configuration, the error handler, and the console flow out of the box. You also get a flow that maps each resource.
 
-=== Step 3: Reference Flows
+=== Step 2: Reference Flows
 
 Do either of the following:
 
-* Delete the scaffolded flows for each resource and map the original flows as described in xref:apikit-workflow-convert-existing.adoc#step-3-map-api-resources-actions-to-flows
-[].
-* Remove any operations from the scaffolded flows and add a flow reference instead. By choosing this option you introduce an additional layer of indirection, which can be inconvenient in some scenarios.
+* Delete the scaffolded flows for each resource and map the original flows as described in xref:apikit-workflow-convert-existing.adoc#step-2-map-api-resources-actions-to-flows[].
+* Remove all operations from the scaffolded flows and add a flow reference with all the removed operations instead. By choosing this option you introduce an additional layer of indirection because you reference all flows to the flow that has the operations, and such indirection can be inconvenient in some scenarios.
 
 [source,xml,linenums]
 ----
@@ -227,8 +228,6 @@ Do either of the following:
 	</flow>
 </mule>
 ----
-
-Consider the size and complexity of the application when deciding on the best approach.
 
 == Test Your API
 
