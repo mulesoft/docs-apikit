@@ -231,7 +231,7 @@ Do either of the following:
 
 == Test Your API
 
-Now that your new project is set up, you are ready to run it.
+Now that your new project is set up, you are ready to xref:apikit-4-implement-rest-api#test-your-api-implementation[test] your API.
 
 == See Also
 
