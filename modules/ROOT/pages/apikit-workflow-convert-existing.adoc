@@ -61,8 +61,8 @@ Within the APIkit project, create a main flow that serves as the entry point:
 The *Global Element Properties* wizard appears.
 . In *API Definition*, select the path `api/api.raml`.
 . Accept the configuration.
-. Delete *HTTP Listener*  from `GET-Users-FLOW`.
-. Delete the *HTTP Listener* from `GET-User-By-Id-FLOW`.
+. Delete *HTTP Listener* from `GET-Users-FLOW`.
+. Delete *HTTP Listener* from `GET-User-By-Id-FLOW`.
 
 [source,xml,linenums]
 ----
@@ -92,7 +92,7 @@ The *Global Element Properties* wizard appears.
 </mule>
 ----
 
-=== Step 2: Map API Resources-Actions to Flows
+=== Step 2: Map API Resources and Actions to Flows
 
 By default, each APIkit flow adheres to a naming convention for routing purposes, characterized by the following pattern:
 
@@ -107,7 +107,7 @@ By default, each APIkit flow adheres to a naming convention for routing purposes
 | `config-name` | APIkit router configuration name (optional)
 |===
 
-To retain the original flow names and map each API resource-action to them, override this behavior by following these steps:
+To retain the original flow names and map each API resource and action to them, override this behavior by following these steps:
 
 . Select *APIkit Router* to open the *Properties Editor*. 
 . In *Router configuration*, click *Edit*.
@@ -177,6 +177,8 @@ The *New Mapping* dialog appears.
 
 Follow the process at xref:apikit-workflow-convert-existing.adoc#before-you-begin[]. When completed, include an alternative workflow for scaffolding your API specification.
 
+With this approach you get the APIkit router configuration, the error handler, and the console flow out of the box. You also get a flow that maps each resource.
+
 === Step 1: Scaffold Your API Specification
 
 Scaffold your API to auto-generate the main, console, and resources flows:
@@ -186,8 +188,6 @@ Scaffold your API to auto-generate the main, console, and resources flows:
 . Click *Generate Flows from Local REST API*.
 
 A new XML file with the same name as the API is created. This file contains the scaffolded flows.
-
-NOTE: With this approach you get the APIkit router configuration, the error handler, and the console flow out of the box. You also get a flow that maps each resource.
 
 === Step 2: Reference Flows
 
