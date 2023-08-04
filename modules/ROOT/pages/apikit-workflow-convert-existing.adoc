@@ -193,7 +193,7 @@ A new XML file with the same name as the API is created. This file contains the 
 
 Do either of the following:
 
-* Delete the scaffolded flows for each resource and map the original flows as described in xref:apikit-workflow-convert-existing.adoc#step-2-map-api-resources-actions-to-flows[].
+* Delete the scaffolded flows for each resource and map the original flows as described in xref:apikit-workflow-convert-existing.adoc#step-2-map-api-resources-and-actions-to-flows[].
 * Remove all operations from the scaffolded flows and add a flow reference with all the removed operations instead. By choosing this option you introduce an additional layer of indirection because you reference all flows to the flow that has the operations, and such indirection can be inconvenient in some scenarios.
 
 [source,xml,linenums]
