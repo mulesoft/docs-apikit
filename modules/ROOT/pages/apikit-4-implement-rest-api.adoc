@@ -142,7 +142,8 @@ image::apikit-console3.png["APIkit response"]
 . Select `GET` for the `/usersbyid` resource.
 +
 . Click `Try it` to expand the view for sending a request.
-. The *API Console* displays a section to add parameters and headers to try a request. Select *Show optional parameters* if not selected.
++ The *API Console* displays a section to add parameters and headers to try a request.
+. Select *Show optional parameters* if not selected.
 . Type `3` as a query parameter value for the *id* parameter and click `Send`.
 +
 An HTTP 200 response confirms the successful request for the `/usersbyid` resource, which contains user information for the user with ID 3. This response also includes the body with a JSON example.
