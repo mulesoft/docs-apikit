@@ -136,7 +136,7 @@ The response is:
 
 === Get OData Service Metadata
 
-The service metadata exposes the structure of OData service resources, its operations, and EDM for a given service.
+The service metadata exposes the structure of OData service resources, operations, and EDM for a given service.
 
 Get the metadata for HTTP services:
 
