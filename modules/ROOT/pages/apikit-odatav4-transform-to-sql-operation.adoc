@@ -1,4 +1,4 @@
-= Transforming to SQL Query
+= Transforming an OData Request to a SQL Query
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
