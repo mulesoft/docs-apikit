@@ -9,11 +9,11 @@ Within the HTTP Listener configuration, you can customize the HTTP response body
 
 The APIkit Router configuration has two properties that enable you to configure the variables that the HTTP listener searches for by default:
 
-* `outboundHeadersMapName`: Name of the variable that contains a headers map added in the response (`outboundHeaders` by default).
+* `outboundHeadersMapName`: Name of the variable that contains a headers map added in the response (`outboundHeaders` by default)
 +
-* `httpStatusVarName`: Name of the variable that stores the status code to set in the response (`httpStatus` by default).
+* `httpStatusVarName`: Name of the variable that stores the status code to set in the response (`httpStatus` by default)
 
-Both variables are created by the APIkit Router and facilitate the inclusion of custom HTTP headers and status codes in the response.
+*APIkit Router* creates both variables and facilitates the inclusion of custom HTTP headers and status codes in the response.
 
 // TODO Maybe an image of the Router configuration as well?
 
