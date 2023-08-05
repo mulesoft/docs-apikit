@@ -7,7 +7,7 @@ APIkit for OData v2 is a framework that simplifies the development of RESTful AP
 
 APIkit for OData v2 is an extension of APIkit for REST. It builds upon the foundation of APIkit for REST and uses RAML APIs. This integration between APIkit for OData v2 and APIkit for REST combines their functionalities and benefits.
 
-However, APIkit for OData v2 has certain limitations. These limitations can impact its functionality and provide fewer capabilities than newer versions of OData or other frameworks. Consider these limitations when deciding whether APIkit for OData v2 is the appropriate choice for your specific use case.
+However, APIkit for OData v2 provides fewer capabilities than newer versions of OData and other frameworks. Consider these limitations when deciding whether APIkit for OData v2 is the appropriate choice for your specific use case.
 
 While OData v2 is still widely used, OData v4 is the latest major version. It introduces several enhancements, including improved query capabilities and better alignment with other web standards.
 
