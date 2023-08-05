@@ -1,4 +1,4 @@
-= Configuring Service URI
+= Configuring the Service URI
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
