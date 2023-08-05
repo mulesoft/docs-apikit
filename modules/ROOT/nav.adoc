@@ -25,7 +25,7 @@
  ** xref:key-configurations.adoc[Configuring Behavior during Runtime]
   *** xref:validate-4-task.adoc[Validating Query Parameters and Headers]
   *** xref:configure-headers4-task.adoc[Configuring Response Headers and Status Code]
-  *** xref:configure-service-uri-task.adoc[Configuring Service URI]
+  *** xref:configure-service-uri-task.adoc[Configuring the Service URI]
  ** xref:apikit-4-scaffolding-reference.adoc[Scaffolding Reference]
  ** xref:apikit-4-xml-reference.adoc[APIkit for REST Module Reference]
  ** xref:apikit-error-handling-reference.adoc[Error Handling Reference]
