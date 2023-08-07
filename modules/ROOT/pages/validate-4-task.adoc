@@ -36,7 +36,7 @@ If not, update the APIkit configuration code as follows:
 If your specific scenario and use case can handle it, disable the validation of query parameters and headers to minimize latency.
 
 include::page$validate-4-task.adoc[tag=process]
-. Select *Disable Validations*:
+. Select *Disable Validations*.
 +
 image::disable-verifications-apikit.png["*Disable validations* option highlighted in the router configuration tab"]
 

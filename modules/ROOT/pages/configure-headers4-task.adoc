@@ -3,11 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Within the *HTTP Listener* configuration, you can customize the HTTP response body, headers, status code, and reason phrase.
+In the *HTTP Listener* configuration, you can customize the HTTP response body, headers, status code, and reason phrase.
 
 == Configure Variable Names
 
-You can configure the variables that the HTTP listener searches for by default by configuring the following two properties of *APIkit Router*:
+You can configure the variables that the HTTP listener searches for by default by configuring the following two properties in *APIkit Router*:
 
 * `outboundHeadersMapName`
 +
@@ -19,7 +19,7 @@ Name of the variable that stores the status code to set in the response (`httpSt
 
 *APIkit Router* creates both variables and facilitates the inclusion of custom HTTP headers and status codes in the response.
 
-// TODO Maybe an image of the Router configuration as well?
+// TODO: Add an image of the Router configuration
 
 [source,xml,linenums]
 ----
@@ -29,7 +29,7 @@ Name of the variable that stores the status code to set in the response (`httpSt
                 httpStatusVarName="httpStatus"/>
 ----
 
-To modify the default names of these variables, you must update the default HTTP listener configuration to align the variable names and the configuration.
+To modify the default names of these variables, update the default HTTP listener configuration to align the variable names and the configuration.
 
 [source,xml,linenums]
 ----
