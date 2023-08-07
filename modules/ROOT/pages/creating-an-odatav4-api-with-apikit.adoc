@@ -276,7 +276,7 @@ You can implement the server-side pagination by defining a set of fields with `<
 
 image::pagesize.png["pageSize set to ${service.orders.pageSize} in the On Entity Collection Request tab"]
 
-After it is populated, APIkit creates the XML representation of the previous fields:
+After `pageSize` is populated, APIkit creates the XML representation of the previous fields:
 
 [source,xml]
 --
