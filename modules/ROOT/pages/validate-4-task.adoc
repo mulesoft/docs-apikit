@@ -6,7 +6,7 @@ endif::[]
 Configure *APIkit Router* to enforce validation on headers and query parameters, restricting them only to the attributes specified within your API specification.
 
 // tag::process[]
-. In your Studio, select *APIkit Router*.
+. In Studio, select *APIkit Router*.
 +
 image::apikit-router-selection.png["APIkit router highlighted"]
 . Click *Edit* for your router configuration.
@@ -15,11 +15,11 @@ image::router-config.png["Edit button highlighted in the APIkit router tab"]
 // end::process[]
 
 . Select *Query Parameters Strict Validations* to restrict the usage of query parameters to only the ones defined in your API specification. 
-. Select *Headers Strict Validations* to limit the headers to only the ones specified in your API specification:
+. Select *Headers Strict Validations* to limit the headers to only the ones specified in your API specification.
 +
-image::enable-verifications.png["Query parameters strict validations and headers strict validations highlighted in the router configuration tab."]
+image::enable-verifications.png["*Query parameters Strict Validations* and *Headers Strict Validations* highlighted in the router configuration tab"]
 
-If not, update the APIkit configuration code as following:
+If not, update the APIkit configuration code as follows:
 
 [source,xml,linenums]
 ----
@@ -38,9 +38,9 @@ If your specific scenario and use case can handle it, disable the validation of 
 include::page$validate-4-task.adoc[tag=process]
 . Select *Disable Validations*:
 +
-image::disable-verifications-apikit.png["Disable verifications option highlighted in the router configuration tab"]
+image::disable-verifications-apikit.png["*Disable validations* option highlighted in the router configuration tab"]
 
-If not, update the APIkit configuration code as following:
+If not, update the APIkit configuration code as follows:
 
 [source,xml,linenums]
 ----
