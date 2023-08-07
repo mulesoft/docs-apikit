@@ -48,7 +48,7 @@ To modify the default names of these variables, you must update the default HTTP
 
 == Add a Header to a Response
 
-Put the header you want to add inside the `outboundHeaders` map, as shown in the following example:
+Put the header to add in the `outboundHeaders` map, as shown in the following example:
 
 [source,xml,linenums]
 ----
@@ -59,7 +59,7 @@ Put the header you want to add inside the `outboundHeaders` map, as shown in the
 
 == Set the Status Code of a Response
 
-To assign a specific value to the `httpStatus` variable, you can use the following example as a reference:
+Use the following example as a reference to assign a specific value to the `httpStatus` variable:
 
 [source,xml,linenums]
 ----
