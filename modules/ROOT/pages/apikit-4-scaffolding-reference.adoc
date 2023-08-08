@@ -4,41 +4,39 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases: creating-an-apikit-4-project-with-maven.adoc
 
-APIkit for REST scaffolder allows to generate the backbone of a REST API implementation based on RAML or OpenAPI Specifications (OAS).
+Generate the backbone of a REST API implementation based on RAML or OpenAPI Specifications (OAS) with APIkit for REST scaffolder.
 
 == Tooling
 
 Studio offers several ways to get an API scaffolded:
 
-* From *New Mule Project wizard*, having the option to execute it while importing published API in Exchange or Maven, importing from a local file or downloading from Design Center.
-* From *Package Explorer*, right-clicking the API file the *Mule* context menu is enabled to execute *Generate flows from Local REST API*.
-* From *Package Explorer*, right-clicking the API dependency a context menu having the same name as the dependency is enabled to execute *Generate flows*.
-* From *Package Explorer*, right-clicking on the project. Depending on the API detected, one of the context menus mentioned is enabled.
+* From *New Mule Project wizard*, select *Scaffold Flows From These API Specifications* when importing a published API from Exchange or Maven, when importing from a local file, or when downloading from Design Center.
+* From *Package Explorer*, right-click the API file and select *Generate flows from Local REST API* from the *Mule* context menu.
+* From *Package Explorer*, right-click the API dependency and select *Generate flows* from its context menu.
 
-NOTE: Scaffolding from a local file is not supported for OAS. In the case of OAS APIs, scaffolding can only be done from published assets in Exchange.
+NOTE: Scaffolding from a local file is not supported for OAS. Scaffolding OAS APIs is available only for published assets in Exchange.
 
 == Implementation Reference
 
-When utilizing the APIkit scaffolding technique based on a REST API specification, it generates the following components:
+When scaffolding a REST API specification, APIkit generates the following components:
 
-* A *main flow* that act as the entry point including:
+* A *main flow* that act as the entry point and includes:
 ** *HTTP Listener* as a source
-** *APIkit router* as the main operation
+** *APIkit Router* as the main operation
 +
-The APIkit router is a crucial message processor that directs messages from incoming API requests to the corresponding Mule flows and generates a serialized response. It enhances messages by including default values as needed. For instance, if a request is invalid, APIkit produces a Bad request response, and if the requested API resource lacks an associated flow, a Not implemented response is returned.
+The *APIkit Router* is a crucial message processor that directs messages from incoming API requests to the corresponding Mule flows and generates a serialized response. It enhances messages by including default values as needed. For instance, if a request is invalid, APIkit produces a `bad request` response. If the requested API resource lacks an associated flow, APIkit returns a `not implemented` response.
 +
-While the APIkit router can validate aspects such as request payload, headers, query parameters, and URI parameters, *it does not encompass validation for all elements specified in an API specification*. Specifically, security-related validation, such as authentication enforcement, is not performed by the router itself. Instead, this responsibility lies with API Gateway policies, which are executed before the request reaches the router.
-** *Error handler*
+While the *APIkit Router* validates aspects such as request payload, headers, query parameters, and URI parameters, it does not validate all elements specified in an API specification. Specifically, the router does not perform security-related validation, such as authentication enforcement. Instead, the API gateway policies are responsible for this validation, which occurs before the request reaches the router.
+** *Error Handler*
 
-+
-* A *secondary flow* that exposes the API console including:
+* A *secondary flow* that exposes the API console and includes:
 ** *HTTP Listener* as a source
 ** *APIkit Console* as the main operation
-** *Error handler*
-+
-* In addition to *N flows, one per API action-resource-content-type combination*, each of them including:
+** *Error Handler*
+
+* In addition to N flows, one per API action-resource-content-type combination, each of flow includes:
 ** No source (this is a special design characteristic of APIkit for REST and SOAP applications only)
-** A mock implementation to be substituted with your actual business logic later
+** A mock implementation you substitute later with your actual business logic
 
 Consider the following example as a reference:
 
