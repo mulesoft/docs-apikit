@@ -38,7 +38,7 @@ While the *APIkit Router* validates aspects such as request payload, headers, qu
 ** No source (this option is available for APIkit for REST and SOAP applications only)
 ** A mock implementation you substitute later with your actual business logic
 
-Consider the following example as a reference:
+== Example
 
 [source,xml,linenums]
 ----
