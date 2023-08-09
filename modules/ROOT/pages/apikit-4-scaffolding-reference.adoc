@@ -6,7 +6,7 @@ endif::[]
 
 Generate the backbone of a REST API implementation based on RESTful API Modeling Language (RAML) or OpenAPI Specifications (OAS) with APIkit for REST scaffolder.
 
-== Tooling
+== API Scaffolding
 
 Studio offers several ways to get an API scaffolded:
 
