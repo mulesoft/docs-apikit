@@ -17,7 +17,7 @@ Name of the variable that contains a headers map added in the response (`outboun
 +
 Name of the variable that stores the status code to set in the response (`httpStatus` by default)
 
-*APIkit Router* creates both variables and facilitates the inclusion of custom HTTP headers and status codes in the response.
+*APIkit Router* creates both variables and facilitates including custom HTTP headers and status codes in the response.
 
 // TODO: Add an image of the Router configuration
 
