@@ -4,7 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases: apikit-4-tasks-index.adoc
 
-In contrast to newer modules created using the Java SDK, APIkit for REST has distinctive aspects in its configuration and behavior that warrant a more comprehensive explanation. This section presents relevant settings that determine the behavior of the module during runtime.
+The following configuration settings determine the behavior of the APIkit for REST module during runtime:
 
 * xref:validate-4-task.adoc[]
 * xref:configure-headers4-task.adoc[]
