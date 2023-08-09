@@ -35,7 +35,7 @@ While the *APIkit Router* validates aspects such as request payload, headers, qu
 ** *Error Handler*
 
 * In addition to N flows, one per API action-resource-content-type combination, each of flow includes:
-** No source (this is a special design characteristic of APIkit for REST and SOAP applications only)
+** No source (this option is available for APIkit for REST and SOAP applications only)
 ** A mock implementation you substitute later with your actual business logic
 
 Consider the following example as a reference:
