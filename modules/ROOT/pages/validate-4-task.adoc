@@ -14,8 +14,8 @@ image::apikit-router-selection.png["APIkit router highlighted"]
 image::router-config.png["Edit button highlighted in the APIkit router tab"]
 // end::process[]
 
-. Select *Query Parameters Strict Validations* to restrict the usage of query parameters to only the ones defined in your API specification. 
-. Select *Headers Strict Validations* to limit the headers to only the ones specified in your API specification.
+. Select *Query Parameters Strict Validations* to restrict the usage of query parameters to the ones defined in your API specification. 
+. Select *Headers Strict Validations* to limit the headers to the ones specified in your API specification.
 +
 image::enable-verifications.png["*Query parameters Strict Validations* and *Headers Strict Validations* highlighted in the router configuration tab"]
 
