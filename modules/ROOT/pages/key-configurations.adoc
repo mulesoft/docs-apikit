@@ -1,4 +1,4 @@
-= Configuring Behavior during Runtime
+= Configuring Behavior During Runtime
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
