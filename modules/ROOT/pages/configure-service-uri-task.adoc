@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-When using a load balancer in front of a RAML or OAS API implementation, you can enable the *Keep RAML/OAS base URI* flag. This ensures that the URL specified in the proxy matches the one in your API.
+When using a load balancer in front of a RAML or OAS API implementation, to ensure that the URL specified in the proxy matches the one in your API, enable the *Keep RAML/OAS base URI* flag. 
 
 // TODO: Add an image pointing to the property in the configuration
 
