@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Configure *APIkit Router* to validate headers and query parameters, restricting them only to the attributes specified within your API specification.
+Configure *APIkit Router* to validate headers and query parameters, restricting them to the attributes specified within your API specification.
 
 // tag::process[]
 . In Studio, select *APIkit Router*.
