@@ -20,7 +20,7 @@ NOTE: Scaffolding from a local file is not supported for OAS. Scaffolding OAS AP
 
 When scaffolding a REST API specification, APIkit generates the following components:
 
-* A *main flow* that act as the entry point and includes:
+* A *main flow* that acts as the entry point and includes:
 ** *HTTP Listener* as a source
 ** *APIkit Router* as the main operation
 +
