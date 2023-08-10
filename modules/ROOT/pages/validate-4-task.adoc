@@ -19,7 +19,7 @@ image::router-config.png["Edit button highlighted in the APIkit router tab"]
 +
 image::enable-verifications.png["*Query parameters Strict Validations* and *Headers Strict Validations* highlighted in the router configuration tab"]
 
-If not, update the APIkit configuration code as follows:
+You can also configure *APIkit Router* to validate headers and query parameters by updating the APIkit configuration code as follows:
 
 [source,xml,linenums]
 ----
@@ -40,7 +40,7 @@ include::page$validate-4-task.adoc[tag=process]
 +
 image::disable-verifications-apikit.png["*Disable validations* option highlighted in the router configuration tab"]
 
-If not, update the APIkit configuration code as follows:
+You can also disable the validation of query parameters and headers to minimize latency by updating the APIkit configuration code as follows:
 
 [source,xml,linenums]
 ----
