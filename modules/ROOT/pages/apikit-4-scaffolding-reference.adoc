@@ -8,7 +8,7 @@ Generate the backbone of a REST API implementation based on RESTful API Modeling
 
 == API Scaffolding
 
-Studio offers several ways to get an API scaffolded:
+Studio offers several ways to scaffold an API:
 
 * From *New Mule Project wizard*, select *Scaffold Flows From These API Specifications* when importing a published API from Exchange or Maven, importing from a local file, or downloading from Design Center.
 * From *Package Explorer*, right-click the API file and select *Mule* > *Generate flows from Local REST API*.
