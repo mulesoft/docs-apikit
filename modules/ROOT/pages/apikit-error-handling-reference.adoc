@@ -16,12 +16,12 @@ APIkit for REST defines the following error types:
 | APIKIT:METHOD_NOT_ALLOWED | Method not allowed
 | APIKIT:NOT_ACCEPTABLE | Not acceptable
 | APIKIT:UNSUPPORTED_MEDIA_TYPE | Unsupported media type
-| APIKIT:NOT_IMPLEMENTED | Not Implemented
+| APIKIT:NOT_IMPLEMENTED | Not implemented
 |===
 
 == Error Handling
 
-APIkit scaffolder generates error-handling code based on the most widely-used HTTP status code responses, which are mapped to the error types and messages as described in the following table:
+APIkit scaffolder generates error-handling code based on the most widely-used HTTP status code responses, which are mapped to the error types and messages described as follows:
 
 [%header]
 |===
@@ -31,10 +31,12 @@ APIkit scaffolder generates error-handling code based on the most widely-used HT
 | 405 | APIKIT:METHOD_NOT_ALLOWED | Method not allowed
 | 406 | APIKIT:NOT_ACCEPTABLE | Not acceptable
 | 415 | APIKIT:UNSUPPORTED_MEDIA_TYPE | Unsupported media type
-| 501 | APIKIT:NOT_IMPLEMENTED | Not Implemented
+| 501 | APIKIT:NOT_IMPLEMENTED | Not implemented
 |===
 
-The following code shows the construction of an error handler for an HTTP 400 response. You can take this one as a reference to add your own custom status codes and messages.
+== Example Error
+
+The following code shows an error handler for an HTTP 400 response. Take it as reference to build your own custom status codes and messages.
 
 [source,xml,linenums]
 ----
@@ -55,7 +57,7 @@ The following code shows the construction of an error handler for an HTTP 400 re
 ...
 ----
 
-The main flow is responsible for transmitting an HTTP error response that encompasses an HTTP status code paired with an associated message expressed in clear and straightforward language.
+The main flow transmits an HTTP error response that encompasses an HTTP status code paired with an associated message expressed in clear and straightforward language.
 
 == See Also
 
