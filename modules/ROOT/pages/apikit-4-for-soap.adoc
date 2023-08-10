@@ -11,7 +11,7 @@ APIkit for SOAP is a framework designed to simplify the development and integrat
 * Efficient handling of SOAP messages
 * Support for data transformations
 
-By placing emphasis on SOAP/WSDL contracts, APIkit for SOAP enables you to define and expose SOAP APIs with ease. Its capabilities in managing SOAP message formats and headers ensure seamless integration with SOAP infrastructure. With APIkit for SOAP, you can efficiently create robust and reliable SOAP-based APIs, accelerating your development workflow and delivering enhanced integration capabilities.
+By placing emphasis on SOAP/WSDL contracts, with APIkit for SOAP you define and expose SOAP APIs with ease. Its capabilities in managing SOAP message formats and headers ensure seamless integration with SOAP infrastructure. With APIkit for SOAP, you can create robust and reliable SOAP-based APIs, accelerating your development workflow and delivering enhanced integration capabilities.
 
 == See Also
 
