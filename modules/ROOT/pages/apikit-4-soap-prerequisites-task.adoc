@@ -3,14 +3,14 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-This procedure describes how to set up the development environment for creating a WSDL-based API using APIkit.
+Before setting up the development environment for creating a WSDL-based API using APIkit, ensure you fulfill the following requisites:
 
-* Ensure that you are using the following:
+* Install the following software:
 ** Studio 7.1 or later
 ** Mule runtime engine 4.1.1 or later
 ** SOAP 1.1 or 1.2
 +
-Studio includes the Anypoint APIkit SOAP Extension.
+Studio includes the Anypoint APIkit SOAP extension.
 * Download a SOAP client. +
 For example, https://www.soapui.org/downloads/soapui.html[SoapUI^].
 * Download or obtain the URL for a WSDL file. +
