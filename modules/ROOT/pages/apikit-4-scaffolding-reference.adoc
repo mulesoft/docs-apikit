@@ -20,19 +20,19 @@ NOTE: Scaffolding from a local file is not supported for OAS. Scaffolding OAS AP
 
 When scaffolding a REST API specification, APIkit generates the following components:
 
-* A *main flow* that acts as the entry point and includes:
-** *HTTP Listener* as a source
-** *APIkit Router* as the main operation
+* A main flow that acts as the entry point and includes:
+** HTTP Listener as a source
+** APIkit Router as the main operation
 +
-*APIkit Router* is a message processor that directs messages from incoming API requests to the corresponding Mule flows and generates a serialized response using default values. For example, in an invalid request, APIkit generates a `bad request` response, and a missing associated flow for the requested API resource results in a `not implemented` response.
+APIkit Router is a message processor that directs messages from incoming API requests to the corresponding Mule flows and generates a serialized response using default values. For example, in an invalid request, APIkit generates a `bad request` response, and a missing associated flow for the requested API resource results in a `not implemented` response.
 +
-While *APIkit Router* validates aspects such as request payload, headers, query parameters, and URI parameters, it does not validate all elements specified in an API specification. Specifically, the router does not perform security-related validation, such as authentication enforcement. Instead, the API gateway policies are responsible for this validation, which occurs before the request reaches the router.
-** *Error Handler*
+While APIkit Router validates aspects such as request payload, headers, query parameters, and URI parameters, it does not validate all elements specified in an API specification. Specifically, the router does not perform security-related validation, such as authentication enforcement. Instead, the API gateway policies are responsible for this validation, which occurs before the request reaches the router.
+** Error Handler
 
-* A *secondary flow* that exposes the API console and includes:
-** *HTTP Listener* as a source
-** *APIkit Console* as the main operation
-** *Error Handler*
+* A secondary flow that exposes the API console and includes:
+** HTTP Listener as a source
+** APIkit Console as the main operation
+** Error Handler
 
 * In addition to N flows, one per API action-resource-content-type combination, each flow includes:
 ** No source (this option is available for APIkit for REST and SOAP applications only)
