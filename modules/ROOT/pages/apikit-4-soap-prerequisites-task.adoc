@@ -16,7 +16,7 @@ Studio includes the Anypoint APIkit SOAP extension.
 For example, https://www.soapui.org/downloads/soapui.html[SoapUI^].
 * Download or obtain the URL for a WSDL file. 
 +
-link:{attachmentsdir}/tshirt2.wsdl[WSDL tshirt2.wsdl] example.
+For example, link:{attachmentsdir}/tshirt2.wsdl[WSDL tshirt2.wsdl].
 
 == See Also
 
