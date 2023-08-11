@@ -8,13 +8,13 @@ Before setting up the development environment for creating a WSDL-based API usin
 * Install the following software:
 ** Studio 7.1 or later
 ** Mule runtime engine 4.1.1 or later
-** SOAP 1.1 or 1.2
+** APIkit for SOAP 1.1 or 1.2
 +
 Studio includes the Anypoint APIkit SOAP extension.
-* Download a SOAP client. +
+* Download and install a SOAP client. +
 For example, https://www.soapui.org/downloads/soapui.html[SoapUI^].
 * Download or obtain the URL for a WSDL file. +
 
 == See Also
 
-* xref:apikit-4-soap-project-task.adoc[]
+* xref:implementing-apikit-4-for-soap.adoc[]
