@@ -11,9 +11,12 @@ Before setting up the development environment for creating a WSDL-based API usin
 ** APIkit for SOAP 1.1 or 1.2
 +
 Studio includes the Anypoint APIkit SOAP extension.
-* Download and install a SOAP client. +
+* Download and install a SOAP client. 
++
 For example, https://www.soapui.org/downloads/soapui.html[SoapUI^].
-* Download or obtain the URL for a WSDL file. +
+* Download or obtain the URL for a WSDL file. 
++
+link:{attachmentsdir}/tshirt2.wsdl[WSDL tshirt2.wsdl] example.
 
 == See Also
 
