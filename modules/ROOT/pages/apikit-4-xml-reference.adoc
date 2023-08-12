@@ -35,7 +35,7 @@ xsi:schemaLocation="http://www.mulesoft.org/schema/mule/mule-apikit http://www.m
 |`apikit:router` |REST routing message processor nested in the flow element |Y
 |===
 
-=== `apikit:config` Attributes
+=== apikit:config Attributes
 
 The `apikit:config` attributes are of `NonBlankString`type`.
 
@@ -86,7 +86,7 @@ If set to `true`, it does not rewrite the `baseUri` field.
 
 If you use APIkit behind a reverse proxy and set `keepRamlBaseUri` to `true`, use *API Console* to put the URL of a proxy in the `baseUri` property.
 
-=== `apikit:router` Attributes
+=== apikit:router Attributes
 
 [%header,cols="22a,10a,68a"]
 |===
