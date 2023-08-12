@@ -3,15 +3,15 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for SOAP is a framework designed to simplify the development and integration of SOAP-based APIs. SOAP (Simple Object Access Protocol) is a messaging protocol used for exchanging structured information between web services. With APIkit for SOAP, you get a set of tools and features that streamline SOAP API development, ensuring seamless integration with your existing SOAP infrastructure. APIkit for SOAP simplifies the handling of SOAP message formats and headers, so you can focus on the core logic of your APIs. Additionally, it automates the binding to WSDL (Web Services Description Language), reducing manual configuration efforts and ensuring accuracy.
+APIkit for SOAP is a framework for simplifying the development and integration of SOAP-based APIs. SOAP (Simple Object Access Protocol) is a messaging protocol for exchanging structured information between web services. APIkit for SOAP capabilities in managing SOAP message formats and headers ensure seamless integration with SOAP infrastructure. With APIkit for SOAP, you can create robust and reliable SOAP-based APIs, accelerating your development workflow and delivering enhanced integration capabilities.
 
-== Features
+== APIkit for SOAP Features
 
-* Automatic binding to your WSDL definitions
-* Efficient handling of SOAP messages
-* Support for data transformations
-
-By placing emphasis on SOAP/WSDL contracts, with APIkit for SOAP you define and expose SOAP APIs with ease. Its capabilities in managing SOAP message formats and headers ensure seamless integration with SOAP infrastructure. With APIkit for SOAP, you can create robust and reliable SOAP-based APIs, accelerating your development workflow and delivering enhanced integration capabilities.
+* Streamlines SOAP API development, ensuring seamless integration with your existing SOAP infrastructure.
+* Simplifies the handling of SOAP message formats and headers, so you can focus on the core logic of your APIs. 
+* Automates the binding to WSDL (Web Services Description Language), reducing manual configuration efforts and ensuring accuracy.
+* Supports data transformations.
+* Defines and exposes SOAP APIs with ease by emphasizing SOAP/WSDL contracts. 
 
 == See Also
 
