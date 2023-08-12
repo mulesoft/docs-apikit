@@ -61,19 +61,19 @@ Possible values are:
 
 * AUTO
 +
-*APIkit Router* initiates by using AMF. If it has errors, it initiates by using the RAML parser.
+*APIkit Router* start by using AMF. If it has errors, it initiates by using the RAML parser.
 * AMF
 +
 *APIkit Router* uses AMF to read the API and validate incoming requests.
 * RAML
 +
-*APIkit Router* uses RAML parser to read the API and validate incoming requests. Similar to previous APIkit versions.
+*APIkit Router* uses RAML parser to read the API and validate incoming requests.
 
 Default Value: AUTO.
 
 | api | No | Root API file location.
 
-Attribute valid for APIkit 1.2.0 and later.
+This attribute is valid for APIkit 1.2.0 and later.
 
 It can be any URL, the relative path to a file located under `src/main/resources/api`, or the `API Sync` resource path.
 
