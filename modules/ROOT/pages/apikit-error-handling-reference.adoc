@@ -21,7 +21,7 @@ APIkit for REST defines the following error types:
 
 == Error Handling
 
-APIkit scaffolder generates error-handling code based on the most widely-used HTTP status code responses, which are mapped to the error types and messages described as follows:
+APIkit scaffolder generates error-handling code based on the most widely used HTTP status code responses, which are mapped to the error types and messages described as follows:
 
 [%header]
 |===
