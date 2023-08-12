@@ -7,7 +7,7 @@ APIkit for SOAP is a framework designed to simplify the development and integrat
 
 == Features
 
-* Automatic binding to you WSDL definitions
+* Automatic binding to your WSDL definitions
 * Efficient handling of SOAP messages
 * Support for data transformations
 
