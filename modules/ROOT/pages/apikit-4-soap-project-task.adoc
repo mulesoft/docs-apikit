@@ -7,7 +7,7 @@ Create a new Mule project based on a SOAP API specification.
 
 Before proceeding, ensure that you meet the xref:apikit-4-soap-prerequisites-task.adoc[prerequisites for using APIkit for SOAP].
 
-. In Anypoint Studio, fFrom *File*, select *New* > *Mule Project*.
+. In Anypoint Studio, from *File*, select *New* > *Mule Project*.
 +
 image::create-new-mule-project-soap.png["New Mule project window highlighting the project-name field, the runtime engine, the from design center or local files tab, and the expand icon for browsing files"]
 
