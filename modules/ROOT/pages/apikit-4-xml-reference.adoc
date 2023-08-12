@@ -79,8 +79,8 @@ It can be any URL, the relative path to a file located under `src/main/resources
 
 | `keepApiBaseUri` | No | Attribute valid for APIkit 1.2.0 and later.
 
-When set to `false`, it rewrites the `baseUri` in the RAML definition of the API. +
-If set to `true`, it does not rewrite the `baseUri` field.
+When set to `false`, APIkit rewrites the `baseUri` in the RAML definition of the API. +
+If set to `true`, APIkit does not rewrite the `baseUri` field.
 
 |===
 
