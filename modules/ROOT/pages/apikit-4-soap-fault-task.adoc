@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Use SoapUI to identify an operation you implement by making the API fail. You use the `OrderTshirt` operation to create a request in SoapUI and place an order for a large t-shirt for John. As the API cannot handle this operation, a SOAP fault occurs.
+Use SoapUI to identify an operation you implement by making the API fail. Create a request in SoapUI using the `OrderTshirt` operation to place an order for a large t-shirt for John. As the API cannot handle this operation, a SOAP fault occurs.
 
 . In SoapUI, create a new SOAP project with the URL for your deployed Mule APIkit project in the initial WSDL file. +
 In this example, the URL is `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+`.
