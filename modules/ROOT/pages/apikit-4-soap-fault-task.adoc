@@ -1,4 +1,4 @@
-= Identifying Operations to Implement
+= Identify Operations to Implement
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
