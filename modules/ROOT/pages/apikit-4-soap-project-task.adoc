@@ -1,4 +1,4 @@
-= Creating an APIkit for SOAP Project
+= Create an APIkit for SOAP Project
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
