@@ -33,4 +33,4 @@ The result is the SOAP fault:
 
 == See Also
 
-* xref:apikit-4-prevent-fault-task[]
+* xref:apikit-4-prevent-fault-task.adoc[]
