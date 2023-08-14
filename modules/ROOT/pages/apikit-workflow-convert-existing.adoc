@@ -177,7 +177,7 @@ The *New Mapping* dialog appears.
 
 Follow the process at xref:apikit-workflow-convert-existing.adoc#before-you-begin[]. When completed, include an alternative workflow for scaffolding your API specification.
 
-With this approach you get the APIkit router configuration, the error handler, and the console flow out of the box. You also get a flow that maps each resource.
+With this approach, you get the APIkit router configuration, error handler, and console flow out of the box. You also get a flow that maps each resource.
 
 === Step 1: Scaffold Your API Specification
 
