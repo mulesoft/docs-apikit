@@ -5,7 +5,7 @@ endif::[]
 
 Use SoapUI to identify an operation you implement by making the API fail. Create a request in SoapUI using the `OrderTshirt` operation to place an order for a large t-shirt for John. Because the API cannot handle this operation, a SOAP fault occurs.
 
-. In SoapUI, create a new SOAP project with the URL for your deployed Mule APIkit project in the initial WSDL file. +
+. In SoapUI, create a new SOAP project and put the URL for your deployed Mule APIkit project in the initial WSDL file. +
 In this example, the URL is `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+`.
 +
 image::soapui-new-project.png["New SOAP project window displaying the initial WSDL file: http://localhost:8081/TshirtService/TshirtServicePort?wsdl"]
