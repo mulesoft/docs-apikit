@@ -9,7 +9,7 @@ Before proceeding, ensure that you meet the xref:apikit-4-soap-prerequisites-tas
 
 . In Anypoint Studio, from *File*, select *New* > *Mule Project*.
 +
-image::create-new-mule-project-soap.png["New Mule project window that highlights the project-name field, runtime engine, *From design center or local files* tab, and expand icon for browsing files"]
+image::create-new-mule-project-soap.png["New Mule project window that highlights the project-name field, runtime engine, *From Design Center or Local Files* tab, and expand icon for browsing files"]
 
 [calloutlist]
 . In *Project Name*, enter a name for the project. +
@@ -22,7 +22,7 @@ For example, `Mule Server 4.2.2 EE`.
 [start=2]
 . Select a service and port. For this example, accept the default values, `TshirtService` and `TshirtServicePort`.
 +
-image::create-apikit-soap-project.png["API specification window highlighting the service and the port from the menu"]
+image::create-apikit-soap-project.png["API specification window that highlights the service and the port from the menu"]
 +
 . Click *Finish*.
 +
