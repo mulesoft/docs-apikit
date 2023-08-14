@@ -121,7 +121,7 @@ The *New Mapping* dialog appears.
 +
 * In *Resource*, select `/users`.
 +
-* In *Action*, select `Get`.
+* In *Action*, select *Get*.
 +
 * In *Flow*, select `GET-Users-FLOW`.
 +
