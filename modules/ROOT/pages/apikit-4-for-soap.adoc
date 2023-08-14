@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for SOAP is a framework for simplifying the development and integration of SOAP-based APIs. SOAP (Simple Object Access Protocol) is a messaging protocol for exchanging structured information between web services. APIkit for SOAP capabilities in managing SOAP message formats and headers ensure seamless integration with SOAP infrastructure. With APIkit for SOAP, you can create robust and reliable SOAP-based APIs, accelerating your development workflow and delivering enhanced integration capabilities.
+APIkit for SOAP is a framework for simplifying the development and integration of SOAP-based APIs. SOAP (Simple Object Access Protocol) is a messaging protocol for exchanging structured information between web services. APIkit for SOAP manages SOAP message formats and headers to ensure seamless integration with SOAP infrastructure. With APIkit for SOAP, you can create robust and reliable SOAP-based APIs, accelerating your development workflow and delivering enhanced integration capabilities.
 
 == APIkit for SOAP Features
 
