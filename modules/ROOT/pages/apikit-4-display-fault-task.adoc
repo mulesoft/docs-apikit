@@ -1,28 +1,34 @@
-= Displaying a Typed Fault
+= Display a Typed Fault
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In this procedure, you make the ListInventory operation display the typed fault. For the tshirt2.wsdl file, there is just one typed fault named TshirtFault, which is mapped to every operation that the WSDL has: OrderTshirt, ListInventory, and TrackOrder.
+Make the `ListInventory` operation display the typed fault. In the tshirt2.wsdl file, there is one typed fault named *TshirtFault*, which is mapped to the operations that the WSDL has:
+
+* `OrderTshirt`
+* `ListInventory`
+* `TrackOrder`
 
 APIkit for SOAP supports the following types of SOAP faults:
 
 * Soap Fault 1.1
 * Soap Fault 1.2
 
-You can select either type using any WSDL file, even for those files that do not contain typed faults.
+You can select either type by using any WSDL file, even for files that do not contain typed faults.
 
-. In Studio, search for fault in the palette.
+. In Anypoint Studio, search for *fault* in the command palette.
 +
-Multiple SOAP Fault components might appear.
+Multiple `SOAP Fault` components can appear.
 +
-. Drag and drop the SOAP Fault component into the ListInventory:api-config flow to the right of Transform.
+. Drag and drop the `SOAP Fault` component into the `ListInventory:api-config` flow.
 +
-If the Operation Unavailable message appears telling you about a version discrepancy, cancel the operation, and choose another SOAP Fault component. Repeat these steps until you find a version match.
-. In the properties editor, in Module Configuration, select soapkit-config from the drop-down.
-. In Operation, select ListInventory from the drop-down.
-. In Fault, select `Fault` from the drop-down and save the properties
-. Click the Transform Message component to the left of the SOAP Fault component.
+If *Operation Unavailable* message appears, cancel the operation and select another `SOAP Fault` component.
+. Repeat these steps until you find a version match.
+. In the properties editor, in *Module Configuration*, select `soapkit-config`.
+. In *Operation*, select `ListInventory`.
+. In *Fault*, select `Fault`.
+. Save the properties.
+. Select the `Transform Message` component.
 . Modify the DataWeave code as follows:
 +
 [source,raml,linenums]
@@ -45,9 +51,9 @@ ns soap http://schemas.xmlsoap.org/soap/envelope/
 }
 ----
 +
-. Save and rerun the project.
+. Save the project and run it again.
 +
-Using the SoapUI client, run the ListInventory operation.
+Using SoapUI, run the `ListInventory` operation.
 +
 The client returns the following envelope instead of the default fault:
 +
@@ -67,3 +73,7 @@ The client returns the following envelope instead of the default fault:
    </soap:Body>
 </soap:Envelope>
 ----
+
+== See Also
+
+* xref:apikit-4-get-header-task.adoc[]
