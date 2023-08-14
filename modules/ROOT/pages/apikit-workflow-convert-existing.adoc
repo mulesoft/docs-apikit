@@ -127,7 +127,7 @@ The *New Mapping* dialog appears.
 +
 * Click *OK*.
 +
-. In *Mappings*, click `Add`.
+. In *Mappings*, click *Add*.
 +
 The *New Mapping* dialog appears.
 . Use the drop-down to map the resources to actions.
