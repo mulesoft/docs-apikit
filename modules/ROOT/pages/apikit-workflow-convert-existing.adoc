@@ -119,11 +119,11 @@ The *Global Element Properties* wizard appears.
 The *New Mapping* dialog appears.
 . Use the drop-down to map the resources to actions.
 +
-* In the *Resource* drop-down, select `/users`.
+* In *Resource*, select `/users`.
 +
-* In the *Action* drop-down, select `Get`.
+* In *Action*, select `Get`.
 +
-* In the *Flow* drop-down, select `GET-Users-FLOW`.
+* In *Flow*, select `GET-Users-FLOW`.
 +
 * Click *OK*.
 +
@@ -132,11 +132,11 @@ The *New Mapping* dialog appears.
 The *New Mapping* dialog appears.
 . Use the drop-down to map the resources to actions.
 +
-* In the *Resource* drop-down, select `/users/userbyid`.
+* In *Resource*, select `/users/userbyid`.
 +
-* In the *Action* drop-down, select `Get`.
+* In *Action*, select `Get`.
 +
-* In the *Flow* drop-down, select the flow that contains the get users action: `GET-User-By-Id-FLOW`.
+* In *Flow*, select the flow that contains the get users action: `GET-User-By-Id-FLOW`.
 +
 * Click *OK*.
 
