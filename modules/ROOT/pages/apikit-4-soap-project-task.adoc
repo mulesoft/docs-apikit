@@ -9,7 +9,7 @@ Before proceeding, ensure that you meet the xref:apikit-4-soap-prerequisites-tas
 
 . In Anypoint Studio, from *File*, select *New* > *Mule Project*.
 +
-image::create-new-mule-project-soap.png["New Mule project window highlighting the project-name field, the runtime engine, the from design center or local files tab, and the expand icon for browsing files"]
+image::create-new-mule-project-soap.png["New Mule project window that highlights the project-name field, runtime engine, *From design center or local files* tab, and expand icon for browsing files"]
 
 [calloutlist]
 . In *Project Name*, enter a name for the project. +
