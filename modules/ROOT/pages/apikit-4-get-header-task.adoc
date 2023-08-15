@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Retrieve a SOAP header from the request. In SoapUI, the request window shows the soap envelope header.
+In SoapUI, the request window shows the soap envelope header. To retrieve a SOAP header from the request:
 
 image::apikit-for-soap-53dc2.png["Request window showing the SOAP envelope header"]
 
