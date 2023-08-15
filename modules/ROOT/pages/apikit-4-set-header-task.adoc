@@ -1,4 +1,4 @@
-= Sett a SOAP Header
+= Set a SOAP Header
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
