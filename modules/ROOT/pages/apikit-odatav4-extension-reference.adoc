@@ -97,7 +97,7 @@ Default configuration
 | Http Headers | Object |  HTTP request headers |  | 
 | Query String | String |  HTTP query string |  | 
 | Target Variable | String | Name of a variable on which the operation output is placed |  | 
-| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | `#[payload]` | 
+| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | `#[payload]` | 
 |===
 
 === Output
@@ -156,7 +156,7 @@ Default configuration
 | HTTP Method |  | *x*
 | Path | String |  Path to Entity Type |  | *x*
 | Target Variable | String | Name of a variable on which the operation output is placed |  | 
-| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | `#[payload]` | 
+| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | `#[payload]` | 
 |===
 
 === Output
@@ -202,7 +202,7 @@ Default configuration
 | HTTP Method |  | *x*
 | Path | String | Path to Entity Type |  | *x*
 | Target Variable | String | Name of a variable on which the operation output is placed |  | 
-| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | `#[payload]` | 
+| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | `#[payload]` | 
 |===
 
 === Output
@@ -257,7 +257,7 @@ Default configuration
 
 | Option to delimit identifiers |  | 
 | Target Variable | String | Name of a variable on which the operation output is placed |  | 
-| Target Value | String | Expression evaluated against the operation output. The outcome of that expression is stored in the target variable | `#[payload]` | 
+| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | `#[payload]` | 
 |===
 
 === Output
