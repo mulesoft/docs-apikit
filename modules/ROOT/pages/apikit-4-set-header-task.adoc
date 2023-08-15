@@ -1,4 +1,4 @@
-= Setting a SOAP Header
+= Sett a SOAP Header
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -10,10 +10,10 @@ See xref:apikit-4-soap-prerequisites-task.adoc[Prerequisites for Using APIkit fo
 
 In this example, you add the `APIUsageInformation` header to the response of your application:
 
-. In Studio, open the `tshirt2.wsdl` in `src/main/resources/api` and scroll to `APIUsageInformation` element, which is the element expected by the contract.
-
-. On the canvas, select the Transform Message component in the `OrderTshirt:/soapkit-config` flow.
-. In the existing DataWeave code:
+. In Anypoint Studio, open the `tshirt2.wsdl` in `src/main/resources/api` and scroll to the `APIUsageInformation` element, which is the element expected by the contract.
+. On the canvas, select the `Transform Message` of the `OrderTshirt:/soapkit-config` flow.
++ 
+The following DataWeave code is available:
 +
 [source,linenums]
 ----
@@ -29,7 +29,7 @@ In this example, you add the `APIUsageInformation` header to the response of you
 }
 ----
 +
-Add the `APIUsageInformation` header declaration:
+. Add the following `APIUsageInformation` header declaration:
 +
 [source,linenums]
 ----
@@ -43,7 +43,7 @@ Add the `APIUsageInformation` header declaration:
 		}
 	} write "application/xml",
 
-	headers: { //<1>
+	headers: { //<!--1-->
 		header: {
 			ns0#APIUsageInformation: {
 			}
@@ -52,7 +52,9 @@ Add the `APIUsageInformation` header declaration:
 
 }
 ----
-<1> This piece of DataWeave code adds headers to the produced output in the Transform Message component.
+[calloutlist]
+.. This piece of DataWeave code adds headers to the produced output in the `Transform Message` component.
+
 . Add the `apiCallsRemaining` header to the `APIUsageInformation` element:
 +
 [code,linenums]
@@ -70,17 +72,20 @@ Add the `APIUsageInformation` header declaration:
 	headers: {
 		header: {
 			ns0#APIUsageInformation: {
-				apiCallsRemaining: 10 //<1>
+				apiCallsRemaining: 10 //<!--1-->
 			}
 		} write "application/xml"
 	}
 
 }
 ----
-<1> This example sets `apiCallsRemaining` to `10`.
-. Save and rerun the project.
-. In the SoapUI, execute the OrderTshirt request again. The response envelope from APIkit for SOAP is:
+[calloutlist]
+.. This example sets `apiCallsRemaining` to `10`.
+. Save and run the project again.
+. In SoapUI, execute the `OrderTshirt` request again.
 +
+The response envelope from APIkit for SOAP is:
+
 [source,xml,linenums]
 ----
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -96,3 +101,7 @@ Add the `APIUsageInformation` header declaration:
    </soap:Body>
 </soap:Envelope>
 ----
+
+== See Also
+
+* xref:apikit-for-soap-module-reference.adoc[]
