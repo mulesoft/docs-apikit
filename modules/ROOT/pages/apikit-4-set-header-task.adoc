@@ -80,7 +80,7 @@ The following DataWeave code is available:
 }
 ----
 [calloutlist]
-.. This example sets `apiCallsRemaining` to `10`.
+.. Set `apiCallsRemaining` to `10`.
 . Save and run the project again.
 . In SoapUI, execute the `OrderTshirt` request again.
 +
