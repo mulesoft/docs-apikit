@@ -57,7 +57,7 @@ The following code shows an error handler for an HTTP 400 response, which you ca
 ...
 ----
 
-The main flow transmits an HTTP error response that encompasses an HTTP status code paired with an associated message expressed in clear and straightforward language.
+The main flow transmits an HTTP error response that encompasses an HTTP status code paired with an associated message expressed in clear and straightforward language. In this example, `message: "Bad request"`.
 
 == See Also
 
