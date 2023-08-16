@@ -75,7 +75,7 @@ Default Value: AUTO.
 
 This attribute is valid for APIkit 1.2.0 and later.
 
-It can be any URL, the relative path to a file located under `src/main/resources/api`, or the `API Sync` resource path.
+The `api` attribute can be any URL, the relative path to a file located under `src/main/resources/api`, or the `API Sync` resource path.
 
 | `keepApiBaseUri` | No | Attribute valid for APIkit 1.2.0 and later.
 
