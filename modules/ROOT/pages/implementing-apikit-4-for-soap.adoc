@@ -5,7 +5,7 @@ endif::[]
 
 Create an API by using Anypoint Studio and APIkit for SOAP to consume a remote WSDL API. Download this link:{attachmentsdir}/tshirt2.wsdl[WSDL tshirt2.wsdl example] to create a SOAP interface that accesses data resources and integrates the interface with backend processes that function as an API.
 
-Stat by xref:apikit-4-soap-project-task.adoc[creating an APIkit for SOAP project].
+Start by xref:apikit-4-soap-project-task.adoc[creating an APIkit for SOAP project].
 
 == See Also
 
