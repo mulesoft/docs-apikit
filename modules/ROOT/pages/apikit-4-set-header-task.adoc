@@ -53,7 +53,7 @@ The following DataWeave code is available:
 }
 ----
 [calloutlist]
-.. This piece of DataWeave code adds headers to the produced output in the `Transform Message` component.
+.. This DataWeave code adds headers to the output in the `Transform Message` component.
 
 . Add the `apiCallsRemaining` header to the `APIUsageInformation` element:
 +
