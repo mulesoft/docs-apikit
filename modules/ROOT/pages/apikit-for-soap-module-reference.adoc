@@ -156,7 +156,7 @@ APIkit for SOAP Router
 |===
 | Field | Type | Description | Default Value | Required
 | Initial Buffer Size | Number | Amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than buffer capacity, then it is expanded according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. |  | 
-| Buffer Size Increment | Number | How much buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer does not expand. When the buffer is full, `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. |  | 
+| Buffer Size Increment | Number | Amount the buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer does not expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. |  | 
 | Max Buffer Size | Number | Maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. |  | 
 | Buffer Unit | Enumeration, one of:
 
