@@ -20,7 +20,7 @@ You can select either type by using any WSDL file, even for files that do not co
 +
 Multiple `SOAP Fault` components can appear.
 +
-. Drag and drop the `SOAP Fault` component into the `ListInventory:api-config` flow.
+. Drag `SOAP Fault` to the `ListInventory:api-config` flow.
 +
 If *Operation Unavailable* message appears, cancel the operation and select another `SOAP Fault` component.
 . Repeat these steps until you find a version match.
