@@ -64,7 +64,7 @@ APIkit for SOAP Fault
 | Operation | String |  |  | *x*
 | Fault | String |  |  | *x*
 | Target Variable | String | Name of a variable on which the operation output is placed. |  | 
-| Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable. |  #[payload] | 
+| Target Value | String | Expression that is evaluated against the operation output. The outcome of the expression is stored in the target variable. |  #[payload] | 
 |===
 
 ==== Output
