@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Make the `ListInventory` operation display the typed fault. In the tshirt2.wsdl file, there is one typed fault named *TshirtFault*, which is mapped to the operations that the WSDL has:
+Make the `ListInventory` operation display the typed fault. The tshirt2.wsdl file includes the *TshirtFault* typed fault, which is mapped to the WSDL operations:
 
 * `OrderTshirt`
 * `ListInventory`
