@@ -5,7 +5,7 @@ endif::[]
 
 After resolving the generated xref:apikit-4-soap-fault-task.adoc[SOAP fault], add the Transform Message component to the flow and specify a message in DataWeave to respond to the request and implement the operation. In the DataWeave code, use the proper `namespace` to avoid a fault code at the beginning of the response to the request.
 
-The Transform Message component works on the process side after you hit the endpoint defined in the WSDL. This action triggers an execution of the main flow of the Mule application, which calls the backend flow.
+The Transform Message component works on the process side after you reach the endpoint defined in the WSDL. This action triggers the execution of the main flow of the Mule application, which calls the backend flow.
 
 . In Studio, in the *OrderTshirt:\soapkit-config* flow, open the Transform Message component.
 +
