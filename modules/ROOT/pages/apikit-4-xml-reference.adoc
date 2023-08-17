@@ -51,7 +51,7 @@ Use `keepApiBaseUri` instead of `keepRamlBaseUri` in your API implementations.
 | `name` |Yes |Configuration name that other elements, such as `apikit:router`, reference.
 | `raml` |Yes |Alias for the equivalent `api` attribute.
 
-This attribute is deprecated since APIkit 1.2.0. Included to provide compatibility with APIkit 1.1.x. +
+This attribute is deprecated as of version APIkit 1.2.0. Included to provide compatibility with APIkit 1.1.x. +
 Use `api` instead of `raml` in your API implementations.
 | `parser` | No |Parser used to validate requests.
 
@@ -91,7 +91,7 @@ If you use APIkit behind a reverse proxy and set `keepRamlBaseUri` to `true`, us
 [%header,cols="22a,10a,68a"]
 |===
 |Attribute Name|Required |Description
-|`disableValidations` |No |Disables validations of requests.
-|`headerStrictValidation` |No |Validates that request headers are defined in RAML file or belong to a well-known set of headers.
-|`queryParamsStrictValidation` |No |Validates that request query parameters are defined in RAML file.
+|`disableValidations` |No | `disableValidations` disables validations of requests.
+|`headerStrictValidation` |No | `headerStrictValidation` validates that request headers are defined in RAML file or belong to a well-known set of headers.
+|`queryParamsStrictValidation` |No | `queryParamsStrictValidation` validates that request query parameters are defined in RAML file.
 |===
