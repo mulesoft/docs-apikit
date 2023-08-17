@@ -31,7 +31,7 @@ xsi:schemaLocation="http://www.mulesoft.org/schema/mule/mule-apikit http://www.m
 |===
 |Element Name |Description |Required
 |`apikit:config` |APIkit configuration |Yes
-|`apikit:console` |`config-ref` property in the `http:listener` element in the api-console flow that defines the API console URL |No
+|`apikit:console` |Property of `config-ref` in the `http:listener` element in the api-console flow that defines the API console URL |No
 |`apikit:router` |REST routing message processor nested in the flow element |Yes
 |===
 
@@ -42,9 +42,9 @@ The `apikit:config` attributes are of `NonBlankString`type`.
 [%header,cols="22a,10a,68a"]
 |===
 |Attribute Name|Required |Description
-|`outboundHeadersMapName` |No |Name of the map that contains response headers
-|`httpStatusVarName` |No |Name of the variable that stores the HTTP status code in the response
-|`keepRamlBaseUri` |No |Alias for the equivalent `keepApiBaseUri` attribute
+|`outboundHeadersMapName` |No |Name of the map that contains response headers.
+|`httpStatusVarName` |No |Name of the variable that stores the HTTP status code in the response.
+|`keepRamlBaseUri` |No |Alias for the equivalent `keepApiBaseUri` attribute.
 
 This attribute is deprecated as of version APIkit 1.2.0. Included to provide compatibility with APIkit 1.1.x. +
 Use `keepApiBaseUri` instead of `keepRamlBaseUri` in your API implementations.
@@ -52,7 +52,7 @@ Use `keepApiBaseUri` instead of `keepRamlBaseUri` in your API implementations.
 | `raml` |Yes |Alias for the equivalent `api` attribute
 
 This attribute is deprecated as of version APIkit 1.2.0. Included to provide compatibility with APIkit 1.1.x. +
-Use `api` instead of `raml` in your API implementations
+Use `api` instead of `raml` in your API implementations.
 | `parser` | No |Parser used to validate requests
 
 Attribute valid for APIkit 1.2.0 and later.
