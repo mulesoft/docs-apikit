@@ -48,12 +48,12 @@ The `apikit:config` attributes are of `NonBlankString`type`.
 
 This attribute is deprecated as of version APIkit 1.2.0. Included to provide compatibility with APIkit 1.1.x. +
 Use `keepApiBaseUri` instead of `keepRamlBaseUri` in your API implementations.
-| `name` |Yes |Configuration name that other elements, such as `apikit:router`, reference
-| `raml` |Yes |Alias for the equivalent `api` attribute
+| `name` |Yes |Configuration name that other elements, such as `apikit:router`, reference.
+| `raml` |Yes |Alias for the equivalent `api` attribute.
 
 This attribute is deprecated as of version APIkit 1.2.0. Included to provide compatibility with APIkit 1.1.x. +
 Use `api` instead of `raml` in your API implementations.
-| `parser` | No |Parser used to validate requests
+| `parser` | No |Parser used to validate requests.
 
 Attribute valid for APIkit 1.2.0 and later.
 
@@ -71,13 +71,13 @@ Possible values are:
 
 Default Value: AUTO.
 
-| `api` | No | Root API file location
+| `api` | No | Root API file location.
 
 This attribute is valid for APIkit 1.2.0 and later.
 
 The `api` attribute can be any URL, the relative path to a file located under `src/main/resources/api`, or the `API Sync` resource path.
 
-| `keepApiBaseUri` | No | Attribute valid for APIkit 1.2.0 and later
+| `keepApiBaseUri` | No | Attribute valid for APIkit 1.2.0 and later.
 
 When set to `false`, APIkit rewrites the `baseUri` in the RAML definition of the API. +
 If set to `true`, APIkit does not rewrite the `baseUri` field.
