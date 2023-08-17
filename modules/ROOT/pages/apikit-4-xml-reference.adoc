@@ -61,13 +61,13 @@ Possible values are:
 
 * AUTO
 +
-*APIkit Router* start by using AMF. If it has errors, it initiates by using the RAML parser.
+*APIkit Router* starts by using AMF. If it has errors, it starts by using the RAML parser.
 * AMF
 +
 *APIkit Router* uses AMF to read the API and validate incoming requests.
 * RAML
 +
-*APIkit Router* uses RAML parser to read the API and validate incoming requests.
+*APIkit Router* starts by using AMF, and if it has errors, it starts by using the RAML parser.
 
 Default Value: AUTO.
 
