@@ -10,7 +10,7 @@ See xref:apikit-4-soap-prerequisites-task.adoc[Prerequisites for Using APIkit fo
 
 In this example, you add the `APIUsageInformation` header to the response of your application:
 
-. In Anypoint Studio, open the `tshirt2.wsdl` in `src/main/resources/api` and scroll to the `APIUsageInformation` element, which is the element expected by the contract.
+. In Anypoint Studio, open `tshirt2.wsdl` in `src/main/resources/api` and scroll to the `APIUsageInformation` element, which is the element expected by the contract.
 . On the canvas, select `Transform Message` in the `OrderTshirt:/soapkit-config` flow.
 + 
 The following DataWeave code is available:
