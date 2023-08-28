@@ -1,4 +1,4 @@
-= Error Handling Reference
+= APIkit for SOAP Error Handling Reference
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
