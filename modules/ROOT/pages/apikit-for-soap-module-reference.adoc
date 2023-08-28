@@ -192,5 +192,5 @@ APIkit for SOAP Router
 |===
 | Field | Type | Description | Default Value | Required
 | Protocol Headers | Object | Protocol headers bundled in the response |  | 
-| Additional transport data | Object | Additional transport data bundled in the response |  | 
+| Additional Transport Data | Object | Additional transport data bundled in the response |  | 
 |===
