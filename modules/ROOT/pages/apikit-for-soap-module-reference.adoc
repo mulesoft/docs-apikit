@@ -11,7 +11,7 @@ Configuration element for a *SOAP Router*
 
 ==== Parameters
 
-[cols="1a,2a,3a,4a,5a"]
+[cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Name | String | Connectors use this configuration name to reference its configuration. | | *x*
@@ -24,9 +24,9 @@ Configuration element for a *SOAP Router*
 | SOAP version of the WSDL. |  | 
 | Address | String | Address of the web service. |  | 
 | MTOM Enabled | Boolean | Defines if the MTOM protocol manages the attachments. | `false` | 
-| Inbound Validation Enabled | Boolean | Defines if the MTOM protocol manages the attachments. | `false` | 
+| Inbound Validation Enabled | Boolean | Defines if the schema of inbound request is validated. | `false` | 
 | HTTP Status Var Name | String | Variable name for the HTTP status. | `httpStatus` | 
-| Namespace Prefixes | Object |  |  | 
+| Namespace Prefixes | Object | Map of custom namespaces prefixes to specify in response. |  | 
 | Expiration Policy | xref:apikit-for-soap-module-reference.adoc#expiration-policy[Expiration Policy] | Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. The platform does not necessarily expire the instance at the exact moment that it becomes eligible. The runtime purges the instances when it considers it appropriate. |  | 
 | WSDL Location | String | WSDL file URL, remote or local. |  | *x*
 | Service | String | Name of the service. |  | *x*
@@ -53,7 +53,7 @@ APIkit for SOAP Fault
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration. | | *x*
-| Payload | Binary |  |  #[payload] | 
+| Payload | Binary | Mule payload. |  #[payload] | 
 | Streaming Strategy | 
 
 * xref:apikit-for-soap-module-reference.adoc#repeatable-in-memory-stream[Repeatable in memory stream]
@@ -61,8 +61,8 @@ APIkit for SOAP Fault
 * xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Repeatable file store stream]
 
 * Non repeatable stream | Configure if repeatable streams and their behavior are used. |  | 
-| Operation | String |  |  | *x*
-| Fault | String |  |  | *x*
+| Operation | String | An operation defined in the WSDL. |  | *x*
+| Fault | String | A fault defined in the selected operation. |  | *x*
 | Target Variable | String | Name of a variable on which the operation output is placed. |  | 
 | Target Value | String | Expression that is evaluated against the operation output. The outcome of the expression is stored in the target variable. |  #[payload] | 
 |===
@@ -94,8 +94,8 @@ APIkit for SOAP Router
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration. | | *x*
-| Message | Binary |  |  #[payload] | 
-| Attributes | Object |  |  | *x*
+| Message | Binary | Mule payload. |  #[payload] | 
+| Attributes | Object | Map of Mule message attributes. |  | *x*
 | Output Mime Type | String | MIME type of the payload that this operation outputs. |  | 
 | Output Encoding | String | Encoding of the payload that this operation outputs. |  | 
 | Streaming Strategy | 
@@ -191,5 +191,6 @@ APIkit for SOAP Router
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Protocol Headers | Object |  |  | 
+| Protocol Headers | Object | Protocol headers bundled in the response |  | 
+| Additional transport data | Object | Additional transport data bundled in the response |  | 
 |===
