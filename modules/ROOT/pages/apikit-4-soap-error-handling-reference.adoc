@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit offers an error handling mechanism for your application process. This article lists the typed errors for APIkit for SOAP. 
+When something goes wrong with a part of your flow, you get a message with an error type.
 
 == APIkit for SOAP Error Types
 
@@ -22,7 +22,7 @@ APIkit for SOAP defines two error types:
 
 == APIkit for SOAP Error Handling
 
-APIkit for SOAP scaffolder does not generate error-handling code.
+APIkit for SOAP scaffolder generates no error-handling code.
 
 == See Also
 
