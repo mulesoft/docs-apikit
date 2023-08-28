@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit creates error-handling code using Mule 4 main mechanism. When something goes wrong with a part of the process, you receive a typed error message. This code covers common HTTP status codes, matched to types and error messages listed in this article.
+APIkit offers an error handling mechanism for your application process. This article lists the typed errors for APIkit for SOAP. 
 
 == APIkit for SOAP Error Types
 
