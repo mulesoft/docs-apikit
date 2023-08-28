@@ -5,7 +5,7 @@ endif::[]
 
 APIkit creates error-handling code using Mule 4 main mechanism. When something goes wrong with a part of the process, you receive a typed error message. This code covers common HTTP status codes, matched to types and error messages listed in this article.
 
-== Error Types
+== APIkit for SOAP Error Types
 
 APIkit for SOAP defines two error types:
 
@@ -20,7 +20,7 @@ APIkit for SOAP defines two error types:
 |Fault exception
 |===
 
-== Error Handling
+== APIkit for SOAP Error Handling
 
 APIkit for SOAP scaffolder does not generate error-handling code.
 
