@@ -2,42 +2,38 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: apikit-4-update-wsdl-task.adoc
 
-This process walks you through the creation of a new Mule project based on a SOAP API specification.
+Create a new Mule project based on a SOAP API specification.
 
-Before proceeding, ensure that you meet the xref:apikit-4-soap-prerequisites-task.adoc[Prerequisites for Using APIkit for SOAP].
+Before proceeding, ensure that you meet the xref:apikit-4-soap-prerequisites-task.adoc[prerequisites for using APIkit for SOAP].
 
-. Under the File menu, select *New* > *Mule Project*.
+. In Anypoint Studio, from *File*, select *New* > *Mule Project*.
 +
-image::create-new-mule-project-soap.png["New Mule project window highlighting the project-name field, the runtime engine, the from design center or local files tab, and the expand icon for browsing files."]
+image::create-new-mule-project-soap.png["New Mule project window that highlights the project-name field, runtime engine, *From Design Center or Local Files* tab, and expand icon for browsing files"]
 
 [calloutlist]
 . In *Project Name*, enter a name for the project. +
-For example, _soap-implementation_.
+For example, `soap-implementation`.
 . Select the Mule runtime engine version. +
 For example, `Mule Server 4.2.2 EE`.
-. Under *API Specification*, select the  *From Design Center or Local Files* tab.
-. Select the expand icon: image:expand-icon.png[30,35] and select *Browse files...*.
+. In *API Specification*, select *From Design Center or Local Files*.
+. Select *Browse files* from the *More actions* menu.
 
 [start=2]
-. Select a service and port from the drop-down menus or accept the defaults. For this example, accept the defaults: Select `TshirtService` and `TshirtServicePort`.
+. Select a service and port. For this example, accept the default values, `TshirtService` and `TshirtServicePort`.
 +
-image::create-apikit-soap-project.png["API specification window highlights the service and the port from the drop-down menus."]
+image::create-apikit-soap-project.png["API specification window that highlights the service and the port from the menu"]
 +
-. Select *Finish*.
+. Click *Finish*.
 +
-The new project appears and has a `src/main/resources/api` folder that contains the WSDL file.
-. Right-click a blank area of the canvas and choose the option to run the project.
+The new project appears with the WSDL file in the `src/main/resources/api` folder.
+. Right-click a blank area of the canvas and select *Run Project*.
 . In your SOAP UI client, go to `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+`.
 +
 The SOAP service returns the content of your WSDL file.
 
-If you update your WSDL file, you can regenerate your flows:
-
-. In the Package Explorer view, right-click your WSDL file.
-. Select *Mule* > *Generate Flows From WSDL*.
+If you update your WSDL file, regenerate your flows by right-clicking your WSDL file and selecting *Mule* > *Generate Flows From WSDL*.
 
 == See Also
 
-* xref:apikit-4-soap-prerequisites-task.adoc[To Meet Prerequisites for Using APIkit for Soap]
+* xref:apikit-4-soap-fault-task.adoc[]

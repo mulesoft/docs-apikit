@@ -1,0 +1,29 @@
+= APIkit for SOAP Error Handling Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+When something goes wrong with a part of your flow, you get a message with an error type.
+
+== APIkit for SOAP Error Types
+
+APIkit for SOAP defines two error types:
+
+[%header]
+|===
+|Error Type |Description
+
+|APIKIT-SOAP:ROUTER
+|Routing exception
+
+|APIKIT-SOAP:FAULT
+|Fault exception
+|===
+
+== APIkit for SOAP Error Handling
+
+APIkit for SOAP scaffolder generates no error-handling code.
+
+== See Also
+
+* xref:4.1@mule-runtime::error-handling.adoc[]

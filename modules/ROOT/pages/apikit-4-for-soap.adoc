@@ -1,21 +1,18 @@
-= Workflow: Implement a SOAP Interface
+= APIkit for SOAP
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: apikit, soap
 
-In this workflow, you create an API using Studio and APIkit for SOAP. APIkit for SOAP supports consuming a remote WSDL. This workflow, however, uses a local WSDL that you download. The SOAP interface you create accesses data resources and integrates the interface with backend processes that function as an API.
+APIkit for SOAP is a framework for simplifying the development and integration of SOAP-based APIs. SOAP (Simple Object Access Protocol) is a messaging protocol for exchanging structured information between web services. APIkit for SOAP manages SOAP message formats and headers to ensure seamless integration with SOAP infrastructure. With APIkit for SOAP, you can create robust and reliable SOAP-based APIs, accelerating your development workflow and delivering enhanced integration capabilities.
 
-. xref:apikit-4-soap-prerequisites-task.adoc[Meet prerequisites for using APIkit for SOAP]
-. xref:apikit-4-soap-project-task.adoc[Create an APIkit for SOAP project]
-. xref:apikit-4-soap-fault-task.adoc[Identify Operations to Implement]
-. xref:apikit-4-prevent-fault-task.adoc[Prevent the SOAP fault]
-. xref:apikit-4-get-header-task.adoc[To get a SOAP header]
-. xref:apikit-4-set-header-task.adoc[To set a SOAP header]
-. xref:apikit-4-display-fault-task.adoc[To display a typed fault]
+== APIkit for SOAP Features
 
+* Streamlines SOAP API development, ensuring seamless integration with your existing SOAP infrastructure.
+* Simplifies the handling of SOAP message formats and headers, so you can focus on the core logic of your APIs. 
+* Automates the binding to WSDL (Web Services Description Language), reducing manual configuration efforts and ensuring accuracy.
+* Supports data transformations.
+* Defines and exposes SOAP APIs with ease by emphasizing SOAP/WSDL contracts. 
 
 == See Also
 
-* xref:configure-cloudhub-path-task.adoc[Using APIkit]
-* xref:apikit-4-xml-reference.adoc[APIkit Reference]
+* xref:apikit-4-soap-prerequisites-task.adoc[]

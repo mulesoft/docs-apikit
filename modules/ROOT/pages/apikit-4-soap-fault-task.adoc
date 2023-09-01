@@ -3,12 +3,12 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can use SoapUI to identify an operation you need to implement by making the API fail. You use the `OrderTshirt` operation to create a request in SOAP UI to place an order for a large t-shirt for John. The API cannot handle this operation and a SOAP fault occurs.
+To know what happens with an implemented operation, make the API fail using SoapUI. Follow the steps in the following example to create a request in SoapUI using the `OrderTshirt` operation for a customer named `John`. Because the API cannot handle this operation, a SOAP fault occurs.
 
-. In SoapUI, create a new SOAP project using the URL for your deployed Mule APIkit project for the initial WSDL. +
-In this workflow, the URL is `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+`:
+. In SoapUI, create a new SOAP project and put the URL for your deployed Mule APIkit project in the initial WSDL file. +
+In this example, the URL is `+http://localhost:8081/TshirtService/TshirtServicePort?wsdl+`.
 +
-image::soapui-new-project.png["New SOAP project window displaying the initial WSDL as http://localhost:8081/TshirtService/TshirtServicePort?wsdl."]
+image::soapui-new-project.png["New SOAP project window displaying the initial WSDL file: http://localhost:8081/TshirtService/TshirtServicePort?wsdl"]
 +
 . In SoapUI, request a large t-shirt for John by entering some values into the request envelope:
 +
@@ -17,7 +17,7 @@ image::soapui-new-project.png["New SOAP project window displaying the initial WS
 .. Enter *John* between the `<name>` tags.
 . Submit the request.
 +
-The result is the SOAP fault.
+The result is the SOAP fault:
 +
 [source,xml,linenums]
 ----
@@ -30,3 +30,7 @@ The result is the SOAP fault.
    </soap:Body>
 </soap:Envelope>
 ----
+
+== See Also
+
+* xref:apikit-4-prevent-fault-task.adoc[]

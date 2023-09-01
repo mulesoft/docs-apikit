@@ -1,8 +1,0 @@
-= To Configure a Load Balancer
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-
-If your API implementation involves putting a load balancer in front of your APIkit application, configure the load balancer to redirect URLs that reference the `baseUri` of the application directly. If the load balancer does not redirect URLs, any calls that reach the load balancer looking for the application do not reach their destination. For example, you deploy an APIkit application to `myapp.mycompany.com`, and then add a load balancer at `www.exampleloadbalancer.com`. A call to the API arrives at `www.exampleloadbalancer.com` and the load balancer redirects the call to `myapp.mycompany.com` to get a response.
-
-When using a load balancer, set the `keepRamlBaseUri` to true to put the URL of a proxy in the baseUri property.

@@ -1,0 +1,160 @@
+= Transforming an OData Request to a SQL Query
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You can transform the input OData `GET` request to an SQL SELECT query by using the `Transform to SQL Select` operation. This operation is useful when combined with the `select` operation of the Anypoint Connector for Database (Database Connector). 
+
+image::transform-to-sql-transformer.png["*Transform to SQL select* element and *Entity set name* field highlighted"]
+
+The output payload is a prepared statement and the attributes are a map of prepared statement parameters. 
+
+image::add-db-transform-to-sql.png["*Select database* and *Input Parameters* field highlighted"]
+
+You can use this operation with the Database connector to expose databases that use OData V4.
+
+image::serialize-transform-to-sql.png["*Serialized entity* element and the *Inbound content* field highlighted"]
+
+APIkit supports the following elements:
+
+* System query options:
+** $filter
+** $select
+** $search
+** $orderby
+** $skip
+** $top
+* Single entity
+* Entity relation
+* Server-side pagination
+
+APIkit does not support the following elements:
+
+* Parameter Aliases
+* Built-in Filter Operations:
+** has
+** divby
+* Built-in Query Functions, all except:
+** contains
+** startswith
+** endwith
+* $apply
+* $compute
+* $expand
+
+== Transform to SQL Select Operation in OData V4
+
+The OData protocol defines a series of conventions that enable clients to query identified resources by using URLs.
+The list of queryable entities, their fields, and the relationships between them are defined in a data model by using HTTP messages.
+OData shares some similarities with Java database connectivity (JDBC). The `transform-to-sql-select` operation uses such similarities to help you create SQL queries for the resources.
+The operation results in a message that has a prepared statement with the SQL `select` sentence as the payload and the parameters name and values map as the attributes.
+
+== Implement the Transform to SQL Select Operation by Using APIkit for OData V4
+
+You can implement the transform to SQL operation by using the `<apikit-odata:transform-to-sql-select>` XML element, which has the following parameters:
+
+[options="header"]
+|====
+| Parameter name | Description
+| Display name | Name of the operation.
+| Module configuration | Name of the related-module configuration.
+| Entity set name | Name of the entity set to fetch #[attributes.entitySetName].
+| Page size | Number that defines the amount of results per page during server-side pagination.
+| Entity type name | String obtained from the OData request by using #[attributes.odataRequestAttributes], which the entity data model specifies.
+| Entity type fields | Array of strings obtained from the OData request by using #[attributes.odataRequestAttributes], which provides the list of property fields obtained from the entity type.
+| Entity type keys | Object obtained from the OData request by using #[attributes.odataRequestAttributes], which provides a map of entity key names and values.
+| System query options | Parameter obtained from the OData request by using #[attributes.odataRequestAttributes].
+| Search transformation enabled | Enables the $search transformation option for a WHERE clause.
+| Strict search term match | Enables full term matching for $search. If enabled, terms in the WHERE clause are not enclosed between '%'.
+| SQL identifiers delimiter a| Option that delimits identifiers in the generated SQL statement (Options: DOUBLE_QUOTES, BRACKETS, and BACK_TICKS).
+
+Examples:
+
+* DOUBLE_QUOTES: ``SELECT "TrackId", "Name" FROM "Tracks"``
+
+* BRACKETS: ``SELECT [TrackId], [Name] FROM [Tracks]``
+
+* BACK_TICKS: ``SELECT \`TrackId`, \`Name` FROM \`Tracks` ``
+
+| SQL limit rows a| Option that limits the numbers of rows (Options: LIMIT and FETCH_NEXT_ROWS_ONLY).
+
+Examples:
+
+* LIMIT: ``SELECT OrderID, ShippedDate, ShipCountry FROM Orders LIMIT :parameter1``
+
+* FETCH_NEXT_ROWS_ONLY: ``SELECT OrderID, ShippedDate, ShipCountry FROM Orders ORDER BY OrderID ASC OFFSET :parameter2 ROWS FETCH NEXT :parameter1 ROWS ONLY``
+
+`ORDER BY` is automatically included if not present in the request by using the entity key defined in CSDL.
+
+|====
+
+== $filter Expressions in OData V4
+
+​​The OData `$filter` expression uses comparison, logical, arithmetic, and grouping operators. For a list of operators and their meaning, see http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[the OData4 Specification^]. 
+
+APIkit does not support the `has` and `divby` operators.
+
+== Expressions Supported by Transform to SQL Select
+
+For the filtering expressions that OData supports, see the http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_BuiltinFilterOperations[specification^]. 
+
+The `transform-to-sql-select` operation supports the following subset of unary and binary operators, and the following method operators.
+
+=== Binary Operators in OData and in SQL
+
+[options="header"]
+|====
+| OData Operator | SQL Operator
+| add | +
+| and | AND
+| div | /
+| eq | =
+| ge | >=
+| gt | >
+| le | =<
+| lt | <
+| mod | %
+| mul | *
+| ne | <>
+| or | OR
+| sub | -
+|====
+
+=== Unary Operators in OData and in SQL
+
+[options="header"]
+|====
+| OData Operator | SQL Operator
+| not | NOT
+| - | -
+|====
+
+=== Method Operators in OData and in SQL
+
+[options="header"]
+|====
+| OData Operator | SQL Operator
+| contains | LIKE %value%
+| startswith | LIKE value%
+| endswith | LIKE %value
+|====
+
+== $search Support
+
+This operation builds a `WHERE` clause based on the `$search` expression that the system query option provides. The implementation selects all of the elements that have property values that match the condition.
+
+By default, a term matches if the field value contains the term, but it does not match if set as `strict` in the configuration. 
+
+The following parameters define the `$search` feature:
+
+[options="header"]
+|====
+| Parameter Name | Description
+| Search transformation enabled | If `true`, this option enables transformation support.
+| Strict search term match | If `true`, this option specifies that there is a match only if the field value contains exactly the same terms as the search expression.
+|====
+
+== See Also
+
+* xref:apikit-odatav4-extension-reference.adoc[]
+* xref:apikit-odatav4-error-handling-reference.adoc[]

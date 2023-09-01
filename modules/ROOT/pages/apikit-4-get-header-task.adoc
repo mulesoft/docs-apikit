@@ -1,16 +1,18 @@
-= To Get a SOAP Header
+= Get a SOAP Header
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In this procedure, you retrieve a SOAP header from the request. In the SoapUI, the request window shows the soap Envelope header.
+In SoapUI, the request window shows the soap envelope header. To retrieve a SOAP header from the request:
 
-image::apikit-for-soap-53dc2.png["Request window showing the SOAP envelope header."]
+image::apikit-for-soap-53dc2.png["Request window showing the SOAP envelope header"]
 
-. In the SoapUI, modify the OrderTshirt request by entering a value for the API key. For example, enter `987654321` between the `<apiKey>` tags.
+. In SoapUI, modify the `OrderTshirt` request by entering a value for the API key. 
++
+For example, enter `987654321` between the `<apiKey>` tags.
 
-. In Studio, in the OrderTshirt:\soapkit-config flow, click Transform Message.
-. Edit the DataWeave code to get the API key, which is an header property:
+. In Studio, in the `OrderTshirt:\soapkit-config` flow, select *Transform Message*.
+. Edit the DataWeave code to get the API key, which is a header property:
 +
 [source,raml,linenums]
 ----
@@ -30,16 +32,21 @@ ns ns0 http://mulesoft.org/tshirt-service
 }
 ----
 +
-. Save and rerun the project.
-. In SoapUI, send a request to the OrderTshirt endpoint, and check that the response appears as follows:
+. Save and run the project again.
+. In SoapUI, send a request to the `OrderTshirt` endpoint.
++ The following response appears:
 +
 [source,xml,linenums]
 ----
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
    <soap:Body>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
       <ns0:OrderTshirtResponse xmlns:ns0="http://mulesoft.org/tshirt-service">
          <orderId>I got a request from John, using the following auth header 987654321</orderId>
       </ns0:OrderTshirtResponse>
    </soap:Body>
 </soap:Envelope>
 ----
+
+== See Also
+
+* xref:apikit-4-set-header-task.adoc[]

@@ -1,8 +1,0 @@
-= To Execute Non-functional Requirements
-ifndef::env-site,env-github[]
-include::_attributes.adoc[]
-endif::[]
-
-By defining a message processor, you can execute non-functional requirements or quality attributes. For example, you can add logs or traceability for all flows in a single place.
-
-You add the message processor to the main flow after the Router.

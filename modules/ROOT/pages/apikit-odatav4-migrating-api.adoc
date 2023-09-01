@@ -1,0 +1,14 @@
+== Transforming a RAML OData v2 API to a CSDL OData v4 API
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+If you were using the previous APIkit OData extension, you can now reuse the type definition of an OData v2 API to scaffold an OData v4 API by transforming an `odata.raml` file to an `odata.csdl.xml` file automatically.
+
+In Studio, right-click your `odata.raml` file and select *Mule* > *Generate CSDL file*.
+
+image::generate-csdl-file.png["*Generate CSDL file* option highlighted in the Mule section when right-clicking the OData file in the Package Explorer"]
+
+APIkit generates an `odata.csdl.xml` file in the *api* folder.
+
+image::csdl-xml.png["*odata.csdl.xml* new file highlighted in the *api* folder, in the *Package Explorer*, and the XML code of the *odata.csdl.xml* file after its transformation"]

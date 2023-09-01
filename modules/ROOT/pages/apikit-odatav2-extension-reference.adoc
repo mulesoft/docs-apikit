@@ -1,0 +1,40 @@
+= APIkit for OData v2 Module Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Learn the fundamentals about dependency, namespace, and schema information in APIkit for OData v2 to collaborate, build applications, and maintain codebases.
+
+== Dependency Information
+
+Declare the APIkit for OData v2 extension with the APIkit for REST module dependency:
+
+----
+<dependency>
+    <groupId>org.mule.modules</groupId>
+    <artifactId>mule-module-apikit-odata</artifactId>
+    <version>2.2.0</version> //<!--1-->
+    <classifier>mule-plugin</classifier>
+</dependency>
+<dependency>
+    <groupId>org.mule.modules</groupId>
+    <artifactId>mule-apikit-module</artifactId>
+    <version>1.8.3</version> //<!--1-->
+    <classifier>mule-plugin</classifier>
+</dependency>
+----
+[calloutlist]
+.. The tooling determines the appropriate version of each dependency when scaffolding to guarantee compatibility. Manually setting dependency versions can produce issues. See the https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] before upgrading each component to the latest version.
+
+NOTE: Update the Anypoint Studio plugin to enable the tooling to determine the appropriate dependency combination.
+
+== Namespace and Schema
+
+----
+xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+xsi:schemaLocation="http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd"
+----
+
+== See Also
+
+* xref:apikit-4-xml-reference.adoc[]
