@@ -22,7 +22,7 @@
 * xref:apikit-4-for-rest.adoc[APIkit for REST]
  ** xref:apikit-4-implement-rest-api.adoc[Building, Implementing, and Testing an API]
  ** xref:apikit-workflow-convert-existing.adoc[Converting an Existing Mule Project to an APIkit Project]
- ** xref:key-configurations.adoc[Configuring Behavior during Runtime]
+ ** xref:key-configurations.adoc[Configuring Behavior During Runtime]
   *** xref:validate-4-task.adoc[Validating Query Parameters and Headers]
   *** xref:configure-headers4-task.adoc[Configuring Response Headers and Status Code]
   *** xref:configure-service-uri-task.adoc[Configuring the Service URI]
