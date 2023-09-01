@@ -1,6 +1,6 @@
 .xref:index.adoc[APIkit]
 * xref:index.adoc[Overview]
- ** xref:apikit-compatibility.adoc[APIkit Compatibility]
+* xref:apikit-compatibility.adoc[APIkit Compatibility]
 * xref:apikit-release-notes.adoc[Release Notes] 
 * xref:apikit-4-for-graphql.adoc[APIkit for GraphQL]
  ** xref:apikit-graphql-api-mapping.adoc[Mapping a GraphQL API to Your Data Sources]
