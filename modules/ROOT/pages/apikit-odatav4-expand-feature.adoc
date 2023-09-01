@@ -50,10 +50,10 @@ You can configure how the software handles errors during the expansion operation
 
 The `generic expand` feature dispatches additional queries to the application when the original flow completes. Because this is done based on the application `EDM`, you must make extra annotations to add enough context to the module:
 
-* The `EntitySet` where the expansion takes place has a `NavigationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`. 
+* The `EntitySet` where the expansion takes place has a `NavigationPropertyBinding` for every expandable `NavigationProperty` of its `Entity`.
 +
 This is used to select which `<entity-collection-source/>` is executed when expanding that property.
-* Each expandable `NavigationProperty` has a `ReferentialConstraint` attached. 
+* Each expandable `NavigationProperty` has a `ReferentialConstraint` attached.
 +
 Internal requests use `ReferentialConstraint` when matching the value of `Property` against the value of `ReferencedProperty`.
 
@@ -83,13 +83,13 @@ You can configure error handling *per-source* on the *Capabilities* tab.
 
 === Limitations
 
-* Only the first `ReferentialConstraint` is considered. 
+* Only the first `ReferentialConstraint` is considered.
 +
 Navigation properties that use compound keys are not supported.
-* Expansion is done `field-by-field` instead of `EntitySet-by-EntitySet`. 
+* Expansion is done `field-by-field` instead of `EntitySet-by-EntitySet`.
 +
 This can cause more internal requests than necessary.
-* The expanded entities always have an `<entity-collection-source/>` implementation. 
+* The expanded entities always have an `<entity-collection-source/>` implementation.
 +
 Expansion using `<entity-source/>` implementations are not executed due to performance concerns.
 
