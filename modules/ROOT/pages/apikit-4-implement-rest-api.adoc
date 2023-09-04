@@ -2,7 +2,7 @@
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:page-aliases: apikit-simulate.adoc
+:page-aliases: apikit-simulate.adoc, apikit-4-raml-flow-concept.adoc
 
 This workflow guides you through the process of designing, implementing, and testing a REST API.
 
