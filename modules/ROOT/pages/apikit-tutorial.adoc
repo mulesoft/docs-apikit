@@ -25,7 +25,7 @@ link:{attachmentsdir}/api.raml[api.raml]
 . Check *Add APIkit Components*.
 . In the *APIkit Settings* section, select the downloaded *api.raml* example file.
 +
-image::apikit-tutorial-3e0e4.png["Project Settings for a New Mule Project, including Project Name, Runtime, Maven Settings, Version Control System Support, APIkit Settings, and API Definition.",height=633,width=600]
+image::new-mule-project-browse-files.png["Project Settings for a New Mule Project, including Project Name, Runtime, Maven Settings, Version Control System Support, APIkit Settings, and API Definition.",height=633,width=600]
 +
 . Click *Finish*.
 
@@ -43,13 +43,13 @@ The main *Introduction* title and the sentence map to the contents of *Documenta
 +
 The baseURI is optional in a RAML-backed API but is required by the API-Console *Try It* functionality. *Try It* is disabled if there is no baseURI.
 +
-image::fv-601.png["The Try It feature is disabled because baseURI is not present."]
+image::try-it-warning.png["The Try It feature is disabled because baseURI is not present."]
 +
 In the RAML, you can use an arbitrary value, for example +http://www.example.com+ for the baseURI.
 +
 .  To send a test call to get a list of machines, click *GET*.
 +
-image::apikitt-get.png["GET button is highlighted to test the get call."]
+image::get-button.png["GET button is highlighted to test the get call."]
 +
 . The API returns a list of machines.
 +
