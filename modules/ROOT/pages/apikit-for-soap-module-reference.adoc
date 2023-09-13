@@ -25,6 +25,13 @@ Configuration element for a *SOAP Router*
 | Address | String | Address of the web service. |  | 
 | MTOM Enabled | Boolean | Defines if the MTOM protocol manages the attachments. | `false` | 
 | Inbound Validation Enabled | Boolean | Defines if the schema of inbound request is validated. | `false` | 
+| Inbound Validation Message Level | Enumeration, one of:
+
+* WARN
+
+* ERROR
+
+| | WARN |
 | HTTP Status Var Name | String | Variable name for the HTTP status. | `httpStatus` | 
 | Namespace Prefixes | Object | Map of custom namespaces prefixes to specify in response. |  | 
 | Expiration Policy | xref:apikit-for-soap-module-reference.adoc#expiration-policy[Expiration Policy] | Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. The platform does not necessarily expire the instance at the exact moment that it becomes eligible. The runtime purges the instances when it considers it appropriate. |  | 
