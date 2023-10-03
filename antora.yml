@@ -1,6 +1,6 @@
 name: apikit
 title: APIkit
-version: '2.4'
+version: 4.x
 display_version: Mule 4
 nav:
 - modules/ROOT/nav.adoc
