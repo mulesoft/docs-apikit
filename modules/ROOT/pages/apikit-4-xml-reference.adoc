@@ -116,6 +116,6 @@ xsi:schemaLocation="http://www.mulesoft.org/schema/mule/mule-apikit http://www.m
 
 * AUTO 
 | 1.3.7
-| `apikit.multipart.size.limit` a| 268435456 | Limits the size of the multipart payload to be validated by throwing `InvalidFormParameterException` if the incoming multipart payload exceeds the limit to avoid stack overflow errors | 1.8.0
+| `apikit.multipart.size.limit` a| 268435456 | Limits the size of the multipart payload to be validated by throwing `InvalidFormParameterException` if the incoming multipart payload exceeds the limit (expressed in bytes) | 1.8.0
 | `fullDomain` | localhost | Overrides the console testing to URL. | 1.1.15
 |===
