@@ -84,9 +84,9 @@ If you use APIkit behind a reverse proxy and set `keepRamlBaseUri` to `true`, us
 [%header,cols="22a,10a,68a"]
 |===
 |Attribute Name|Required |Description
-|`disableValidations` |No | Disables validations of requests
-|`headerStrictValidation` |No | Validates that request headers are defined in the RAML file or belong to a well-known set of headers
-|`queryParamsStrictValidation` |No | Validates that request query parameters are defined in the RAML file
+|`disableValidations` |No | Disables validations of requests.
+|`headerStrictValidation` |No | Validates that request headers are defined in the RAML file or belong to a well-known set of headers.
+|`queryParamsStrictValidation` |No | Validates that request query parameters are defined in the RAML file.
 |===
 
 == APIkit for REST Namespace and Schema
