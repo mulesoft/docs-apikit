@@ -104,7 +104,10 @@ image::odata-query-option-attributes.png["odataRequestAttributes highlighted in 
 
 == APIkit for OData 4 Implementation Example
 
-Download the full link:{attachmentsdir}/apikit-odata4-example.jar[apikit-odata4-example] application and run it.
+. Download the full link:{attachmentsdir}/apikit-odata4-example.jar[apikit-odata4-example].
+. Import the downloaded example in Studio.
+. Run the SQL statements in the src/main/resources/example.sql file to create the database, tables, and test data in MySQL database.
+. Run the application in Studio.
 
 After Studio deploys the application, you can query your OData service using the following query examples:
 
