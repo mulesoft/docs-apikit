@@ -74,4 +74,4 @@ output application/json
 
 == See Also
 
-* xref:4.1@mule-runtime::error-handling.adoc[]
+* xref:mule-runtime::error-handling.adoc[]
