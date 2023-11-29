@@ -63,4 +63,4 @@ The main flow transmits an HTTP error response that encompasses an HTTP status c
 
 == See Also
 
-* xref:4.1@mule-runtime::error-handling.adoc[]
+* xref:mule-runtime::error-handling.adoc[]

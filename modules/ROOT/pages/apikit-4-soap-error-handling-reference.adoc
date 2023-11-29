@@ -26,4 +26,4 @@ APIkit for SOAP scaffolder generates no error-handling code.
 
 == See Also
 
-* xref:4.1@mule-runtime::error-handling.adoc[]
+* xref:mule-runtime::error-handling.adoc[]
