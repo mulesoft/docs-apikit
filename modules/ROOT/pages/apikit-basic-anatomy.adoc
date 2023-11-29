@@ -42,7 +42,7 @@ image::apikit-basic-anatomy-c4249.png[TShirtService and SOAP Router in Studio]
 
 == About Backend Flows
 
-APIkit generates a backend flow for each <<interface,resource-action pairing>> in a RAML. APIkit for SOAP generates a backend flow for each operation in a WSDL. For example, the RAML interface receives the GET request for sales of T-shirts. The backend flow accesses a database to look up sales data and responds to the request.
+APIkit generates a backend flow for each resource-action pairing in a RAML. APIkit for SOAP generates a backend flow for each operation in a WSDL. For example, the RAML interface receives the GET request for sales of T-shirts. The backend flow accesses a database to look up sales data and responds to the request.
 
 image::backend.png[Backend Flow in Studio]
 
