@@ -64,7 +64,7 @@ version: 1.0
         body:
           application/json:
             example: !include user-example.json
-  /userbyid:
+/userbyid:
     get:
       description: Get information about a particular user
       queryParameters:
