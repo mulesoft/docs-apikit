@@ -1,4 +1,4 @@
-== Transforming a RAML OData v2 API to a CSDL OData v4 API
+= Transforming a RAML OData v2 API to a CSDL OData v4 API
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
