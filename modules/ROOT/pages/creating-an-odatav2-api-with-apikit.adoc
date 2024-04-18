@@ -25,10 +25,10 @@ The following example shows you how to implement an OData-enabled REST API:
 . Copy the `odata.raml` file you downloaded in the prerequisites section to the `/src/main/resources/api` directory in your project.
 . In the project explorer, right-click `odata.raml` and select *Mule* > *Generate OData API from RAML Types*.
 +
-image::generate-odata.png["A window highlighting the full path to the generate OData API from RAML types option"]
+image::generate-odata.png["A window highlighting the full path to the generate OData API from RAML types option."]
 . The OData extension generates the necessary files for your OData API implementation:
 +
-image::list-of-odata-files.png["The three files are highlighted in the tree: api.xml in the Mule folder, and api.raml and odatalibrary.raml files in the resource folder."]
+image::list-of-odata-files.png["Three files highlighted in the tree: api.xml in the Mule folder, and api.raml and odatalibrary.raml files in the resource folder."]
 
 [calloutlist]
 .. Mule configuration file with the flows for the API implementation
@@ -166,6 +166,35 @@ The response aligns with the `odata.raml` EDM you used to build the HTTP Service
 </Key>
 <Property Name="Freight" Type="Edm.Decimal" Nullable="true" Precision="3" Scale="3" Unicode="false"/>
 ...
+----
+
+=== Create a Customer Entity Using OData Service
+
+Create a POST request with the following body:
+----
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<entry xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+<content type="application/xml">
+    <m:properties>
+    <d:CustomerID>BOTTM</d:CustomerID>
+    <d:CompanyName>Bottom-Dollar Markets</d:CompanyName>
+    <d:ContactName>Elizabeth Lincoln</d:ContactName>
+    <d:ContactTitle>Accounting Manager</d:ContactTitle>
+    </m:properties>
+</content>
+</entry>
+----
+
+The request must have the following headers:
+----
+Content-Type: application/xml
+Accept: application/xml
+----
+
+Call the REST API to create a customer entity:
+
+----
+http://localhost:8081/api/odata.svc/customers
 ----
 
 === Query the Data Source
