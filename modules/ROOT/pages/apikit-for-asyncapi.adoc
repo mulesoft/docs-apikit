@@ -3,6 +3,21 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+APIkit for AsyncAPI is a module that provides a valuable addition to Anypoint Platform.
+
+It enables you to create AsyncAPI specifications for defining APIs using asynchronous messaging protocols. AsyncAPI is based on event-driven architectures that communicate data between different systems in a reliable and efficient manner.
+
+With APIkit for AsyncAPI you can design and implement AsyncAPI APIs in Anypoint Code Builder and implement AsyncAPI APIs in Anypoint Studio.
+
+// == Before You Begin Using APIkit for Async API
+
+// There is nothing to add in this title
+
+// == Next Steps
+
+// The Next Steps title content is the same than the See Also content
+
 == See Also
 
-* xref:apikit-4-get-header-task.adoc[]
+* xref:apikit-asyncapi-module-reference.adoc[]
+* xref:apikit-asyncapi-error-handling-reference.adoc[]
