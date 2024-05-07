@@ -187,6 +187,6 @@ Default configuration
 | Headers a| Object | Headers for the message |  | 
 |======================
 
-== See Also
+// == See Also
 
-* xref:apikit-4-get-header-task.adoc[]
+// * xref:apikit-4-get-header-task.adoc[]
