@@ -3,9 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for AsyncAPI is a module that provides a valuable addition to Anypoint Platform by enabling you to create event-driven APIs. 
-You can create AsyncAPI specifications for defining APIs using asynchronous messaging protocols. 
-AsyncAPI is based on event-driven architectures that communicate data between different systems in a reliable and efficient manner.
+APIkit for AsyncAPI is a module that provides a valuable addition to Anypoint Platform by enabling you to create event-driven APIs. You can create AsyncAPI specifications for defining APIs using asynchronous messaging protocols. 
+
+AsyncAPI is based on event-driven architectures that communicate data between different systems reliably and efficiently.
 
 The APIkit scaffolder enables you to quickly implement projects by generating the initial skeleton of the application at design time on Anypoint Code Builder. Or you can scaffold and re-scaffold your Mule application in AnyPoint Code Builder and Anypoint Studio.
 
@@ -14,15 +14,15 @@ The APIkit scaffolder enables you to quickly implement projects by generating th
 [NOTE]
 APIkit for AsyncAPI supports AsyncAPI 2.6.
 
-// Note: If we consider the API lifecycle for synchronous APIs, which includes discover, design, implement, manage and monitor, today the Anypoint Platform’s support level for evented APIs barely supports the implementation stage. After this release, designing and implementation are covered in ACB.
+// Note: If we consider the API lifecycle for synchronous APIs, which includes discovering, designing, implementing, managing, and monitoring, today the Anypoint Platform’s support level for event-driven APIs barely supports the implementation stage. After this release, designing and implementation are covered in ACB.
 
 // == Before You Begin Using APIkit for Async API
 
-// There is nothing to add in this title
+// There is nothing to add to this title
 
 // == Next Steps
 
-// The Next Steps title content is the same than the See Also content
+// The Next Steps title content is the same as the See Also content
 
 == See Also
 
