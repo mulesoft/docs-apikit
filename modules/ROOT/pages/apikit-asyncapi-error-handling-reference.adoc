@@ -3,6 +3,30 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+APIkit for AsyncAPI defines the following error types:
+
+[%header]
+|===
+| Error Type | Description
+
+| INTERNAL_SERVER_ERROR
+| [placeholder for description]
+
+| VALIDATION_ERROR
+| [placeholder for description]
+
+| PUBLISHING_ERROR
+| [placeholder for description]
+
+| ROUTING_ERROR
+| [placeholder for description]
+
+|===
+
+// == Error Handling
+
+// More info about errors at https://github.com/mulesoft/apikit-asyncapi-module/blob/main/src/main/java/org/mule/extension/async/apikit/internal/exception/error/AsyncApiError.java
+
 == See Also
 
 * xref:apikit-4-get-header-task.adoc[]
