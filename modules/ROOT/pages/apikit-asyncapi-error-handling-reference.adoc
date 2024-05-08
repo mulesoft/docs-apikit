@@ -27,6 +27,6 @@ APIkit for AsyncAPI defines the following error types:
 
 // More info about errors at https://github.com/mulesoft/apikit-asyncapi-module/blob/main/src/main/java/org/mule/extension/async/apikit/internal/exception/error/AsyncApiError.java
 
-== See Also
+// == See Also
 
-* xref:apikit-4-get-header-task.adoc[]
+// * xref:apikit-for-asyncapi.adoc[]
