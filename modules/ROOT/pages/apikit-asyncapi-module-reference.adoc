@@ -3,6 +3,28 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+Learn the fundamentals about dependency, namespace, and schema information in APIkit for AsyncAPI to collaborate, build applications, and maintain codebases.
+
+== Dependency Information
+
+----
+<dependency>
+  <groupId>org.mule.modules</groupId>
+  <artifactId>mule-asynckit-module</artifactId>
+  <version>LATEST_VERSION</version> //<!--1-->
+  <classifier>mule-plugin</classifier>
+</dependency>
+----
+[calloutlist]
+.. Check https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] to get the *LATEST_VERSION*.
+
+== Namespace and Schema
+
+----
+xmlns:apikit-asyncapi="http://www.mulesoft.org/schema/mule/apikit-asyncapi" 
+xsi:schemaLocation="http://www.mulesoft.org/schema/mule/apikit-asyncapi http://www.mulesoft.org/schema/mule/apikit-asyncapi/current/mule-apikit-asyncapi.xsd">
+----
+
 == Configurations
 ---
 [[Config]]
