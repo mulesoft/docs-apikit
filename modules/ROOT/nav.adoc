@@ -4,19 +4,19 @@
 * xref:apikit-compatibility.adoc[APIkit Compatibility]
 
 * xref:apikit-for-asyncapi.adoc[APIkit for AsyncAPI]
- ** xref:apikit-asyncapi-module-reference.adoc[APIkit for AsyncAPI Module Reference]
+ ** xref:apikit-asyncapi-module-reference.adoc[Module Reference]
  ** xref:apikit-asyncapi-error-handling-reference.adoc[Error Handling Reference]
 
 * xref:apikit-4-for-graphql.adoc[APIkit for GraphQL]
  ** xref:apikit-graphql-api-mapping.adoc[Mapping a GraphQL API to Your Data Sources]
  ** xref:apikit-graphql-api-implementation.adoc[Querying a GraphQL API Implementation]
- ** xref:apikit-graphql-module-reference.adoc[APIkit for GraphQL Module Reference]
+ ** xref:apikit-graphql-module-reference.adoc[Module Reference]
 
 * xref:apikit-4-for-odatav2.adoc[APIkit for OData v2]
  ** xref:install-odatav2-tooling.adoc[Installing OData v2 Tooling]
  ** xref:creating-an-odatav2-api-with-apikit.adoc[Building, Implementing, and Testing an API]
- ** xref:apikit-odatav2-api-reference.adoc[APIkit for OData v2 API Reference]
- ** xref:apikit-odatav2-extension-reference.adoc[APIkit for OData v2 Module Reference]
+ ** xref:apikit-odatav2-api-reference.adoc[API Reference]
+ ** xref:apikit-odatav2-extension-reference.adoc[Module Reference]
 
 * xref:apikit-4-for-odatav4.adoc[APIkit for OData v4]
  ** xref:install-odatav4-tooling.adoc[Installing OData v4 Tooling]
@@ -24,7 +24,7 @@
  ** xref:creating-an-odatav4-api-with-apikit.adoc[Building, Implementing, and Testing an API]
  ** xref:apikit-odatav4-transform-to-sql-operation.adoc[Transforming an OData Request to a SQL Query]
  ** xref:apikit-odatav4-expand-feature.adoc[Enhancing API Consumption and Minimizing Network Traffic]
- ** xref:apikit-odatav4-extension-reference.adoc[APIkit for OData v4 Module Reference]
+ ** xref:apikit-odatav4-extension-reference.adoc[Module Reference]
  ** xref:apikit-odatav4-error-handling-reference.adoc[Error Handling Reference]
 
 * xref:apikit-4-for-rest.adoc[APIkit for REST]
@@ -35,7 +35,7 @@
   *** xref:configure-headers4-task.adoc[Configuring Response Headers and Status Code]
   *** xref:configure-service-uri-task.adoc[Configuring the Service URI]
  ** xref:apikit-4-scaffolding-reference.adoc[Scaffolding Reference]
- ** xref:apikit-4-xml-reference.adoc[APIkit for REST Module Reference]
+ ** xref:apikit-4-xml-reference.adoc[Module Reference]
  ** xref:apikit-error-handling-reference.adoc[Error Handling Reference]
 
 * xref:apikit-4-for-soap.adoc[APIkit for SOAP]
@@ -47,5 +47,5 @@
   *** xref:apikit-4-display-fault-task.adoc[Displaying a Typed Fault]
   *** xref:apikit-4-get-header-task.adoc[Getting a SOAP Header]
   *** xref:apikit-4-set-header-task.adoc[Setting a SOAP Header]
- ** xref:apikit-for-soap-module-reference.adoc[APIkit for SOAP Module Reference]
+ ** xref:apikit-for-soap-module-reference.adoc[Module Reference]
  ** xref:apikit-4-soap-error-handling-reference.adoc[Error Handling Reference]
