@@ -26,8 +26,7 @@ xsi:schemaLocation="http://www.mulesoft.org/schema/mule/apikit-asyncapi http://w
 ----
 
 == Configurations
----
-[[Config]]
+
 === Config
 
 Default configuration
@@ -37,19 +36,18 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-|Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*{nbsp}
-| Api Definition a| String |  API definition |  | *x*{nbsp}
-| Kafka Configs a| Array of <<KafkaConfig>> |  List of Kafka configurations |  | {nbsp}
-| Anypoint MQ Configs a| Array of <<AnypointMqConfig>> |  List of AMQ configurations |  | {nbsp}
-| Name a| String |  The identifier of this element used to reference it in other components |  | *x*{nbsp}
+| Name | String | Name for this configuration. Connectors reference the configuration with this name | | *x* 
+| Api Definition | String |  API definition |  | *x* 
+| Kafka Configs | Array of <<KafkaConfig>> |  List of Kafka configurations |  |  
+| Anypoint MQ Configs | Array of <<AnypointMqConfig>> |  List of AMQ configurations |  |  
+| Name | String |  Identifier of this element used to reference it in other components |  | *x* 
 |===
 
 ==== Associated Operations
-* <<Publish>> {nbsp}
+* <<Publish>>  
 
 ==== Associated Sources
-* <<MessageListener>> {nbsp}
-
+* <<MessageListener>>  
 
 == Operations
 
@@ -57,43 +55,43 @@ Default configuration
 == Publish
 `<apikit-asyncapi:publish>`
 
-
 === Parameters
 
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
-| Content a| Binary |  |  #[payload] | {nbsp}
-| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
-| Channel Name a| String |  Channel name |  | *x*{nbsp}
-| Server Name a| String |  Server name |  | *x*{nbsp}
+| Configuration | String | Name of the configuration to use | | *x* 
+| Content | Binary |  |  #[payload] |  
+| Output MIME Type | String | MIME type of the payload that this operation outputs |  |  
+| Output Encoding | String | Encoding of the payload that this operation outputs |  |  
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x* 
+| Channel Name | String |  Channel name |  | *x* 
+| Server Name | String |  Server name |  | *x* 
 | Protocol Specific Parameters a| One of:
 
-* <<KafkaPublishParameters>> |  Protocol-specific parameters |  | {nbsp}
-| Target Variable a| String |  The name of a variable on which the operation's output is placed |  | {nbsp}
-| Target Value a| String |  An expression that is evaluated against the operation's output and the outcome of that expression is stored in the target variable |  #[payload] | {nbsp}
-| Error Mappings a| Array of <<ErrorMapping>> |  Set of error mappings |  | {nbsp}
+* <<KafkaPublishParameters>> 
+
+| Protocol-specific parameters |  |  
+| Target Variable | String | Name of a variable on which the operation's output is placed |  |  
+| Target Value | String | Expression that is evaluated against the operation's output and the outcome of that expression is stored in the target variable |  #[payload] |  
+| Error Mappings | Array of <<ErrorMapping>> | Set of error mappings |  |  
 |===
 
 === Output
 
 [%autowidth.spread]
 |===
-| *Type* a| Any
-| *Attributes Type* a| Any
+| *Type* | Any
+| *Attributes Type* | Any
 |===
 
 === For Configurations
 
-* <<Config>> {nbsp}
+* <<Config>>  
 
 === Throws
 
-* APIKIT-ASYNCAPI:ASYNCAPI_KIT_INTERNAL_SERVER_ERROR {nbsp}
-
+* APIKIT-ASYNCAPI:ASYNCAPI_KIT_INTERNAL_SERVER_ERROR  
 
 == Sources
 
@@ -101,47 +99,45 @@ Default configuration
 == Message Listener
 `<apikit-asyncapi:message-listener>`
 
-
 === Parameters
 
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
-| Channel Name a| String |  Channel name |  | *x*{nbsp}
-| Servers a| Array of String |  List of servers to listen to |  | {nbsp}
-| Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
-| Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
-| Primary Node Only a| Boolean |  Whether this source must be executed on the primary node when runnning in Cluster |  | {nbsp}
-| Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
-| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | {nbsp}
-| Body Content a| Any |  |  #[payload] | {nbsp}
+| Configuration | String | Name of the configuration to use | | *x* 
+| Channel Name | String | Channel name |  | *x* 
+| Servers | Array of String | List of servers to listen to |  |  
+| Output MIME Type | String | MIME type of the payload that this operation outputs |  |  
+| Output Encoding | String | Encoding of the payload that this operation outputs |  |  
+| Primary Node Only | Boolean | Specifies if this source must be executed on the primary node when running in Cluster |  |  
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x* 
+| Redelivery Policy | <<RedeliveryPolicy>> | Policy for processing the redelivery of the same message |  |  
+| Body Content | Any |  | #[payload] |  
 |===
 
 === Output
 
 [%autowidth.spread]
 |===
-| *Type* a| Any
-| *Attributes Type* a| AsyncMessageAttributes
+| *Type* | Any
+| *Attributes Type* | AsyncMessageAttributes
 |===
 
 === For Configurations
 
-* <<Config>> {nbsp}
-
-
+* <<Config>>  
 
 == Types
+
 [[KafkaConfig]]
 === Kafka Config
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Server Key a| String |  |  | x
-| Producer Config Ref a| String |  |  | 
-| Consumer Config Ref a| String |  |  | 
+| Server Key | String |  |  | *x*
+| Producer Config Ref | String |  |  | 
+| Consumer Config Ref | String |  |  | 
 |======================
 
 [[AnypointMqConfig]]
@@ -150,8 +146,8 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Server Key a| String |  |  | x
-| Config Ref a| String |  |  | 
+| Server Key | String |  |  | *x*
+| Config Ref | String |  |  | 
 |======================
 
 [[RedeliveryPolicy]]
@@ -160,10 +156,10 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Max Redelivery Count a| Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message |  | 
-| Message Digest Algorithm a| String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  | 
-| Message Identifier a| <<RedeliveryPolicyMessageIdentifier>> | Defines which strategy is used to identify the messages. |  | 
-| Object Store a| ObjectStore | The object store where the redelivery counter for each message is going to be stored. |  | 
+| Max Redelivery Count | Number | Maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message |  | 
+| Message Digest Algorithm | String | Secure hashing algorithm (default: SHA-256) |  | 
+| Message Identifier | <<RedeliveryPolicyMessageIdentifier>> | Strategy used to identify the messages |  | 
+| Object Store | ObjectStore | Object store where the redelivery counter for each message is stored. |  | 
 |======================
 
 [[RedeliveryPolicyMessageIdentifier]]
@@ -172,8 +168,8 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Use Secure Hash a| Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  | 
-| Id Expression a| String | Defines one or more expressions to use to determine when a message has been redelivered. This property can be set if `useSecureHash` is false. |  | 
+| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  | 
+| Id Expression | String | Expression used to determine if a message has been redelivered. You can set this property if `useSecureHash` is `false` |  | 
 |======================
 
 [[ErrorMapping]]
@@ -204,11 +200,7 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Partition a| Number | Topic partition |  | 
-| Key a| String | Key for the published message |  | 
-| Headers a| Object | Headers for the message |  | 
+| Partition | Number | Topic partition |  | 
+| Key | String | Key for the published message |  | 
+| Headers | Object | Headers for the message |  | 
 |======================
-
-// == See Also
-
-// * xref:apikit-4-get-header-task.adoc[]
