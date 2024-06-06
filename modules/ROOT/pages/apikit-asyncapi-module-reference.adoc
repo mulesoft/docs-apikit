@@ -73,8 +73,8 @@ Default configuration
 | Protocol Specific Parameters a| One of:
 
 * <<KafkaPublishParameters>> |  Protocol-specific parameters |  | {nbsp}
-| Target Variable a| String |  The name of a variable on which the operation's output will be placed |  | {nbsp}
-| Target Value a| String |  An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable |  #[payload] | {nbsp}
+| Target Variable a| String |  The name of a variable on which the operation's output is placed |  | {nbsp}
+| Target Value a| String |  An expression that is evaluated against the operation's output and the outcome of that expression is stored in the target variable |  #[payload] | {nbsp}
 | Error Mappings a| Array of <<ErrorMapping>> |  Set of error mappings |  | {nbsp}
 |===
 
@@ -112,7 +112,7 @@ Default configuration
 | Servers a| Array of String |  List of servers to listen to |  | {nbsp}
 | Output Mime Type a| String |  The mime type of the payload that this operation outputs. |  | {nbsp}
 | Output Encoding a| String |  The encoding of the payload that this operation outputs. |  | {nbsp}
-| Primary Node Only a| Boolean |  Whether this source should only be executed on the primary node when runnning in Cluster |  | {nbsp}
+| Primary Node Only a| Boolean |  Whether this source must be executed on the primary node when runnning in Cluster |  | {nbsp}
 | Config Ref a| ConfigurationProvider |  The name of the configuration to be used to execute this component |  | *x*{nbsp}
 | Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  | {nbsp}
 | Body Content a| Any |  |  #[payload] | {nbsp}
@@ -173,7 +173,7 @@ Default configuration
 |======================
 | Field | Type | Description | Default Value | Required
 | Use Secure Hash a| Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  | 
-| Id Expression a| String | Defines one or more expressions to use to determine when a message has been redelivered. This property may only be set if useSecureHash is false. |  | 
+| Id Expression a| String | Defines one or more expressions to use to determine when a message has been redelivered. This property can be set if `useSecureHash` is false. |  | 
 |======================
 
 [[ErrorMapping]]
