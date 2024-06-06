@@ -13,10 +13,10 @@ APIkit for AsyncAPI defines the following error types:
 | The server is missing or misconfigured.
 
 | VALIDATION_ERROR
-| The provided AsyncAPI spec doesn't meet required specifications or contains invalid data.
+| The provided AsyncAPI spec doesn't meet the required specifications or contains invalid data.
 
 | PUBLISHING_ERROR
-| Spec can't be published because of network issues, incorrect publishing configurations, or authentication failures.
+| Specs can't be published because of network issues, incorrect publishing configurations, or authentication failures.
 
 | ROUTING_ERROR
 | The generated API can't define or resolve the correct routes for message handling. Check paths, route definitions, or conflicts in the routing setup.
