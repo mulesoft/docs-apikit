@@ -258,13 +258,6 @@ Default configuration
 | Option to delimit identifiers |  |
 | Target Variable | String | Name of a variable on which the operation output is placed |  |
 | Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | `#[payload]` |
-| Date Transform Type | Values provided, one of:
-
-* string
-* java.time object
-
-| Date/DateTime values will be treated as a string by default in this operation. Select java.time object option to output as Date/DateTime Objects |  |
-
 |===
 
 === Output

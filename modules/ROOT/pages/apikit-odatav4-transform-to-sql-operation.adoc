@@ -86,6 +86,13 @@ Examples:
 
 `ORDER BY` is automatically included if not present in the request by using the entity key defined in CSDL.
 
+| Date Transform Type a| Values provided, one of:
+
+* string
+* java.time object
+
+Date/DateTime values will be treated as a string by default in this operation. Select java.time object option to output as Date/DateTime Objects
+
 |====
 
 == $filter Expressions in OData V4
