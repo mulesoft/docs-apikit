@@ -263,7 +263,7 @@ Default configuration
 * string
 * java.time object
 
-| `Date/DateTime` values are treated as a string by default in this operation. Select `java.time` object option to output as `Date/DateTime` objects |  |
+| This operation takes `Date/DateTime` values as a string by default. Select `java.time` object option to output it as `Date/DateTime` objects |  |
 
 |===
 
