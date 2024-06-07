@@ -91,7 +91,7 @@ Examples:
 * string
 * java.time object
 
-This operation takes the `Date/DateTime` values as strings by default. Select the `java.time object` option to output it as a corresponding Date or DateTime object available under the `java.time` package.
+This operation takes the `Date/DateTime` values as strings by default. Select the `java.time object` option to output it as a corresponding `Date` or `DateTime` object in the `java.time` package.
 
 |====
 
