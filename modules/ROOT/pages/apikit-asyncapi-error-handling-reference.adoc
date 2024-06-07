@@ -10,17 +10,18 @@ APIkit for AsyncAPI defines the following error types:
 | Error Type | Description
 
 | INTERNAL_SERVER_ERROR
-| The server is missing or misconfigured.
+| Internal error.
 
 | VALIDATION_ERROR
-| The provided AsyncAPI spec doesn't meet the required specifications or contains invalid data.
+| The payload doesn't meet the schema of the API spec.
 
 | PUBLISHING_ERROR
-| Specs can't be published because of network issues, incorrect publishing configurations, or authentication failures.
+| APIkit fails to publish messages on the selected channel.
 
 | ROUTING_ERROR
-| The generated API can't define or resolve the correct routes for message handling. Check paths, route definitions, or conflicts in the routing setup.
+| APIkit fails to route messages to the flows.
 |===
 
-//If possible, add an example of an error handler.
-//More info about errors at https://github.com/mulesoft/apikit-asyncapi-module/blob/main/src/main/java/org/mule/extension/async/apikit/internal/exception/error/AsyncApiError.java
+== APIkit for AsyncAPI Error Handling
+
+APIkit for AsyncAPI scaffolder generates no error-handling code.
