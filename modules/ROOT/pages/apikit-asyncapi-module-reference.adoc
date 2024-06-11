@@ -36,11 +36,11 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Name | String | Name for this configuration. Connectors reference the configuration with this name | | *x* 
-| Api Definition | String |  API definition |  | *x* 
-| Kafka Configs | Array of <<KafkaConfig>> |  List of Kafka configurations |  |  
-| Anypoint MQ Configs | Array of <<AnypointMqConfig>> |  List of AMQ configurations |  |  
-| Name | String |  Identifier of this element used to reference it in other components |  | *x* 
+| Name | String | Name for this configuration. Connectors reference the configuration with this name | None | *Yes*
+| Api Definition | String |  API definition | None | Yes
+| Kafka Configs | Array of <<KafkaConfig>> | List of Kafka configurations | No |  
+| Anypoint MQ Configs | Array of <<AnypointMqConfig>> | List of AMQ configurations | No |  
+| Name | String | Identifier of this element used to reference it in other components | None | *Yes*
 |===
 
 ==== Associated Operations
@@ -60,21 +60,21 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration to use | | *x* 
-| Content | Binary |  |  #[payload] |  
-| Output MIME Type | String | MIME type of the payload that this operation outputs |  |  
-| Output Encoding | String | Encoding of the payload that this operation outputs |  |  
-| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x* 
-| Channel Name | String |  Channel name |  | *x* 
-| Server Name | String |  Server name |  | *x* 
+| Configuration | String | Name of the configuration to use | None | *Yes* 
+| Content | Binary | None |  #[payload] | No  
+| Output MIME Type | String | MIME type of the payload that this operation outputs | None | No 
+| Output Encoding | String | Encoding of the payload that this operation outputs | None | No 
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | *Yes* 
+| Channel Name | String | Channel name | None | *Yes* 
+| Server Name | String | Server name | None | *Yes* 
 | Protocol Specific Parameters a| One of:
 
 * <<KafkaPublishParameters>> 
 
-| Protocol-specific parameters |  |  
-| Target Variable | String | Name of a variable on which the operation's output is placed |  |  
-| Target Value | String | Expression that is evaluated against the operation's output and the effect of that expression is stored in the target variable | #[payload] |  
-| Error Mappings | Array of <<ErrorMapping>> | Set of error mappings |  |  
+| Protocol-specific parameters | None | No  
+| Target Variable | String | Name of a variable on which the operation's output is placed | None | No 
+| Target Value | String | Expression that is evaluated against the operation's output and the effect of that expression is stored in the target variable | #[payload] | No 
+| Error Mappings | Array of <<ErrorMapping>> | Set of error mappings | None | No  
 |===
 
 === Output
@@ -104,15 +104,15 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration to use | | *x* 
-| Channel Name | String | Channel name |  | *x* 
-| Servers | Array of String | List of servers to listen to |  |  
-| Output MIME Type | String | MIME type of the payload that this operation outputs |  |  
-| Output Encoding | String | Encoding of the payload that this operation outputs |  |  
-| Primary Node Only | Boolean | Specifies if this source must be executed on the primary node when running in Cluster |  |  
-| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x* 
-| Redelivery Policy | <<RedeliveryPolicy>> | Policy for processing the redelivery of the same message |  |  
-| Body Content | Any |  | #[payload] |  
+| Configuration | String | Name of the configuration to use | None | *Yes* 
+| Channel Name | String | Channel name | None | *Yes* 
+| Servers | Array of String | List of servers to listen to | None | No 
+| Output MIME Type | String | MIME type of the payload that this operation outputs | None | No 
+| Output Encoding | String | Encoding of the payload that this operation outputs | None | No  
+| Primary Node Only | Boolean | Specifies if this source must be executed on the primary node when running in Cluster | None | No 
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | *Yes* 
+| Redelivery Policy | <<RedeliveryPolicy>> | Policy for processing the redelivery of the same message | None | No
+| Body Content | Any | Content of the message body | #[payload] | No
 |===
 
 === Output
@@ -135,10 +135,13 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Server Key | String |  |  | *x*
-| Producer Config Ref | String |  |  | 
-| Consumer Config Ref | String |  |  | 
+| Server Key | String | Identifier for the server configuration within the AsyncAPI configuration | None | *Yes*
+| Producer Config Ref | String | Reference to the Kafka producer configuration | None | No
+| Consumer Config Ref | String | Reference to the Kafka consumer configuration | None | No
 |======================
+
+[NOTE]
+The *Server Key* is required to uniquely identify the server configuration. The references for producer and consumer configurations are optional and depend on the specific setup and requirements of the Kafka implementation.
 
 [[AnypointMqConfig]]
 === Anypoint MQ Config
@@ -146,9 +149,12 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Server Key | String |  |  | *x*
-| Config Ref | String |  |  | 
+| Server Key | String | Identifier for the server configuration in AsyncAPI | None | *Yes*
+| Config Ref | String | Reference to the Anypoint MQ configuration details | None | No
 |======================
+
+[NOTE]
+The *Server Key* is required to uniquely identify the server configuration. *Config Ref* is optional and used to specify additional configuration details.
 
 [[RedeliveryPolicy]]
 === Redelivery Policy
@@ -156,10 +162,10 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Max Redelivery Count | Number | Maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message |  | 
-| Message Digest Algorithm | String | Secure hashing algorithm (default: SHA-256) |  | 
-| Message Identifier | <<RedeliveryPolicyMessageIdentifier>> | Strategy used to identify the messages |  | 
-| Object Store | ObjectStore | Object store where the redelivery counter for each message is stored. |  | 
+| Max Redelivery Count | Number | Maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message | None | No 
+| Message Digest Algorithm | String | Secure hashing algorithm (default: SHA-256) | None | No 
+| Message Identifier | <<RedeliveryPolicyMessageIdentifier>> | Strategy used to identify the messages | None | No
+| Object Store | ObjectStore | Object store where the redelivery counter for each message is stored | None | No
 |======================
 
 [[RedeliveryPolicyMessageIdentifier]]
@@ -168,8 +174,8 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  | 
-| Id Expression | String | Expression used to determine if a message has been redelivered. You can set this property if `useSecureHash` is `false` |  | 
+| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message | None | No 
+| Id Expression | String | Expression used to determine if a message has been redelivered. You can set this property if `useSecureHash` is `false` | None | No
 |======================
 
 [[ErrorMapping]]
@@ -191,7 +197,7 @@ Default configuration
 ** CONNECTIVITY
 ** RETRY_EXHAUSTED
 ** TIMEOUT |  |  | 
-| Target a| String |  |  | x
+| Target a| String |  |  | *Yes*
 |======================
 
 [[KafkaPublishParameters]]
@@ -200,7 +206,7 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Partition | Number | Topic partition |  | 
-| Key | String | Key for the published message |  | 
-| Headers | Object | Headers for the message |  | 
+| Partition | Number | Topic partition | None | No 
+| Key | String | Key for the published message | None | No 
+| Headers | Object | Headers for the message | None | No 
 |======================
