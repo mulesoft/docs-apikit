@@ -43,6 +43,15 @@ Default configuration
 | Name | String | Identifier of this element used to reference it in other components | None | *Yes*
 |===
 
+=== Supported Message Brokers
+
+[%header%autowidth.spread]
+|===
+| Feature | Description | Supported Protocols | Configuration Details 
+| Anypoint MQ Message Broker | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports both publish and subscribe operations. 
+| Kafka Message Broker | Supports asynchronous messaging with Apache Kafka. | kafka, kafka-secure | Kafka configurations are specified in the server object of the AsyncAPI specification. Supports both publish and subscribe operations. 
+|===
+
 ==== Associated Operations
 * <<Publish>>  
 
