@@ -8,13 +8,15 @@ The following table shows the compatibility between APIkit modules and the corre
 [%header]
 |===
 |Module |Mule 3 |Mule 4
-|APIkit for AsyncAPI |No |Yes 
+|APIkit for AsyncAPI* |No |Yes 
 |APIkit for GraphQL |No |Yes 
 |APIkit for OData v2 |Yes |Yes 
 |APIkit for OData v4 |No |Yes 
 |APIkit for REST |Yes |Yes 
 |APIkit for SOAP |Yes |Yes 
 |===
+
++++*+++ APIkit for AsyncAPI is available as an open beta.
 
 == Language and Protocol Support
 
