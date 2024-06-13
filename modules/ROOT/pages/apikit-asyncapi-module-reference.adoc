@@ -85,7 +85,6 @@ Default configuration
 | Protocol-specific parameters | None | No  
 | Target Variable | String | Name of a variable on which the operation's output is placed | None | No 
 | Target Value | String | Expression that is evaluated against the operation's output and the effect of that expression is stored in the target variable | #[payload] | No 
-| Error Mappings | Array of <<ErrorMapping>> | Set of error mappings | None | No  
 |===
 
 === Output
@@ -187,28 +186,6 @@ The *Server Key* is required to uniquely identify the server configuration. *Con
 | Field | Type | Description | Default Value | Required
 | Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message | None | No 
 | Id Expression | String | Expression used to determine if a message has been redelivered. You can set this property if `useSecureHash` is `false` | None | No
-|======================
-
-[[ErrorMapping]]
-=== Error Mapping
-
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
-| Field | Type | Description | Default Value | Required
-| Source a| Enumeration, one of:
-
-** ANY
-** REDELIVERY_EXHAUSTED
-** TRANSFORMATION
-** EXPRESSION
-** SECURITY
-** CLIENT_SECURITY
-** SERVER_SECURITY
-** ROUTING
-** CONNECTIVITY
-** RETRY_EXHAUSTED
-** TIMEOUT |  |  | 
-| Target a| String |  |  | *Yes*
 |======================
 
 [[KafkaPublishParameters]]
