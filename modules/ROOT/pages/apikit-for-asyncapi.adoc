@@ -14,9 +14,8 @@ The APIkit scaffolder enables you to quickly implement projects by generating th
 [NOTE]
 APIkit for AsyncAPI supports the AsyncAPI 2.6 spec.
 
-// Note: If we consider the API lifecycle for synchronous APIs, which includes discovering, designing, implementing, managing, and monitoring, today the Anypoint Platform’s support level for event-driven APIs barely supports the implementation stage. After the October release, design and implementation are covered in ACB.
-
 == See Also
 
 * xref:apikit-asyncapi-module-reference.adoc[]
 * xref:apikit-asyncapi-error-handling-reference.adoc[]
+* xref:design-center::design-async-api.adoc[]
