@@ -40,8 +40,8 @@ Default configuration
 | Name | Type | Description | Default Value | Required
 | Name | String | Name for this configuration. Connectors reference the configuration with this name | None | *Yes*
 | Api Definition | String |  API definition | None | *Yes*
-| Kafka Configs | Array of <<KafkaConfig>> | List of Kafka configurations | No |  
-| Anypoint MQ Configs | Array of <<AnypointMqConfig>> | List of AMQ configurations | No |  
+| Kafka Configs | Array of <<KafkaConfig>> | None | No |  
+| Anypoint MQ Configs | Array of <<AnypointMqConfig>> | None | No |  
 | Name | String | Identifier of this element used to reference it in other components | None | *Yes*
 |===
 
@@ -72,26 +72,20 @@ Default configuration
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | None | *Yes* 
-| Content | Binary | None |  #[payload] | No  
-| Output MIME Type | String | MIME type of the payload that this operation outputs | None | No 
-| Output Encoding | String | Encoding of the payload that this operation outputs | None | No 
+| Content | Binary | None | #[payload] | No  
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | *Yes* 
 | Channel Name | String | Channel name | None | *Yes* 
 | Server Name | String | Server name | None | *Yes* 
-| Protocol Specific Parameters a| One of:
-
-* <<KafkaPublishParameters>> 
-
-| Protocol-specific parameters | None | No  
 | Target Variable | String | Name of a variable on which the operation's output is placed | None | No 
-| Target Value | String | Expression that is evaluated against the operation's output and the effect of that expression is stored in the target variable | #[payload] | No 
+| Target Value | String | Expression that is evaluated against the operation's output and the effect of that expression is stored in the target variable | #[payload] | No
+| Error Mappings | Array of <<ErrorMapping>> | Set of error mappings | None | No
 |===
 
 === Output
 
 [%autowidth.spread]
 |===
-| *Type* | Any
+| *Type* | PublishResponse
 | *Attributes Type* | Any
 |===
 
@@ -102,6 +96,9 @@ Default configuration
 === Throws
 
 * APIKIT-ASYNCAPI:ASYNCAPI_KIT_INTERNAL_SERVER_ERROR  
+* APIKIT-ASYNCAPI:INTERNAL_SERVER_ERROR
+* APIKIT-ASYNCAPI:PUBLISHING_ERROR
+* APIKIT-ASYNCAPI:VALIDATION_ERROR
 
 == Sources
 
@@ -121,8 +118,11 @@ Default configuration
 | Output Encoding | String | Encoding of the payload that this operation outputs | None | No  
 | Primary Node Only | Boolean | Specifies if this source must be executed on the primary node when running in Cluster | None | No 
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | *Yes* 
+| Streaming Strategy a| * <<RepeatableInMemoryStream>>
+* <<RepeatableFileStoreStream>>
+* non-repeatable-stream | Set up whether to use repeatable streams and define their behavior | None | No
+
 | Redelivery Policy | <<RedeliveryPolicy>> | Policy for processing the redelivery of the same message | None | No
-| Body Content | Any | Content of the message body | #[payload] | No
 |===
 
 === Output
@@ -130,7 +130,10 @@ Default configuration
 [%autowidth.spread]
 |===
 | *Type* | Any
-| *Attributes Type* | AsyncMessageAttributes
+| *Attributes Type* a| One of:
+
+* <<KafkaMessageAttributes>>
+* <<AnypointMqMessageAttributes>>
 |===
 
 === For Configurations
@@ -165,6 +168,39 @@ The *Server Key* is required to uniquely identify the server configuration. The 
 
 [NOTE]
 The *Server Key* is required to uniquely identify the server configuration. *Config Ref* is optional and used to specify additional configuration details.
+
+[[RepeatableInMemoryStream]]
+=== Repeatable In Memory Stream
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream data is larger than buffer capacity, it expands according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | None | No
+| Buffer Size Increment | Number | 
+How much buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn’t expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | None | No 
+| Max Buffer Size | Number | The maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. |  | 
+| Buffer Unit a| Enumeration, one of:
+
+** BYTE
+** KB
+** MB
+** GB | These attributes are expressed in this unit. | None | No 
+|======================
+
+[[RepeatableFileStoreStream]]
+=== Repeatable File Store Stream
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| In Memory Size a| Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on the disk. |  | 
+| Buffer Unit a| Enumeration, one of:
+
+** BYTE
+** KB
+** MB
+** GB | The unit for expressing `maxInMemorySiz` | None | No
+|======================
 
 [[RedeliveryPolicy]]
 === Redelivery Policy
