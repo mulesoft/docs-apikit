@@ -5,9 +5,9 @@ endif::[]
 
 include::reuse::partial$beta-banner.adoc[tag="apikit-asyncapi"]
 
-Learn the fundamentals of dependency, namespace, and schema information in APIkit for AsyncAPI to collaborate, build applications, and maintain codebases.
+To collaborate, build applications, and maintain codebases, learn the fundamentals of dependency, namespace, and schema information in APIkit for AsyncAPI.
 
-== Dependency Information
+== Dependencies
 
 ----
 <dependency>
@@ -18,7 +18,7 @@ Learn the fundamentals of dependency, namespace, and schema information in APIki
 </dependency>
 ----
 [calloutlist]
-.. Check https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] to get the *LATEST_VERSION*.
+.. Check xref:release-notes::_partials/apikit/apikit-rn-landing-page.adoc[] to get the *LATEST_VERSION*.
 
 == Namespace and Schema
 
@@ -38,11 +38,11 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Name | String | Name for this configuration. Connectors reference the configuration with this name. | None | *Yes*
-| Api Definition | String |  API definition | None | *Yes*
+| Name | String | Name for this configuration. Connectors reference the configuration with this name. | None | Yes
+| Api Definition | String |  API definition | None | Yes
 | Kafka Configs | Array of <<KafkaConfig>> | None | No |  
 | Anypoint MQ Configs | Array of <<AnypointMqConfig>> | None | No |  
-| Name | String | Identifier of this element used to reference it in other components | None | *Yes*
+| Name | String | Identifier of this element used to reference it in other components | None | Yes
 |===
 
 === Supported Message Brokers
@@ -71,11 +71,11 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration to use | None | *Yes* 
+| Configuration | String | Name of the configuration to use | None | Yes 
 | Content | Binary | None | #[payload] | No  
-| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | *Yes* 
-| Channel Name | String | Channel name | None | *Yes* 
-| Server Name | String | Server name | None | *Yes* 
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes 
+| Channel Name | String | Channel name | None | Yes 
+| Server Name | String | Server name | None | Yes 
 | Target Variable | String | Name of a variable on which the operation's output is placed | None | No 
 | Target Value | String | Expression that is evaluated against the operation's output and the effect of that expression is stored in the target variable | #[payload] | No
 | Error Mappings | Array of <<ErrorMapping>> | Set of error mappings | None | No
@@ -111,13 +111,13 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration to use | None | *Yes* 
-| Channel Name | String | Channel name | None | *Yes* 
+| Configuration | String | Name of the configuration to use | None | Yes 
+| Channel Name | String | Channel name | None | Yes 
 | Servers | Array of String | List of servers to listen to | None | No 
 | Output MIME Type | String | MIME type of the payload that this operation outputs | None | No 
 | Output Encoding | String | Encoding of the payload that this operation outputs | None | No  
 | Primary Node Only | Boolean | Specifies if this source must be executed on the primary node when running in Cluster | None | No 
-| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | *Yes* 
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes 
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
 * non-repeatable-stream | Set up whether to use repeatable streams and define their behavior | None | No
@@ -148,7 +148,7 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Server Key | String | Identifier for the server configuration within the AsyncAPI configuration | None | *Yes*
+| Server Key | String | Identifier for the server configuration within the AsyncAPI configuration | None | Yes
 | Producer Config Ref | String | Reference to the Kafka producer configuration | None | No
 | Consumer Config Ref | String | Reference to the Kafka consumer configuration | None | No
 |======================
@@ -162,7 +162,7 @@ The *Server Key* is required to uniquely identify the server configuration. The 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Server Key | String | Identifier for the server configuration in AsyncAPI | None | *Yes*
+| Server Key | String | Identifier for the server configuration in AsyncAPI | None | Yes
 | Config Ref | String | Reference to the Anypoint MQ configuration details | None | No
 |======================
 
