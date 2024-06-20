@@ -50,8 +50,8 @@ Default configuration
 [%header%autowidth.spread]
 |===
 | Feature | Description | Supported Protocols | Configuration Details 
-| Anypoint MQ Message Broker | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports both publish and subscribe operations. 
-| Kafka Message Broker | Supports asynchronous messaging with Apache Kafka. | kafka, kafka-secure | Kafka configurations are specified in the server object of the AsyncAPI specification. Supports both publish and subscribe operations. 
+| Anypoint MQ Message Broker | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports both `Publish` and `Subscribe` operations. 
+| Kafka Message Broker | Supports asynchronous messaging with Apache Kafka. | kafka, kafka-secure | Kafka configurations are specified in the server object of the AsyncAPI specification. Supports both `Publish` and `Subscribe` operations. 
 |===
 
 ==== Associated Operations
@@ -77,7 +77,7 @@ Default configuration
 | Channel Name | String | Channel name | None | Yes 
 | Server Name | String | Server name | None | Yes 
 | Target Variable | String | Name of a variable on which the operation's output is placed | None | No 
-| Target Value | String | Expression that is evaluated against the operation's output and the effect of that expression is stored in the target variable | #[payload] | No
+| Target Value | String | Expression that is evaluated against the operation's output and the result of that expression is stored in the target variable | #[payload] | No
 | Error Mappings | Array of <<ErrorMapping>> | Set of error mappings | None | No
 |===
 
@@ -114,13 +114,13 @@ Default configuration
 | Configuration | String | Name of the configuration to use | None | Yes 
 | Channel Name | String | Channel name | None | Yes 
 | Servers | Array of String | List of servers to listen to | None | No 
-| Output MIME Type | String | MIME type of the payload that this operation outputs | None | No 
-| Output Encoding | String | Encoding of the payload that this operation outputs | None | No  
-| Primary Node Only | Boolean | Specifies if this source must be executed on the primary node when running in Cluster | None | No 
+| Output MIME Type | String | MIME type of the payload that this operation generates | None | No 
+| Output Encoding | String | Encoding of the payload that this operation generates | None | No  
+| Primary Node Only | Boolean | Specifies if this source must be executed on the primary node when running in a cluster | None | No 
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes 
 | Streaming Strategy a| * <<RepeatableInMemoryStream>>
 * <<RepeatableFileStoreStream>>
-* non-repeatable-stream | Set up whether to use repeatable streams and define their behavior | None | No
+* non-repeatable-stream | Specify and configure repeatable streams | None | No
 
 | Redelivery Policy | <<RedeliveryPolicy>> | Policy for processing the redelivery of the same message | None | No
 |===
@@ -149,12 +149,12 @@ Default configuration
 |======================
 | Field | Type | Description | Default Value | Required
 | Server Key | String | Identifier for the server configuration within the AsyncAPI configuration | None | Yes
-| Producer Config Ref | String | Reference to the Kafka producer configuration | None | No
-| Consumer Config Ref | String | Reference to the Kafka consumer configuration | None | No
+| Producer Config Ref | String | Reference to the Kafka Producer configuration | None | No
+| Consumer Config Ref | String | Reference to the Kafka Consumer configuration | None | No
 |======================
 
 [NOTE]
-The *Server Key* is required to uniquely identify the server configuration. The references for producer and consumer configurations are optional and depend on the specific setup and requirements of the Kafka implementation.
+The Server Key is required to uniquely identify the server configuration. The references for Producer and Consumer configurations are optional and depend on the specific setup and requirements of the Kafka implementation.
 
 [[AnypointMqConfig]]
 === Anypoint MQ Config
@@ -167,7 +167,7 @@ The *Server Key* is required to uniquely identify the server configuration. The 
 |======================
 
 [NOTE]
-The *Server Key* is required to uniquely identify the server configuration. *Config Ref* is optional and used to specify additional configuration details.
+The Server Key is required to uniquely identify the server configuration. Config Ref is optional and used to specify additional configuration details.
 
 [[RepeatableInMemoryStream]]
 === Repeatable In Memory Stream
@@ -177,7 +177,7 @@ The *Server Key* is required to uniquely identify the server configuration. *Con
 | Field | Type | Description | Default Value | Required
 | Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream data is larger than the buffer capacity, it expands according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | None | No
 | Buffer Size Increment | Number | 
-How much buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn’t expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | None | No 
+How much the buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn’t expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | None | No 
 | Max Buffer Size | Number | The maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. |  | 
 | Buffer Unit a| Enumeration, one of:
 
