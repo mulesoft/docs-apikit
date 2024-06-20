@@ -86,7 +86,6 @@ Default configuration
 [%autowidth.spread]
 |===
 | *Type* | PublishResponse
-| *Attributes Type* | Any
 |===
 
 === For Configurations
@@ -95,7 +94,6 @@ Default configuration
 
 === Throws
 
-* APIKIT-ASYNCAPI:ASYNCAPI_KIT_INTERNAL_SERVER_ERROR  
 * APIKIT-ASYNCAPI:INTERNAL_SERVER_ERROR
 * APIKIT-ASYNCAPI:PUBLISHING_ERROR
 * APIKIT-ASYNCAPI:VALIDATION_ERROR
