@@ -35,14 +35,14 @@ Default configuration
 
 ==== Parameters
 
-[%header%autowidth.spread]
+[%header%autowidthspread]
 |===
 | Name | Type | Description | Default Value | Required
 | Name | String | Name for this configuration. Connectors reference the configuration with this name. | None | Yes
-| Api Definition | String |  API definition | None | Yes
-| Kafka Configs | Array of <<KafkaConfig>> | None | No |  
-| Anypoint MQ Configs | Array of <<AnypointMqConfig>> | None | No |  
-| Name | String | Identifier of this element used to reference it in other components | None | Yes
+| Api Definition | String |  API definition. | None | Yes
+| Kafka Configs | Array of <<KafkaConfig>>. | None | No |  
+| Anypoint MQ Configs | Array of <<AnypointMqConfig>>. | None | No |  
+| Name | String | Identifier of this element used to reference it in other components. | None | Yes
 |===
 
 === Supported Message Brokers
@@ -175,7 +175,7 @@ The *Server Key* is required to uniquely identify the server configuration. *Con
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream data is larger than buffer capacity, it expands according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | None | No
+| Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream data is larger than the buffer capacity, it expands according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | None | No
 | Buffer Size Increment | Number | 
 How much buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn’t expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | None | No 
 | Max Buffer Size | Number | The maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. |  | 
@@ -199,7 +199,7 @@ How much buffer size expands if it exceeds its initial size. A value of zero or 
 ** BYTE
 ** KB
 ** MB
-** GB | The unit for expressing `maxInMemorySiz` | None | No
+** GB | The unit for expressing `maxInMemorySiz`. | None | No
 |======================
 
 [[RedeliveryPolicy]]
@@ -220,8 +220,8 @@ How much buffer size expands if it exceeds its initial size. A value of zero or 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message | None | No 
-| Id Expression | String | Expression used to determine if a message has been redelivered. You can set this property if `useSecureHash` is `false` | None | No
+| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message. | None | No 
+| Id Expression | String | Expression used to determine if a message has been redelivered. You can set this property if `useSecureHash` is `false`. | None | No
 |======================
 
 [[KafkaPublishParameters]]
