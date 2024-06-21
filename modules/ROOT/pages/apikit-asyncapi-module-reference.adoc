@@ -18,9 +18,7 @@ To collaborate, build applications, and maintain codebases, learn the fundamenta
 </dependency>
 ----
 [calloutlist]
-.. Check the https://docs.mulesoft.com/apikit/latest/apikit-release-notes[APIkit release notes] to get the *LATEST_VERSION*.
-
-xref:apikit-release-notes.adoc[]
+.. Check the xref:apikit-release-notes.adoc[] to get the *LATEST_VERSION*.
 
 == Namespace and Schema
 
