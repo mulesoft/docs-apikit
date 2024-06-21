@@ -20,6 +20,8 @@ To collaborate, build applications, and maintain codebases, learn the fundamenta
 [calloutlist]
 .. Check the https://docs.mulesoft.com/apikit/latest/apikit-release-notes[APIkit release notes] to get the *LATEST_VERSION*.
 
+xref:apikit-release-notes.adoc
+
 == Namespace and Schema
 
 ----
