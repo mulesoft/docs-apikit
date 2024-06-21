@@ -20,6 +20,8 @@ To collaborate, build applications, and maintain codebases, learn the fundamenta
 [calloutlist]
 .. Check:
 
+* xref:release-notes::partial/apikit/apikit-rn-landing-page.adoc[]
+* xref:release-notes::partial$apikit/apikit-rn-landing-page.adoc[]
 * xref:release-notes::apikit-rn-landing-page.adoc[]
 * https://docs.mulesoft.com/apikit/latest/apikit-release-notes[]
 * xref:release-notes::_partials/apikit/apikit-rn-landing-page.adoc[] to get the *LATEST_VERSION*.
