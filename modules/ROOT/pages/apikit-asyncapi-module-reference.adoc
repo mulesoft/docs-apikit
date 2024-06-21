@@ -222,6 +222,56 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 | Id Expression | String | Expression used to determine if a message has been redelivered. You can set this property if `useSecureHash` is `false`. | None | No
 |======================
 
+[[PublishResponse]]
+=== Publish Response
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Response Data a| Object |  |  | 
+|======================
+
+[[ErrorMapping]]
+=== Error Mapping
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Source a| Enumeration, one of:
+
+** ANY
+** REDELIVERY_EXHAUSTED
+** TRANSFORMATION
+** EXPRESSION
+** SECURITY
+** CLIENT_SECURITY
+** SERVER_SECURITY
+** ROUTING
+** CONNECTIVITY
+** RETRY_EXHAUSTED
+** TIMEOUT | Type of error encountered during the operation | None | Yes
+| Target a| String | The specific component or module where the error needs to be addressed | None | Yes
+|======================
+
+[[KafkaMessageAttributes]]
+=== Kafka Message Attributes
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Channel Name a| String | The name of the Kafka channel (topic) where the message is published or consumed | None | Yes
+| Channel Parameters a| Object | Additional parameters or settings specific to the channel | None | No
+| Creation Timestamp a| DateTime | The timestamp when the message was created | None | No
+| Headers a| Object | Metadata associated with the message, typically key-value pairs | None | No
+| Key a| String | This key determines the partition within the Kafka topic where the message is sent | None | No
+| Leader Epoch a| Number | The epoch of the leader broker at the time the message is sent | None | No
+| Log Append Timestamp a| DateTime | The timestamp when the message is appended to the log | None | No
+| Offset a| Number | The message offset in the Kafka topic partition | None | No
+| Partition a| Number | The partition within the Kafka topic where the message is stored | None | No
+| Protocol a| String | The protocol the Kafka server uses | None | No
+| Server Name a| String | The name of the Kafka server that processes the message | None | Yes
+|======================
+
 [[KafkaPublishParameters]]
 === Kafka Publish Parameters
 
@@ -231,4 +281,22 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 | Partition | Number | Topic partition | None | No 
 | Key | String | Key for the published message | None | No 
 | Headers | Object | Headers for the message | None | No 
+|======================
+
+[[AnypointMqMessageAttributes]]
+=== Anypoint MQ Message Attributes
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Ack Token a| String | Token used for acknowledging the receipt of a message | None | No
+| Channel Name a| String | The name of the Anypoint MQ channel where the message is published or consumed | None | Yes
+| Channel Parameters a| Object | Additional parameters or settings specific to the channel | None | No
+| Content Type a| String | The MIME type of the message content | None | No
+| Delivery Count a| Number | The number of times the message is delivered | None | No
+| Headers a| Object | Metadata associated with the message, typically key-value pairs | None | No
+| Message Id a| String | Unique identifier for the message | None | Yes
+| Properties a| Object | Custom properties associated with the message | None | No
+| Protocol a| String | The protocol the Anypoint MQ server uses | None | No
+| Server Name a| String | The name of the Anypoint MQ server that processes the message | None | Yes
 |======================
