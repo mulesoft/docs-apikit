@@ -272,17 +272,6 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 | Server Name a| String | The name of the Kafka server that processes the message | None | Yes
 |======================
 
-[[KafkaPublishParameters]]
-=== Kafka Publish Parameters
-
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
-| Field | Type | Description | Default Value | Required
-| Partition | Number | Topic partition | None | No 
-| Key | String | Key for the published message | None | No 
-| Headers | Object | Headers for the message | None | No 
-|======================
-
 [[AnypointMqMessageAttributes]]
 === Anypoint MQ Message Attributes
 
