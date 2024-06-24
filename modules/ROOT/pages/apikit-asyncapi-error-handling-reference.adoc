@@ -1,0 +1,29 @@
+= APIkit for AsyncAPI Error Handling Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+include::reuse::partial$beta-banner.adoc[tag="apikit-asyncapi"]
+
+APIkit for AsyncAPI defines the following error types:
+
+[%header]
+|===
+| Error Type | Description
+
+| INTERNAL_SERVER_ERROR
+| Internal error.
+
+| VALIDATION_ERROR
+| The payload doesn't meet the schema of the API spec.
+
+| PUBLISHING_ERROR
+| APIkit fails to publish messages on the selected channel.
+
+| ROUTING_ERROR
+| APIkit fails to route messages to the flows.
+|===
+
+== APIkit for AsyncAPI Error Handling
+
+APIkit for AsyncAPI scaffolder generates no error-handling code.

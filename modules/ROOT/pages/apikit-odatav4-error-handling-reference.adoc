@@ -1,4 +1,4 @@
-= Error Handling Reference
+= APIkit for OData v4 Error Handling Reference
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
