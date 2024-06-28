@@ -9,7 +9,7 @@ APIkit for AsyncAPI enables you to xref:design-center::design-async-api.adoc[des
 
 AsyncAPI is based on event-driven architectures that communicate data between different systems reliably and efficiently.
 
-You can quickly implement projects with the APIkit scaffolder by generating the initial skeleton of the application. Scaffold and re-scaffold your Mule application in xref:anypoint-code-builder::ref-acb-commands.adoc[Anypoint Code Builder] or xref:studio::add-modules-in-studio-to.adoc[Anypoint Studio].
+You can quickly implement projects with the APIkit scaffolder by generating the initial skeleton of the application. Scaffold and re-scaffold your Mule application in xref:anypoint-code-builder::imp-asyncapi.adoc[Anypoint Code Builder] or xref:studio::add-modules-in-studio-to.adoc[Anypoint Studio].
 
 [NOTE]
 APIkit for AsyncAPI supports the https://www.asyncapi.com/blog/release-notes-2.6.0[AsyncAPI 2.6 spec].
