@@ -88,8 +88,9 @@ Examples:
 
 | Date Transform Type a| Values provided, one of:
 
-* string
-* java.time object
+* String: `Date` or `DateTimeOffset` parameters pass as `string` (default value).
+* java.time - LocalDate and LocalDateTime: `Date` or `DateTimeOffset` parameters pass as objects of `java.time` package classes `LocalDate` and `LocalDateTime`. This option enables most DB drivers -such as MySQL- to identify and process `Date/DateTime` parameters and return the correct result.
+* java.time - LocalDate and OffsetDateTime: `Date` or `DateTimeOffset` parameters pass as objects of `java.time` package classes `LocalDate` and `OffsetDateTime`. This option enables most DB drivers -such as Oracle- to identify and process `Date`, `Timestamp`, and `Timestamp` with `Time Zone` parameters and return the correct result.
 
 This operation takes the `Date/DateTime` values as strings by default. Select the `java.time object` option to output it as a corresponding `Date` or `DateTime` object in the `java.time` package.
 
