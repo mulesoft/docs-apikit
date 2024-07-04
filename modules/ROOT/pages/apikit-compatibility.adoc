@@ -18,6 +18,8 @@ The following table shows the compatibility between APIkit modules and the corre
 
 +++*+++ APIkit for AsyncAPI is available as an open beta.
 
+Some versions of APIkit are compliant with FIPS 140-2 standards. For more information about versions of APIkit that meet these compliance standards, see the xref:apikit-release-notes.adoc[]. Additionally, learn about xref:mule-runtime::fips-140-2-compliance-support.adoc[Mule runtime FIPS 140-2 Compliance Support].
+
 == Language and Protocol Support
 
 [%header]
