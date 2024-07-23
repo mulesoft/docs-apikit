@@ -66,6 +66,7 @@ Default configuration
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | | *x*
 | Content | Any |  |  `#[payload]` |
+| Route correlation id | Boolean | Enable consistent correlation Ids across subsequent flows |  `true` |
 | Output MIME Type | String | MIME type of the payload that this operation outputs |  |
 | Output Encoding | String | Encoding of the payload that this operation outputs |  |
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
