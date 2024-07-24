@@ -66,6 +66,7 @@ Default configuration
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | | *x*
 | Content | Any |  |  `#[payload]` |
+| Route correlation Id | Boolean | Consistent correlation Ids across subsequent flows | `true` |
 | Output MIME Type | String | MIME type of the payload that this operation outputs |  |
 | Output Encoding | String | Encoding of the payload that this operation outputs |  |
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
@@ -227,7 +228,7 @@ Default configuration
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | | *x*
 | Entity Set Name | String | Table name in the database for the requested entity set |  | *x*
-| Database Schema | String | Database schema name to which the entity set belongs. If not empty, it is prefixed to the table name in the `WHERE` clause |  |
+| Database Schema | String | Database schema name to which the entity set belongs. If not empty, it's prefixed to the table name in the `WHERE` clause |  |
 | Page Size | Number |  |  |
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component |  | *x*
 | Streaming Strategy |
@@ -242,7 +243,7 @@ Default configuration
 | Entity Type Keys | Object | Map of entity key names and values |  | *x*
 | System Query Options | Object | System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF]. To simplify usability, the initial dollar sign is removed to avoid escaping within DataWeave. For example, to access System Query Option, `$skip` uses the following expression #[attributes.systemQueryOptions.'skip'] |  | *x*
 | Search Transformation Enabled | Boolean | Enabling `$search` transformation to `WHERE` clause | `true` |
-| Strict Search Term Match | Boolean | Enabling full term match for `$search`. If enabled, terms in `WHERE` clause are not enclosed between '%'. | `false` |
+| Strict Search Term Match | Boolean | Enabling full term match for `$search`. If enabled, terms in `WHERE` clause aren't enclosed between '%'. | `false` |
 | Sql Limit Rows | Enumeration, one of:
 
 * LIMIT
@@ -493,7 +494,7 @@ Default configuration
 |===
 | Field | Type | Description | Default Value | Required
 | Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  |
-| Id Expression | String | One or more expressions that determine when a message has been redelivered. You can set this property if `useSecureHash` is `false` |  |
+| Id Expression | String | One or more expressions that determine when a message is redelivered. You can set this property if `useSecureHash` is `false` |  |
 |===
 
 === Route Output Attributes
