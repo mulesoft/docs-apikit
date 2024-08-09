@@ -234,7 +234,7 @@ Default configuration
 | Entity Type Keys | Object | Map of entity key names and values |  | Yes
 | Entity Type Name | String | Entity Data Model specifies the entity type name |  | Yes
 | Page Size | Number |  |  | No
-| searchFieldsAsType | Object | Select if the DB columns is typecasted to TEXT when using the `$search` operation | | No
+| searchFieldsAsType | Object | Data type to which fields are type-casted for the `$search` operation. If empty, no type-casting is performed | | No
 | Search Transformation Enabled | Boolean | Enabling `$search` transformation to `WHERE` clause | `true` | No
 | Sql Identifiers Delimiter | Enumeration, one of:
 
