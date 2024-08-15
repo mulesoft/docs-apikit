@@ -102,7 +102,7 @@
             <xsd:element name="TshirtFault">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="errorrStuff" type="xsd:integer" />
+                        <xsd:element name="errorStuff" type="xsd:integer" />
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
