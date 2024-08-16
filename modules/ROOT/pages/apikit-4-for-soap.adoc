@@ -13,6 +13,11 @@ APIkit for SOAP is a framework for simplifying the development and integration o
 * Supports data transformations.
 * Defines and exposes SOAP APIs with ease by emphasizing SOAP/WSDL contracts. 
 
+== Limitations
+* APIKit for SOAP loses payload and variables after an error.
++
+The workaround for this issue is discussed https://help.salesforce.com/s/articleView?language=en_US&id=001122088&type=1[here].
+
 == See Also
 
 * xref:apikit-4-soap-prerequisites-task.adoc[]
