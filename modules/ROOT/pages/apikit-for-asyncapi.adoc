@@ -3,8 +3,6 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-include::reuse::partial$beta-banner.adoc[tag="apikit-asyncapi"]
-
 APIkit for AsyncAPI enables you to xref:design-center::design-async-api.adoc[design event-driven APIs from API Designer]. You can create AsyncAPI specifications for defining APIs using asynchronous messaging protocols. 
 
 AsyncAPI is based on event-driven architectures that communicate data between different systems reliably and efficiently.
