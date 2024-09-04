@@ -53,8 +53,8 @@ Default configuration
 | Message Broker | Description | Supported Protocols | Configuration Details 
 | Anypoint MQ | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports both `publish` and `subscribe` operations. 
 | Kafka | Supports asynchronous messaging with Apache Kafka. | kafka, kafka-secure | Kafka configurations are specified in the server object of the AsyncAPI specification. Supports `publish` and `subscribe` operations. 
-| Salesforce platform events | Allows for the implementation of an Async API specification using the Salesforce connector. |  | Connection details are available in the properties file. Includes message listeners for `publish` operations. 
-| Solace Pub/Sub+ | Supports the implementation of an Async API specification using the Solace connector. | X | Connection details available in the properties file. 
+| Salesforce platform events | Allows implementing an Async API specification using the Salesforce connector. |  | Connection details are available in the properties file. Includes message listeners for `publish` operations. 
+| Solace Pub/Sub+ | Supports the implementation of an Async API specification using the Solace connector. | X | Connection details are available in the properties file. 
 |===
 
 ==== Associated Operations
