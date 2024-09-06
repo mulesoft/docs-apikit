@@ -11,7 +11,11 @@ You can create AsyncAPI specifications for defining APIs using asynchronous mess
 
 AsyncAPI is based on event-driven architectures that communicate data between different systems reliably and efficiently.
 
+<<<<<<< HEAD
 The APIkit scaffolder generates a minimal implementation of an API Specification within a Mule project that you can further develop. Scaffold your Mule application from xref:exchange::index.adoc[Exchange], and re-scaffold your Mule application in xref:anypoint-code-builder::imp-asyncapi.adoc[Anypoint Code Builder] or xref:studio::import-api-specification-exchange.adoc#implement-asyncapi-specifications[Anypoint Studio].
+=======
+The APIkit scaffolder generates a minimal implementation of an API specification within a Mule project that you can further develop. Scaffold and re-scaffold your Mule application in xref:anypoint-code-builder::imp-asyncapi.adoc[Anypoint Code Builder] or xref:studio::import-api-specification-exchange.adoc#implement-asyncapi-specifications[Anypoint Studio].
+>>>>>>> 0eceb26423a853ec02f1c29d4f2beed41da4c3a0
 
 [NOTE]
 APIkit for AsyncAPI supports the https://www.asyncapi.com/blog/release-notes-2.6.0[AsyncAPI 2.6 spec].
