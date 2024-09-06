@@ -5,7 +5,7 @@ endif::[]
 
 include::reuse::partial$beta-banner.adoc[tag="apikit-asyncapi"]
 
-APIkit for AsyncAPI enables you to easily design API specifications from xref:anypoint-code-builder::imp-asynapi.adoc[Anypoint Cold Builder] or xref:design-center::design-async-api.adoc[API Designer].
+APIkit for AsyncAPI enables you to easily design API specifications from xref:anypoint-code-builder::imp-asynapi.adoc[Anypoint Code Builder] or xref:design-center::design-async-api.adoc[API Designer].
 
 You can create AsyncAPI specifications for defining APIs using asynchronous messaging protocols. It provides modules with operations that you can add and configure when implementing your API in a Mule project. 
 
