@@ -5,13 +5,13 @@ endif::[]
 
 include::reuse::partial$beta-banner.adoc[tag="apikit-asyncapi"]
 
-APIkit for AsyncAPI enables you to scaffold API specifications from xref:design-center::design-async-api.adoc[API Designer].
+APIkit for AsyncAPI enables you to easily design API specifications from xref:anypoint-code-builder::imp-asynapi.adoc[Anypoint Cold Builder] or xref:design-center::design-async-api.adoc[API Designer].
 
 You can create AsyncAPI specifications for defining APIs using asynchronous messaging protocols. It provides modules with operations that you can add and configure when implementing your API in a Mule project. 
 
 AsyncAPI is based on event-driven architectures that communicate data between different systems reliably and efficiently.
 
-The APIkit scaffolder generates a minimal implementation of an API Specification within a Mule project that you can further develop. Scaffold and re-scaffold your Mule application in xref:anypoint-code-builder::imp-asyncapi.adoc[Anypoint Code Builder] or xref:studio::import-api-specification-exchange.adoc#implement-asyncapi-specifications[Anypoint Studio].
+The APIkit scaffolder generates a minimal implementation of an API Specification within a Mule project that you can further develop. Scaffold your Mule application from xref:exchange::index.adoc[Exchange], and re-scaffold your Mule application in xref:anypoint-code-builder::imp-asyncapi.adoc[Anypoint Code Builder] or xref:studio::import-api-specification-exchange.adoc#implement-asyncapi-specifications[Anypoint Studio].
 
 [NOTE]
 APIkit for AsyncAPI supports the https://www.asyncapi.com/blog/release-notes-2.6.0[AsyncAPI 2.6 spec].
