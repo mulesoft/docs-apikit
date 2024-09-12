@@ -3,8 +3,6 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-include::reuse::partial$beta-banner.adoc[tag="apikit-asyncapi"]
-
 To collaborate, build applications, and maintain codebases, learn the fundamentals of dependency, namespace, and schema information in APIkit for AsyncAPI.
 
 == Dependencies
