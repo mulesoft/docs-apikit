@@ -61,6 +61,49 @@ Default configuration
 ==== Associated Sources
 * <<MessageListener>>  
 
+== Validation of Messages
+
+Unless explicitly restricted, the JSON schema validation allows omitting and adding fields. Check the message validation against the schema in the following table: 
+
+[%header%autowidth.spread]
+|===
+| Schema Definition | Message | Valid
+| { A: integer, B: string } | {A, B} | Yes
+| { A: integer, B: string } | {C, D} | Yes
+| { A: integer, B: string } required [A, B] | {C, D} | No
+| { A: integer, B: string } required [A, B] | {A, B, C} | Yes
+| { A: integer, B: string } required [A, B] `additionalProperties` = `false` | {A, B, C} | No
+| { A: integer, B: string } required [A, B] `additionalProperties` = `false` | {A, B} | No
+|===
+
+* The `required` field specifies the list of fields that are mandatory in the JSON object.
+* The `additionalProperties` field specifies if you can include additional properties to the JSON object.
+
+The schemas must specify `required` and `additionalProperties` in the API specification.
+
+[NOTE]
+The field value is checked against the type specified in the schema as part of the validation.
+
+If an operation has multiple message schemas associated in the specification, the validation adheres to these principles:
+
+* Messages are validated against every schema.
+* If it's compliant with at least one schema, the message is considered valid.
+* If the message doesn't adhere to at least one schema, the message is considered invalid.  
+
+=== Example
+
+[%header%autowidth.spread]
+|===
+| Schema Definition | Message | Valid
+| { A: integer, B: string } required [A, B] `additionalProperties` = `false` { C: integer, D: string } required [C, D] `additionalProperties` = `false` | {A, B} | Yes
+| { A: integer, B: string } required [A, B] `additionalProperties` = `false` { C: integer, D: string } required [C, D]
+`additionalProperties` = `false` | {B, C} | No
+| { A: integer, B: string } required [A, B] `additionalProperties` = `false` { C: integer, D: string } required [C, D]
+`additionalProperties` = `false` | {A, B, C} | No
+| { A: integer, B: string } required [A, B] `additionalProperties` = `false` { C: integer, D: string } required [C, D]
+`additionalProperties` = `false` | {C, D} | Yes
+|===
+
 == Operations
 
 [[Publish]]
