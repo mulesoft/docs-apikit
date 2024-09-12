@@ -27,6 +27,7 @@ xsi:schemaLocation="http://www.mulesoft.org/schema/mule/apikit-asyncapi http://w
 
 == Configurations
 
+[[Config]]
 === Config
 
 Default configuration
@@ -38,8 +39,11 @@ Default configuration
 | Name | Type | Description | Default Value | Required
 | Name | String | Name for this configuration. Connectors reference the configuration with this name. | None | Yes
 | Api Definition | String |  API definition. | None | Yes
-| Kafka Configs | Array of <<KafkaConfig>>. | None | No |  
-| Anypoint MQ Configs | Array of <<AnypointMqConfig>>. | None | No |  
+| Disable Content Validation | Boolean | Disable payload content validation. | `false` | No
+| Kafka Configs | Array of <<KafkaConfig>> | List of Kafka configurations. | None |  No
+| Anypoint MQ Configs | Array of <<AnypointMqConfig>> | List of AMQ configurations. | None | No
+| Solace Configs | Array of <<SolaceConfig>> | List of Solace configurations. | None | No
+| Salesforce Pub Sub Configs | Array of <<SalesforcePubSubConfig>> | List of SalesforcePubSub configurations | None | No
 | Name | String | Identifier of this element used to reference it in other components. | None | Yes
 |===
 
@@ -115,21 +119,23 @@ If an operation has multiple message schemas associated in the specification, th
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration to use | None | Yes 
-| Content | Binary | None | #[payload] | No  
-| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes 
+| Configuration | String | Name of the configuration to use | None | Yes
+| Content | Binary | The binary content to be processed | #[payload] | No
+| Disable Content Validation | Boolean | Indicates if validation of the content is disabled | `False` | No
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes
 | Channel Name | String | Channel name | None | Yes 
 | Server Name | String | Server name | None | Yes 
-| Target Variable | String | Name of a variable on which the operation's output is placed | None | No 
-| Target Value | String | Expression that is evaluated against the operation's output and the result of that expression is stored in the target variable | #[payload] | No
+| Target Variable | String | Name of a variable on which the operation output is placed | None | No 
+| Target Value | String | Expression that is evaluated against the operation output and the result of that expression is stored in the target variable | #[payload] | No
 | Error Mappings | Array of <<ErrorMapping>> | Set of error mappings | None | No
 |===
 
 === Output
 
-[%autowidth.spread]
+[%header%autowidth.spread]
 |===
-| *Type* | PublishResponse
+| Field | Description
+| Type | <<PublishResponse>>
 |===
 
 === For Configurations
@@ -146,6 +152,7 @@ If an operation has multiple message schemas associated in the specification, th
 
 [[MessageListener]]
 == Message Listener
+
 `<apikit-asyncapi:message-listener>`
 
 === Parameters
@@ -154,6 +161,7 @@ If an operation has multiple message schemas associated in the specification, th
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | None | Yes 
+| Disable Content Validation | Boolean |  Disable payload content validation | None | No
 | Channel Name | String | Channel name | None | Yes 
 | Servers | Array of String | List of servers to listen to | None | No 
 | Output MIME Type | String | MIME type of the payload that this operation generates | None | No 
@@ -169,13 +177,16 @@ If an operation has multiple message schemas associated in the specification, th
 
 === Output
 
-[%autowidth.spread]
+[%header%autowidth.spread]
 |===
-| *Type* | Any
-| *Attributes Type* a| One of:
+| Field | Description
+| Type | Any type
+| Attributes Type a| One of:
 
 * <<KafkaMessageAttributes>>
 * <<AnypointMqMessageAttributes>>
+* <<SolaceMessageAttributes>>
+* <<SalesforcePubSubAttributes>>
 |===
 
 === For Configurations
@@ -188,12 +199,12 @@ If an operation has multiple message schemas associated in the specification, th
 === Kafka Config
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
 | Server Key | String | Identifier for the server configuration within the AsyncAPI configuration | None | Yes
 | Producer Config Ref | String | Reference to the Kafka Producer configuration | None | No
 | Consumer Config Ref | String | Reference to the Kafka Consumer configuration | None | No
-|======================
+|===
 
 [NOTE]
 The Server Key is required to uniquely identify the server configuration. The references for Producer and Consumer configurations are optional and depend on the specific setup and requirements of the Kafka implementation.
@@ -202,11 +213,37 @@ The Server Key is required to uniquely identify the server configuration. The re
 === Anypoint MQ Config
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
 | Server Key | String | Identifier for the server configuration in AsyncAPI | None | Yes
 | Config Ref | String | Reference to the Anypoint MQ configuration details | None | No
-|======================
+|===
+
+[NOTE]
+The Server Key is required to uniquely identify the server configuration. Config Ref is optional and used to specify additional configuration details.
+
+[[SolaceConfig]]
+=== Solace Config
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|===
+| Field | Type | Description | Default Value | Required
+| Server Key | String | Server key set in the AsyncAPI spec | None | Yes
+| Config Ref | String | Reference to the configuration name of the Solace connection | None | No
+|===
+
+[NOTE]
+The Server Key is required to uniquely identify the server configuration. Config Ref is optional and used to specify additional configuration details.
+
+[[SalesforcePubSubConfig]]
+=== Salesforce Pub Sub Config
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|===
+| Field | Type | Description | Default Value | Required
+| Server Key | String | Server key set in the AsyncAPI spec | None | Yes
+| Config Ref | String | Reference to the name of the Salesforce pub sub configuration | None | No
+|===
 
 [NOTE]
 The Server Key is required to uniquely identify the server configuration. Config Ref is optional and used to specify additional configuration details.
@@ -215,7 +252,7 @@ The Server Key is required to uniquely identify the server configuration. Config
 === Repeatable In Memory Stream
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
 | Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream data is larger than the buffer capacity, it expands according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | None | No
 | Buffer Size Increment | Number | 
@@ -227,13 +264,13 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 ** KB
 ** MB
 ** GB | These attributes are expressed in this unit. | None | No 
-|======================
+|===
 
 [[RepeatableFileStoreStream]]
 === Repeatable File Store Stream
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
 | In Memory Size a| Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on the disk. |  | 
 | Buffer Unit a| Enumeration, one of:
@@ -242,44 +279,44 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 ** KB
 ** MB
 ** GB | The unit for expressing `maxInMemorySiz`. | None | No
-|======================
+|===
 
 [[RedeliveryPolicy]]
 === Redelivery Policy
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
 | Max Redelivery Count | Number | Maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message | None | No 
 | Message Digest Algorithm | String | Secure hashing algorithm | SHA-256 | No 
 | Message Identifier | <<RedeliveryPolicyMessageIdentifier>> | Strategy used to identify the messages | None | No
 | Object Store | ObjectStore | Object store where the redelivery counter for each message is stored | None | No
-|======================
+|===
 
 [[RedeliveryPolicyMessageIdentifier]]
 === Redelivery Policy Message Identifier
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
 | Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message. | None | No 
 | Id Expression | String | Expression used to determine if a message has been redelivered. You can set this property if `useSecureHash` is `false`. | None | No
-|======================
+|===
 
 [[PublishResponse]]
 === Publish Response
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
-| Response Data a| Object |  |  | 
-|======================
+| Response Data | Object | Data the server returns in response to a request | None | No 
+|===
 
 [[ErrorMapping]]
 === Error Mapping
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
 | Source a| Enumeration, one of:
 
@@ -295,41 +332,77 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 ** RETRY_EXHAUSTED
 ** TIMEOUT | Type of error encountered during the operation | None | Yes
 | Target a| String | The specific component or module where the error needs to be addressed | None | Yes
-|======================
+|===
 
 [[KafkaMessageAttributes]]
 === Kafka Message Attributes
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
-| Channel Name a| String | The name of the Kafka channel (topic) where the message is published or consumed | None | Yes
-| Channel Parameters a| Object | Additional parameters or settings specific to the channel | None | No
-| Creation Timestamp a| DateTime | The timestamp when the message was created | None | No
+| Channel Name | String | The name of the Kafka channel (topic) where the message is published or consumed | None | Yes
+| Channel Parameters | Object | Additional parameters or settings specific to the channel | None | No
+| Creation Timestamp | DateTime | The timestamp when the message was created | None | No
 | Headers a| Object | Metadata associated with the message, typically key-value pairs | None | No
 | Key a| String | This key determines the partition within the Kafka topic where the message is sent | None | No
-| Leader Epoch a| Number | The epoch of the leader broker at the time the message is sent | None | No
-| Log Append Timestamp a| DateTime | The timestamp when the message is appended to the log | None | No
+| Leader Epoch | Number | The epoch of the leader broker at the time the message is sent | None | No
+| Log Append Timestamp | DateTime | The timestamp when the message is appended to the log | None | No
 | Offset a| Number | The message offset in the Kafka topic partition | None | No
-| Partition a| Number | The partition within the Kafka topic where the message is stored | None | No
-| Protocol a| String | The protocol the Kafka server uses | None | No
-| Server Name a| String | The name of the Kafka server that processes the message | None | Yes
-|======================
+| Partition | Number | The partition within the Kafka topic where the message is stored | None | No
+| Protocol | String | The protocol the Kafka server uses | None | No
+| Server Name | String | The name of the Kafka server that processes the message | None | Yes
+|===
 
 [[AnypointMqMessageAttributes]]
 === Anypoint MQ Message Attributes
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
+|===
 | Field | Type | Description | Default Value | Required
-| Ack Token a| String | Token used for acknowledging the receipt of a message | None | No
-| Channel Name a| String | The name of the Anypoint MQ channel where the message is published or consumed | None | Yes
-| Channel Parameters a| Object | Additional parameters or settings specific to the channel | None | No
-| Content Type a| String | The MIME type of the message content | None | No
-| Delivery Count a| Number | The number of times the message is delivered | None | No
-| Headers a| Object | Metadata associated with the message, typically key-value pairs | None | No
-| Message Id a| String | Unique identifier for the message | None | Yes
-| Properties a| Object | Custom properties associated with the message | None | No
-| Protocol a| String | The protocol the Anypoint MQ server uses | None | No
-| Server Name a| String | The name of the Anypoint MQ server that processes the message | None | Yes
-|======================
+| Ack Token | String | Token used for acknowledging the receipt of a message | None | No
+| Channel Name | String | The name of the Anypoint MQ channel where the message is published or consumed | None | Yes
+| Channel Parameters | Object | Additional parameters or settings specific to the channel | None | No
+| Content Type | String | The MIME type of the message content | None | No
+| Delivery Count | Number | The number of times the message is delivered | None | No
+| Headers | Object | Metadata associated with the message, typically key-value pairs | None | No
+| Message Id | String | Unique identifier for the message | None | Yes
+| Properties | Object | Custom properties associated with the message | None | No
+| Protocol | String | The protocol the Anypoint MQ server uses | None | No
+| Server Name | String | The name of the Anypoint MQ server that processes the message | None | Yes
+|===
+
+[[SolaceMessageAttributes]]
+=== Solace Message Attributes
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|===
+| Field | Type | Description | Default Value | Required
+| DMQ Eligible | Boolean | Indicates if the message is eligible for Dead Message Queue | `False` | No
+| Channel Name | String | The name of the Solace channel where the message is published or consumed | None | No
+| Channel Parameters | Object | Additional parameters or settings specific to the Solace channel | None | No
+| Content Type | String | The MIME type of the message content | None | No
+| Delivery Mode | String | The delivery mode of the message | None | No
+| Discard Indication | Boolean | Indicates if the message is discarded | `False` | No
+| Eliding Eligible | Boolean | Indicates if the message is eligible for eliding | `False` | No
+| Endpoint Type | String | The type of endpoint used | None | No
+| Message Reference Id | String | A reference identifier for the message | None | No
+| Priority | Number | The priority level of the message | 0 | No
+| Protocol | String | The protocol the Solace server uses | None | No
+| Receive Timestamp | DateTime | The timestamp when the message was received | None | No
+| Redelivered | Boolean | Indicates if the message is redelivered | `False` | No
+| Reply | Boolean | Indicates if the message expects a reply | `False` | No
+| Server Name | String | The name of the Solace server that processes the message | None | Yes
+| Time To Live | Number | The time in milliseconds that the message remains valid | 0 | No
+|===
+
+[[SalesforcePubSubAttributes]]
+=== Salesforce Pub Sub Attributes
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|===
+| Field | Type | Description | Default Value | Required
+| Channel Name | String | The name of the Salesforce Pub Sub channel where the message is published or consumed | None | No
+| Channel Parameters | Object | Additional parameters or settings specific to the Salesforce Pub Sub channel | None | No
+| Protocol | String | The protocol the Salesforce Pub Sub server uses | None | No
+| Server Name | String | The name of the Salesforce Pub Sub server that processes the message | None | No
+|===
