@@ -59,7 +59,7 @@ Default configuration
 | Solace Pub/Sub+ | Supports the implementation of an Async API specification using the Solace connector. | solace | Connection details are available in the properties file. 
 |===
 
-+++*+++ You must use *salesforcepubsub* protocol 1.0.15 or later.
++++*+++ You must use *salesforcepubsub* connector 1.0.15 or later.
 
 ==== Associated Operations
 * <<Publish>>  
