@@ -4,9 +4,9 @@
 * xref:apikit-compatibility.adoc[]
 
 * xref:apikit-for-asyncapi.adoc[]
+ ** xref:apikit-asyncapi-avro-support.adoc[Implementing and Validating Avro Schemas]
  ** xref:apikit-asyncapi-module-reference.adoc[Module Reference]
  ** xref:apikit-asyncapi-error-handling-reference.adoc[Error Handling Reference]
- ** xref:apikit-asyncapi-avro-support.adoc[Implementing and Validating Avro Schemas]
 
 * xref:apikit-4-for-graphql.adoc[]
  ** xref:apikit-graphql-api-mapping.adoc[Mapping a GraphQL API to Your Data Sources]
