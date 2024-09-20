@@ -12,17 +12,23 @@ The Avro spec defines its format by giving the value of `schemaFormat` as `appli
 The Avro spec can describe the schema inline:
 
 ----
- schemas:
-   lightMeasuredPayload:
-     schemaFormat: 'application/vnd.apache.avro;version=1.9.0'
-     type: object
-     properties:
-       lumens:
-         type: integer
-         minimum: 0
-         description: Light intensity measured in lumens.
-       sentAt:
-         $ref: "#/components/schemas/sentAt"
+publish:
+  summary: inform details about person
+  operationId: lightMeasured
+  message:
+    schemaFormat: 'application/vnd.apache.avro;version=1.9.0'
+    payload:
+      name: lightMeasured
+      type: record
+      fields:
+        - name: lumens
+          type: int
+          example: 134
+        - name: sentAt
+          type: string
+          logicalType: timestamp-millis
+          default: 10
+          example: 1985-04-12T23:20:50.52Z
 ----
 
 The Avro spec can also refer to an external document that describes the schema in the Avro format:
