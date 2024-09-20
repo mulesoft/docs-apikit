@@ -55,8 +55,8 @@ Default configuration
 | Message Broker | Description | Supported Protocols | Configuration Details 
 | Anypoint MQ | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports `Message Listener` and `Subscribe` operations. 
 | Kafka | Supports asynchronous messaging with Apache Kafka. | kafka, kafka-secure | Kafka configurations are specified in the server object of the AsyncAPI specification. Supports `Message Listener` and `Subscribe` operations. 
-| Salesforce platform events | Allows implementing an Async API specification using the Salesforce connector. | salesforcepubsub* | Connection details are available in the properties file. Supports `Message Listener` and `Subscribe` operations. 
-| Solace Pub/Sub+ | Supports the implementation of an Async API specification using the Solace connector. | solace | Connection details are available in the properties file. 
+| Salesforce platform events | Allows implementing an Async API specification using the Salesforce connector. | salesforcepubsub* | Connection details are available in the properties file. Supports `Message Listener` and `Subscribe` operations, and `Message Listener` and `Publish` operations.
+| Solace Pub/Sub+ | Supports the implementation of an Async API specification using the Solace connector. | solace | Connection details are available in the properties file. Supports `Message Listener` and `Publish` operations. 
 |===
 
 +++*+++ You must use *salesforcepubsub* connector 1.0.15 or later.
@@ -241,8 +241,8 @@ The Server Key is required to uniquely identify the server configuration. Config
 
 The Solace connector in APIkit for AsyncAPI has the following limitations:
 
-* It doesn't support `topic listener`. It supports `queue listener`.
-* One channel to multiple queues isn't supported. A channel must have one queue. 
+* The Solace Connector supports `queue` and `topic` for `destinations` in the `message listener` and `publish` operations. But the APIkit for AsyncAPI implementation only supports `queue` as `destination`.
+* Only one operator of the same type must be mapped to the same `queue` of `destination`.
 
 [[SalesforcePubSubConfig]]
 === Salesforce Pub Sub Config
