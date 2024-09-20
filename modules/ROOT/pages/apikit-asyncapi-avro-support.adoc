@@ -1,0 +1,57 @@
+= Implementing and Validating Avro Schemas in APIkit for AsyncAPI Module
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+APIkit for AsyncAPI supports Avro, a data serialization system that helps you define the format for specifying the structure and encoding of messages. This module shows you the structure of messages in the design phase. APIkit for AsyncAPI also supports xref:studio::datasense-concept.adoc[DataSense] of messages with Avro schema.
+
+== Schema Definitions
+
+The Avro spec defines its format by giving the value of `schemaFormat` as `application/vnd.apache.avro`.
+
+The Avro spec can describe the schema inline:
+
+----
+ schemas:
+   lightMeasuredPayload:
+     schemaFormat: 'application/vnd.apache.avro;version=1.9.0'
+     type: object
+     properties:
+       lumens:
+         type: integer
+         minimum: 0
+         description: Light intensity measured in lumens.
+       sentAt:
+         $ref: "#/components/schemas/sentAt"
+----
+
+The Avro spec can also refer to an external document that describes the schema in the Avro format:
+
+----
+channels:
+ smartylighting.streetlights.1.0.event.{streetlightId}.monitor:
+   publish:
+     message:
+       schemaFormat: application/vnd.apache.avro;version=1.9.0
+       payload:
+         $ref: lumens.avsc'
+----
+
+The `lumens.avsc` file provides the specification in the Avro schema.
+
+----
+{
+  "type": "record",
+  "name": "lightMeasured",
+  "fields": [
+    {"name": "lumens", "type": "int"},
+    {"name": "sentAt", "type": {"type": "string", "logicalType": "timestamp-millis"}}
+  ]
+}
+----
+
+== Avro Message Encoding and Validation
+
+Avro messages are encoded in either binary or text (JSON) format. The specification provides the value of `contentType` OR `defaultContentType`.
+
+APIkit for AsyncAPI validates messages encoded in text (JSON) but it doesn't validate binary encoded messages.
