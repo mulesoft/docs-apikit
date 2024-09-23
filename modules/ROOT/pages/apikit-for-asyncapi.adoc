@@ -9,6 +9,8 @@ AsyncAPI is based on event-driven architectures that communicate data between di
 
 You can quickly implement projects with the APIkit scaffolder by generating the initial skeleton of the application. Scaffold and re-scaffold your Mule application in xref:anypoint-code-builder::imp-asyncapi.adoc[Anypoint Code Builder] or xref:studio::import-api-specification-exchange.adoc#implement-asyncapi-specifications[Anypoint Studio].
 
+APIkit for AsyncAPI supports xref:apikit-asyncapi-module-reference.adoc#validation-of-messages[validation of messages] by checking if the messages in the `listener` and `publish` operations conform to the schema.
+
 [NOTE]
 APIkit for AsyncAPI supports the https://www.asyncapi.com/blog/release-notes-2.6.0[AsyncAPI 2.6 spec]. 
 
