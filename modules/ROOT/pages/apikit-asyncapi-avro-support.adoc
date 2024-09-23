@@ -60,4 +60,4 @@ The `lumens.json` file provides the specification in the Avro schema.
 
 Avro messages are encoded in either binary or text (JSON) format. The specification provides the value of `contentType` OR `defaultContentType`.
 
-APIkit for AsyncAPI validates messages encoded in text (JSON) but it doesn't validate binary encoded messages.
+APIkit for AsyncAPI validates messages encoded in text (JSON) but doesn’t validate binary-encoded messages.
