@@ -27,7 +27,7 @@ publish:
         - name: sentAt
           type: string
           logicalType: timestamp-millis
-          default: 10
+          10
           example: 1985-04-12T23:20:50.52Z
 ----
 
@@ -40,10 +40,10 @@ channels:
      message:
        schemaFormat: application/vnd.apache.avro;version=1.9.0
        payload:
-         $ref: lumens.avsc'
+         $ref: /exchange_modules/83589b9b-6630-4c28-985d-174ee9172661/lumenschema/1.0.0/lumens.json'
 ----
 
-The `lumens.avsc` file provides the specification in the Avro schema.
+The `lumens.json` file provides the specification in the Avro schema.
 
 ----
 {
