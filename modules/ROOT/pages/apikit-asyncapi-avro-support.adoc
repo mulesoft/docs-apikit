@@ -9,8 +9,10 @@ APIkit for AsyncAPI supports Avro, a data serialization system that helps you de
 
 The Avro spec defines its format by giving the value of `schemaFormat` as `application/vnd.apache.avro`.
 
-The Avro spec can describe the schema inline:
+The Avro spec supports describing the schema inline or referencing an external document that describes the schema in the Avro format:
 
+* Inline definition
++
 ----
 publish:
   summary: inform details about person
@@ -31,8 +33,8 @@ publish:
           example: 1985-04-12T23:20:50.52Z
 ----
 
-The Avro spec can also refer to an external document that describes the schema in the Avro format:
-
+* Reference to an external definition
++
 ----
 channels:
  smartylighting.streetlights.1.0.event.{streetlightId}.monitor:
