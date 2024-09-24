@@ -60,7 +60,7 @@ channels:
 
 You must set the parametrized channel at design time. You can't set the parametrized channel at runtime. 
 
-See the complete API with parametrized channels:
+See the complete API example using parametrized channels:
 
 ----
 asyncapi: '2.6.0'
