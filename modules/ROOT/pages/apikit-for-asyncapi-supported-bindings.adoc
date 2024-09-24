@@ -33,7 +33,9 @@ Kafka and Solace Pub/Sub connectors don’t support bindings.
 
 == Parameterized Channels
 
-APIkit for AsyncAPI supports parametrized channels. It doesn't support parameters if they're defined in a binding, for example: a `destination` in AnypointMQ.
+APIkit for AsyncAPI supports parametrized channels so you can define dynamic and reusable configurations, scale your integrations more effectively, and create consistent configurations across different parts of the integration.
+
+APIkit for AsyncAPI doesn't support parameters if they're defined in a binding. For example, a `destination` in AnypointMQ.
 
 The following code provides a partial API spec example with a parameterized `destination`: 
 
