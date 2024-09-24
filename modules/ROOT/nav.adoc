@@ -4,7 +4,7 @@
 * xref:apikit-compatibility.adoc[]
 
 * xref:apikit-for-asyncapi.adoc[]
- ** xref:apikit-for-asyncapi-supported-bindings.adoc[Supported Bindings]
+ ** xref:apikit-for-asyncapi-supported-bindings.adoc[Supported Bindings and Parametrized Channels]
  ** xref:apikit-asyncapi-avro-support.adoc[Implementing and Validating Avro Schemas]
  ** xref:apikit-asyncapi-module-reference.adoc[Module Reference]
  ** xref:apikit-asyncapi-error-handling-reference.adoc[Error Handling Reference]

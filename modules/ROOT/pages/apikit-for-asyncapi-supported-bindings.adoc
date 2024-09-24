@@ -1,4 +1,4 @@
-= Supported Bindings in APIkit for AsyncAPI 
+= Supported Bindings and Parametrized Channels in APIkit for AsyncAPI 
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
@@ -31,3 +31,34 @@ The AnypointMQ connector defaults to using the channel name as the `destination`
 [NOTE]
 Kafka and Solace Pub/Sub connectors don’t support bindings.
 
+== Parameterized Channels
+
+APIkit for AsyncAPI supports parametrized channels. It doesn't support parameters if they're defined in binding, for example: a `destination` in AnypointMQ.
+
+The following code provides an API spec example with a parameterized `destination`: 
+
+[source,yaml,linenums]
+----
+channels:
+  orderAcknowledgement:
+    description: new Order Acknowledgment
+    servers: 
+      - anypointMQ
+    bindings:
+      anypointmq:
+        destination: '{env}.rit-amq-asyncapi-poc.orderAcknowledgement'
+        destinationType: queue
+    parameters:
+      env: 
+        $ref: '#/components/parameters/env'
+    publish:
+      operationId: listen-order-ack
+      description: publish a new Order Acknowledgment event to this channel and we will process it
+      message:
+        $ref: '#/components/messages/orderAckMessage'
+----
+
+You must set the parametrized channel at design time. You can't set the parametrized channel at runtime. 
+
+[NOTE]
+APIkit for AsyncAPI uses the parametrized channel only on `listeners`. 
