@@ -157,4 +157,4 @@ components:
 ----
 
 [NOTE]
-APIkit for AsyncAPI uses the parametrized channel only on `listeners`. 
+APIkit for AsyncAPI uses the parametrized channels only on `listeners`. 
