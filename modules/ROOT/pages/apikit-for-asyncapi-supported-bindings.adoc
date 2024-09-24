@@ -3,21 +3,28 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for AsyncAPI supports various bindings to facilitate message-driven architectures.
+APIkit for AsyncAPI supports various bindings to enable message-driven architectures.
 
 [%header%autowidthspread]
 |===
 
 | Connector | Publish | Message Listener | Description | Reference
 
-| AnypointMQ | `destination` | `destination` | The description is optional. It defaults to the channel name. The `destination` (queue or exchange) name for this channel. The description must be specified if the channel name differs from the actual `destination` name. For example, if the channel name is not a valid `destination` name in Anypoint MQ. | See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
+| AnypointMQ | `destination` | `destination` | 
 
-.3+| Solace 
-| deliveryMode | deliveryMode | 'direct' or 'persistent'. This determines the quality of service for publishing messages. Default is 'persistent'. | https://github.com/asyncapi/bindings/blob/master/solace/README.md
+The AnypointMQ connector defaults to using the channel name as the `destination`. The `destination` (queue or exchange) name for this channel must be specified if the channel name differs from the actual `destination` name or if the channel name isn't a valid `destination` name.
 
-| destinationType | destinationType | Currently only ‘queue’ is supported in asynckit EDA. | https://github.com/asyncapi/bindings/blob/master/solace/README.
+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
 
-| N/A | topicSubscriptions | A list of topics that the queue subscribes to, only applicable when destinationType is 'queue'. If none is given, the queue subscribes to the topic as represented by the channel name. | https://github.com/asyncapi/bindings/blob/master/solace/README.md
+.3+| Solace
+
+| `deliveryMode` | `deliveryMode` | The Solace connector operates in `direct` or `persistent` mode. The default mode is `persistent`. The `deliveryMode` parameter determines the quality of service for publishing messages. The `Direct` mode  offers lower latency but doesn't guarantee message delivery. The 'persistent' mode ensures that messages are reliably delivered, even in the event of a broker failure.
+
+| https://github.com/asyncapi/bindings/blob/master/solace/README.md
+
+| `destinationType` | `destinationType` | The Solace connector supports `queue` in APIkit for AsyncAPI. | https://github.com/asyncapi/bindings/blob/master/solace/README.
+
+| N/A | `topicSubscriptions` | The Solace connector specifies the list of topics to which the queue subscribes if the `destinationType` is `queue`. If you specify no topic, the `queue` automatically subscribes to the topic the channel name represents. | https://github.com/asyncapi/bindings/blob/master/solace/README.md
 
 |===
 
