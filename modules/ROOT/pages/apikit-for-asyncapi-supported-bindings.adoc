@@ -12,7 +12,7 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 
 | AnypointMQ | `destination` | `destination` | 
 
-The AnypointMQ connector defaults to using the channel name as the `destination`. The `destination` (queue or exchange) name for this channel must be specified if the channel name differs from the actual `destination` name or if the channel name isn’t a valid `destination` name.
+By default, the AnypointMQ connector uses the channel name as the `destination`. You must specify the `destination` (queue or exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn’t a valid `destination` name.
 
 | See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
 
