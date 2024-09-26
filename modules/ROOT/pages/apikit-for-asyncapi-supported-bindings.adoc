@@ -24,7 +24,7 @@ By default, the AnypointMQ connector uses the channel name as the `destination`.
 
 | `destinationType` | `destinationType` | The Solace connector supports `queue` in APIkit for AsyncAPI. | See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
 
-| N/A | `topicSubscriptions` | The Solace connector specifies the list of topics to which the queue subscribes if the `destinationType` is `queue`. If you specify no topic, the `queue` automatically subscribes to the topic the channel name represents. | See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
+| N/A | `topicSubscriptions` | The Solace connector specifies the list of topics the queue subscribes to when the `destinationType` is `queue`. If you specify no topic, the `queue` automatically subscribes to the topic the channel name represents. | See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
 
 |===
 
