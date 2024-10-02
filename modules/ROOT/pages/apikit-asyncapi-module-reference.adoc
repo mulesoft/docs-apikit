@@ -410,7 +410,7 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Channel Name | String | The name of the Salesforce Pub Sub channel where the message is published or consumed | None | No
+| Channel Name | String | The name of the Salesforce Pub/Sub channel where the message is published or consumed | None | No
 | Channel Parameters | Object | Additional parameters or settings specific to the Salesforce Pub Sub channel | None | No
 | Protocol | String | The protocol the Salesforce Pub Sub server uses | None | No
 | Server Name | String | The name of the Salesforce Pub Sub server that processes the message | None | No
