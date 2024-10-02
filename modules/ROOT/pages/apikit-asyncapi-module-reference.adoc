@@ -43,7 +43,7 @@ Default configuration
 | Kafka Configs | Array of <<KafkaConfig>> | List of Kafka server configurations. One for each Kafka server listed in the specification that is scaffolded to create the app. | None |  No
 | Anypoint MQ Configs | Array of <<AnypointMqConfig>> | List of AMQ configurations. | None | No
 | Solace Configs | Array of <<SolaceConfig>> | List of Solace configurations. | None | No
-| Salesforce Pub Sub Configs | Array of <<SalesforcePubSubConfig>> | List of SalesforcePubSub configurations | None | No
+| Salesforce Pub Sub Configs | Array of <<SalesforcePubSubConfig>> | List of SalesforcePubSub configurations. | None | No
 | Name | String | Identifier of this element used to reference it in other components. | None | Yes
 |===
 
