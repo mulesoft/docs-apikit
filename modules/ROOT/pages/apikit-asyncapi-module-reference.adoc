@@ -405,7 +405,7 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 |===
 
 [[SalesforcePubSubAttributes]]
-=== Salesforce Pub Sub Attributes
+=== Salesforce Pub/Sub Attributes
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
