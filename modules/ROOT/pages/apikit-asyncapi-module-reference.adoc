@@ -60,7 +60,7 @@ Default configuration
 In the `Message Listener` operation, the AsyncAPI spec `defaultContentType` must be application/JSON.
 
 In the `Publish` operation, the payload must be JSON. The APIkit for AsyncAPI module transforms the JSON payload to the array-of-objects type.
-| Solace Pub/Sub+ | Supports the implementation of an Async API specification using the Solace connector. | solace | Connection details are available in the properties file. Supports `Message Listener` and `Publish` operations.
+| Solace PubSub+ | Supports the implementation of an Async API specification using the Solace connector. | solace | Connection details are available in the properties file. Supports `Message Listener` and `Publish` operations.
 |===
 
 +++*+++ You must use *salesforcepubsub* connector 1.0.15 or later.
