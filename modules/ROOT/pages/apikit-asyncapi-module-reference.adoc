@@ -127,7 +127,7 @@ If an operation has multiple message schemas associated in the specification, th
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes
 | Channel Name | String | Channel name | None | Yes 
 | Server Name | String | Server name | None | Yes 
-| Target Variable | String | Name of a variable on which the operation output is placed | None | No 
+| Target Variable | String | Name of a variable in which the operation output is placed | None | No 
 | Target Value | String | Expression that is evaluated against the operation output and the result of that expression is stored in the target variable | #[payload] | No
 | Error Mappings | Array of <<ErrorMapping>> | Set of error mappings | None | No
 |===
