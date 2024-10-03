@@ -48,8 +48,8 @@ Default configuration
 |===
 
 === Supported Message Brokers
-
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+[%header%autowidth.spread]
+[cols=".^20%,.^25%,.^30%,.^25%", options="header"]
 |=== 
 | Message Broker | Description | Supported Protocols | Configuration Details 
 | Anypoint MQ | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports *Message Listener* and *Subscribe* operations. 
