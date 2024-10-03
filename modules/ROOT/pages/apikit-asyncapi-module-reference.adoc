@@ -48,17 +48,21 @@ Default configuration
 |===
 
 === Supported Message Brokers
-[%header%autowidth.spread]
+
 [cols=".^20%,.^25%,.^30%,.^25%", options="header"]
 |=== 
 | Message Broker | Description | Supported Protocols | Configuration Details 
 | Anypoint MQ | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports *Message Listener* and *Subscribe* operations. 
 | Kafka | Supports asynchronous messaging with Apache Kafka. | kafka, kafka-secure | Kafka configurations are specified in the server object of the AsyncAPI specification. Supports *Message Listener* and *Subscribe* operations. 
-| Salesforce platform events | Allows implementing an Async API specification using Salesforce Pub/Sub Connector. | salesforcepubsub* | Connection details are available in the properties file. Supports *Message Listener* and *Subscribe* operations, and *Message Listener* and *Publish* operations.
-| Solace Pub/Sub+ | Supports the implementation of an Async API specification using Solace PubSub+ Connector. | solace | Connection details are available in the properties file. Supports *Message Listener* and *Publish* operations. 
+| Salesforce platform events | Allows implementing an Async API specification using Anypoint Connector for Salesforce Pub/Sub (Salesforce Pub/Sub Connector). | salesforcepubsub* | Connection details are available in the properties file. Supports *Message Listener* and *Subscribe* operations, and *Message Listener* and *Publish* operations. 
+
+In the *Message Listener* operation, the AsyncAPI spec `defaultContentType` must be application/JSON.
+
+In the *Publish* operation, the payload must be JSON. The APIkit for AsyncAPI module transforms the JSON payload to the array-of-objects type.
+| Solace Pub/Sub+ | Supports the implementation of an Async API specification using Solace PubSub+ Connector. | solace | Connection details are available in the properties file. Supports *Message Listener* and *Publish* operations.
 |===
 
-+++*+++ You must use Anypoint Connector for Salesforce Pub/Sub (Salesforce Pub/Sub Connector) 1.0.15 or later.
++++*+++ You must use Anypoint Connector for Salesforce Pub/Sub Connector 1.0.15 or later.
 
 ==== Associated Operations
 * <<Publish>>  
