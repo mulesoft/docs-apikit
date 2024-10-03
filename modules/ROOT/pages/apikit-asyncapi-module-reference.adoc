@@ -34,7 +34,7 @@ Default configuration
 
 ==== Parameters
 
-[%header%autowidthspread]
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Name | String | Name for this configuration. Connectors reference the configuration with this name. | None | Yes
@@ -43,27 +43,26 @@ Default configuration
 | Kafka Configs | Array of <<KafkaConfig>> | List of Kafka server configurations. One for each Kafka server listed in the specification that is scaffolded to create the app. | None |  No
 | Anypoint MQ Configs | Array of <<AnypointMqConfig>> | List of AMQ configurations. | None | No
 | Solace Configs | Array of <<SolaceConfig>> | List of Solace configurations. | None | No
-| Salesforce Pub Sub Configs | Array of <<SalesforcePubSubConfig>> | List of SalesforcePubSub configurations | None | No
+| Salesforce Pub Sub Configs | Array of <<SalesforcePubSubConfig>> | List of SalesforcePubSub configurations. | None | No
 | Name | String | Identifier of this element used to reference it in other components. | None | Yes
 |===
 
 === Supported Message Brokers
 
-[%header%autowidth.spread]
-
+[cols=".^20%,.^25%,.^30%,.^25%", options="header"]
 |=== 
 | Message Broker | Description | Supported Protocols | Configuration Details 
-| Anypoint MQ | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports `Message Listener` and `Subscribe` operations. 
-| Kafka | Supports asynchronous messaging with Apache Kafka. | kafka, kafka-secure | Kafka configurations are specified in the server object of the AsyncAPI specification. Supports `Message Listener` and `Subscribe` operations. 
-| Salesforce platform events | Allows implementing an Async API specification using the Salesforce connector. | salesforcepubsub* | Connection details are available in the properties file. Supports `Message Listener` and `Subscribe` operations, and `Message Listener` and `Publish` operations. 
+| Anypoint MQ | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports *Message Listener* and *Subscribe* operations. 
+| Kafka | Supports asynchronous messaging with Apache Kafka. | kafka, kafka-secure | Kafka configurations are specified in the server object of the AsyncAPI specification. Supports *Message Listener* and *Subscribe* operations. 
+| Salesforce platform events | Allows implementing an Async API specification using Anypoint Connector for Salesforce Pub/Sub (Salesforce Pub/Sub Connector). | salesforcepubsub* | Connection details are available in the properties file. Supports *Message Listener* and *Subscribe* operations, and *Message Listener* and *Publish* operations. 
 
-In the `Message Listener` operation, the AsyncAPI spec `defaultContentType` must be application/JSON.
+In the *Message Listener* operation, the AsyncAPI spec `defaultContentType` must be application/JSON.
 
-In the `Publish` operation, the payload must be JSON. The APIkit for AsyncAPI module transforms the JSON payload to the array-of-objects type.
-| Solace PubSub+ | Supports the implementation of an Async API specification using the Solace connector. | solace | Connection details are available in the properties file. Supports `Message Listener` and `Publish` operations.
+In the *Publish* operation, the payload must be JSON. The APIkit for AsyncAPI module transforms the JSON payload to the array-of-objects type.
+| Solace Pub/Sub+ | Supports the implementation of an Async API specification using Solace PubSub+ Connector. | solace | Connection details are available in the properties file. Supports *Message Listener* and *Publish* operations.
 |===
 
-+++*+++ You must use *salesforcepubsub* connector 1.0.15 or later.
++++*+++ You must use Anypoint Connector for Salesforce Pub/Sub Connector 1.0.15 or later.
 
 ==== Associated Operations
 * <<Publish>>  
@@ -122,7 +121,7 @@ If an operation has multiple message schemas associated in the specification, th
 
 === Parameters
 
-[%header%autowidth.spread]
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | None | Yes
@@ -131,7 +130,7 @@ If an operation has multiple message schemas associated in the specification, th
 | Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes
 | Channel Name | String | Channel name | None | Yes 
 | Server Name | String | Server name | None | Yes 
-| Target Variable | String | Name of a variable on which the operation output is placed | None | No 
+| Target Variable | String | Name of a variable in which the operation output is placed | None | No 
 | Target Value | String | Expression that is evaluated against the operation output and the result of that expression is stored in the target variable | #[payload] | No
 | Error Mappings | Array of <<ErrorMapping>> | Set of error mappings | None | No
 |===
@@ -163,7 +162,7 @@ If an operation has multiple message schemas associated in the specification, th
 
 === Parameters
 
-[%header%autowidth.spread]
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | None | Yes 
@@ -241,21 +240,21 @@ The Server Key is required to uniquely identify the server configuration. Config
 [NOTE]
 The Server Key is required to uniquely identify the server configuration. Config Ref is optional and used to specify additional configuration details.
 
-=== Limitations of Solace Connector
+=== Limitations of Solace PubSub+ Connector
 
-The Solace connector in APIkit for AsyncAPI has the following limitations:
+Solace PubSub+ Connector in APIkit for AsyncAPI has these limitations:
 
-* The Solace Connector supports `queue` and `topic` for `destinations` in the `message listener` and `publish` operations. But the APIkit for AsyncAPI implementation only supports `queue` as `destination`.
+* The Solace PubSub+ Connector supports `queue` and `topic` for `destinations` in the *message listener* and *publish* operations. But the APIkit for AsyncAPI implementation only supports `queue` as `destination`.
 * Only one operator of the same type must be mapped to the same `queue` of `destination`.
 
 [[SalesforcePubSubConfig]]
-=== Salesforce Pub Sub Config
+=== Salesforce Pub/Sub Connector Config
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
 | Server Key | String | Server key set in the AsyncAPI spec | None | Yes
-| Config Ref | String | Reference to the name of the Salesforce pub sub configuration | None | No
+| Config Ref | String | Reference to the name of the Salesforce Pub/Sub Connector configuration | None | No
 |===
 
 [NOTE]
@@ -270,7 +269,7 @@ The Server Key is required to uniquely identify the server configuration. Config
 | Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream data is larger than the buffer capacity, it expands according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | None | No
 | Buffer Size Increment | Number | 
 How much the buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn’t expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | None | No 
-| Max Buffer Size | Number | The maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. |  | 
+| Max Buffer Size | Number | Maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. |  | 
 | Buffer Unit a| Enumeration, one of:
 
 ** BYTE
@@ -353,17 +352,17 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Channel Name | String | The name of the Kafka channel (topic) where the message is published or consumed | None | Yes
+| Channel Name | String | Name of the Kafka channel (topic) where the message is published or consumed | None | Yes
 | Channel Parameters | Object | Additional parameters or settings specific to the channel | None | No
-| Creation Timestamp | DateTime | The timestamp when the message was created | None | No
+| Creation Timestamp | DateTime | Timestamp when the message was created | None | No
 | Headers a| Object | Metadata associated with the message, typically key-value pairs | None | No
 | Key a| String | This key determines the partition within the Kafka topic where the message is sent | None | No
-| Leader Epoch | Number | The epoch of the leader broker at the time the message is sent | None | No
-| Log Append Timestamp | DateTime | The timestamp when the message is appended to the log | None | No
-| Offset a| Number | The message offset in the Kafka topic partition | None | No
-| Partition | Number | The partition within the Kafka topic where the message is stored | None | No
-| Protocol | String | The protocol the Kafka server uses | None | No
-| Server Name | String | The name of the Kafka server that processes the message | None | Yes
+| Leader Epoch | Number | Epoch of the leader broker at the time the message is sent | None | No
+| Log Append Timestamp | DateTime | Timestamp when the message is appended to the log | None | No
+| Offset a| Number | Message offset in the Kafka topic partition | None | No
+| Partition | Number | Partition within the Kafka topic where the message is stored | None | No
+| Protocol | String | Protocol the Kafka server uses | None | No
+| Server Name | String | Name of the Kafka server that processes the message | None | Yes
 |===
 
 [[AnypointMqMessageAttributes]]
@@ -373,15 +372,15 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 |===
 | Field | Type | Description | Default Value | Required
 | Ack Token | String | Token used for acknowledging the receipt of a message | None | No
-| Channel Name | String | The name of the Anypoint MQ channel where the message is published or consumed | None | Yes
+| Channel Name | String | Name of the Anypoint MQ channel where the message is published or consumed | None | Yes
 | Channel Parameters | Object | Additional parameters or settings specific to the channel | None | No
-| Content Type | String | The MIME type of the message content | None | No
-| Delivery Count | Number | The number of times the message is delivered | None | No
+| Content Type | String | MIME type of the message content | None | No
+| Delivery Count | Number | Number of times the message is delivered | None | No
 | Headers | Object | Metadata associated with the message, typically key-value pairs | None | No
 | Message Id | String | Unique identifier for the message | None | Yes
 | Properties | Object | Custom properties associated with the message | None | No
-| Protocol | String | The protocol the Anypoint MQ server uses | None | No
-| Server Name | String | The name of the Anypoint MQ server that processes the message | None | Yes
+| Protocol | String | Protocol the Anypoint MQ server uses | None | No
+| Server Name | String | Name of the Anypoint MQ server that processes the message | None | Yes
 |===
 
 [[SolaceMessageAttributes]]
@@ -391,31 +390,31 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 |===
 | Field | Type | Description | Default Value | Required
 | DMQ Eligible | Boolean | Indicates if the message is eligible for Dead Message Queue | `False` | No
-| Channel Name | String | The name of the Solace channel where the message is published or consumed | None | No
+| Channel Name | String | Name of the Solace channel where the message is published or consumed | None | No
 | Channel Parameters | Object | Additional parameters or settings specific to the Solace channel | None | No
-| Content Type | String | The MIME type of the message content | None | No
-| Delivery Mode | String | The delivery mode of the message | None | No
+| Content Type | String | MIME type of the message content | None | No
+| Delivery Mode | String | Delivery mode of the message | None | No
 | Discard Indication | Boolean | Indicates if the message is discarded | `False` | No
 | Eliding Eligible | Boolean | Indicates if the message is eligible for eliding | `False` | No
-| Endpoint Type | String | The type of endpoint used | None | No
-| Message Reference Id | String | A reference identifier for the message | None | No
-| Priority | Number | The priority level of the message | 0 | No
-| Protocol | String | The protocol the Solace server uses | None | No
-| Receive Timestamp | DateTime | The timestamp when the message was received | None | No
+| Endpoint Type | String | Type of endpoint used | None | No
+| Message Reference Id | String | Reference identifier for the message | None | No
+| Priority | Number | Priority level of the message | 0 | No
+| Protocol | String | Protocol the Solace server uses | None | No
+| Receive Timestamp | DateTime | Timestamp when the message was received | None | No
 | Redelivered | Boolean | Indicates if the message is redelivered | `False` | No
 | Reply | Boolean | Indicates if the message expects a reply | `False` | No
-| Server Name | String | The name of the Solace server that processes the message | None | Yes
-| Time To Live | Number | The time in milliseconds that the message remains valid | 0 | No
+| Server Name | String | Name of the Solace server that processes the message | None | Yes
+| Time To Live | Number | Time in milliseconds that the message remains valid | 0 | No
 |===
 
 [[SalesforcePubSubAttributes]]
-=== Salesforce Pub Sub Attributes
+=== Salesforce Pub/Sub Attributes
 
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Channel Name | String | The name of the Salesforce Pub Sub channel where the message is published or consumed | None | No
-| Channel Parameters | Object | Additional parameters or settings specific to the Salesforce Pub Sub channel | None | No
-| Protocol | String | The protocol the Salesforce Pub Sub server uses | None | No
-| Server Name | String | The name of the Salesforce Pub Sub server that processes the message | None | No
+| Channel Name | String | Name of the Salesforce Pub/Sub channel where the message is published or consumed | None | No
+| Channel Parameters | Object | Additional parameters or settings specific to the Salesforce Pub/Sub channel | None | No
+| Protocol | String | Protocol the Salesforce Pub/Sub server uses | None | No
+| Server Name | String | Name of the Salesforce Pub/Sub server that processes the message | None | No
 |===
