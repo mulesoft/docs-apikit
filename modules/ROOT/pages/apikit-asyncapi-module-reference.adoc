@@ -34,7 +34,7 @@ Default configuration
 
 ==== Parameters
 
-[%header%autowidthspread]
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Name | String | Name for this configuration. Connectors reference the configuration with this name. | None | Yes
@@ -49,8 +49,7 @@ Default configuration
 
 === Supported Message Brokers
 
-[%header%autowidth.spread]
-
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |=== 
 | Message Broker | Description | Supported Protocols | Configuration Details 
 | Anypoint MQ | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports *Message Listener* and *Subscribe* operations. 
@@ -118,7 +117,7 @@ If an operation has multiple message schemas associated in the specification, th
 
 === Parameters
 
-[%header%autowidth.spread]
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | None | Yes
@@ -159,7 +158,7 @@ If an operation has multiple message schemas associated in the specification, th
 
 === Parameters
 
-[%header%autowidth.spread]
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the configuration to use | None | Yes 
