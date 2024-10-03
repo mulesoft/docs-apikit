@@ -239,7 +239,7 @@ The Server Key is required to uniquely identify the server configuration. Config
 
 === Limitations of Solace Connector
 
-The Solace connector in APIkit for AsyncAPI has the following limitations:
+Solace Connector in APIkit for AsyncAPI has these limitations:
 
 * The Solace Connector supports `queue` and `topic` for `destinations` in the *message listener* and *publish* operations. But the APIkit for AsyncAPI implementation only supports `queue` as `destination`.
 * Only one operator of the same type must be mapped to the same `queue` of `destination`.
