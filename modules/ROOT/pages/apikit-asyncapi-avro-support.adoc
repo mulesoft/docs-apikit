@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for AsyncAPI supports Avro, a data serialization system that helps you define the format for specifying the structure and encoding of messages. This module shows you the structure of messages in the design phase. APIkit for AsyncAPI also supports xref:studio::datasense-concept.adoc[DataSense] of messages with Avro schema.
+APIkit for AsyncAPI supports https://avro.apache.org/[Avro], a data serialization system that helps you define the format for specifying the structure and encoding of messages. This module shows you the structure of messages in the design phase. APIkit for AsyncAPI also supports xref:studio::datasense-concept.adoc[DataSense] of messages with Avro schema.
 
 == Schema Definitions
 
