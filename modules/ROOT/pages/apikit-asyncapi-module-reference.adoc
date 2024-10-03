@@ -244,7 +244,7 @@ The Server Key is required to uniquely identify the server configuration. Config
 
 Solace PubSub+ Connector in APIkit for AsyncAPI has these limitations:
 
-* The Solace PubSub+ Connector supports `queue` and `topic` for `destinations` in the *message listener* and *publish* operations. But the APIkit for AsyncAPI implementation only supports `queue` as `destination`.
+* The Solace PubSub+ Connector supports `queue` and `topic` for `destinations` in the *message listener* and *publish* operations. But the APIkit for AsyncAPI implementation only supports using `queue` as the value of `destination`.
 * Only one operator of the same type must be mapped to the same `queue` of `destination`.
 
 [[SalesforcePubSubConfig]]
