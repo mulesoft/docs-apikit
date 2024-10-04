@@ -33,7 +33,7 @@ publish:
           example: 1985-04-12T23:20:50.52Z
 ----
 
-* Reference to an avro fragment
+* Reference to an Avro fragment
 +
 ----
 channels:
@@ -57,7 +57,8 @@ The `lumens.json` file provides the specification in the Avro schema.
   ]
 }
 ----
-APIKit for async API supports only Async APIs where avro messages are defined inline. API specifications that refer to avro fragments are not supported.
+
+APIkit for AsyncAPI supports async APIs that have Avro messages defined inline. APIkit for AsyncAPI doesn't support API specs that refer to Avro fragments.
 
 == Avro Message Encoding and Validation
 
