@@ -1,0 +1,160 @@
+= Supported Bindings and Parametrized Channels in APIkit for AsyncAPI 
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+APIkit for AsyncAPI supports various bindings to enable message-driven architectures.
+
+[%header%autowidthspread]
+|===
+
+| Connector | Publish | Message Listener | Description | Reference
+
+| Anypoint Connector for MQ (Anypoint MQ Connector) | `destination` | `destination` | 
+
+By default, AnypointMQ Connector uses the channel name as the `destination`. You must specify the `destination` (queue or exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn’t a valid `destination` name.
+
+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
+
+.3+| Solace PubSub+ Connector
+
+| `deliveryMode` | `deliveryMode` | Solace PubSub+ Connector operates in `direct` or `persistent` mode. The default mode is `persistent`. The `deliveryMode` parameter determines the quality of service for publishing messages. The `Direct` mode offers lower latency but doesn’t guarantee message delivery. The ‘persistent’ mode ensures that messages are reliably delivered, even in the event of a broker failure.
+
+| See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
+
+| `destinationType` | `destinationType` | Solace PubSub+ Connector supports `queue` in APIkit for AsyncAPI. | See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
+
+| N/A | `topicSubscriptions` | Solace PubSub+ Connector specifies the list of topics the queue subscribes to when the `destinationType` is `queue`. If you specify no topic, the `queue` automatically subscribes to the topic the channel name represents. | See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
+
+|===
+
+[NOTE]
+Anypoint Connector for Apache Kafka (Apache Kafka Connector) and Solace PubSub+ Connector don’t support bindings.
+
+== Parameterized Channels
+
+APIkit for AsyncAPI supports parametrized channels so you can define dynamic and reusable configurations, scale your integrations more effectively, and create consistent configurations across different parts of the integration.
+
+APIkit for AsyncAPI doesn't support parameters if they're defined in a binding. For example, a `destination` in AnypointMQ.
+
+The following code provides a partial API spec example with a parameterized `destination`: 
+
+[source,yaml,linenums]
+----
+channels:
+  orderAcknowledgement:
+    description: new Order Acknowledgment
+    servers: 
+      - anypointMQ
+    bindings:
+      anypointmq:
+        destination: '{env}.rit-amq-asyncapi-poc.orderAcknowledgement'
+        destinationType: queue
+    parameters:
+      env: 
+        $ref: '#/components/parameters/env'
+    publish:
+      operationId: listen-order-ack
+      description: publish a new Order Acknowledgment event to this channel and we will process it
+      message:
+        $ref: '#/components/messages/orderAckMessage'
+----
+
+You must set the parametrized channel at design time. You can't set the parametrized channel at runtime. 
+
+See the complete API example using parametrized channels:
+
+----
+asyncapi: '2.6.0'
+info:
+  title: AMQ-AsyncAPI-PoC
+  version: '1.0.11'
+  description: Proof of Concept for Anypoint MQ AsyncAPI interface
+  contact:
+    name: Data Integrations team
+    email: integrations@rituals.com
+tags:
+  - name: WMS
+    description: Warehouse Management System
+  - name: PoC
+    description: Proof of Concept
+  - name: Order Acknowledgement
+
+servers:
+  anypointMQ:
+    url: https://{region}.anypoint.mulesoft.com/api/{version}/organizations/{organizationId}/environments/{environmentId}
+    protocol: anypointmq
+    protocolVersion: v1
+    description: The Anypoint MQ broker
+    variables:
+      region:
+        $ref: '#/components/serverVariables/region'
+      version:
+        $ref: '#/components/serverVariables/version'
+      organizationId:
+        $ref: '#/components/serverVariables/organizationId'
+      environmentId:
+        $ref: '#/components/serverVariables/environmentId'
+
+channels:
+  orderAcknowledgement:
+    description: new Order Acknowledgment
+    servers: 
+      - anypointMQ
+    bindings:
+      anypointmq:
+        destination: '{env}.rit-amq-asyncapi-poc.orderAcknowledgement'
+        destinationType: queue
+    parameters:
+      env: 
+        $ref: '#/components/parameters/env'
+    publish:
+      operationId: listen-order-ack
+      description: publish a new Order Acknowledgment event to this channel and we will process it
+      message:
+        $ref: '#/components/messages/orderAckMessage'
+
+components:
+  parameters:
+    env:
+      description: The Mule runtime environment 
+      schema:
+        type: string
+        enum:
+          - dev
+          - tst
+          - acc
+          - prd
+        default: tst
+  serverVariables:
+    region:
+      description: The CloudHub region where the endpoint is situated
+      enum:
+        - mq-eu-west-1
+      default: mq-eu-west-1
+    version:
+      description: The version of the Anypoint MQ API
+      enum:
+        - v1
+      default: v1
+    organizationId:
+      description: The identifier of our organization (business group)
+      enum:
+        - fbd3c996-fe4f-4194-9540-af4ba3be84ff
+    environmentId:
+      description: The identifier of the runtime environment within the organization
+      enum:
+        - 586efaf1-2f31-495f-9667-4c565b4fc5aa
+        - 0af0d416-8497-4c65-adac-f951de95443e
+        - 12d54a4f-9e2e-49e5-9e1f-15f4f1145bc9
+      default: 586efaf1-2f31-495f-9667-4c565b4fc5aa
+  messages:
+    orderAckMessage:
+      name: OrderAckMessage
+      description: An order acknowledgment message.
+      payload:
+        $ref: 'schemas/orderAcknowledgement.json'
+----
+
+[NOTE]
+APIkit for AsyncAPI uses the parametrized channels only on `listeners`. 
