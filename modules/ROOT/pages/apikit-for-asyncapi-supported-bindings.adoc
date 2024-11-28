@@ -71,7 +71,7 @@ info:
   version: '1.0.11'
   description: Proof of Concept for Anypoint MQ AsyncAPI interface
   contact:
-    name: Data Integrations team
+    name: Example Company
     email: address@example.com
 tags:
   - name: WMS
@@ -144,7 +144,6 @@ components:
     environmentId:
       description: The identifier of the runtime environment within the organization
       enum:
-
         - a1b2c3d4-5e6f-7g8h-9i0j-1k2l3m4n5o6p
         - b2c3d4e5-6f7g-8h9i-0j1k-2l3m4n5o6p
         - c3d4e5f6-7g8h-9i0j-1k2l-3m4n5o6p
