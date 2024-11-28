@@ -71,7 +71,7 @@ info:
   version: '1.0.11'
   description: Proof of Concept for Anypoint MQ AsyncAPI interface
   contact:
-    name: Data Integrations team
+    name: Example Company
     email: address@example.com
 tags:
   - name: WMS
