@@ -48,7 +48,7 @@ channels:
       - anypointMQ
     bindings:
       anypointmq:
-        destination: '{env}.rit-amq-asyncapi-poc.orderAcknowledgement'
+        destination: '{env}.amq-asyncapi-poc.orderAcknowledgement'
         destinationType: queue
     parameters:
       env: 
@@ -72,7 +72,7 @@ info:
   description: Proof of Concept for Anypoint MQ AsyncAPI interface
   contact:
     name: Data Integrations team
-    email: integrations@rituals.com
+    email: address@example.com
 tags:
   - name: WMS
     description: Warehouse Management System
@@ -103,7 +103,7 @@ channels:
       - anypointMQ
     bindings:
       anypointmq:
-        destination: '{env}.rit-amq-asyncapi-poc.orderAcknowledgement'
+        destination: '{env}.amq-asyncapi-poc.orderAcknowledgement'
         destinationType: queue
     parameters:
       env: 
@@ -140,14 +140,15 @@ components:
     organizationId:
       description: The identifier of our organization (business group)
       enum:
-        - fbd3c996-fe4f-4194-9540-af4ba3be84ff
+        - 7a2b1c3d-4e5f-6g7h-8i9j-0k1l2m3n4o5p
     environmentId:
       description: The identifier of the runtime environment within the organization
       enum:
-        - 586efaf1-2f31-495f-9667-4c565b4fc5aa
-        - 0af0d416-8497-4c65-adac-f951de95443e
-        - 12d54a4f-9e2e-49e5-9e1f-15f4f1145bc9
-      default: 586efaf1-2f31-495f-9667-4c565b4fc5aa
+
+        - a1b2c3d4-5e6f-7g8h-9i0j-1k2l3m4n5o6p
+        - b2c3d4e5-6f7g-8h9i-0j1k-2l3m4n5o6p
+        - c3d4e5f6-7g8h-9i0j-1k2l-3m4n5o6p
+      default: a1b2c3d4-5e6f-7g8h-9i0j-1k2l3m4n5o6p
   messages:
     orderAckMessage:
       name: OrderAckMessage
