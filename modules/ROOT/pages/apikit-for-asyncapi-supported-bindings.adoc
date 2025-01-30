@@ -15,21 +15,21 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 
 |
 
-Destination
+`Destination`
 
-DestinationType
+`DestinationType`
 
-Headers
+`Headers`
 
-| destination
-| destination
-| Optional, defaults to the channel name. The destination (queue or Exchange) name for this channel. SHOULD only be specified if the channel name differs from the actual destination name, such as when the channel name isn't a valid destination name in Anypoint MQ.
-.3+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings]
+| `Destination`
+| `Destination`
+| `Destination` is optional and it defaults to the channel name. This is the `destination` (queue or Exchange) name for this channel. You must specify it if the channel name differs from the actual destination name. For example, if the channel name isn't a valid `destination` name in Anypoint MQ.
+.3+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
 
-| headers
+| `Headers`
 | N/A
 | N/A
-| Optional. A Schema object containing the definitions for Anypoint MQ-specific headers (so-called protocol headers). This schema must be of type object and have a properties key. Examples of Anypoint MQ protocol headers are messageId and messageGroupId.
+| `Headers` is optional. This is a schema object that contains the definitions for Anypoint MQ-specific headers (protocol headers). This schema must be of `type` object and have a `properties` key. Examples of Anypoint MQ protocol headers are `messageId` and `messageGroupId`.
 
 ----
        payload:
@@ -37,7 +37,7 @@ Headers
           properties:
             #...
         correlationId:
-          description: Correlation ID is specified as a header and transmitted in the Anypoint MQ message properties section
+          description: correlation ID is specified as a header and transmitted in the Anypoint MQ message properties section
           location:    $message.header#/correlationId
         bindings:
           anypointmq:
@@ -51,9 +51,9 @@ Headers
 ----
 
 | N/A
-| `destination` 
-| `destination` 
-| By default, Anypoint MQ Connector uses the channel name as the `destination`. You must specify the `destination` (queue or Exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn’t a valid `destination` name.
+| `Destination` 
+| `Destination` 
+| Anypoint MQ Connector uses the channel name as the `destination` by default,. You must specify the `destination` (queue or Exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn't a valid `destination` name.
 |===
 
 === Kafka Connector
@@ -62,26 +62,26 @@ Headers
 |===
 | Binding | Publish | Message Listener | Description | Reference
 
-| Key
-| Key
-| Key
-| The message key.
+| `Key`
+| `Key`
+| `Key`
+| The message `key`.
 .7+| See https://github.com/asyncapi/bindings/blob/master/kafka/README.md[Kafka bindings].
 
-|schemaIdLocation
+| `SchemaIdLocation`
 | N/A
 | N/A
-| If a Schema Registry is used when performing this operation, tells where the ID of the schema is stored (for example, header or payload).
+| If you use a `schema registry` when performing this operation, you can see the location where the ID of the schema is stored (for example, `header` or `payload`).
 
-| schemaIdPayloadEncoding
+| `SchemaIdPayloadEncoding`
 | N/A
 | N/A
-| Number of bytes or vendor-specific values when schema ID is encoded in the payload (for example, confluent/ apicurio-legacy / apicurio-new).
+| Number of bytes or vendor-specific values when schema ID is encoded in the payload (for example, `confluent`, `apicurio-legacy`, or `apicurio-new`).
 
-| schemaLookupStrategy
+| `SchemaLookupStrategy`
 | N/A
 | N/A
-|Freeform string for any naming strategy class to use. Clients must default to the vendor default if not supplied.
+| Freeform string for any naming strategy class to use. Clients must default to the vendor default if not supplied.
 
 [source,xml,linenums]
 ----
@@ -102,13 +102,13 @@ channels:
 ----
 | 
 
-schemaRegistryVendor
+`SchemaRegistryVendor`
 
-Topic
+`Topic`
 
-Partitions
+`Partitions`
 
-Replicas
+`Replicas`
 
 | N/A
 | N/A
@@ -130,7 +130,7 @@ user-signedup:
         bindingVersion: '0.5.0'
 ----
 
-| topicConfiguration
+| `topicConfiguration`
 | N/A
 | N/A
 |
@@ -150,9 +150,9 @@ topicConfiguration:
 
 | 
 
-groupId
+`GroupId`
 
-clientId
+`ClientId`
 | N/A
 | N/A
 | 
@@ -182,15 +182,15 @@ operations:
 | Binding | Publish | Message Listener | Description | Reference
 
 | N/A
-| deliveryMode
-| deliveryMode
-| 'direct' or 'persistent'. This determines the quality of service for publishing messages. Default is 'persistent'.
+| `DeliveryMode`
+| `DeliveryMode`
+| `Direct` or `persistent`. Determines the quality of service for publishing messages. Default value: `persistent`.
 .8+| See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace bindings].
 
 | N/A
-| destinationType
-| destinationType
-| Currently only ‘queue’ is supported in asynckit EDA.
+| `DestinationType`
+| `DestinationType`
+| Only `queue` is currently supported.
 
 | N/A
 | N/A
@@ -220,7 +220,7 @@ operations:
 | dmqEligible
 | N/A
 | N/A
-|Set the message to be eligible to be moved to a Dead Message Queue. The default value is false.
+|Set the message to be eligible to be moved to a Dead Message Queue. The default value is `false`.
 ----
 operations:
   addPerson:
@@ -257,7 +257,7 @@ operations:
 | 
 | `deliveryMode` 
 | `deliveryMode` 
-| Solace PubSub+ Connector operates in `direct` or `persistent` mode. The default mode is `persistent`. The `deliveryMode` parameter determines the quality of service for publishing messages. The `Direct` mode offers lower latency but doesn’t guarantee message delivery. The ‘persistent’ mode ensures that messages are reliably delivered, even in the event of a broker failure.
+| Solace PubSub+ Connector operates in `direct` or `persistent` mode. The default mode is `persistent`. The `deliveryMode` parameter determines the quality of service for publishing messages. The `Direct` mode offers lower latency but doesn't guarantee message delivery. The `persistent` mode ensures that messages are reliably delivered, even in the event of a broker failure.
 .3+| See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace bindings].
 
 |
@@ -273,7 +273,7 @@ operations:
 |===
 
 [NOTE]
-Anypoint Connector for Apache Kafka (Apache Kafka Connector) and Solace PubSub+ Connector don’t support bindings.
+Anypoint Connector for Apache Kafka (Apache Kafka Connector) and Solace PubSub+ Connector don't support bindings.
 
 == Parameterized Channels
 
