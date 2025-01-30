@@ -9,7 +9,7 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 
 === Anypoint Connector for MQ (Anypoint MQ Connector) 
 
-[%header%autowidthspread]
+[%header%autowidthspread,cols="1a,1a,1a,1a,1a"]
 |===
 | Binding | Publish | Message Listener | Description | Reference
 
@@ -60,7 +60,7 @@ headers
 
 === Kafka Connector
 
-[%header%autowidthspread]
+[%header%autowidthspread,cols="1a,1a,1a,1a,1a"]
 |===
 | Binding | Publish | Message Listener | Description | Reference
 
@@ -179,7 +179,7 @@ operations:
 
 === Solace
 
-[%header%autowidthspread,cols="1a,1a,1a,3a,1a"]
+[%header%autowidthspread,cols="1a,1a,1a,1a,1a"]
 |===
 | Binding | Publish | Message Listener | Description | Reference
 |
