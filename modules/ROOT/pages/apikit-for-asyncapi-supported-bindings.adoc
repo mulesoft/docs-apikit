@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for AsyncAPI supports various bindings to enable message-driven architectures, and it also supports parametrized channels to define dynamic and reusable configurations.
+APIkit for AsyncAPI supports various bindings to enable message-driven architectures, and parametrized channels to define dynamic and reusable configurations.
 
 == Supported Bindings
 
@@ -23,13 +23,13 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 
 | `Destination`
 | `Destination`
-| `Destination` is optional and it defaults to the channel name. This is the `destination` (queue or Exchange) name for this channel. You must specify it if the channel name differs from the actual destination name. For example, if the channel name isn't a valid `destination` name in Anypoint MQ.
+| `Destination` (queue or Exchange) name for this channel. It's optional and defaults to the channel name. Specify it if the channel name differs from the actual `destination` name. For example, if the channel name isn't a valid `destination` name in Anypoint MQ.
 .3+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
 
 | `Headers`
 | N/A
 | N/A
-| `Headers` is optional. This is a schema object that contains the definitions for Anypoint MQ-specific headers (protocol headers). This schema must be of `type` object and have a `properties` key. Examples of Anypoint MQ protocol headers are `messageId` and `messageGroupId`.
+| Schema object that contains the definitions for Anypoint MQ-specific headers (protocol headers). It's optional. This schema must be of `type` object and have a `properties` key. For example, `messageId` and `messageGroupId` are protocol headers of Anypoint MQ.
 
 ----
        payload:
@@ -53,7 +53,7 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 | N/A
 | `Destination` 
 | `Destination` 
-| Anypoint MQ Connector uses the channel name as the `destination` by default,. You must specify the `destination` (queue or Exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn't a valid `destination` name.
+| Channel name Anypoint MQ Connector uses by default. You must specify the `destination` (queue or Exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn't a valid `destination` name.
 |===
 
 === Kafka Connector
@@ -65,13 +65,13 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 | `Key`
 | `Key`
 | `Key`
-| The message `key`.
+| Message `key`. 
 .7+| See https://github.com/asyncapi/bindings/blob/master/kafka/README.md[Kafka bindings].
 
 | `SchemaIdLocation`
 | N/A
 | N/A
-| If you use a `schema registry` when performing this operation, you can see the location where the ID of the schema is stored (for example, `header` or `payload`).
+| Location where the ID of the schema is stored (for example, `header` or `payload`) if `schema registry` is used when performing this operation.
 
 | `SchemaIdPayloadEncoding`
 | N/A
@@ -184,43 +184,43 @@ operations:
 | N/A
 | `DeliveryMode`
 | `DeliveryMode`
-| `Direct` or `persistent`. Determines the quality of service for publishing messages. Default value: `persistent`.
+| Quality of service for publishing messages. Values can be `Direct` or `persistent` (default).
 .8+| See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace bindings].
 
 | N/A
 | `DestinationType`
 | `DestinationType`
-| Only `queue` is currently supported.
+| Type of destination for messages, such as `queue` or `topic`. Only `queue` is currently supported.
 
 | N/A
 | N/A
-| topicSubscriptions
-| A list of topics that the queue subscribes to, only applicable when destinationType is 'queue'. If none is given, the queue subscribes to the topic as represented by the channel name.
+| `TopicSubscriptions`
+| List of topics that the queue subscribes to if `destinationType` is `queue`. If none is given, the queue subscribes to the `topic` as represented by the channel name.
 
-| msgVpn
+| `MsgVpn`
 | N/A
 | N/A
-| The VPN name on the Solace broker.
+| VPN name on the Solace broker.
 
-| destinations
+| `Destinations`
 | N/A
 | N/A
-| Destination Objects are described next.
+| Specific queues or topics where messages are sent or received.
 
-| timeToLive
+| `timeToLive`
 | N/A
 | N/A
-| Interval in milliseconds or a Schema Object containing the definition of the lifetime of the message.
+| Interval in milliseconds or a schema object containing the definition of the lifetime of the message.
 
-| priority
+| `priority`
 | N/A
 | N/A
-| The valid priority value range is 0-255 with 0 as the lowest priority and 255 as the highest or a Schema Object containing the definition of the priority.
+| Priority level of a message. Priority value ranges from 0 to 255, where 0 is the lowest priority and 255 is the highest. A schema object containing the definition of the priority is also valid.
 
-| dmqEligible
+| `DmqEligible`
 | N/A
 | N/A
-|Set the message to be eligible to be moved to a Dead Message Queue. The default value is `false`.
+| Eligibility of a message to be moved to a dead-message queue (DMQ). Default value is `false`.
 ----
 operations:
   addPerson:
