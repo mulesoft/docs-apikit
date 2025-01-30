@@ -24,7 +24,7 @@ headers
 | destination
 | destination
 | OPTIONAL, defaults to the channel name. The destination (queue or exchange) name for this channel. SHOULD only be specified if the channel name differs from the actual destination name, such as when the channel name is not a valid destination name in Anypoint MQ.
-| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings]
+.3+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings]
 
 | headers
 | N/A
@@ -49,13 +49,11 @@ headers
             bindingVersion: '0.1.0'
 
 ----
-| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ bindings].
 
 | N/A
 | `destination` 
 | `destination` 
 | By default, Anypoint MQ Connector uses the channel name as the `destination`. You must specify the `destination` (queue or exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn’t a valid `destination` name.
-| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ bindings].
 |===
 
 === Kafka Connector
@@ -182,11 +180,73 @@ operations:
 [%header%autowidthspread,cols="1a,1a,1a,1a,1a"]
 |===
 | Binding | Publish | Message Listener | Description | Reference
-|
-|
-|
-|
-|
+
+| N/A
+| deliveryMode
+| deliveryMode
+| 'direct' or 'persistent'. This determines the quality of service for publishing messages. Default is 'persistent'.
+.8+| See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace bindings]
+
+| N/A
+| destinationType
+| destinationType
+| Currently only ‘queue’ is supported in asynckit EDA.
+
+| N/A
+| N/A
+| topicSubscriptions
+| A list of topics that the queue subscribes to, only applicable when destinationType is 'queue'. If none is given, the queue subscribes to the topic as represented by the channel name.
+
+| msgVpn
+| N/A
+| N/A
+| The Virtual Private Network name on the Solace broker.
+
+| destinations
+| N/A
+| N/A
+| Destination Objects are described next.
+
+| timeToLive
+| N/A
+| N/A
+| Interval in milliseconds or a Schema Object containing the definition of the lifetime of the message.
+
+| priority
+| N/A
+| N/A
+| The valid priority value range is 0-255 with 0 as the lowest priority and 255 as the highest or a Schema Object containing the definition of the priority.
+
+| dmqEligible
+| N/A
+| N/A
+|Set the message to be eligible to be moved to a Dead Message Queue. The default value is false.
+----
+operations:
+  addPerson:
+    action: send
+    channel:
+      $ref: '#/channels/address'
+    messages:
+      - $ref: '#/channels/address/messages/personEvent'
+    bindings:
+      solace:
+        bindingVersion: 0.4.0
+        destinations:
+          - destinationType: queue
+            queue:
+              name: CreatedHREvents
+              topicSubscriptions:
+                - person/*/created
+          - destinationType: queue
+            queue:
+              name: UpdatedHREvents
+              topicSubscriptions:
+                - person/*/updated
+        timeToLive: 5000
+        priority: 120
+        dmqEligible: true
+----
 |===
 
 === Solace PubSub+ Connector
