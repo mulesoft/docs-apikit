@@ -3,22 +3,77 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for AsyncAPI supports various bindings to enable message-driven architectures.
+APIkit for AsyncAPI supports various bindings to enable message-driven architectures, and it also supports parametrized channels to define dynamic and reusable configurations.
 
-[%header%autowidthspread,cols="1a,1a,1a,1a,7a,1a"]
+== Supported Bindings
+
+=== Anypoint Connector for MQ (Anypoint MQ Connector) 
+
+[%header%autowidthspread,cols="1a,1a,1a,7a,1a"]
 |===
-
-| Connector | Binding | Publish | Message Listener | Description | Reference
-
-| Anypoint Connector for MQ (Anypoint MQ Connector) 
-| 
+| Binding | Publish | Message Listener | Description | Reference
+| N/A
 | `destination` 
 | `destination` 
 | By default, AnypointMQ Connector uses the channel name as the `destination`. You must specify the `destination` (queue or exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn’t a valid `destination` name.
 | See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
+|===
 
-.3+| Solace PubSub+ Connector
+=== Kafka Connector
 
+[%header%autowidthspread,cols="1a,1a,1a,7a,1a"]
+|===
+| Binding | Publish | Message Listener | Description | Reference
+| key
+| key
+| key
+| The message key.
+.4+| https://github.com/asyncapi/bindings/blob/master/kafka/README.md
+
+|schemaIdLocation
+| N/A
+| N/A
+| If a Schema Registry is used when performing this operation, tells where the id of schema is stored (e.g. header or payload).
+| 
+
+| schemaIdPayloadEncoding
+| N/A
+| N/A
+| Number of bytes or vendor-specific values when schema id is encoded in the payload (e.g confluent/ apicurio-legacy / apicurio-new).
+| 
+
+| schemaLookupStrategy
+| N/A
+| N/A
+|Freeform string for any naming strategy class to use. Clients should default to the vendor default if not supplied.
+
+[source,xml,linenums]
+----
+...
+channels:
+  test:
+    address: test-topic
+    messages:
+      testMessage:
+        bindings:
+          kafka:
+            key:
+              type: string
+              enum: ['myKey']
+            schemaIdLocation: 'payload'
+            schemaIdPayloadEncoding: 'apicurio-new'
+            schemaLookupStrategy: 'TopicIdStrategy'
+            bindingVersion: '0.5.0'
+...
+----
+| https://github.com/asyncapi/bindings/blob/master/kafka/README.md
+|===
+
+=== Solace PubSub+ Connector
+
+[%header%autowidthspread,cols="1a,1a,1a,7a,1a"]
+|===
+| Binding | Publish | Message Listener | Description | Reference
 | 
 | `deliveryMode` 
 | `deliveryMode` 
