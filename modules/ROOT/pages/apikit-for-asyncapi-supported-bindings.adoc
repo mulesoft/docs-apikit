@@ -16,7 +16,7 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 | `destination` 
 | `destination` 
 | By default, AnypointMQ Connector uses the channel name as the `destination`. You must specify the `destination` (queue or exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn’t a valid `destination` name.
-| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ bindings].
 |===
 
 === Kafka Connector
@@ -29,7 +29,7 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 | key
 | key
 | The message key.
-.7+| https://github.com/asyncapi/bindings/blob/master/kafka/README.md
+.7+| See https://github.com/asyncapi/bindings/blob/master/kafka/README.md[Kafka bindings].
 
 |schemaIdLocation
 | N/A
@@ -147,19 +147,17 @@ operations:
 | `deliveryMode` 
 | `deliveryMode` 
 | Solace PubSub+ Connector operates in `direct` or `persistent` mode. The default mode is `persistent`. The `deliveryMode` parameter determines the quality of service for publishing messages. The `Direct` mode offers lower latency but doesn’t guarantee message delivery. The ‘persistent’ mode ensures that messages are reliably delivered, even in the event of a broker failure.
-| See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
+.3+| See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace bindings].
 
 |
 | `destinationType` 
 | `destinationType` 
 | Solace PubSub+ Connector supports `queue` in APIkit for AsyncAPI. 
-| See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
 
 |
 | N/A 
 | `topicSubscriptions` 
 | Solace PubSub+ Connector specifies the list of topics the queue subscribes to when the `destinationType` is `queue`. If you specify no topic, the `queue` automatically subscribes to the topic the channel name represents. 
-| See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
 
 |===
 
