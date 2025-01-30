@@ -9,19 +9,58 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 
 === Anypoint Connector for MQ (Anypoint MQ Connector) 
 
-[%header%autowidthspread,cols="1a,1a,1a,7a,1a"]
+[%header%autowidthspread,cols="1a,1a,1a,3a,1a"]
 |===
 | Binding | Publish | Message Listener | Description | Reference
+
+|
+
+destination
+
+destinationType
+
+headers
+
+| destination
+| destination
+| OPTIONAL, defaults to the channel name. The destination (queue or exchange) name for this channel. SHOULD only be specified if the channel name differs from the actual destination name, such as when the channel name is not a valid destination name in Anypoint MQ.
+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings]
+
+| headers
+| N/A
+| N/A
+| OPTIONAL. A Schema object containing the definitions for Anypoint MQ-specific headers (so-called protocol headers). This schema MUST be of type object and have a properties key. Examples of Anypoint MQ protocol headers are messageId and messageGroupId.
+
+----
+       payload:
+          type: object
+          properties:
+            #...
+        correlationId:
+          description: Correlation ID is specified as a header and transmitted in the Anypoint MQ message properties section
+          location:    $message.header#/correlationId
+        bindings:
+          anypointmq:
+            headers:
+              type: object
+              properties:
+                messageId:
+                  type: string
+            bindingVersion: '0.1.0'
+
+----
+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ bindings].
+
 | N/A
 | `destination` 
 | `destination` 
-| By default, AnypointMQ Connector uses the channel name as the `destination`. You must specify the `destination` (queue or exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn’t a valid `destination` name.
+| By default, Anypoint MQ Connector uses the channel name as the `destination`. You must specify the `destination` (queue or exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn’t a valid `destination` name.
 | See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ bindings].
 |===
 
 === Kafka Connector
 
-[%header%autowidthspread,cols="1a,1a,1a,7a,1a"]
+[%header%autowidthspread,cols="1a,1a,1a,3a,1a"]
 |===
 | Binding | Publish | Message Listener | Description | Reference
 
@@ -138,9 +177,21 @@ operations:
 ----
 |===
 
+=== Solace
+
+[%header%autowidthspread,cols="1a,1a,1a,3a,1a"]
+|===
+| Binding | Publish | Message Listener | Description | Reference
+|
+|
+|
+|
+|
+|===
+
 === Solace PubSub+ Connector
 
-[%header%autowidthspread,cols="1a,1a,1a,7a,1a"]
+[%header%autowidthspread,cols="1a,1a,1a,3a,1a"]
 |===
 | Binding | Publish | Message Listener | Description | Reference
 | 
