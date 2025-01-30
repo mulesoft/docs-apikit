@@ -24,23 +24,22 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 [%header%autowidthspread,cols="1a,1a,1a,7a,1a"]
 |===
 | Binding | Publish | Message Listener | Description | Reference
+
 | key
 | key
 | key
 | The message key.
-.4+| https://github.com/asyncapi/bindings/blob/master/kafka/README.md
+.7+| https://github.com/asyncapi/bindings/blob/master/kafka/README.md
 
 |schemaIdLocation
 | N/A
 | N/A
-| If a Schema Registry is used when performing this operation, tells where the id of schema is stored (e.g. header or payload).
-| 
+| If a Schema Registry is used when performing this operation, tells where the id of the schema is stored (e.g. header or payload).
 
 | schemaIdPayloadEncoding
 | N/A
 | N/A
 | Number of bytes or vendor-specific values when schema id is encoded in the payload (e.g confluent/ apicurio-legacy / apicurio-new).
-| 
 
 | schemaLookupStrategy
 | N/A
@@ -49,7 +48,6 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 
 [source,xml,linenums]
 ----
-...
 channels:
   test:
     address: test-topic
@@ -64,9 +62,80 @@ channels:
             schemaIdPayloadEncoding: 'apicurio-new'
             schemaLookupStrategy: 'TopicIdStrategy'
             bindingVersion: '0.5.0'
-...
 ----
-| https://github.com/asyncapi/bindings/blob/master/kafka/README.md
+| 
+
+schemaRegistryVendor
+
+Topic
+
+Partitions
+
+Replicas
+
+| N/A
+| N/A
+|  
+[source,xml,linenums]
+----
+user-signedup:
+    bindings:
+      kafka:
+        topic: 'my-specific-topic-name'
+        partitions: 20
+        replicas: 3
+        topicConfiguration:
+          cleanup.policy: ["delete", "compact"]
+          retention.ms: 604800000
+          retention.bytes: 1000000000
+          delete.retention.ms: 86400000
+          max.message.bytes: 1048588
+        bindingVersion: '0.5.0'
+----
+
+| topicConfiguration
+| N/A
+| N/A
+|
+[source,xml,linenums]
+----
+topicConfiguration:
+  cleanup.policy: ["delete", "compact"]
+  retention.ms: 604800000
+  retention.bytes: 1000000000
+  delete.retention.ms: 86400000
+  max.message.bytes: 1048588
+  confluent.key.schema.validation: true
+  confluent.key.subject.name.strategy: "TopicNameStrategy"
+  confluent.value.schema.validation: true
+  confluent.value.subject.name.strategy: "TopicNameStrategy"
+----
+
+| 
+
+groupId
+
+clientId
+| N/A
+| N/A
+| 
+[source,xml,linenums]
+----
+channels:
+  user-signedup:
+operations:
+  userSignup:
+    action: receive
+    bindings:
+      kafka:
+        groupId:
+          type: string
+          enum: ['myGroupId']
+        clientId:
+          type: string
+          enum: ['myClientId']
+        bindingVersion: '0.5.0'
+----
 |===
 
 === Solace PubSub+ Connector
