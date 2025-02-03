@@ -132,7 +132,7 @@ operations:
 | `destinationType` 
 | Solace PubSub+ Connector supports `queue` in APIkit for AsyncAPI. 
 
-|
+|`topicSubscriptions`
 | N/A 
 | `topicSubscriptions` 
 | Solace PubSub+ Connector specifies the list of topics the queue subscribes to when the `destinationType` is `queue`. If you specify no topic, the `queue` automatically subscribes to the topic the channel name represents. 
