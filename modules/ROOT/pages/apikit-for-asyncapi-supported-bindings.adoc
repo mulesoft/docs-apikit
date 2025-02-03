@@ -121,7 +121,7 @@ operations:
 [%header%autowidthspread,cols="1a,1a,1a,3a,1a"]
 |===
 | Binding | Publish | Message Listener | Description | Reference
-| 
+| `deliveryMode`
 | `deliveryMode` 
 | `deliveryMode` 
 | Solace PubSub+ Connector operates in `direct` or `persistent` mode. The default mode is `persistent`. The `deliveryMode` parameter determines the quality of service for publishing messages. The `Direct` mode offers lower latency but doesn't guarantee message delivery. The `persistent` mode ensures that messages are reliably delivered, even in the event of a broker failure.
