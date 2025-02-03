@@ -22,7 +22,11 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 |`DestinationType`
 |`DestinationType`
 |`DestinationType`
-| `DestinationType` (queue or exchange) name for this channel. It's optional and defaults to `queue`. Specify it if `exchange` is needed instead of a `queue`.
+| Type of destination (queue or exchange, or FIFO queue). It's optional and defaults to `queue`. Specifies the messaging model supported by this channel:
+
+* Publish/subscribe
+* Point-to-point
+* Strict message ordering
 |===
 
 === Kafka Connector
