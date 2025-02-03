@@ -13,47 +13,16 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 |===
 | Binding | Publish | Message Listener | Description | Reference
 
-|
-
-`Destination`
-
-`DestinationType`
-
-`Headers`
-
 | `Destination`
 | `Destination`
-| `Destination` (queue or Exchange) name for this channel. It's optional and defaults to the channel name. Specify it if the channel name differs from the actual `destination` name. For example, if the channel name isn't a valid `destination` name in Anypoint MQ.
-.3+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
+| `Destination`
+| `Destination` (queue or exchange) name for this channel. It's optional and defaults to the channel name. Specify it if the channel name differs from the actual `destination` name. For example, if the channel name isn't a valid `destination` name in Anypoint MQ.
+.2+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
 
-| `Headers`
-| N/A
-| N/A
-| Schema object that contains the definitions for Anypoint MQ-specific headers (protocol headers). It's optional. This schema must be of `type` object and have a `properties` key. For example, `messageId` and `messageGroupId` are protocol headers of Anypoint MQ.
-
-----
-       payload:
-          type: object
-          properties:
-            #...
-        correlationId:
-          description: correlation ID is specified as a header and transmitted in the Anypoint MQ message properties section
-          location:    $message.header#/correlationId
-        bindings:
-          anypointmq:
-            headers:
-              type: object
-              properties:
-                messageId:
-                  type: string
-            bindingVersion: '0.1.0'
-
-----
-
-| N/A
-| `Destination` 
-| `Destination` 
-| Channel name Anypoint MQ Connector uses by default. You must specify the `destination` (queue or Exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn't a valid `destination` name.
+|`DestinationType`
+|`DestinationType`
+|`DestinationType`
+| `DestinationType` (queue or exchange) name for this channel. It's optional and defaults to `queue`. Specify it if `exchange` is needed instead of a `queue`.
 |===
 
 === Kafka Connector
@@ -66,113 +35,7 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 | `Key`
 | `Key`
 | Message `key`. 
-.7+| See https://github.com/asyncapi/bindings/blob/master/kafka/README.md[Kafka bindings].
-
-| `SchemaIdLocation`
-| N/A
-| N/A
-| Location where the ID of the schema is stored (for example, `header` or `payload`) if `schema registry` is used when performing this operation.
-
-| `SchemaIdPayloadEncoding`
-| N/A
-| N/A
-| Number of bytes or vendor-specific values when schema ID is encoded in the payload (for example, `confluent`, `apicurio-legacy`, or `apicurio-new`).
-
-| `SchemaLookupStrategy`
-| N/A
-| N/A
-| Freeform string for any naming strategy class to use. Clients must default to the vendor default if not supplied.
-
-[source,xml,linenums]
-----
-channels:
-  test:
-    address: test-topic
-    messages:
-      testMessage:
-        bindings:
-          kafka:
-            key:
-              type: string
-              enum: ['myKey']
-            schemaIdLocation: 'payload'
-            schemaIdPayloadEncoding: 'apicurio-new'
-            schemaLookupStrategy: 'TopicIdStrategy'
-            bindingVersion: '0.5.0'
-----
-| 
-
-`SchemaRegistryVendor`
-
-`Topic`
-
-`Partitions`
-
-`Replicas`
-
-| N/A
-| N/A
-|  
-[source,xml,linenums]
-----
-user-signedup:
-    bindings:
-      kafka:
-        topic: 'my-specific-topic-name'
-        partitions: 20
-        replicas: 3
-        topicConfiguration:
-          cleanup.policy: ["delete", "compact"]
-          retention.ms: 604800000
-          retention.bytes: 1000000000
-          delete.retention.ms: 86400000
-          max.message.bytes: 1048588
-        bindingVersion: '0.5.0'
-----
-
-| `topicConfiguration`
-| N/A
-| N/A
-|
-[source,xml,linenums]
-----
-topicConfiguration:
-  cleanup.policy: ["delete", "compact"]
-  retention.ms: 604800000
-  retention.bytes: 1000000000
-  delete.retention.ms: 86400000
-  max.message.bytes: 1048588
-  confluent.key.schema.validation: true
-  confluent.key.subject.name.strategy: "TopicNameStrategy"
-  confluent.value.schema.validation: true
-  confluent.value.subject.name.strategy: "TopicNameStrategy"
-----
-
-| 
-
-`GroupId`
-
-`ClientId`
-| N/A
-| N/A
-| 
-[source,xml,linenums]
-----
-channels:
-  user-signedup:
-operations:
-  userSignup:
-    action: receive
-    bindings:
-      kafka:
-        groupId:
-          type: string
-          enum: ['myGroupId']
-        clientId:
-          type: string
-          enum: ['myClientId']
-        bindingVersion: '0.5.0'
-----
+| See https://github.com/asyncapi/bindings/blob/master/kafka/README.md[Kafka bindings].
 |===
 
 === Solace
