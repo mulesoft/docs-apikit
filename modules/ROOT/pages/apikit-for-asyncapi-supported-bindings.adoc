@@ -38,7 +38,7 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 | `Key`
 | `Key`
 | `Key`
-| Message `key`. 
+| Key associated with the message in this channel. It's optional and defaults to `no key`. Specifies if the message requires a specific key for partitioning or message grouping. 
 | See https://github.com/asyncapi/bindings/blob/master/kafka/README.md[Kafka bindings].
 |===
 
