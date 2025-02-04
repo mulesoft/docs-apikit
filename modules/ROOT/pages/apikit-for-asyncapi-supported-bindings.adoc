@@ -3,33 +3,70 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for AsyncAPI supports various bindings to enable message-driven architectures.
+APIkit for AsyncAPI supports various bindings to enable message-driven architectures, and parametrized channels to define dynamic and reusable configurations.
 
-[%header%autowidthspread]
+== Supported Bindings
+
+=== Anypoint Connector for MQ (Anypoint MQ Connector) 
+
+[%header%autowidthspread,cols="1a,1a,1a,1a,1a"]
+|===
+| Binding | Publish | Message Listener | Description | Reference
+
+| `Destination`
+| `Destination`
+| `Destination`
+| `Destination` (queue or exchange) name for this channel. It's optional and defaults to the channel name. Specify it if the channel name differs from the actual `destination` name. For example, if the channel name isn't a valid `destination` name in Anypoint MQ.
+.2+| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
+
+|`DestinationType`
+|`DestinationType`
+|`DestinationType`
+| Type of destination (queue or exchange, or FIFO queue). It's optional and defaults to `queue`. Specifies the messaging model supported by this channel:
+
+* Publish/subscribe
+* Point-to-point
+* Strict message ordering
 |===
 
-| Connector | Publish | Message Listener | Description | Reference
+=== Kafka Connector
 
-| Anypoint Connector for MQ (Anypoint MQ Connector) | `destination` | `destination` | 
+[%header%autowidthspread,cols="1a,1a,1a,1a,1a"]
+|===
+| Binding | Publish | Message Listener | Description | Reference
 
-By default, AnypointMQ Connector uses the channel name as the `destination`. You must specify the `destination` (queue or exchange) name if the channel name differs from the actual `destination` name, or if the channel name isn’t a valid `destination` name.
+| `Key`
+| `Key`
+| `Key`
+| Key associated with the message in this channel. It's optional and defaults to `no key`. Specifies if the message requires a specific key for partitioning or message grouping. 
+| See https://github.com/asyncapi/bindings/blob/master/kafka/README.md[Kafka bindings].
+|===
 
-| See https://github.com/asyncapi/bindings/blob/b1e7736071ccddc6c3d652bb2071cad4549f8a08/anypointmq/README.md[Anypoint MQ Bindings].
+=== Solace PubSub+ Connector
 
-.3+| Solace PubSub+ Connector
+[%header%autowidthspread,cols="1a,1a,1a,3a,1a"]
+|===
+| Binding | Publish | Message Listener | Description | Reference
+| `deliveryMode`
+| `deliveryMode` 
+| `deliveryMode` 
+| Solace PubSub+ Connector operates in `direct` or `persistent` mode. The default mode is `persistent`. The `deliveryMode` parameter determines the quality of service for publishing messages. The `Direct` mode offers lower latency but doesn't guarantee message delivery. The `persistent` mode ensures that messages are reliably delivered, even in the event of a broker failure.
+.3+| See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace bindings].
 
-| `deliveryMode` | `deliveryMode` | Solace PubSub+ Connector operates in `direct` or `persistent` mode. The default mode is `persistent`. The `deliveryMode` parameter determines the quality of service for publishing messages. The `Direct` mode offers lower latency but doesn’t guarantee message delivery. The ‘persistent’ mode ensures that messages are reliably delivered, even in the event of a broker failure.
+|`destinationType`
+| `destinationType` 
+| `destinationType` 
+| Solace PubSub+ Connector supports `queue` in APIkit for AsyncAPI. 
 
-| See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
-
-| `destinationType` | `destinationType` | Solace PubSub+ Connector supports `queue` in APIkit for AsyncAPI. | See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
-
-| N/A | `topicSubscriptions` | Solace PubSub+ Connector specifies the list of topics the queue subscribes to when the `destinationType` is `queue`. If you specify no topic, the `queue` automatically subscribes to the topic the channel name represents. | See https://github.com/asyncapi/bindings/blob/master/solace/README.md[Solace Bindings].
+|`topicSubscriptions`
+| N/A 
+| `topicSubscriptions` 
+| Solace PubSub+ Connector specifies the list of topics the queue subscribes to when the `destinationType` is `queue`. If you specify no topic, the `queue` automatically subscribes to the topic the channel name represents. 
 
 |===
 
 [NOTE]
-Anypoint Connector for Apache Kafka (Apache Kafka Connector) and Solace PubSub+ Connector don’t support bindings.
+Anypoint Connector for Apache Kafka (Apache Kafka Connector) and Solace PubSub+ Connector don't support bindings.
 
 == Parameterized Channels
 
@@ -37,7 +74,7 @@ APIkit for AsyncAPI supports parametrized channels so you can define dynamic and
 
 APIkit for AsyncAPI doesn't support parameters if they're defined in a binding. For example, a `destination` in AnypointMQ.
 
-The following code provides a partial API spec example with a parameterized `destination`: 
+This code provides a partial API spec example with a parameterized `destination`: 
 
 [source,yaml,linenums]
 ----
@@ -128,21 +165,21 @@ components:
         default: tst
   serverVariables:
     region:
-      description: The CloudHub region where the endpoint is situated
+      description: the CloudHub region where the endpoint is situated
       enum:
         - mq-eu-west-1
       default: mq-eu-west-1
     version:
-      description: The version of the Anypoint MQ API
+      description: the version of the Anypoint MQ API
       enum:
         - v1
       default: v1
     organizationId:
-      description: The identifier of our organization (business group)
+      description: the identifier of our organization (business group)
       enum:
         - 7a2b1c3d-4e5f-6g7h-8i9j-0k1l2m3n4o5p
     environmentId:
-      description: The identifier of the runtime environment within the organization
+      description: the identifier of the runtime environment within the organization
       enum:
         - a1b2c3d4-5e6f-7g8h-9i0j-1k2l3m4n5o6p
         - b2c3d4e5-6f7g-8h9i-0j1k-2l3m4n5o6p
@@ -151,7 +188,7 @@ components:
   messages:
     orderAckMessage:
       name: OrderAckMessage
-      description: An order acknowledgment message.
+      description: an order acknowledgment message.
       payload:
         $ref: 'schemas/orderAcknowledgement.json'
 ----
