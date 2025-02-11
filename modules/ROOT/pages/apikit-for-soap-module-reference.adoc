@@ -202,26 +202,3 @@ APIkit for SOAP Router
 | Additional Transport Data | Object | Additional transport data bundled in the response |  | 
 |===
 
-== Supported Characters
-
-APIkit for SOAP supports a variety of characters, including alphanumeric, special, Unicode, and C0 control characters. To ensure proper encoding and XML compliance, certain characters must be escaped. APIkit for SOAP supports these characters:
-
-[cols="1,2", options="header"]
-|===
-| Character Type | Description
-
-| Alphanumeric Characters
-| A-Z, a-z, 0-9
-
-| Special Characters
-| Common special characters such as !, @, #, $, %, ^, &, *, (, ), -, _, =, +, [, ], {, }, \|, \, ;, :, ', ", ,, ., <, >, /, ?, ~, and \. 
-
-| Unicode Characters
-| Characters from various languages and scripts, including Chinese, Japanese, Korean (CJK), Cyrillic, Greek, Arabic, Devanagari, and others.
-
-| C0 Control Characters
-| Control characters such as `NULL` (`\u0000`), `START OF HEADING` (`\u0001`), `START OF TEXT` (`\u0002`), and others. Verify that they are properly encoded to ensure XML compliance.
-
-| Escaped Characters
-| Special XML characters like `<`, `>`, `&`, `"`, and `'` must be escaped using their respective entity references: `&lt;`, `&gt;`, `&amp;`, `&quot;`, and `&apos;`
-|===
