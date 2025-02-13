@@ -12,11 +12,7 @@ APIkit for SOAP is a framework for simplifying the development and integration o
 * Automates the binding to WSDL (Web Services Description Language), reducing manual configuration efforts and ensuring accuracy.
 * Supports data transformations.
 * Defines and exposes SOAP APIs with ease by emphasizing SOAP/WSDL contracts. 
-
-=== Supported Characters
-
-APIkit for SOAP supports XML 1.0 characters by default.
-To support XML 1.1 characters, including CO characters, you must configure the system property `mule.soapkit.allowControlCharacters` to `true`.
+* Supports XML 1.0 characters by default and XML 1.1 characters, including CO characters, through the xref:apikit-4-xml-reference.adoc#apikit-for-soap-system-properties[system property].
 
 == See Also
 
