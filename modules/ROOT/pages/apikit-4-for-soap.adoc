@@ -15,24 +15,8 @@ APIkit for SOAP is a framework for simplifying the development and integration o
 
 === Supported Characters
 
-APIkit for SOAP supports a variety of characters, including alphanumeric, special, Unicode, and C0 control characters. To ensure proper encoding and XML compliance, certain characters must be escaped. APIkit for SOAP supports these characters:
-
-[cols="1,2", options="header"]
-|===
-| Character Type | Description
-
-| Alphanumeric Characters
-| A-Z, a-z, 0-9
-
-| Special Characters
-| Common special characters such as !, @, #, $, %, ^, &, *, (, ), -, _, =, +, [, ], {, }, \|, \, ;, :, ', ", ,, ., <, >, /, ?, ~, and \. 
-
-| C0 Control Characters
-| Control characters such as `NULL` (`\u0000`), `START OF HEADING` (`\u0001`), `START OF TEXT` (`\u0002`), and others. Verify that they are properly encoded to ensure XML compliance.
-| Escaped Characters
-| Special XML characters like `<`, `>`, `&`, `"`, and `'` must be escaped using their respective entity references: `&lt;`, `&gt;`, `&amp;`, `&quot;`, and `&apos;`
-|===
-
+APIkit for SOAP supports XML 1.0 characters by default.
+To support XML 1.1 characters, including CO characters, you must configure the system property `mule.soapkit.allowControlCharacters` to `true`.
 
 == See Also
 
