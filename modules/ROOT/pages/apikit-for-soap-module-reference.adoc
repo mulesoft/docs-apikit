@@ -201,3 +201,11 @@ APIkit for SOAP Router
 | Protocol Headers | Object | Protocol headers bundled in the response |  | 
 | Additional Transport Data | Object | Additional transport data bundled in the response |  | 
 |===
+
+=== APIkit for SOAP System Properties
+
+[%header, cols="1a,2a, 3a, 4a"]
+|===
+| System Property | Default | Description | Since
+| `mule.soapkit.allowControlCharacters` | false | Enables the use of XML 1.1 C0 characters. | 1.3.0
+|===
