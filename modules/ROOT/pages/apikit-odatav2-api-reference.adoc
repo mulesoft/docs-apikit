@@ -1,4 +1,4 @@
-= APIkit for OData v2 API Reference
+= Defining EDM with RAML in APIkit for OData v2
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
