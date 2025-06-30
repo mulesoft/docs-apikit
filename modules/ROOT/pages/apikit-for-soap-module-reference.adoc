@@ -14,7 +14,7 @@ Configuration element for a *SOAP Router*
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Name | String | Connectors use this configuration name to reference its configuration. | // TODO: complete this cell | *x*
+| Name | String | Connectors use this configuration name to reference its configuration. | // TODO: complete this cell | Yes
 | Soap Version | Enumeration, one of:
 
 * SOAP11
@@ -35,9 +35,9 @@ Configuration element for a *SOAP Router*
 | HTTP Status Var Name | String | Variable name for the HTTP status. | `httpStatus` | 
 | Namespace Prefixes | Object | Map of custom namespaces prefixes to specify in response. | // TODO: complete this cell | 
 | Expiration Policy | xref:apikit-for-soap-module-reference.adoc#expiration-policy[Expiration Policy] | Configures the minimum amount of time that a dynamic configuration instance can remain idle before the run-time considers it eligible for expiration. The platform does not necessarily expire the instance at the exact moment that it becomes eligible. The run-time purges the instances when it considers it appropriate. | // TODO: complete this cell | 
-| WSDL Location | String | WSDL file URL, remote or local. | // TODO: complete this cell | *x*
-| Service | String | Name of the service. | // TODO: complete this cell | *x*
-| Port | String | Name of the port. | // TODO: complete this cell | *x*
+| WSDL Location | String | WSDL file URL, remote or local. | // TODO: complete this cell | Yes
+| Service | String | Name of the service. | // TODO: complete this cell | Yes
+| Port | String | Name of the port. | // TODO: complete this cell | Yes
 |===
 
 ==== Associated Operations
@@ -59,7 +59,7 @@ APIkit for SOAP Fault
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration. | // TODO: complete this cell | *x*
+| Configuration | String | Name of the configuration. | // TODO: complete this cell | Yes
 | Payload | Binary | Mule payload. |  #[payload] | 
 | Streaming Strategy | 
 
@@ -68,10 +68,10 @@ APIkit for SOAP Fault
 * xref:apikit-for-soap-module-reference.adoc#repeatable-file-store-stream[Repeatable file store stream]
 
 * Non repeatable stream | Configure if repeatable streams and their behavior are used. | Non repeatable stream | 
-| Operation | String | An operation defined in the WSDL. | // TODO: complete this cell | *x*
-| Fault | String | A fault defined in the selected operation. | // TODO: complete this cell | *x*
-| Target Variable | String | Name of a variable on which the operation output is placed. | // TODO: complete this cell | 
-| Target Value | String | Expression that is evaluated against the operation output. The effect of the expression is stored in the target variable. |  #[payload] | 
+| Operation | String | An operation defined in the WSDL. | // TODO: complete this cell | Yes
+| Fault | String | A fault defined in the selected operation. | // TODO: complete this cell | Yes
+| Target Variable | String | Name of a variable on which the operation output is placed. | // TODO: complete this cell | // TODO: complete this cell
+| Target Value | String | Expression that is evaluated against the operation output. The effect of the expression is stored in the target variable. |  #[payload] | // TODO: complete this cell
 |===
 
 ==== Output
@@ -100,9 +100,9 @@ APIkit for SOAP Router
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration. | // TODO: complete this cell | *x*
+| Configuration | String | Name of the configuration. | // TODO: complete this cell | Yes
 | Message | Binary | Mule payload. |  #[payload] | 
-| Attributes | Object | Map of Mule message attributes. | // TODO: complete this cell | *x*
+| Attributes | Object | Map of Mule message attributes. | // TODO: complete this cell | Yes
 | Output Mime Type | String | MIME type of the payload that this operation outputs. | // TODO: complete this cell | // TODO: complete this cell
 | Output Encoding | String | Encoding of the payload that this operation outputs. | // TODO: complete this cell | // TODO: complete this cell
 | Streaming Strategy | 

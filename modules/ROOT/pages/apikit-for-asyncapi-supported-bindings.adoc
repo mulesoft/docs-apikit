@@ -59,7 +59,7 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 | Solace PubSub+ Connector supports `queue` in APIkit for AsyncAPI. 
 
 |`topicSubscriptions`
-| N/A 
+| Not available
 | `topicSubscriptions` 
 | Solace PubSub+ Connector specifies the list of topics the queue subscribes to when the `destinationType` is `queue`. If you specify no topic, the `queue` automatically subscribes to the topic the channel name represents. 
 
