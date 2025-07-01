@@ -400,7 +400,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Entity Set Name | String | Name of the requested entity set. | `#[attributes.entitySetName]` |
+| Entity Set Name | String | Name of the requested entity set. | `#[attributes.entitySetName]` | No
 | Odata Http Attributes | xref:apikit-odatav4-extension-reference#odata-http-attributes[ODataHttpAttributes] | HTTP attributes of the OData request. | `#[attributes.odataHttpAttributes]` | No
 | Odata Request Attributes | xref:apikit-odatav4-extension-reference#odata-request-attributes[ODataRequestAttributes] | OData-specific attributes of the OData request. | `#[attributes.odataRequestAttributes]` | No
 |===
@@ -410,7 +410,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Headers | Object | // TODO: complete this cell | `#[attributes.headers]` | No
+| Headers | Object | An object containing the HTTP headers of the incoming request. This allows the router to access the request headers. | `#[attributes.headers]` | No
 | Method | Enumeration, one of:
 
 * GET
@@ -419,7 +419,7 @@ Default configuration
 * PATCH
 * DELETE
 
-|  |  |
+| The HTTP method of the OData request. | None | No
 | Raw Base Uri | String | Base URI of the OData request | `#[attributes.baseUri]` | No
 | Raw Odata Path | String | Raw OData path of the OData request | `#[attributes.rawODataPath]` | No
 | Raw Query Path | String | Raw query path of the OData request | `#[attributes.rawQueryPath]` | No
@@ -505,8 +505,8 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Headers | Object | // TODO: complete this cell | `#[attributes.headers]` | No
-| Status Code | Number | // TODO: complete this cell | None | No
+| Headers | Object | An object representing the HTTP headers to be included in the response. | `#[attributes.headers]` | No
+| Status Code | Number | The HTTP status code to be returned in the response. | None | No
 |===
 
 === SQL Transformer Output Attributes
@@ -514,7 +514,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Query Parameters | Object |  |  | No
+| Query Parameters | Object | An object representing the query parameters to be included in the response. | None | No
 |===
 
 === Raw Entity Success Response
