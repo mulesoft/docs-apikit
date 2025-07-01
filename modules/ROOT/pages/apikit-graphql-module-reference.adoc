@@ -192,10 +192,10 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Alias | String | Alias of the queried field | // TODO: complete this cell | false
-| Arguments | Object | Arguments of the queried field | // TODO: complete this cell | false
-| Selected Fields | Object | Map of subfields selected from this compound type | // TODO: complete this cell | // TODO: complete this cell
-| Source | Any | Actual value of the fetched field parent | // TODO: complete this cell | false
+| Alias | String | Alias of the queried field | None | false
+| Arguments | Object | Arguments of the queried field | None | false
+| Selected Fields | Object | Map of subfields selected from this compound type | None | No
+| Source | Any | Actual value of the fetched field parent | None | false
 |===
 
 === Repeatable in Memory Stream
@@ -203,9 +203,9 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size | Number | The amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than buffer capacity, then it is expanded according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | 512 | // TODO: complete this cell
-| Buffer Size Increment | Number | How much buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn't expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | 512 | // TODO: complete this cell
-| Max Buffer Size | Number | The maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. | -1 | // TODO: complete this cell
+| Initial Buffer Size | Number | The amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than buffer capacity, then it is expanded according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | 512 | No
+| Buffer Size Increment | Number | How much buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn't expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | 512 | No
+| Max Buffer Size | Number | The maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. | -1 | No
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
@@ -213,7 +213,7 @@ Default configuration
 * MB
 * GB 
 
-| These attributes are expressed in this unit. | KB | // TODO: complete this cell
+| These attributes are expressed in this unit. | KB | No
 |===
 
 === Repeatable File Store Stream
@@ -221,7 +221,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| In Memory Size | Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on disk. | 1024 | // TODO: complete this cell
+| In Memory Size | Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on disk. | 1024 | No
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
@@ -229,7 +229,7 @@ Default configuration
 * MB
 * GB 
 
-| The unit for expressing `maxInMemorySize` | KB | // TODO: complete this cell
+| The unit for expressing `maxInMemorySize` | KB | No
 |===
 
 === Redelivery Policy
@@ -237,10 +237,10 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Max Redelivery Count | Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering a "Process failed" message. | // TODO: complete this cell | // TODO: complete this cell
-| Message Digest Algorithm | String | The secure hashing algorithm to use. If not set, the default is SHA-256. | SHA-256 | // TODO: complete this cell
-| Message Identifier | * xref:apikit-graphql-module-reference.adoc#redelivery-policy-message-identifier[Redelivery Policy Message Identifier] | The strategy to use to identify the messages | // TODO: complete this cell | // TODO: complete this cell
-| Object Store | ObjectStore | The object store where the redelivery counter for each message is stored | // TODO: complete this cell | // TODO: complete this cell
+| Max Redelivery Count | Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering a "Process failed" message. | None | No
+| Message Digest Algorithm | String | The secure hashing algorithm to use. If not set, the default is SHA-256. | SHA-256 | No
+| Message Identifier | * xref:apikit-graphql-module-reference.adoc#redelivery-policy-message-identifier[Redelivery Policy Message Identifier] | The strategy to use to identify the messages | None| No
+| Object Store | ObjectStore | The object store where the redelivery counter for each message is stored | None | No
 |===
 
 === Redelivery Policy Message Identifier
@@ -248,6 +248,6 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message | // TODO: complete this cell |
-| Id Expression | String | Expressions to use to determine when a message has been redelivered. You can only set this property if useSecureHash is false. | // TODO: complete this cell | No
+| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message | None | No
+| Id Expression | String | Expressions to use to determine when a message has been redelivered. You can only set this property if useSecureHash is false. | None | No
 |===

@@ -36,9 +36,9 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Name | String | Name for this configuration. Connectors reference the configuration with this name | // TODO: complete this cell | Yes
-| Api Definition | String | API definition | // TODO: complete this cell | Yes
-| Name | String | Identifier of this element used to reference it in other components | // TODO: complete this cell | Yes
+| Name | String | Name for this configuration. Connectors reference the configuration with this name | None | Yes
+| Api Definition | String | API definition | None | Yes
+| Name | String | Identifier of this element used to reference it in other components | None | Yes
 |===
 
 ==== Associated Operations
@@ -64,12 +64,12 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration to use | // TODO: complete this cell | Yes
+| Configuration | String | Name of the configuration to use | None | Yes
 | Content | Any | The content to be routed. |  `#[payload]` | No
 | Route correlation Id | Boolean | Consistent correlation Ids across subsequent flows | `true` | No
-| Output MIME Type | String | MIME type of the payload that this operation outputs | // TODO: complete this cell | No
-| Output Encoding | String | Encoding of the payload that this operation outputs | // TODO: complete this cell | No
-| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | // TODO: complete this cell | Yes
+| Output MIME Type | String | MIME type of the payload that this operation outputs | None | No
+| Output Encoding | String | Encoding of the payload that this operation outputs | None | No
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes
 | Streaming Strategy |
 
 * xref:apikit-odatav4-extension-reference#repeatable-in-memory-stream[RepeatableInMemoryStream]
@@ -85,19 +85,19 @@ Default configuration
 * PATCH
 * DELETE
 
-|  HTTP request method name | // TODO: complete this cell | Yes
-| Masked Request Path | String |  OData request path, relative to listener | // TODO: complete this cell | Yes
+|  HTTP request method name | None | Yes
+| Masked Request Path | String |  OData request path, relative to listener | None | Yes
 | Scheme | Enumeration, one of:
 
 * HTTP
 * HTTPS
 
-|  HTTP request scheme | // TODO: complete this cell | Yes
-| Host | String |  Request host | // TODO: complete this cell | Yes
-| Listener Path | String |  Listener path ending with "*" | // TODO: complete this cell | Yes
+|  HTTP request scheme | None | Yes
+| Host | String |  Request host | None | Yes
+| Listener Path | String |  Listener path ending with "*" | None | Yes
 | Http Headers | Object |  HTTP request headers | `#[attributes.headers]` | No
 | Query String | String |  HTTP query string | `#[attributes.queryString]` | No
-| Target Variable | String | Name of a variable on which the operation output is placed | // TODO: complete this cell | No
+| Target Variable | String | Name of a variable on which the operation output is placed | None | No
 | Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | `#[payload]` | No
 |===
 
@@ -134,11 +134,11 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration to use | // TODO: complete this cell | Yes
+| Configuration | String | Name of the configuration to use | None | Yes
 | Inbound Content | Binary | The binary content to serialize. | `#[payload]` | No
-| Output MIME Type | String | MIME type of the payload that this operation outputs | // TODO: complete this cell | No
-| Output Encoding | String |  Encoding of the payload that this operation outputs | // TODO: complete this cell | No
-| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | // TODO: complete this cell | Yes
+| Output MIME Type | String | MIME type of the payload that this operation outputs | None | No
+| Output Encoding | String |  Encoding of the payload that this operation outputs | None | No
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes
 | Streaming Strategy |
 
 * xref:apikit-odatav4-extension-reference#repeatable-in-memory-stream[RepeatableInMemoryStream]
@@ -154,9 +154,9 @@ Default configuration
 * PATCH
 * DELETE
 
-| HTTP Method | // TODO: complete this cell | Yes
-| Path | String |  Path to Entity Type | // TODO: complete this cell | Yes
-| Target Variable | String | Name of a variable on which the operation output is placed | // TODO: complete this cell | No
+| HTTP Method | None | Yes
+| Path | String |  Path to Entity Type | None | Yes
+| Target Variable | String | Name of a variable on which the operation output is placed | None | No
 | Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | `#[payload]` | No
 |===
 
@@ -180,11 +180,11 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration | // TODO: complete this cell | Yes
+| Configuration | String | Name of the configuration | None | Yes
 | Inbound Content | Binary | The binary content to serialize. |  `#[payload]` | No
-| Output MIME Type | String | MIME type of the payload that this operation outputs | // TODO: complete this cell | No
-| Output Encoding | String | Encoding of the payload that this operation outputs| // TODO: complete this cell | No
-| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | // TODO: complete this cell | Yes
+| Output MIME Type | String | MIME type of the payload that this operation outputs | None | No
+| Output Encoding | String | Encoding of the payload that this operation outputs| None | No
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes
 | Streaming Strategy |
 
 * xref:apikit-odatav4-extension-reference#repeatable-in-memory-stream[RepeatableInMemoryStream]
@@ -200,9 +200,9 @@ Default configuration
 * PATCH
 * DELETE
 
-| HTTP Method | // TODO: complete this cell | Yes
-| Path | String | Path to Entity Type | // TODO: complete this cell | Yes
-| Target Variable | String | Name of a variable on which the operation output is placed | // TODO: complete this cell | No
+| HTTP Method | None | Yes
+| Path | String | Path to Entity Type | None | Yes
+| Target Variable | String | Name of a variable on which the operation output is placed | None | No
 | Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | `#[payload]` | No
 |===
 
@@ -226,15 +226,15 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | // TODO: complete this cell | Yes
-| Configuration | String | Name of the configuration to use | // TODO: complete this cell | Yes
-| Database Schema | String | Database schema name to which the entity set belongs. If not empty, it's prefixed to the table name in the `WHERE` clause | // TODO: complete this cell | No
-| Entity Set Name | String | Table name in the database for the requested entity set | // TODO: complete this cell | Yes
-| Entity Type Fields | Array of String | List of property fields from the Entity type | // TODO: complete this cell | Yes
-| Entity Type Keys | Object | Map of entity key names and values | // TODO: complete this cell | Yes
-| Entity Type Name | String | Entity Data Model specifies the entity type name | // TODO: complete this cell | Yes
-| Page Size | Number | The number of records to retrieve. | // TODO: complete this cell | No
-| searchFieldsAsType | Object | Data type to which fields are type-casted for the `$search` operation. If empty, no type-casting is performed | // TODO: complete this cell | No
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes
+| Configuration | String | Name of the configuration to use | None | Yes
+| Database Schema | String | Database schema name to which the entity set belongs. If not empty, it's prefixed to the table name in the `WHERE` clause | None | No
+| Entity Set Name | String | Table name in the database for the requested entity set | None | Yes
+| Entity Type Fields | Array of String | List of property fields from the Entity type | None | Yes
+| Entity Type Keys | Object | Map of entity key names and values | None | Yes
+| Entity Type Name | String | Entity Data Model specifies the entity type name | None | Yes
+| Page Size | Number | The number of records to retrieve. | None | No
+| searchFieldsAsType | Object | Data type to which fields are type-casted for the `$search` operation. If empty, no type-casting is performed | None | No
 | Search Transformation Enabled | Boolean | Enabling `$search` transformation to `WHERE` clause | `true` | No
 | Sql Identifiers Delimiter | Enumeration, one of:
 
@@ -258,7 +258,7 @@ Default configuration
 
 | Configure if repeatable streams and their behavior are used | non-repeatable-stream | No
 | System Query Options | Object | System Query Options map. The grammar and syntax rules for system query options are defined in [OData-ABNF]. To simplify usability, the initial dollar sign is removed to avoid escaping within DataWeave. For example, to access System Query Option, `$skip` uses the following expression #[attributes.systemQueryOptions.'skip'] | `#[attributes.systemQueryOptions]` | Yes
-| Target Variable | String | Name of a variable on which the operation output is placed | // TODO: complete this cell | No
+| Target Variable | String | Name of a variable on which the operation output is placed | None | No
 | Target Value | String | An expression that is evaluated against the operation output and the outcome of that expression is stored in the target variable | `#[payload]` | No
 |===
 
@@ -293,10 +293,10 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration to use | // TODO: complete this cell | Yes
-| Output MIME Type | String | MIME type of the payload that this operation outputs | // TODO: complete this cell | No
-| Output Encoding | String | Encoding of the payload that this operation outputs | // TODO: complete this cell | No
-| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | // TODO: complete this cell | Yes
+| Configuration | String | Name of the configuration to use | None | Yes
+| Output MIME Type | String | MIME type of the payload that this operation outputs | None | No
+| Output Encoding | String | Encoding of the payload that this operation outputs | None | No
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes
 | Primary Node Only | Boolean | Specify if this source executes only on the primary node when running in Cluster | `false` | No
 | Streaming Strategy |
 
@@ -305,7 +305,7 @@ Default configuration
 * non-repeatable-stream
 
 | Configure if repeatable streams and their behavior are used | non-repeatable-stream | No
-| Redelivery Policy | * xref:apikit-odatav4-extension-reference#redelivery-policy[RedeliveryPolicy] | Policy for processing the redelivery of the same message | // TODO: complete this cell | No
+| Redelivery Policy | * xref:apikit-odatav4-extension-reference#redelivery-policy[RedeliveryPolicy] | Policy for processing the redelivery of the same message | None | No
 | Method | Enumeration, one of:
 
 * GET
@@ -314,8 +314,8 @@ Default configuration
 * PATCH
 * DELETE
 
-| HTTP Method | // TODO: complete this cell | Yes
-| Path | String | Path to Entity Type | // TODO: complete this cell | Yes
+| HTTP Method | None | Yes
+| Path | String | Path to Entity Type | None | Yes
 | Collection Success Response | One of:
 
 * xref:apikit-odatav4-extension-reference#raw-entity-collection-success-response[RawEntityCollectionSuccessResponse]
@@ -348,10 +348,10 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the configuration to use | // TODO: complete this cell | Yes
-| Output MIME Type | String | MIME type of the payload that this operation outputs | // TODO: complete this cell | No
-| Output Encoding | String | Encoding of the payload that this operation outputs | // TODO: complete this cell | No
-| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | // TODO: complete this cell | Yes
+| Configuration | String | Name of the configuration to use | None | Yes
+| Output MIME Type | String | MIME type of the payload that this operation outputs | None | No
+| Output Encoding | String | Encoding of the payload that this operation outputs | None | No
+| Config Ref | ConfigurationProvider | Name of the configuration used to execute this component | None | Yes
 | Primary Node Only | Boolean | If this source must only be executed on the primary node when running in Cluster | `false` | No
 | Streaming Strategy |
 
@@ -360,7 +360,7 @@ Default configuration
 * non-repeatable-stream
 
 | Configure if repeatable streams and their behavior are used | non-repeatable-stream | No
-| Redelivery Policy | * xref:apikit-odatav4-extension-reference#redelivery-policy[RedeliveryPolicy] | Policy for processing the redelivery of the same message | // TODO: complete this cell | No
+| Redelivery Policy | * xref:apikit-odatav4-extension-reference#redelivery-policy[RedeliveryPolicy] | Policy for processing the redelivery of the same message | None | No
 | Method | Enumeration, one of:
 
 * GET
@@ -369,8 +369,8 @@ Default configuration
 * PATCH
 * DELETE
 
-| HTTP Method | // TODO: complete this cell | Yes
-| Path | String | Path to Entity Type | // TODO: complete this cell | Yes
+| HTTP Method | None | Yes
+| Path | String | Path to Entity Type | None | Yes
 | Supported System Query Options - `$expand` | Boolean | Enabling support for `$expand` | `true` | No
 | Ignore errors on expansion enabled | Boolean | Disallowing errors from the flows that generic expansion calls to propagate to this flow. When `true`, failed expansions render as `null` | `false` | No
 | Expandable navigation properties | List<String> | List of types that can be generically expanded from this flow | `[]` | No
@@ -483,12 +483,12 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Max Redelivery Count | Number | Maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message | // TODO: complete this cell | No
+| Max Redelivery Count | Number | Maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message | None | No
 | Message Digest Algorithm | String | Secure hashing algorithm (default: SHA-256) | `SHA-256` | No
-| Message Identifier | xref:apikit-odatav4-extension-reference#redelivery-policy-message-identifier[RedeliveryPolicyMessageIdentifier] | Strategy to identify the messages | // TODO: complete this cell | No
-| Object Store | ObjectStore | The object store where the redelivery counter for each message is stored | // TODO: complete this cell | No
+| Message Identifier | xref:apikit-odatav4-extension-reference#redelivery-policy-message-identifier[RedeliveryPolicyMessageIdentifier] | Strategy to identify the messages | None | No
+| Object Store | ObjectStore | The object store where the redelivery counter for each message is stored | None | No
 | Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message | `false` | No
-| Id Expression | String | One or more expressions that determine when a message is redelivered. You can set this property if `useSecureHash` is `false` | // TODO: complete this cell | No
+| Id Expression | String | One or more expressions that determine when a message is redelivered. You can set this property if `useSecureHash` is `false` | None | No
 |===
 
 === Redelivery Policy Message Identifier
@@ -506,7 +506,7 @@ Default configuration
 |===
 | Field | Type | Description | Default Value | Required
 | Headers | Object | // TODO: complete this cell | `#[attributes.headers]` | No
-| Status Code | Number | // TODO: complete this cell | // TODO: complete this cell | No
+| Status Code | Number | // TODO: complete this cell | None | No
 |===
 
 === SQL Transformer Output Attributes
@@ -555,9 +555,9 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Count | Number | The number of entities. | // TODO: complete this cell | No
-| Page Size | Number | The number of entities per page. | // TODO: complete this cell | No
-| Token | String | The token to retrieve the next page. | // TODO: complete this cell | No
+| Count | Number | The number of entities. | None | No
+| Page Size | Number | The number of entities per page. | None | No
+| Token | String | The token to retrieve the next page. | None | No
 |===
 
 == See Also
