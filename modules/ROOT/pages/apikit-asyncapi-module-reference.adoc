@@ -269,7 +269,7 @@ The Server Key is required to uniquely identify the server configuration. Config
 | Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream data is larger than the buffer capacity, it expands according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | None | No
 | Buffer Size Increment | Number | 
 How much the buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn’t expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | None | No 
-| Max Buffer Size | Number | Maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. | // TODO: complete this cell | 
+| Max Buffer Size | Number | Maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. | None | No 
 | Buffer Unit a| Enumeration, one of:
 
 ** BYTE
@@ -286,7 +286,7 @@ How much the buffer size expands if it exceeds its initial size. A value of zero
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| In Memory Size a| Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on the disk. | // TODO: complete this cell | // TODO: complete this cell |
+| In Memory Size a| Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on the disk. | None | No
 | Buffer Unit a| Enumeration, one of:
 
 ** BYTE
