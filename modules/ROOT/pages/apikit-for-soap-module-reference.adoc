@@ -158,7 +158,7 @@ APIkit for SOAP Router
 
 * DAYS 
 
-| A time unit that qualifies the `maxIdleTime` attribute | SECONDS | No
+| A time unit that qualifies the `maxIdleTime` attribute | None | No
 |===
 
 === Repeatable in Memory Stream
@@ -166,9 +166,9 @@ APIkit for SOAP Router
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size | Number | Amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than buffer capacity, then it's expanded according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | 512 | No
-| Buffer Size Increment | Number | Amount the buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer does not expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | 512 | No
-| Max Buffer Size | Number | Maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. | -1 | No
+| Initial Buffer Size | Number | Amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than buffer capacity, then it's expanded according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | None | No
+| Buffer Size Increment | Number | Amount the buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn't expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | None | No
+| Max Buffer Size | Number | Maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. | None | No
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
@@ -179,7 +179,7 @@ APIkit for SOAP Router
 
 * GB 
 
-| The unit in which all these attributes are expressed. | KB | No
+| The unit in which all these attributes are expressed. | None | No
 |===
 
 === Repeatable File Store Stream
@@ -187,7 +187,7 @@ APIkit for SOAP Router
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| In Memory Size | Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on disk. | 1024 | No
+| In Memory Size | Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on disk. | None | No
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
@@ -198,7 +198,7 @@ APIkit for SOAP Router
 
 * GB 
 
-| The unit in which `maxInMemorySize` is expressed. | KB | No
+| The unit in which `maxInMemorySize` is expressed. | None | No
 |===
 
 === SOAP Attributes
