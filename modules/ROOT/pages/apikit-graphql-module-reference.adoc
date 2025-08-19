@@ -51,7 +51,7 @@ Default configuration
 | Streaming Strategy | 
 * xref:apikit-graphql-module-reference.adoc#repeatable-in-memory-stream[Repeatable In Memory Stream] 
 * xref:apikit-graphql-module-reference.adoc#repeatable-file-store-stream[Repeatable File Store Stream]
-* Non-Repeatable Stream | Configure repeatable streaming strategy | Non-Repeatable Stream | No
+* Non-Repeatable Stream | Configure repeatable streaming strategy | None | No
 | Target Variable | String | The name of a variable on which the operation output is placed | None | No
 | Target Value | String | An expression that is evaluated against the operation output and the effect of that expression is stored in the target variable | #[payload] | No
 |===
@@ -136,11 +136,11 @@ Default configuration
 | Output MIME Type | String | The MIME type of the payload that this operation outputs | None | No
 | Output Encoding | String | The encoding of the payload that this operation outputs | None| No
 | Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component | None | Yes
-| Primary Node Only | Boolean | Whether this source must only be executed on the primary node when running in cluster | false | No
+| Primary Node Only | Boolean | Whether this source must only be executed on the primary node when running in a cluster | None | No
 | Streaming Strategy | 
 * xref:apikit-graphql-module-reference.adoc#repeatable-in-memory-stream[Repeatable In Memory Stream] 
 * xref:apikit-graphql-module-reference.adoc#repeatable-file-store-stream[Repeatable File Store Stream]
-* Non-Repeatable Stream | Configure repeatable streaming strategy | Non-Repeatable Stream | No
+* Non-Repeatable Stream | Configure repeatable streaming strategy | None | No
 | Redelivery Policy | xref:apikit-graphql-module-reference.adoc#redelivery-policy[Redelivery Policy] | Defines a policy for processing the redelivery of the same message | None | No
 | Object Type Name | String | The object-type name | None | Yes
 | Field Name | String | The field name | None | No
@@ -170,7 +170,7 @@ Default configuration
 | Configuration | String | The name of the configuration you use | None | Yes
 | Object Type Name | String | The object-type name | None | Yes
 | Config Ref | ConfigurationProvider | The name of the configuration you use to execute this component | None | Yes
-| Primary Node Only | Boolean | Whether this source should only be executed on the primary node when running in cluster | false | No
+| Primary Node Only | Boolean | Whether this source should only be executed on the primary node when running in a cluster | None | No
 | Redelivery Policy | xref:apikit-graphql-module-reference.adoc#redelivery-policy[Redelivery Policy] | Defines a policy for processing the redelivery of the same message | None | No
 | Body Content | Any | Content of the message (usually, the payload) | #[payload] | 
 |===
@@ -192,10 +192,10 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Alias | String | Alias of the queried field | None | false
-| Arguments | Object | Arguments of the queried field | None | false
+| Alias | String | Alias of the queried field | None | No
+| Arguments | Object | Arguments of the queried field | None | No
 | Selected Fields | Object | Map of subfields selected from this compound type | None | No
-| Source | Any | Actual value of the fetched field parent | None | false
+| Source | Any | Actual value of the fetched field parent | None | No
 |===
 
 === Repeatable in Memory Stream
@@ -203,9 +203,9 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size | Number | The amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than buffer capacity, then it is expanded according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | 512 | No
-| Buffer Size Increment | Number | How much buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn't expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | 512 | No
-| Max Buffer Size | Number | The maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. | -1 | No
+| Initial Buffer Size | Number | The amount of memory that is allocated to consume the stream and provide random access to it. If the stream contains more data than the buffer capacity, then it is expanded according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | None | No
+| Buffer Size Increment | Number | How much buffer size expands if it exceeds its initial size. A value of zero or lower specifies that the buffer doesn't expand. When the buffer is full, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error occurs. | None | No
+| Max Buffer Size | Number | The maximum amount of memory used. If more is used, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. | None | No
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
@@ -221,7 +221,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| In Memory Size | Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on disk. | 1024 | No
+| In Memory Size | Number | Defines the maximum memory that the stream uses to keep data in memory. If it consumes more, the stream buffers the content on disk. | None | No
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
