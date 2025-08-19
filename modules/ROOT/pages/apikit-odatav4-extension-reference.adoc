@@ -449,9 +449,9 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream has more data than buffer capacity, it expands according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | `512` | No
-| Buffer Size Increment | Number | Expansion of the buffer size if exceeding its initial size. If you set a value of zero or lower, the buffer does not expand and raises a `STREAM_MAXIMUM_SIZE_EXCEEDED` error when the buffer gets full. | `512` | No
-| Max Buffer Size | Number | The maximum amount of memory for the buffer to use. When the memory usage exceeds this limit, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. | `-1` | No
+| Initial Buffer Size | Number | Amount of memory allocated to consume the stream and provide random access to it. If the stream has more data than the buffer capacity, it expands according to the `bufferSizeIncrement` attribute, with an upper limit of `maxInMemorySize`. | None | No
+| Buffer Size Increment | Number | Expansion of the buffer size if exceeding its initial size. If you set a value of zero or lower, the buffer doesn't expand and raises a `STREAM_MAXIMUM_SIZE_EXCEEDED` error when the buffer gets full. | None | No
+| Max Buffer Size | Number | The maximum amount of memory for the buffer to use. When memory usage exceeds this limit, a `STREAM_MAXIMUM_SIZE_EXCEEDED` error is raised. A value lower or equal to zero means no limit. | None | No
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
@@ -459,7 +459,7 @@ Default configuration
 * MB
 * GB
 
-| Unit to express these attributes | MB | No
+| Unit to express these attributes | None | No
 |===
 
 === Repeatable File Store Stream
@@ -467,7 +467,7 @@ Default configuration
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Field | Type | Description | Default Value | Required
-| In Memory Size | Number | Maximum memory that the stream uses to keep data in memory. If more memory is consumed, the stream starts to buffer the content on the disk | `1024` | No
+| In Memory Size | Number | Maximum memory that the stream uses to keep data in memory. If more memory is consumed, the stream starts to buffer the content on the disk | None | No
 | Buffer Unit | Enumeration, one of:
 
 * BYTE
@@ -487,7 +487,7 @@ Default configuration
 | Message Digest Algorithm | String | Secure hashing algorithm (default: SHA-256) | `SHA-256` | No
 | Message Identifier | xref:apikit-odatav4-extension-reference#redelivery-policy-message-identifier[RedeliveryPolicyMessageIdentifier] | Strategy to identify the messages | None | No
 | Object Store | ObjectStore | The object store where the redelivery counter for each message is stored | None | No
-| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message | `false` | No
+| Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message | None | No
 | Id Expression | String | One or more expressions that determine when a message is redelivered. You can set this property if `useSecureHash` is `false` | None | No
 |===
 
