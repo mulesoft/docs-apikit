@@ -213,7 +213,7 @@ Default configuration
 * MB
 * GB 
 
-| These attributes are expressed in this unit. | KB | No
+| These attributes are expressed in this unit. | None | No
 |===
 
 === Repeatable File Store Stream
