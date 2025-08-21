@@ -488,7 +488,7 @@ Default configuration
 | Message Identifier | xref:apikit-odatav4-extension-reference#redelivery-policy-message-identifier[RedeliveryPolicyMessageIdentifier] | Strategy to identify the messages | None | No
 | Object Store | ObjectStore | The object store where the redelivery counter for each message is stored | None | No
 | Use Secure Hash | Boolean | Whether to use a secure hash algorithm to identify a redelivered message | None | No
-| Id Expression | String | One or more expressions that determine when a message is redelivered. You can set this property if `useSecureHash` is `false` | None | No
+| Id Expression | String | One or more expressions that determine when a message is redelivered. You can set this property if `useSecureHash` is `false` | `None` | No
 |===
 
 === Redelivery Policy Message Identifier
