@@ -229,7 +229,7 @@ Default configuration
 * MB
 * GB 
 
-| The unit for expressing `maxInMemorySize` | KB | No
+| The unit for expressing `maxInMemorySize` | None | No
 |===
 
 === Redelivery Policy
