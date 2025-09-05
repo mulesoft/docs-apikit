@@ -38,6 +38,15 @@ While APIkit Router validates aspects such as request payload, headers, query pa
 ** No source (this option is available for APIkit for REST and SOAP applications only)
 ** A mock implementation you substitute later with your actual business logic
 
+== Supported MIME Types
+
+APIkit for REST supports the following MIME types:
+
+* JSON (application/json)
+* XML (application/xml)
+* Multipart Form Data (multipart/form-data)
+* URL Encoded Form Data (application/x-www-form-urlencoded)
+
 == Example
 
 [source,xml,linenums]
