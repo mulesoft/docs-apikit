@@ -7,7 +7,7 @@ To reduce the amount of incoming network traffic and make APIs easier to consume
 
 From APIkit for OData 1.3.0 onwards, this module supports automatic routing for ease of implementing the `$expand` system query option in the most common cases. Although this feature requires more preparation and configuration, it enables the reuse of implemented flows when processing the `$expand` requests.
 
-See http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptionexpand[the OASIS specification^] for more information about the system query option.
+See https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html[the OASIS specification^] for more information about the system query option.
 
 == Before You Begin
 
