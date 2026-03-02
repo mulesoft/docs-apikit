@@ -14,7 +14,7 @@ Google Remote Procedure Call (gRPC) is an open-source RPC framework that uses HT
 The APIkit scaffolder generates the structure of a Mule application from your gRPC specification. It creates routing logic and a flow for each method defined in the `.proto` file. Scaffold your Mule application from Exchange, or create and scaffold a gRPC API project in Anypoint Code Builder. You can publish gRPC specifications and Protobuf libraries to Exchange for cataloging and reuse.
 
 [NOTE]
-APIkit for gRPC requires Mule runtime engine 4.10 or later because gRPC depends on HTTP/2 support. Deployment is supported on CloudHub 2.0 and Runtime Fabric.
+APIkit for gRPC requires Mule runtime engine 4.11 or later because gRPC depends on HTTP/2 support. Deployment is supported on CloudHub 2.0 and Runtime Fabric.
 
 == See Also
 
