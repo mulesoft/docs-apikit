@@ -18,5 +18,5 @@ APIkit for gRPC requires Mule runtime engine 4.10 or later because gRPC depends 
 
 == See Also
 
-* xref:exchange::index.adoc[]
-* xref:anypoint-code-builder::index.adoc[]
+* xref:release-notes::platform/grpc-support.adoc[]
+* xref:anypoint-code-builder::imp-implement-grpc-api-spec.adoc[]
