@@ -1,0 +1,298 @@
+= APIkit for gRPC Module Reference
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+Implement gRPC APIs in Mule applications using APIkit for gRPC. The module provides configurations, operations, and sources for building gRPC services from Protocol Buffer (`.proto`) definitions.
+
+== Dependencies
+
+Add the gRPC Connector (Server) dependency to your Mule project:
+
+[source,xml,subs="+attributes"]
+----
+<dependency>
+  <groupId>com.mulesoft.connectors</groupId>
+  <artifactId>mule-grpc-connector</artifactId>
+  <version>LATEST_VERSION</version> //<!--1-->
+  <classifier>mule-plugin</classifier>
+</dependency>
+----
+[calloutlist]
+.. Check the xref:apikit-release-notes.adoc[] to get the *LATEST_VERSION*.
+
+== Namespace and Schema
+
+Use this namespace and schema location in your Mule configuration:
+
+[source,xml,subs="+attributes"]
+----
+xmlns:grpc="http://www.mulesoft.org/schema/mule/grpc"
+xsi:schemaLocation="http://www.mulesoft.org/schema/mule/grpc http://www.mulesoft.org/schema/mule/grpc/current/mule-grpc.xsd"
+----
+
+== Configurations
+
+[[grpc-server-config]]
+=== grpc:server-config
+
+Configures the gRPC server that listens for incoming gRPC requests.
+
+==== Parameters
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| listenerConfig | <<grpc-server-connection,grpc:grpc-server-connection>> | Reference to the gRPC server connection that defines the listening endpoint and transport settings. | None | Yes
+| idlDefinition | String | Path or resource reference to the Protocol Buffer (`.proto`) file or IDL definition that describes the service and message types. | None | Yes
+| maxInboundMessageSize | Number | Maximum size in bytes for inbound gRPC messages. Messages exceeding this size are rejected. | 4194304 (4 MB) | No
+| Name | String | Identifier of this element used to reference it in other components. | None | Yes
+|===
+
+==== Associated Operations
+
+* <<send-stream-message>>
+* <<end-stream>>
+
+==== Associated Sources
+
+* <<unary-listener>>
+* <<client-streaming-listener>>
+* <<server-streaming-listener>>
+* <<bidirectional-streaming-listener>>
+
+[[grpc-server-connection]]
+=== grpc:grpc-server-connection
+
+Defines the connection settings for the gRPC server, including host, port, and TLS configuration.
+
+==== Parameters
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| Host | String | Host address on which the gRPC server listens. | None | Yes
+| Port | Number | Port number on which the gRPC server listens. | None | Yes
+| TLS | Object | TLS configuration for secure (TLS) connections. Omit for plaintext. | None | No
+| Name | String | Identifier of this element used to reference it in other components. | None | Yes
+|===
+
+== Operations
+
+[[send-stream-message]]
+=== grpc:send-stream-message
+
+Sends a message on an active server streaming or bidirectional streaming response. Use this operation within a flow triggered by a streaming listener to push messages to the client.
+
+==== Parameters
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| Payload | Any | The message payload to send. It should conform to the message type defined in the IDL for the streaming method. | #[payload] | No
+| Target Variable | String | Name of a variable on which the operation output is placed. | None | No
+| Target Value | String | Expression evaluated against the operation output; the result is stored in the target variable. | #[payload] | No
+|===
+
+==== Configurations
+
+* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+
+[[end-stream]]
+=== grpc:end-stream
+
+Ends the current server stream or bidirectional stream. Call this operation once you have sent all messages to the client.
+
+==== Parameters
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| Target Variable | String | Name of a variable on which the operation output is placed. | None | No
+| Target Value | String | Expression evaluated against the operation output; the result is stored in the target variable. | #[payload] | No
+|===
+
+==== Configurations
+
+* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+
+== Sources (Listeners)
+
+[[unary-listener]]
+=== Unary Listener
+
+`<grpc:unary-listener>`
+
+Handles unary RPCs: one request from the client and one response from the server.
+
+==== Parameters
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| Service | String | Fully qualified service name as defined in the `.proto` file. | None | Yes
+| Method | String | Method name within the service. | None | Yes
+| Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
+| Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
+|===
+
+==== Output
+
+|===
+| *Type* | Any (message type from IDL)
+|===
+
+==== Configurations
+
+* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+
+[[client-streaming-listener]]
+=== Client Streaming Listener
+
+`<grpc:client-streaming-listener>`
+
+Handles client streaming RPCs: the client sends a stream of messages and the server responds with a single message.
+
+==== Parameters
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| Service | String | Fully qualified service name as defined in the `.proto` file. | None | Yes
+| Method | String | Method name within the service. | None | Yes
+| Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
+| Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
+|===
+
+==== Output
+
+|===
+| *Type* | Stream of Any (message type from IDL)
+|===
+
+==== Configurations
+
+* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+
+[[server-streaming-listener]]
+=== Server Streaming Listener
+
+`<grpc:server-streaming-listener>`
+
+Handles server streaming RPCs: the client sends one request and the server responds with a stream of messages. Use `grpc:send-stream-message` and `grpc:end-stream` within the flow to send messages and close the stream.
+
+==== Parameters
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| Service | String | Fully qualified service name as defined in the `.proto` file. | None | Yes
+| Method | String | Method name within the service. | None | Yes
+| Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
+| Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
+|===
+
+==== Output
+
+|===
+| *Type* | Any (request message type from IDL); response is sent via `grpc:send-stream-message` and `grpc:end-stream`
+|===
+
+==== Configurations
+
+* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+
+[[bidirectional-streaming-listener]]
+=== Bidirectional Streaming Listener
+
+`<grpc:bidirectional-streaming-listener>`
+
+Handles bidirectional streaming RPCs: both client and server send streams of messages independently.
+
+==== Parameters
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| Service | String | Fully qualified service name as defined in the `.proto` file. | None | Yes
+| Method | String | Method name within the service. | None | Yes
+| Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
+| Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
+|===
+
+==== Output
+
+|===
+| *Type* | Stream of Any (message type from IDL); response messages are sent via `grpc:send-stream-message` and `grpc:end-stream`
+|===
+
+==== Configurations
+
+* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+
+== Backpressure Strategy
+
+The gRPC server supports backpressure to control the rate of incoming requests and avoid overload. Configure backpressure at the listener or connection level.
+
+* **maxConcurrency**: Maximum number of concurrent requests (or stream connections) that the server accepts for the configured listeners. After this limit is reached, new requests are handled according to the `onCapacityOverload` strategy.
+
+* **onCapacityOverload**: Defines the behavior after the server is at capacity (maxConcurrency reached):
+** **WAIT**: New requests wait until capacity becomes available. This provides backpressure to clients without failing requests.
+** **DROP**: New requests are dropped (connection or request is closed without processing). Use this option if you prefer to shed load rather than queue.
+** **FAIL**: New requests fail immediately with an error (for example, `UNAVAILABLE`). Use this option if you want clients to retry or back off.
+
+== Error Handling
+
+=== Error Type Hierarchy
+
+All gRPC protocol errors extend the base type `GRPC:GRPC_ERROR`. In error handlers, reference `GRPC:GRPC_ERROR` to catch any gRPC protocol error, or reference a specific type for finer-grained handling.
+
+=== gRPC Protocol Errors
+
+The Mule error types in this table map to gRPC status codes. These errors extend `GRPC:GRPC_ERROR`.
+
+[%header]
+|===
+| Mule Error Type | gRPC Code | Description
+| GRPC:OK | 0 | Success
+| GRPC:CANCELLED | 1 | Request was cancelled
+| GRPC:UNKNOWN | 2 | Unknown error
+| GRPC:INVALID_ARGUMENT | 3 | Invalid argument
+| GRPC:DEADLINE_EXCEEDED | 4 | Deadline exceeded
+| GRPC:NOT_FOUND | 5 | Resource not found
+| GRPC:ALREADY_EXISTS | 6 | Resource exists
+| GRPC:PERMISSION_DENIED | 7 | Permission denied
+| GRPC:RESOURCE_EXHAUSTED | 8 | Resource exhausted
+| GRPC:FAILED_PRECONDITION | 9 | Failed precondition
+| GRPC:ABORTED | 10 | Operation aborted
+| GRPC:OUT_OF_RANGE | 11 | Argument out of range
+| GRPC:UNIMPLEMENTED | 12 | Operation not implemented
+| GRPC:INTERNAL | 13 | Internal error
+| GRPC:UNAVAILABLE | 14 | Service unavailable
+| GRPC:DATA_LOSS | 15 | Data loss
+| GRPC:UNAUTHENTICATED | 16 | Request not authenticated
+|===
+
+=== Connector-Level Errors
+
+The error types in this table are thrown by the connector for validation, transformation, and connectivity issues. They're not gRPC protocol status codes but Mule error types used by the gRPC connector.
+
+[%header]
+|===
+| Error Type | Description
+| GRPC:VALIDATION | Thrown after request or message validation fails (for example, schema or IDL validation).
+| GRPC:TRANSFORMATION | Thrown after message transformation fails (for example, serialization or deserialization of Protobuf messages).
+| GRPC:CONNECTIVITY | Thrown after a connectivity issue occurs (for example, connection refused or transport error).
+|===
+
+== See Also
+
+* xref:apikit-for-grpc.adoc[]
+* xref:release-notes::platform/grpc-support.adoc[]
+* xref:anypoint-code-builder::imp-implement-grpc-api-spec.adoc[]
