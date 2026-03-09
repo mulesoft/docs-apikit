@@ -73,7 +73,7 @@ Defines the connection settings for the gRPC server, including host, port, and T
 | Name | Type | Description | Default Value | Required
 | Host | String | Host address on which the gRPC server listens. | None | Yes
 | Port | Number | Port number on which the gRPC server listens. | None | Yes
-| TLS | Object | TLS configuration for secure (TLS) connections. Omit for plaintext. | None | No
+| TLS | Object | TLS (transport layer security) configuration for secure connections. Omit for plaintext. | None | No
 | Name | String | Identifier of this element used to reference it in other components. | None | Yes
 |===
 
@@ -90,19 +90,19 @@ Sends a message on an active server streaming or bidirectional streaming respons
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| Payload | Any | The message payload to send. It should conform to the message type defined in the IDL for the streaming method. | #[payload] | No
+| Payload | Any | The message payload to send. It must conform to the message type defined in the Interface Description Language (IDL) for the streaming method. | #[payload] | No
 | Target Variable | String | Name of a variable on which the operation output is placed. | None | No
 | Target Value | String | Expression evaluated against the operation output; the result is stored in the target variable. | #[payload] | No
 |===
 
 ==== Configurations
 
-* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+* <<grpc-server-config>>
 
 [[end-stream]]
 === grpc:end-stream
 
-Ends the current server stream or bidirectional stream. Call this operation once you have sent all messages to the client.
+Ends the current server stream or bidirectional stream. Call this operation after sending all messages to the client.
 
 ==== Parameters
 
@@ -116,7 +116,7 @@ Ends the current server stream or bidirectional stream. Call this operation once
 
 ==== Configurations
 
-* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+* <<grpc-server-config>>
 
 == Sources (Listeners)
 
@@ -147,7 +147,7 @@ Handles unary RPCs: one request from the client and one response from the server
 
 ==== Configurations
 
-* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+* <<grpc-server-config>>
 
 [[client-streaming-listener]]
 === Client Streaming Listener
@@ -176,7 +176,7 @@ Handles client streaming RPCs: the client sends a stream of messages and the ser
 
 ==== Configurations
 
-* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+* <<grpc-server-config>>
 
 [[server-streaming-listener]]
 === Server Streaming Listener
@@ -205,7 +205,7 @@ Handles server streaming RPCs: the client sends one request and the server respo
 
 ==== Configurations
 
-* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+* <<grpc-server-config>>
 
 [[bidirectional-streaming-listener]]
 === Bidirectional Streaming Listener
@@ -234,7 +234,7 @@ Handles bidirectional streaming RPCs: both client and server send streams of mes
 
 ==== Configurations
 
-* xref:apikit-for-grpc-module-reference.adoc#grpc-server-config[grpc:server-config]
+* <<grpc-server-config>>
 
 == Backpressure Strategy
 
