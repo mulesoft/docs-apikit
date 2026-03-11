@@ -36,45 +36,71 @@ xsi:schemaLocation="http://www.mulesoft.org/schema/mule/grpc http://www.mulesoft
 [[grpc-server-config]]
 === grpc:server-config
 
-Configures the gRPC server that listens for incoming gRPC requests.
+Configures the gRPC server that listens for incoming gRPC requests. This element wraps the connection provider, which defines the listening endpoint and the Interface Description Language (IDL) definition that describes the service and message types.
 
 ==== Parameters
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| listenerConfig | <<grpc-server-connection,grpc:grpc-server-connection>> | Reference to the gRPC server connection that defines the listening endpoint and transport settings. | None | Yes
-| idlDefinition | String | Path or resource reference to the Protocol Buffer (`.proto`) file or IDL definition that describes the service and message types. | None | Yes
-| maxInboundMessageSize | Number | Maximum size in bytes for inbound gRPC messages. Messages exceeding this size are rejected. | 4194304 (4 MB) | No
 | Name | String | Identifier of this element used to reference it in other components. | None | Yes
 |===
+
+==== Example
+
+[source,xml,subs="+attributes"]
+----
+<grpc:server-config name="GRPC_Server_Config">
+  <grpc:grpc-server-connection listenerConfig="HTTP_Listener_config">
+    <grpc:idl-definition>
+      <grpc:single-binary-protobuf protobufDescriptorFile="${grpc.server.descriptor.file}" />
+    </grpc:idl-definition>
+  </grpc:grpc-server-connection>
+</grpc:server-config>
+----
 
 ==== Associated Operations
 
 * <<send-stream-message>>
 * <<end-stream>>
+* <<stream-output>>
 
 ==== Associated Sources
 
-* <<unary-listener>>
-* <<client-streaming-listener>>
+* <<unary-method>>
+* <<client-streaming-method>>
 * <<server-streaming-listener>>
-* <<bidirectional-streaming-listener>>
+* <<bidirectional-streaming-method>>
 
 [[grpc-server-connection]]
 === grpc:grpc-server-connection
 
-Defines the connection settings for the gRPC server, including host, port, and TLS configuration.
+Connection provider for the gRPC server. The gRPC server doesn't independently configure host, port, or TLS; it piggybacks on an existing HTTP listener. This connection references an `http:listener-config` for the listening endpoint and defines the protobuf descriptor (IDL) that describes the service and message types.
 
 ==== Parameters
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Host | String | Host address on which the gRPC server listens. | None | Yes
-| Port | Number | Port number on which the gRPC server listens. | None | Yes
-| TLS | Object | TLS (transport layer security) configuration for secure connections. Omit for plaintext. | None | No
+| listenerConfig | ConfigReference to `http:listener-config` | Reference to the HTTP listener configuration that defines host, port, and TLS. The gRPC server uses this listener for transport. | None | Yes
+| maxInboundMessageSize | Number | Maximum size in bytes for inbound gRPC messages. Messages exceeding this size are rejected. | 4194304 (4 MB) | No
 | Name | String | Identifier of this element used to reference it in other components. | None | Yes
+|===
+
+==== Child Elements
+
+===== grpc:idl-definition
+
+Contains the protobuf descriptor (IDL) for the gRPC service. The `grpc:single-binary-protobuf` definition is supported.
+
+===== grpc:single-binary-protobuf
+
+Provides the Protocol Buffer descriptor from a binary file (for example, a compiled `.proto` descriptor file).
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| protobufDescriptorFile | String | Path or expression (for example, `${grpc.server.descriptor.file}`) that resolves to the binary Protobuf descriptor file. | None | Yes
 |===
 
 == Operations
@@ -82,7 +108,7 @@ Defines the connection settings for the gRPC server, including host, port, and T
 [[send-stream-message]]
 === grpc:send-stream-message
 
-Sends a message on an active server streaming or bidirectional streaming response. Use this operation within a flow triggered by a streaming listener to push messages to the client.
+Sends a message on an active server streaming response. Use this operation within a flow triggered by a server streaming listener to push messages to the client. This operation doesn't support bidirectional streaming.
 
 ==== Parameters
 
@@ -102,7 +128,7 @@ Sends a message on an active server streaming or bidirectional streaming respons
 [[end-stream]]
 === grpc:end-stream
 
-Ends the current server stream or bidirectional stream. Call this operation after sending all messages to the client.
+Ends the current server stream. Call this operation after sending all messages to the client. This operation doesn't support bidirectional streaming.
 
 ==== Parameters
 
@@ -118,12 +144,32 @@ Ends the current server stream or bidirectional stream. Call this operation afte
 
 * <<grpc-server-config>>
 
+[[stream-output]]
+=== grpc:stream-output
+
+Sends an inline response message in a flow triggered by a bidirectional streaming method. Use this operation within a flow triggered by `grpc:bidirectional-streaming-method` to push response messages to the client. The operations `grpc:send-stream-message` and `grpc:end-stream` don't support bidirectional streaming.
+
+==== Parameters
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| Payload | Any | The message payload to send. It should conform to the message type defined in the IDL for the bidirectional streaming method. | #[payload] | No
+| Target Variable | String | Name of a variable on which the operation output is placed. | None | No
+| Target Value | String | Expression evaluated against the operation output; the result is stored in the target variable. | #[payload] | No
+|===
+
+==== Configurations
+
+* <<grpc-server-config>>
+
 == Sources (Listeners)
 
-[[unary-listener]]
-=== Unary Listener
+[[unary-method]]
+=== Unary Method
 
-`<grpc:unary-listener>`
+`<grpc:unary-method>`
 
 Handles unary RPCs: one request from the client and one response from the server.
 
@@ -133,8 +179,7 @@ Handles unary RPCs: one request from the client and one response from the server
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| Service | String | Fully qualified service name as defined in the `.proto` file. | None | Yes
-| Method | String | Method name within the service. | None | Yes
+| methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
 | Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
 | Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
 |===
@@ -149,10 +194,10 @@ Handles unary RPCs: one request from the client and one response from the server
 
 * <<grpc-server-config>>
 
-[[client-streaming-listener]]
-=== Client Streaming Listener
+[[client-streaming-method]]
+=== Client Streaming Method
 
-`<grpc:client-streaming-listener>`
+`<grpc:client-streaming-method>`
 
 Handles client streaming RPCs: the client sends a stream of messages and the server responds with a single message.
 
@@ -162,8 +207,7 @@ Handles client streaming RPCs: the client sends a stream of messages and the ser
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| Service | String | Fully qualified service name as defined in the `.proto` file. | None | Yes
-| Method | String | Method name within the service. | None | Yes
+| methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
 | Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
 | Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
 |===
@@ -191,8 +235,7 @@ Handles server streaming RPCs: the client sends one request and the server respo
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| Service | String | Fully qualified service name as defined in the `.proto` file. | None | Yes
-| Method | String | Method name within the service. | None | Yes
+| methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
 | Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
 | Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
 |===
@@ -207,12 +250,12 @@ Handles server streaming RPCs: the client sends one request and the server respo
 
 * <<grpc-server-config>>
 
-[[bidirectional-streaming-listener]]
-=== Bidirectional Streaming Listener
+[[bidirectional-streaming-method]]
+=== Bidirectional Streaming Method
 
-`<grpc:bidirectional-streaming-listener>`
+`<grpc:bidirectional-streaming-method>`
 
-Handles bidirectional streaming RPCs: both client and server send streams of messages independently.
+Handles bidirectional streaming RPCs: both client and server send streams of messages independently. The operations `grpc:send-stream-message` and `grpc:end-stream` don't support bidirectional streaming. Use `grpc:stream-output` for inline responses in bidirectional flows.
 
 ==== Parameters
 
@@ -220,8 +263,7 @@ Handles bidirectional streaming RPCs: both client and server send streams of mes
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| Service | String | Fully qualified service name as defined in the `.proto` file. | None | Yes
-| Method | String | Method name within the service. | None | Yes
+| methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
 | Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
 | Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
 |===
@@ -229,7 +271,7 @@ Handles bidirectional streaming RPCs: both client and server send streams of mes
 ==== Output
 
 |===
-| *Type* | Stream of Any (message type from IDL); response messages are sent via `grpc:send-stream-message` and `grpc:end-stream`
+| *Type* | Stream of Any (message type from IDL). Send response messages using `grpc:stream-output` for inline responses.
 |===
 
 ==== Configurations
@@ -247,7 +289,34 @@ The gRPC server supports backpressure to control the rate of incoming requests a
 ** **DROP**: New requests are dropped (connection or request is closed without processing). Use this option if you prefer to shed load rather than queue.
 ** **FAIL**: New requests fail immediately with an error (for example, `UNAVAILABLE`). Use this option if you want clients to retry or back off.
 
+[cols="2,1,1,3", options="header"]
+|===
+| Source | Default Mode | Supported Modes | Notes
+
+| `grpc:unary-method`
+| FAIL
+| FAIL
+| Excess requests are immediately rejected with `UNAVAILABLE`.
+
+| `grpc:server-streaming-method`
+| WAIT
+| WAIT, DROP
+| Configurable via `onCapacityOverload` attribute on the source element.
+
+| `grpc:client-streaming-method`
+| WAIT
+| WAIT
+| Incoming messages queue until a slot is available.
+
+| `grpc:bidirectional-streaming-method`
+| WAIT
+| WAIT
+| Incoming messages queue until a slot is available.
+|===
+
 == Error Handling
+
+gRPC uses status code 0 (OK) for successful responses; this is not an error type. The following sections describe error conditions (status codes 1–16) and how they map to Mule error types.
 
 === Error Type Hierarchy
 
@@ -260,9 +329,8 @@ The Mule error types in this table map to gRPC status codes. These errors extend
 [%header]
 |===
 | Mule Error Type | gRPC Code | Description
-| GRPC:OK | 0 | Success
 | GRPC:CANCELLED | 1 | Request was cancelled
-| GRPC:UNKNOWN | 2 | Unknown error
+| GRPC_UNKNOWN | 2 | Unknown error
 | GRPC:INVALID_ARGUMENT | 3 | Invalid argument
 | GRPC:DEADLINE_EXCEEDED | 4 | Deadline exceeded
 | GRPC:NOT_FOUND | 5 | Resource not found
