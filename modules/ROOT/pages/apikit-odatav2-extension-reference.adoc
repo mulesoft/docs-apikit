@@ -35,6 +35,77 @@ xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
 xsi:schemaLocation="http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd"
 ----
 
+== Customizing EntitySet Names
+
+APIkit for OData v2 pluralizes entity type names automatically to create *EntitySet* endpoints (for example, `Person` became `Persons`). From APIkit for OData 2.3.5 and later you can now override this behavior by using this annotations in your RAML type definitions:
+
+* *(odata.entitySet)* 
+* *(odata.entitySetEnabled)*
+
+With these annotations, you control the *EntitySet* name exposed in metadata and in OData API URLs. You can align endpoints with your domain (for example, `Person` → `People`).
+
+=== Annotation Reference
+
+Apply these annotations at the entity type level in your RAML library (for example, in `odataLibrary.raml`):
+
+[cols="1a,2a,3a", options="header"]
+|===
+| Annotation | Type | Description
+| *(odata.entitySet)* | String | Custom name for the entity set. Used only if *(odata.entitySetEnabled)* is `true` and the value is non-empty.
+| *(odata.entitySetEnabled)* | Boolean | If `true`, uses the custom name from *(odata.entitySet)*. If `false` or omitted, default pluralization is used for backward compatibility.
+|===
+
+=== Feature Flag: Enabling Custom EntitySet Names
+
+The *(odata.entitySet)* and *(odata.entitySetEnabled)* entity annotations affect metadata generation and OData API behavior as follows:
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Case | *(odata.entitySetEnabled)* | *(odata.entitySet)* | Effective EntitySet Name | Metadata and OData API Behavior
+| 1 | `false` | Present | Default pluralization (based on entity type) | Default EntitySet
+| 2 | `false` | Not present | Default pluralization (based on entity type) | Default EntitySet
+| 3 | Not defined or present | Present | Default pluralization (based on entity type) | Default EntitySet
+| 4 | Not defined or present | Not present | Default pluralization (based on entity type) | Default EntitySet
+| 5 | `true` | Present (non-empty) | Custom name from annotation | Custom EntitySet; metadata and APIs use the custom name
+| 6 | `true` | Not present or empty | Default pluralization (based on entity type) | Default EntitySet
+|===
+
+[NOTE]
+Custom names apply if **entitySetEnabled** is `true` and **entitySet** is provided with a non-empty value. If not, APIkit for OData v2 uses default pluralization.
+
+=== Example: Custom EntitySet Name in RAML
+
+This example defines a `Person` entity and exposes it as the *EntitySet* `People`:
+
+[source,raml]
+----
+#%RAML 1.0 Library
+uses:
+  odata: libraries/odataLibrary.raml
+
+types:
+  Person:
+    (odata.remote): Person
+    (odata.entitySet): People
+    (odata.entitySetEnabled): true
+    properties:
+      ID:
+        type: integer
+        required: true
+        (odata.key): true
+      Name:
+        type: string
+        required: true
+      Price:
+        type: number
+----
+
+The *EntitySet* appears as `People` in `$metadata` and in OData API URLs (for example, `/api/odata.svc/People`) instead of the default `Persons`.
+
+=== Backward Compatibility
+
+Existing flows and APIs are unchanged unless you explicitly enable the feature. Custom *EntitySet* annotations are ignored unless *(odata.entitySetEnabled)* is set to `true`. If the flag is `false` or missing, APIkit for OData v2 always uses default pluralization based on the entity type, even if *(odata.entitySet)* is present. This ensures full backward compatibility with existing APIkit for OData v2 applications.
+
 == See Also
 
 * xref:apikit-4-xml-reference.adoc[]
