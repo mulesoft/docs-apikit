@@ -63,13 +63,12 @@ Configures the gRPC server that listens for incoming gRPC requests. This element
 
 * <<send-stream-message>>
 * <<end-stream>>
-* <<stream-output>>
 
 ==== Associated Sources
 
 * <<unary-method>>
 * <<client-streaming-method>>
-* <<server-streaming-listener>>
+* <<server-streaming-method>>
 * <<bidirectional-streaming-method>>
 
 [[grpc-server-connection]]
@@ -108,15 +107,15 @@ Provides the Protocol Buffer descriptor from a binary file (for example, a compi
 [[send-stream-message]]
 === grpc:send-stream-message
 
-Sends a message on an active server streaming response. Use this operation within a flow triggered by a server streaming listener to push messages to the client. This operation doesn't support bidirectional streaming.
+Sends a message on an active server streaming response. Use this operation within a flow triggered by `grpc:server-streaming-method` to push messages to the client. This operation doesn't support bidirectional streaming.
 
 ==== Parameters
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| Payload | Any | The message payload to send. It must conform to the message type defined in the Interface Description Language (IDL) for the streaming method. | #[payload] | No
+| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| Payload | Any | The message payload to send. It should conform to the message type defined in the Interface Description Language (IDL) for the streaming method. | #[payload] | No
 | Target Variable | String | Name of a variable on which the operation output is placed. | None | No
 | Target Value | String | Expression evaluated against the operation output; the result is stored in the target variable. | #[payload] | No
 |===
@@ -135,27 +134,7 @@ Ends the current server stream. Call this operation after sending all messages t
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| Target Variable | String | Name of a variable on which the operation output is placed. | None | No
-| Target Value | String | Expression evaluated against the operation output; the result is stored in the target variable. | #[payload] | No
-|===
-
-==== Configurations
-
-* <<grpc-server-config>>
-
-[[stream-output]]
-=== grpc:stream-output
-
-Sends an inline response message in a flow triggered by a bidirectional streaming method. Use this operation within a flow triggered by `grpc:bidirectional-streaming-method` to push response messages to the client. The operations `grpc:send-stream-message` and `grpc:end-stream` don't support bidirectional streaming.
-
-==== Parameters
-
-[cols="1a,2a,3a,4a,5a", options="header"]
-|===
-| Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| Payload | Any | The message payload to send. It should conform to the message type defined in the IDL for the bidirectional streaming method. | #[payload] | No
+| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
 | Target Variable | String | Name of a variable on which the operation output is placed. | None | No
 | Target Value | String | Expression evaluated against the operation output; the result is stored in the target variable. | #[payload] | No
 |===
@@ -178,7 +157,7 @@ Handles unary RPCs: one request from the client and one response from the server
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
 | methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
 | Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
 | Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
@@ -206,10 +185,23 @@ Handles client streaming RPCs: the client sends a stream of messages and the ser
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
 | methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
 | Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
 | Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
+|===
+
+==== Child Elements
+
+===== grpc:output
+
+Optional nested element that defines the response and stream state for the client streaming method. Only `grpc:client-streaming-method` has this element; unary and server streaming don't have an equivalent.
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| response | TypedValue&lt;InputStream&gt; | Response payload. Only effective on the final flow execution when `attributes.streamCompleted` is true. | #[payload] | No
+| streamState | Map&lt;String, Object&gt; | State persisted across messages via `attributes.streamState`. | #[{}] | No
 |===
 
 ==== Output
@@ -222,10 +214,10 @@ Handles client streaming RPCs: the client sends a stream of messages and the ser
 
 * <<grpc-server-config>>
 
-[[server-streaming-listener]]
-=== Server Streaming Listener
+[[server-streaming-method]]
+=== Server Streaming Method
 
-`<grpc:server-streaming-listener>`
+`<grpc:server-streaming-method>`
 
 Handles server streaming RPCs: the client sends one request and the server responds with a stream of messages. Use `grpc:send-stream-message` and `grpc:end-stream` within the flow to send messages and close the stream.
 
@@ -234,8 +226,9 @@ Handles server streaming RPCs: the client sends one request and the server respo
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
 | methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
+| onCapacityOverload | Enum: WAIT, DROP | Backpressure strategy when the flow's `maxConcurrency` is reached. See <<Backpressure Strategy>>. | WAIT | No
 | Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
 | Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
 |===
@@ -255,39 +248,53 @@ Handles server streaming RPCs: the client sends one request and the server respo
 
 `<grpc:bidirectional-streaming-method>`
 
-Handles bidirectional streaming RPCs: both client and server send streams of messages independently. The operations `grpc:send-stream-message` and `grpc:end-stream` don't support bidirectional streaming. Use `grpc:stream-output` for inline responses in bidirectional flows.
+Handles bidirectional streaming RPCs: both client and server send streams of messages independently. The operations `grpc:send-stream-message` and `grpc:end-stream` don't support bidirectional streaming. Use the nested `grpc:stream-output` child element to send inline response messages.
 
 ==== Parameters
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | Name of the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
 | methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
 | Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
 | Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
 |===
 
+==== Child Elements
+
+===== grpc:stream-output
+
+Optional nested element that defines the response and stream state for the bidirectional streaming method. Use it to send inline response messages to the client (for example, `response="#[payload]" streamState="#[vars.state]"`).
+
+[cols="1a,2a,3a,4a,5a", options="header"]
+|===
+| Name | Type | Description | Default Value | Required
+| response | TypedValue&lt;InputStream&gt; | Response payload sent to the client. | #[payload] | No
+| streamState | Map&lt;String, Object&gt; | State persisted across messages via `attributes.streamState`. | #[{}] | No
+|===
+
 ==== Output
 
 |===
-| *Type* | Stream of Any (message type from IDL). Send response messages using `grpc:stream-output` for inline responses.
+| *Type* | Stream of Any (message type from IDL). Send response messages using the nested `grpc:stream-output` element.
 |===
 
 ==== Configurations
 
 * <<grpc-server-config>>
 
+[[backpressure-strategy]]
 == Backpressure Strategy
 
-The gRPC server supports backpressure to control the rate of incoming requests and avoid overload. Configure backpressure at the listener or connection level.
+The gRPC connector uses Mule's built-in backpressure mechanism. Set `maxConcurrency` on the `&lt;flow&gt;` element to define how many requests can be processed concurrently (for example, `<flow name="MyFlow" maxConcurrency="3">`). When that limit is reached, the source applies a backpressure strategy to new incoming requests. The connector does not implement its own concurrency limit; it responds to Mule runtime's concurrency control.
 
-* **maxConcurrency**: Maximum number of concurrent requests (or stream connections) that the server accepts for the configured listeners. After this limit is reached, new requests are handled according to the `onCapacityOverload` strategy.
+For more information, see xref:mule-runtime::tuning-backpressure-maxconcurrency.adoc[].
 
-* **onCapacityOverload**: Defines the behavior after the server is at capacity (maxConcurrency reached):
-** **WAIT**: New requests wait until capacity becomes available. This provides backpressure to clients without failing requests.
-** **DROP**: New requests are dropped (connection or request is closed without processing). Use this option if you prefer to shed load rather than queue.
-** **FAIL**: New requests fail immediately with an error (for example, `UNAVAILABLE`). Use this option if you want clients to retry or back off.
+* **onCapacityOverload** (server streaming only): For `grpc:server-streaming-method`, the `onCapacityOverload` attribute chooses the behavior when the flow's maxConcurrency is reached. Other sources use a fixed mode (see table below).
+** **WAIT**: New requests wait until a concurrency slot becomes available. The request is eventually processed.
+** **DROP**: New requests are rejected immediately. The client receives gRPC status `RESOURCE_EXHAUSTED` (8).
+** **FAIL**: New requests are rejected immediately. The client receives gRPC status `UNAVAILABLE` (14). This is the only mode for unary.
 
 [cols="2,1,1,3", options="header"]
 |===
@@ -301,7 +308,7 @@ The gRPC server supports backpressure to control the rate of incoming requests a
 | `grpc:server-streaming-method`
 | WAIT
 | WAIT, DROP
-| Configurable via `onCapacityOverload` attribute on the source element.
+| Configurable via `onCapacityOverload` attribute on the source (default WAIT).
 
 | `grpc:client-streaming-method`
 | WAIT
@@ -330,7 +337,7 @@ The Mule error types in this table map to gRPC status codes. These errors extend
 |===
 | Mule Error Type | gRPC Code | Description
 | GRPC:CANCELLED | 1 | Request was cancelled
-| GRPC_UNKNOWN | 2 | Unknown error
+| GRPC:GRPC_UNKNOWN | 2 | Unknown error
 | GRPC:INVALID_ARGUMENT | 3 | Invalid argument
 | GRPC:DEADLINE_EXCEEDED | 4 | Deadline exceeded
 | GRPC:NOT_FOUND | 5 | Resource not found
