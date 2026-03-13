@@ -112,7 +112,7 @@ Sends a message on an active server streaming response. To push messages to the 
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
-| Name | Type | Description | Default Value | Required
+| Parameter | Type | Description | Default Value | Required
 | config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
 | Payload | Any | The message payload to send. It should conform to the message type defined in the Interface Description Language (IDL) for the streaming method. | #[payload] | No
 | Target Variable | String | Name of a variable on which the operation output is placed. | None | No
