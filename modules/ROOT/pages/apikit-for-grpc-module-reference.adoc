@@ -194,7 +194,7 @@ Handles client streaming RPCs: the client sends a stream of messages and the ser
 
 ===== grpc:output
 
-Optional nested element that defines the response and stream state for the client streaming method. Only `grpc:client-streaming-method` has this element; unary and server streaming don't have an equivalent.
+Optional nested element that defines the response and stream state for the client streaming method. Only `grpc:client-streaming-method` has this element. Unary and server streaming don't use this element.
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
