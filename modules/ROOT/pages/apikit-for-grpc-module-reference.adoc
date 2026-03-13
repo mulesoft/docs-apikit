@@ -198,7 +198,7 @@ Optional nested element that defines the response and stream state for the clien
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
-| Name | Type | Description | Default Value | Required
+| Parameter | Type | Description | Default Value | Required
 | response | TypedValue&lt;InputStream&gt; | Response payload. Only effective on the final flow execution when `attributes.streamCompleted` is true. | #[payload] | No
 | streamState | Map&lt;String, Object&gt; | State persisted across messages via `attributes.streamState`. | #[{}] | No
 |===
