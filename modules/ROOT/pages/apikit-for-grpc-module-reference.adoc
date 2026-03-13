@@ -19,7 +19,7 @@ Add the gRPC Connector (server) dependency to your Mule project:
 </dependency>
 ----
 [calloutlist]
-.. Check the xref:apikit-release-notes.adoc[] to get the *LATEST_VERSION*.
+.. To get the *LATEST_VERSION*, check the xref:apikit-release-notes.adoc[] .
 
 == Namespace and Schema
 
