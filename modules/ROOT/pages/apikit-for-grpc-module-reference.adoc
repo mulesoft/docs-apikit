@@ -106,7 +106,7 @@ Provides the Protocol Buffer descriptor from a binary file (for example, a compi
 [[send-stream-message]]
 === grpc:send-stream-message
 
-Sends a message on an active server streaming response. Use this operation within a flow triggered by `grpc:server-streaming-method` to push messages to the client. This operation doesn't support bidirectional streaming.
+Sends a message on an active server streaming response. to push messages to the client, use this operation within a flow triggered by `grpc:server-streaming-method`. This operation doesn't support bidirectional streaming.
 
 ==== Parameters
 
