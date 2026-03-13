@@ -81,7 +81,7 @@ Connection provider for the gRPC server. The gRPC server doesn't independently c
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
-| Name | Type | Description | Default Value | Required
+| Parameter | Type | Description | Default Value | Required
 | listenerConfig | ConfigReference to `http:listener-config` | Reference to the HTTP listener configuration that defines host, port, and TLS. The gRPC server uses this listener for transport. | None | Yes
 |===
 
