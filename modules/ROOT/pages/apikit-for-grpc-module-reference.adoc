@@ -75,7 +75,7 @@ Configures the gRPC server that listens for incoming gRPC requests. This element
 [[grpc-server-connection]]
 === grpc:grpc-server-connection
 
-Connection provider for the gRPC server. The gRPC server doesn't independently configure host, port, or TLS; it piggybacks on an existing HTTP listener. This connection references an `http:listener-config` for the listening endpoint and defines the protobuf descriptor (IDL) that describes the service and message types.
+Connection provider for the gRPC server. The gRPC server doesn't independently configure host, port, or TLS; it uses an existing HTTP listener. This connection references an `http:listener-config` for the listening endpoint and defines the protobuf descriptor (IDL) that describes the service and message types.
 
 ==== Parameters
 
