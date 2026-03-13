@@ -340,7 +340,7 @@ For more information, see xref:mule-runtime::tuning-backpressure-maxconcurrency.
 
 == Error Handling
 
-gRPC uses status code 0 (OK) for successful responses; this is not an error type. The following sections describe error conditions (status codes 1–16) and how they map to Mule error types.
+gRPC uses status code 0 (OK) for successful responses. This is not an error type. The following sections describe error conditions (status codes 1–16) and how they map to Mule error types.
 
 === Error Type Hierarchy
 
