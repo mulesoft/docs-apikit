@@ -11,7 +11,6 @@ Google Remote Procedure Call (gRPC) is an open-source RPC framework that uses HT
 * Client streaming
 * Bidirectional streaming
 
-The APIkit scaffolder generates the structure of a Mule project from a published gRPC specification. It creates routing logic and a flow for each method defined in the `.proto` file. To scaffold your project in Anypoint Code Builder, you must first publish your gRPC specifications and shared Protobuf definitions to Exchange. This ensures your API assets are properly cataloged for reuse before implementation begins.
 The APIkit scaffolder generates the structure of a Mule project from your gRPC specification. It creates routing logic and a flow for each method defined in the `.proto` file. Scaffolding is only supported for published specifications at the moment. Scaffold your Mule project from Exchange, or create and scaffold a gRPC API project in Anypoint Code Builder. You can publish gRPC specifications and shared Protobuf definitions to Exchange for cataloging and reuse.
 
 [NOTE]
