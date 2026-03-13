@@ -97,7 +97,7 @@ Provides the Protocol Buffer descriptor from a binary file (for example, a compi
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
-| Name | Type | Description | Default Value | Required
+| Parameter | Type | Description | Default Value | Required
 | protobufDescriptorFile | String | Path or expression (for example, `${grpc.server.descriptor.file}`) that resolves to the binary Protobuf descriptor file. | None | Yes
 |===
 
