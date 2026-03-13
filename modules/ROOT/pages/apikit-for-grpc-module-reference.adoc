@@ -304,7 +304,7 @@ Specify stream state in two ways. *Attribute form*: `streamState="#[vars.state]"
 [[backpressure-strategy]]
 == Backpressure Strategy
 
-The gRPC connector uses Mule's built-in backpressure mechanism. Set `maxConcurrency` on the `&lt;flow&gt;` element to define how many requests can be processed concurrently (for example, `<flow name="MyFlow" maxConcurrency="3">`). When that limit is reached, the source applies a backpressure strategy to new incoming requests. The connector does not implement its own concurrency limit; it responds to Mule runtime's concurrency control.
+The gRPC connector uses Mule's built-in backpressure mechanism. To define how many requests can be processed concurrently, set `maxConcurrency` on the `&lt;flow&gt;` element  (for example, `<flow name="MyFlow" maxConcurrency="3">`). When that limit is reached, the source applies a backpressure strategy to new incoming requests. The connector does not implement its own concurrency limit. Instead it responds to Mule runtime's concurrency control.
 
 For more information, see xref:mule-runtime::tuning-backpressure-maxconcurrency.adoc[].
 
