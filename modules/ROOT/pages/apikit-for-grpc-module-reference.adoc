@@ -240,7 +240,7 @@ Handles server streaming RPCs: the client sends one request and the server respo
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
-| Name | Type | Description | Default Value | Required
+| Parameter | Type | Description | Default Value | Required
 | config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
 | methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
 | onCapacityOverload | Enum: WAIT, DROP | Backpressure strategy when the flow's `maxConcurrency` is reached. See <<Backpressure Strategy>>. | WAIT | No
