@@ -7,7 +7,7 @@ Implement gRPC APIs in Mule applications using APIkit for gRPC. The module provi
 
 == Dependencies
 
-Add the gRPC Connector (Server) dependency to your Mule project:
+Add the gRPC Connector (server) dependency to your Mule project:
 
 [source,xml,subs="+attributes"]
 ----
