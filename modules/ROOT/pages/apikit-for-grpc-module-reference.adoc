@@ -269,7 +269,7 @@ Handles bidirectional streaming RPCs: both client and server send streams of mes
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
-| Name | Type | Description | Default Value | Required
+| Parameter | Type | Description | Default Value | Required
 | config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
 | methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
 | Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
