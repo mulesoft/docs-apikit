@@ -135,7 +135,7 @@ Ends the current server stream. Call this operation after sending all messages t
 | Parameter | Type | Description | Default Value | Required
 | config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
 | Target Variable | String | Name of a variable on which the operation output is placed. | None | No
-| Target Value | String | Expression evaluated against the operation output; the result is stored in the target variable. | #[payload] | No
+| Target Value | String | Expression evaluated against the operation output. The result is stored in the target variable. | #[payload] | No
 |===
 
 ==== Configurations
