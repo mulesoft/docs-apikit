@@ -9,6 +9,9 @@
  ** xref:apikit-asyncapi-module-reference.adoc[Module Reference]
  ** xref:apikit-asyncapi-error-handling-reference.adoc[Error Handling Reference]
 
+* xref:apikit-for-grpc.adoc[]
+ ** xref:apikit-for-grpc-module-reference.adoc[Module Reference]
+
 * xref:apikit-4-for-graphql.adoc[]
  ** xref:apikit-graphql-api-mapping.adoc[Mapping a GraphQL API to Your Data Sources]
  ** xref:apikit-graphql-api-implementation.adoc[Querying a GraphQL API Implementation]
