@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Learn the fundamentals about dependency, namespace, and schema information in APIkit for OData v2 to collaborate, build applications, and maintain codebases.
+Learn about dependency, namespace, and schema information in APIkit for OData v2 to collaborate, build applications, and maintain codebases.
 
 == Dependency Information
 
@@ -24,9 +24,10 @@ Declare the APIkit for OData v2 extension with the APIkit for REST module depend
 </dependency>
 ----
 [calloutlist]
-.. The tooling determines the appropriate version of each dependency when scaffolding to guarantee compatibility. Manually setting dependency versions can produce issues. See the https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] before upgrading each component to the latest version.
+.. The tooling determines the appropriate version of each dependency when scaffolding to guarantee compatibility. Manually setting dependency versions produces issues. See the https://docs.mulesoft.com/release-notes/apikit/apikit-release-notes[APIkit release notes] before upgrading each component to the latest version.
 
-NOTE: Update the Anypoint Studio plugin to enable the tooling to determine the appropriate dependency combination.
+[NOTE]
+Update the Anypoint Studio plugin to enable the tooling to determine the appropriate dependency combination.
 
 == Namespace and Schema
 
@@ -37,12 +38,12 @@ xsi:schemaLocation="http://www.mulesoft.org/schema/mule/mule-apikit http://www.m
 
 == Customizing EntitySet Names
 
-APIkit for OData v2 pluralizes entity type names automatically to create *EntitySet* endpoints (for example, `Person` became `Persons`). From APIkit for OData 2.3.5 and later you can now override this behavior by using this annotations in your RAML type definitions:
+APIkit for OData v2 pluralizes entity type names automatically to create *EntitySet* endpoints (for example, `Person` became `Persons`). From APIkit for OData 2.3.5 and later, override this behavior by using these annotations in your RAML type definitions:
 
 * *(odata.entitySet)* 
 * *(odata.entitySetEnabled)*
 
-With these annotations, you control the *EntitySet* name exposed in metadata and in OData API URLs. You can align endpoints with your domain (for example, `Person` → `People`).
+With these annotations, you control the *EntitySet* name exposed in metadata and in OData API URLs and align endpoints with your domain (for example, `Person` → `People`).
 
 === Annotation Reference
 
@@ -104,7 +105,7 @@ The *EntitySet* appears as `People` in `$metadata` and in OData API URLs (for ex
 
 === Backward Compatibility
 
-Existing flows and APIs are unchanged unless you explicitly enable the feature. Custom *EntitySet* annotations are ignored unless *(odata.entitySetEnabled)* is set to `true`. If the flag is `false` or missing, APIkit for OData v2 always uses default pluralization based on the entity type, even if *(odata.entitySet)* is present. This ensures full backward compatibility with existing APIkit for OData v2 applications.
+Existing flows and APIs don't change unless you explicitly enable the feature. APIkit for OData v2 ignores custom *EntitySet* annotations unless *(odata.entitySetEnabled)* is set to `true`. If the flag is `false` or missing, APIkit for OData v2 always uses default pluralization based on the entity type, even if *(odata.entitySet)* is present. This ensures full backward compatibility with existing APIkit for OData v2 applications.
 
 == See Also
 
