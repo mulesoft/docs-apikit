@@ -38,7 +38,7 @@ xsi:schemaLocation="http://www.mulesoft.org/schema/mule/mule-apikit http://www.m
 
 == Customizing EntitySet Names
 
-APIkit for OData v2 pluralizes entity type names automatically to create *EntitySet* endpoints (for example, `Person` became `Persons`). From APIkit for OData 2.3.5 and later, override this behavior by using these annotations in your RAML type definitions:
+APIkit for OData v2 pluralizes entity type names automatically to create *EntitySet* endpoints (for example, `Person` becomes `Persons`). For APIkit for OData 2.3.5 and later, override this behavior by using these annotations in your RAML type definitions:
 
 * *(odata.entitySet)* 
 * *(odata.entitySetEnabled)*
