@@ -43,7 +43,7 @@ APIkit for OData v2 pluralizes entity type names automatically to create *Entity
 * *(odata.entitySet)* 
 * *(odata.entitySetEnabled)*
 
-With these annotations, you control the *EntitySet* name exposed in metadata and in OData API URLs and align endpoints with your domain (for example, `Person` → `People`).
+With these annotations, you control the *EntitySet* name exposed in metadata and in OData API URLs and align endpoints with your domain (for example, change `Person` to `People`).
 
 === Annotation Reference
 
