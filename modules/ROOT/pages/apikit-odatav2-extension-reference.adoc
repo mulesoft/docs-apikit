@@ -52,17 +52,17 @@ Apply these annotations at the entity type level in your RAML library (for examp
 [cols="1a,2a,3a", options="header"]
 |===
 | Annotation | Type | Description
-| *(odata.entitySet)* | String | Custom name for the entity set. Used only if *(odata.entitySetEnabled)* is `true` and the value is non-empty.
-| *(odata.entitySetEnabled)* | Boolean | If `true`, uses the custom name from *(odata.entitySet)*. If `false` or omitted, default pluralization is used for backward compatibility.
+| `(odata.entitySet)` | String | Custom name for the entity set. Used only if `(odata.entitySetEnabled)` is `true` and the value is non-empty.
+| `(odata.entitySetEnabled)` | Boolean | If `true`, uses the custom name from `(odata.entitySet)`. If `false` or omitted, default pluralization is used for backward compatibility.
 |===
 
 === Feature Flag: Enabling Custom EntitySet Names
 
-The *(odata.entitySet)* and *(odata.entitySetEnabled)* entity annotations affect metadata generation and OData API behavior as follows:
+The `(odata.entitySet)` and `(odata.entitySetEnabled)` entity annotations affect metadata generation and OData API behavior as follows:
 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
-| Case | *(odata.entitySetEnabled)* | *(odata.entitySet)* | Effective EntitySet Name | Metadata and OData API Behavior
+| Case | `(odata.entitySetEnabled)` | `(odata.entitySet)` | Effective EntitySet Name | Metadata and OData API Behavior
 | 1 | `false` | Present | Default pluralization (based on entity type) | Default EntitySet
 | 2 | `false` | Not present | Default pluralization (based on entity type) | Default EntitySet
 | 3 | Not defined or present | Present | Default pluralization (based on entity type) | Default EntitySet
@@ -72,11 +72,11 @@ The *(odata.entitySet)* and *(odata.entitySetEnabled)* entity annotations affect
 |===
 
 [NOTE]
-Custom names apply if **entitySetEnabled** is `true` and **entitySet** is provided with a non-empty value. If not, APIkit for OData v2 uses default pluralization.
+Custom names apply if `entitySetEnabled` is `true` and `entitySet` is provided with a non-empty value. If not, APIkit for OData v2 uses default pluralization.
 
 === Example: Custom EntitySet Name in RAML
 
-This example defines a `Person` entity and exposes it as the *EntitySet* `People`:
+This example defines a `Person` entity and exposes it as the `EntitySet` `People`:
 
 [source,raml]
 ----
@@ -101,11 +101,11 @@ types:
         type: number
 ----
 
-The *EntitySet* appears as `People` in `$metadata` and in OData API URLs (for example, `/api/odata.svc/People`) instead of the default `Persons`.
+The `EntitySet` appears as `People` in `$metadata` and in OData API URLs (for example, `/api/odata.svc/People`) instead of the default `Persons`.
 
 === Backward Compatibility
 
-Existing flows and APIs don't change unless you explicitly enable the feature. APIkit for OData v2 ignores custom *EntitySet* annotations unless *(odata.entitySetEnabled)* is set to `true`. If the flag is `false` or missing, APIkit for OData v2 always uses default pluralization based on the entity type, even if *(odata.entitySet)* is present. This ensures full backward compatibility with existing APIkit for OData v2 applications.
+Existing flows and APIs don't change unless you explicitly enable the feature. APIkit for OData v2 ignores custom `EntitySet` annotations unless `(odata.entitySetEnabled)` is set to `true`. If the flag is `false` or missing, APIkit for OData v2 always uses default pluralization based on the entity type, even if `(odata.entitySet)` is present. This ensures full backward compatibility with existing APIkit for OData v2 applications.
 
 == See Also
 
