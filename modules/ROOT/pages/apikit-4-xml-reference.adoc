@@ -25,6 +25,8 @@ Learn the fundamentals about dependency, namespace, schema, and other informatio
 |Element Name |Description |Required
 |`apikit:config` |APIkit configuration |Yes
 |`apikit:console` |Property of `config-ref` in the `http:listener` element in the api-console flow that defines the API console URL |No
+|`apikit:flow-mappings` |Container for one or more `apikit:flow-mapping` elements that map API resources and actions to flows |No
+|`apikit:flow-mapping` |Maps a RAML resource and action to a specific Mule flow |No
 |`apikit:router` |REST routing message processor nested in the flow element |Yes
 |===
 
@@ -88,6 +90,29 @@ If you use APIkit behind a reverse proxy and set `keepRamlBaseUri` to `true`, us
 |`headerStrictValidation` |No | Validates that request headers are defined in the RAML file or belong to a well-known set of headers.
 |`queryParamsStrictValidation` |No | Validates that request query parameters are defined in the RAML file.
 |===
+
+=== APIkit Flow-Mapping Attributes
+
+Use the `apikit:flow-mapping` element to route a specific RAML resource and action to an existing Mule flow.
+
+[%header,cols="22a,10a,68a"]
+|===
+|Attribute Name|Required |Description
+|`resource` |Yes |RAML resource path to map, for example `/users`.
+|`action` |Yes |HTTP method to map for the resource, for example `get` or `post`.
+|`flow-ref` |Yes |Name of the Mule flow that handles the mapped resource and action.
+|===
+
+In APIkit configuration, nest `apikit:flow-mapping` in `apikit:flow-mappings`, and nest `apikit:flow-mappings` in `apikit:config`.
+
+[source,xml]
+----
+<apikit:config name="api-config" api="api/api.raml">
+  <apikit:flow-mappings>
+    <apikit:flow-mapping resource="/users" action="get" flow-ref="getUsersFlow" />
+  </apikit:flow-mappings>
+</apikit:config>
+----
 
 == APIkit for REST Namespace and Schema
 
