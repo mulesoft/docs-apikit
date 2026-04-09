@@ -26,13 +26,13 @@ Learn the fundamentals about dependency, namespace, schema, and other informatio
 |`apikit:config` |APIkit configuration |Yes
 |`apikit:console` |Property of `config-ref` in the `http:listener` element in the api-console flow that defines the API console URL |No
 |`apikit:flow-mappings` |Container for one or more `apikit:flow-mapping` elements that map API resources and actions to flows |No
-|`apikit:flow-mapping` |Maps a RAML resource and action to a specific Mule flow |No
+|`apikit:flow-mapping` |Maps a resource and action from the API specification to a specific Mule flow |No
 |`apikit:router` |REST routing message processor nested in the flow element |Yes
 |===
 
 === apikit:config Attributes
 
-The `apikit:config` attributes are of `NonBlankString`type`.
+The `apikit:config` attributes are of type `NonBlankString`.
 
 [%header,cols="22a,10a,68a"]
 |===
@@ -91,25 +91,31 @@ If you use APIkit behind a reverse proxy and set `keepRamlBaseUri` to `true`, us
 |`queryParamsStrictValidation` |No | Validates that request query parameters are defined in the RAML file.
 |===
 
-=== APIkit Flow-Mapping Attributes
+=== apikit:flow-mapping Attributes
 
-Use the `apikit:flow-mapping` element to route a specific RAML resource and action to an existing Mule flow.
+Use the `apikit:flow-mapping` element to route a resource and action defined in the API specification (RAML or OpenAPI specification) to an existing Mule flow.
 
 [%header,cols="22a,10a,68a"]
 |===
 |Attribute Name|Required |Description
-|`resource` |Yes |RAML resource path to map, for example `/users`.
+|`resource` |Yes |Resource path from the API specification to map, for example `/users`.
 |`action` |Yes |HTTP method to map for the resource, for example `get` or `post`.
 |`flow-ref` |Yes |Name of the Mule flow that handles the mapped resource and action.
+|`content-type` |No |Request media type to match, for example `application/json`. When omitted, the mapping applies to any `Content-Type` for that resource and action. When set, you can route the same resource and action to different flows depending on the request media type.
 |===
 
 In APIkit configuration, nest `apikit:flow-mapping` in `apikit:flow-mappings`, and nest `apikit:flow-mappings` in `apikit:config`.
 
-[source,xml]
+[source,xml,linenums]
 ----
 <apikit:config name="api-config" api="api/api.raml">
   <apikit:flow-mappings>
-    <apikit:flow-mapping resource="/users" action="get" flow-ref="getUsersFlow" />
+    <apikit:flow-mapping resource="/orders" action="post"
+        content-type="application/json"
+        flow-ref="process-json-order"/>
+    <apikit:flow-mapping resource="/orders" action="post"
+        content-type="application/xml"
+        flow-ref="process-xml-order"/>
   </apikit:flow-mappings>
 </apikit:config>
 ----
@@ -144,3 +150,12 @@ xsi:schemaLocation="http://www.mulesoft.org/schema/mule/mule-apikit http://www.m
 | `apikit.multipart.size.limit` a| 268435456 | Limits the size of the multipart payload to be validated by throwing `InvalidFormParameterException` if the incoming multipart payload exceeds the limit (expressed in bytes). | 1.8.0
 | `fullDomain` | localhost | Overrides the console URL. | 1.1.15
 |===
+
+== See Also
+
+* xref:apikit-4-for-rest.adoc[]
+* xref:apikit-4-implement-rest-api.adoc[]
+* xref:apikit-workflow-convert-existing.adoc[]
+* xref:apikit-error-handling-reference.adoc[]
+* xref:apikit-4-scaffolding-reference.adoc[]
+* xref:apikit-release-notes.adoc[]
