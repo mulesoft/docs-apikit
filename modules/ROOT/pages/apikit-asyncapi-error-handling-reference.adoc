@@ -25,3 +25,7 @@ APIkit for AsyncAPI defines the following error types:
 == APIkit for AsyncAPI Error Handling
 
 APIkit for AsyncAPI scaffolder generates no error-handling code.
+
+=== Limitations of Kafka 
+
+Since the Source Message Listener, with content validation enabled, does not throw an exception, we cannot implement the DLQ/DLT pattern for Kafka. In this model, the consumer is responsible for routing invalid messages to DLQ/DLT topics.
