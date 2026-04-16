@@ -3,9 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+Connect APIkit for GraphQL to your runtime by choosing connector listeners, data fetchers, and data loaders that match how you resolve schema fields. Pick an inbound protocol listener, then attach fetchers for single fields and loaders when you batch per object type to avoid N+1 calls. Sections below describe how each source fits into the GraphQL execution path in Mule.
+
 == Select Sources
 
-The module sources vary depending on the implementation of your GraphQL API. APIkit for GraphQL provides two kind of sources:
+The module sources vary depending on the implementation of your GraphQL API. APIkit for GraphQL provides two kinds of sources:
 
 * Data Fetchers
 * Data Loaders

@@ -1,17 +1,13 @@
-= Enhancing API Consumption and Minimizing Network Traffic
+= OData $expand in APIkit for OData v4
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To reduce the amount of incoming network traffic and make APIs easier to consume, use the `$expand` system query option. Because API consumers request only inline representations of the related entities of query results, the returned information avoids multiple network roundtrips. Using this query option benefits metered and latency-sensitive consumers.
-
-From APIkit for OData 1.3.0 onwards, this module supports automatic routing for ease of implementing the `$expand` system query option in the most common cases. Although this feature requires more preparation and configuration, it enables the reuse of implemented flows when processing the `$expand` requests.
-
-See https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html[the OASIS specification^] for more information about the system query option.
+The OData `$expand` system query option returns related entities inline so clients avoid extra round trips and smaller payloads on metered or high-latency networks. APIkit for OData v4 adds automatic routing for common `$expand` scenarios from module 1.3.0 onward; you configure listeners and optional generic expansion so existing flows can satisfy expanded queries. See the https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html[OASIS URL conventions] for full `$expand` syntax.
 
 == Before You Begin
 
-You must fulfill the following requirements to use the `$expand` feature:
+Prerequisites for using `$expand` include:
 
 - APIkit for OData Module (version 1.3.0)
 - A `<request-entity-collection-listener/>` implementation for each expandable entity

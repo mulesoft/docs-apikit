@@ -4,11 +4,11 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases: creating-an-odata-api-with-apikit.adoc
 
-You can query a MySQL database with the xref:creating-an-odatav4-api-with-apikit.adoc#apikit-for-odata-4-implementation-example[OData MySQL example] by using an HTTP-based data service.
+Build an OData v4 API with APIkit for OData using CSDL metadata, scaffolding, and the xref:creating-an-odatav4-api-with-apikit.adoc#apikit-for-odata-4-implementation-example[OData MySQL example] to query MySQL over HTTP. The tutorial covers project setup, generated flows, and running the packaged sample.
 
 == Before You Begin
 
-You must install the following software to create and use an OData REST API with APIkit:
+Install this software to create and use an OData REST API with APIkit:
 
 * OData Plugin
 * Mule runtime engine 4.3.0 or later

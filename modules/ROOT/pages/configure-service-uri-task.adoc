@@ -3,11 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-When using a load balancer in front of a RAML or OAS API implementation, to ensure that the URL specified in the proxy matches the one in your API, enable the *Keep RAML/OAS base URI* flag. 
+Deployments behind a load balancer or API proxy often rewrite public URLs; APIkit for REST must emit links and metadata that match what clients see. Set *Keep RAML/OAS base URI* (the `keepApiBaseUri` attribute on `apikit:config`) so the base URI in your RAML or OpenAPI Specification stays aligned with the gateway address.
 
 // TODO: Add an image pointing to the property in the configuration
 
-To edit the code, set the `keepApiBaseUri` to `true`:
+Set `keepApiBaseUri` to `true` in XML:
 
 [source,xml,linenums]
 ----

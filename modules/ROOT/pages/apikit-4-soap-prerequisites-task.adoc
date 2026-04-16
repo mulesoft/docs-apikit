@@ -3,9 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Before setting up the development environment for creating a WSDL-based API using APIkit, ensure you fulfill the following prerequisites:
+Prepare your workstation and assets before you build a WSDL-based API with APIkit for SOAP. You need supported Anypoint Studio and Mule runtime versions, the APIkit for SOAP component, a SOAP test client, and a WSDL file such as the sample used in the SOAP tutorials.
 
-* Install the following software:
+== Prerequisites
+
+* Install the required software:
 ** Studio 7.1 or later
 ** Mule runtime engine 4.1.1 or later
 ** APIkit for SOAP 1.1 or 1.2

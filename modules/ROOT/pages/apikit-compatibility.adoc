@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The following table shows the compatibility between APIkit modules and the corresponding Mule versions:
+Compare APIkit module support on Mule 3 and Mule 4 before you choose an implementation stack. Review protocol and language coverage in the tables on this page when you plan AsyncAPI, gRPC, GraphQL, OData, REST, or SOAP APIs. For APIkit versions that align with xref:mule-runtime::fips-140-2-compliance-support.adoc[FIPS 140-2] expectations, see xref:apikit-release-notes.adoc[].
 
 [%header]
 |===
@@ -16,8 +16,6 @@ The following table shows the compatibility between APIkit modules and the corre
 |APIkit for REST |Yes |Yes 
 |APIkit for SOAP |Yes |Yes 
 |===
-
-Some versions of APIkit are compliant with FIPS 140-2 standards. For more information about versions of APIkit that meet these compliance standards, see the xref:apikit-release-notes.adoc[]. Additionally, learn about xref:mule-runtime::fips-140-2-compliance-support.adoc[Mule runtime FIPS 140-2 Compliance Support].
 
 == Language and Protocol Support
 

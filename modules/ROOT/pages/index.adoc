@@ -4,18 +4,16 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases: overview-4.adoc
 
-APIkit is a toolkit that simplifies the development of API-led applications for Mule developers. It scaffolds applications from a given specification, validates input parameters, and creates xref:munit::munit-scaffold-test-task.adoc[MUnit test suites]. APIkit has a module for each supported web-service type:
+APIkit scaffolds Mule applications from AsyncAPI, gRPC, GraphQL, OData, RAML, OpenAPI Specification (OAS), and SOAP contracts, validates inbound traffic against those contracts, and can generate xref:munit::munit-scaffold-test-task.adoc[MUnit test suites]. Each protocol has a dedicated module; routing dispatches requests to the flows that implement your resources. The same general workflow—specify, scaffold, implement, test—applies across modules, so skills transfer among SOAP, REST, GraphQL, and event-driven APIs.
+
+== Supported Web Service Types
 
 * xref:apikit-for-asyncapi.adoc[] supports AsyncAPI APIs.
 * xref:apikit-for-grpc.adoc[] supports gRPC APIs.
-* xref:apikit-4-for-graphql.adoc[] supports GraphQL APIs. 
-* xref:apikit-4-for-odatav2.adoc[] and xref:apikit-4-for-odatav4.adoc[] support OData APIs. 
+* xref:apikit-4-for-graphql.adoc[] supports GraphQL APIs.
+* xref:apikit-4-for-odatav2.adoc[] and xref:apikit-4-for-odatav4.adoc[] support OData APIs.
 * xref:apikit-4-for-rest.adoc[] supports RAML and OAS APIs.
-* xref:apikit-4-for-soap.adoc[] supports SOAP APIs. 
-
-With APIkit, incoming requests are intelligently routed to the appropriate endpoints based on the defined API contracts. This routing mechanism simplifies request handling, improves performance, and ensures that requests are processed by the correct API resources.
-
-Although each module works with a family of web services, all modules share common usage patterns. So if you're a Mule developer who works with SOAP APIs, you can work with GraphQL, RAML, OData, or OAS APIs.
+* xref:apikit-4-for-soap.adoc[] supports SOAP APIs.
 
 == Features
 
@@ -30,7 +28,7 @@ You must have access to xref:studio::index.adoc[Anypoint Studio] or xref:anypoin
 
 == APIkit Versions
 
-APIkit works as a module with Mule runtime version 4. Documentation for the Mule 3 implementation of APIkit is available https://docs.mulesoft.com/apikit/3.x/[here]. If you use APIkit on Mule 3, the module version matches the runtime version.
+APIkit works as a module with Mule run-time version 4. Documentation for the Mule 3 implementation of APIkit is available https://docs.mulesoft.com/apikit/3.x/[here]. If you use APIkit on Mule 3, the module version matches the run-time version.
 
 By default, Studio includes the APIkit for REST and APIkit for SOAP modules. If you need the GraphQL or OData modules, follow the installation instructions in each section.
 

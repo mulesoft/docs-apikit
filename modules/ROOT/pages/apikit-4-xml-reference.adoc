@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Learn the fundamentals about dependency, namespace, schema, and other information about APIkit for REST.
+Configure the APIkit for REST module in Mule: declare the Maven dependency, add `apikit:config`, and place the `apikit:router` and optional console and flow mappings in your XML. This reference lists dependency coordinates, namespaces, schema locations, and element attributes you use when you implement or troubleshoot REST APIs.
 
 == APIkit for REST Dependency Information
 

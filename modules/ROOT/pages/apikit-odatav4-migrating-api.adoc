@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If you were using the previous APIkit OData extension, you can now reuse the type definition of an OData v2 API to scaffold an OData v4 API by transforming an `odata.raml` file to an `odata.csdl.xml` file automatically.
+Migrate from APIkit for OData v2 to OData v4 by reusing your RAML entity model: Studio converts `odata.raml` into `odata.csdl.xml` (Common Schema Definition Language) so you can scaffold OData v4 flows from the same types. The new file lands under the `api` folder next to your existing assets.
 
 In Studio, right-click your `odata.raml` file and select *Mule* > *Generate CSDL file*.
 

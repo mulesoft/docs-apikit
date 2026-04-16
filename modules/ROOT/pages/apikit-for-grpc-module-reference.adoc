@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Implement gRPC APIs in Mule applications using APIkit for gRPC. The module provides configurations, operations, and sources for building gRPC services from Protocol Buffer (`.proto`) definitions.
+Implement gRPC APIs in Mule applications with APIkit for gRPC: declare dependencies, namespaces, and configuration elements that wire Protocol Buffer (`.proto`) services into flows. This reference lists Maven coordinates, XML schema locations, `grpc:config`, operations, and sources you use when you scaffold or customize gRPC endpoints.
 
 == Dependencies
 

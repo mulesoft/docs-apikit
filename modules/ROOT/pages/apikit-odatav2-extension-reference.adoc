@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Learn about dependency, namespace, and schema information in APIkit for OData v2 to collaborate, build applications, and maintain codebases.
+Integrate APIkit for OData v2 with APIkit for REST by declaring the Maven dependencies, namespaces, and XML schema locations in this topic. Customize generated EntitySet names and router behavior from your RAML types when you need endpoints that differ from default pluralization.
 
 == Dependency Information
 

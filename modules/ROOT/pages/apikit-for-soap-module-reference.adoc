@@ -3,6 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+Configure the APIkit for SOAP module in Mule to route SOAP requests from your WSDL, validate inbound XML when needed, and emit SOAP responses. This reference documents `soapkit:config`, router behavior, operations, and related XML elements you use when you implement or troubleshoot SOAP APIs.
+
 == Configurations
 
 === Config

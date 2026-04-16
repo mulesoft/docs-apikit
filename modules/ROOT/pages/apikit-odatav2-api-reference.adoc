@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The Entity Data Model (EDM) that you create using RAML is the basis for building an OData API. You use EDM-compatible data types to create the `odata.raml` file, as described in this reference. After generating flows using the APIkit OData Extension, you need to implement API endpoints.
+Define your OData Entity Data Model (EDM) in RAML so APIkit for OData v2 can build the `odata.raml` library the extension uses to scaffold flows. Model entities with EDM-compatible types, keys, and annotations that match the requirements below. After scaffolding with the APIkit OData extension, implement the generated endpoints with your business logic.
 
 == Entity Data Model
 
@@ -28,7 +28,7 @@ types:
 
 Annotate at least one of the properties on each entity using the annotation (odata.key).
 
-The following annotations pertain to each property:
+These annotations pertain to each property:
 
 [source,yaml]
 ----

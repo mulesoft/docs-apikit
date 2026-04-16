@@ -1,9 +1,9 @@
-= Supported Bindings and Parametrized Channels in APIkit for AsyncAPI 
+= Bindings and Parametrized Channels in APIkit for AsyncAPI
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for AsyncAPI supports various bindings to enable message-driven architectures, and parametrized channels to define dynamic and reusable configurations.
+APIkit for AsyncAPI maps AsyncAPI channel bindings to Anypoint connectors such as Anypoint MQ, Kafka, and Solace PubSub+. Use binding parameters to tune publish and subscribe behavior for each channel. Parametrized channel names let you reuse one channel pattern across many topics or destinations without duplicating the specification.
 
 == Supported Bindings
 
@@ -68,7 +68,7 @@ APIkit for AsyncAPI supports various bindings to enable message-driven architect
 [NOTE]
 Anypoint Connector for Apache Kafka (Apache Kafka Connector) and Solace PubSub+ Connector don't support bindings.
 
-== Parameterized Channels
+== Parametrized Channels
 
 APIkit for AsyncAPI supports parametrized channels so you can define dynamic and reusable configurations, scale your integrations more effectively, and create consistent configurations across different parts of the integration.
 

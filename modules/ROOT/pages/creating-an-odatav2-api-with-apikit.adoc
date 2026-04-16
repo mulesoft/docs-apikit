@@ -3,11 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The OData MySQL example shows you how to use an HTTP-based data service to query a MySQL database.
+Build an OData v2 REST API with APIkit for OData and the MySQL walkthrough: generate flows from RAML types, connect to a sample database, and exercise HTTP and OData endpoints. The OData MySQL example packages a working Maven project you import into Anypoint Studio.
 
 == Before You Begin
 
-You must install the following software to create and use an OData REST API with APIkit:
+Install this software to create and use an OData REST API with APIkit:
 
 * OData Plugin
 * Mule runtime engine 4.1.1 or later
@@ -17,7 +17,7 @@ Additionally, you must download the link:{attachmentsdir}/odata.raml[OData examp
 
 == Implement an OData v2 API Using the APIkit OData Extension
 
-The following example shows you how to implement an OData-enabled REST API:
+This section walks through implementing an OData-enabled REST API:
 
 . In Studio, select *File* > *New* > *Mule Project*.
 . In the *Project Name* field, type the name of your Mule project.
