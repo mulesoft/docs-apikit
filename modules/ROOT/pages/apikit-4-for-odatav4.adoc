@@ -3,11 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for OData v4 is a framework that simplifies the development of RESTful APIs that adhere to the OData v4 specification. OData, also called Open Data Protocol, enables the creation and consumption of RESTful APIs. It allows data querying and manipulation through standard HTTP requests.
-
-APIkit for OData enables you to generate Mule flows that handle OData requests to create OData APIs. For example, you can expose a legacy API as an OData API, orchestrate and transform data before exposing it in Salesforce, or create a bidirectional OData API for databases such as Oracle, DB2, or Azure DB.
-
-While the APIkit for OData v2 extension is based on RAML APIs, APIkit for OData v4 leverages the Entity Data Model (EDM) used by OData services to build HTTP-based data services. The EDM formalizes the resource descriptions and structures within the OData service. 
+APIkit for OData v4 delivers RESTful APIs that comply with the OData v4 specification. It uses standard HTTP for querying and updating data through the Open Data Protocol (OData). Generate Mule flows that handle OData requests so you can modernize legacy APIs, orchestrate data into Salesforce, or expose bidirectional OData surfaces for databases such as Oracle, DB2, or Azure DB. Unlike the RAML-based APIkit for OData v2 extension, APIkit for OData v4 uses the OData Entity Data Model (EDM) to describe resources and structures for HTTP-based data services.
 
 == See Also
 

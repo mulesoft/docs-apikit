@@ -4,8 +4,8 @@
 * xref:apikit-compatibility.adoc[]
 
 * xref:apikit-for-asyncapi.adoc[]
- ** xref:apikit-for-asyncapi-supported-bindings.adoc[Supported Bindings and Parametrized Channels]
- ** xref:apikit-asyncapi-avro-support.adoc[Implementing and Validating Avro Schemas]
+ ** xref:apikit-for-asyncapi-supported-bindings.adoc[Bindings and Parametrized Channels]
+ ** xref:apikit-asyncapi-avro-support.adoc[Using Avro Schemas with APIkit for AsyncAPI]
  ** xref:apikit-asyncapi-module-reference.adoc[Module Reference]
  ** xref:apikit-asyncapi-error-handling-reference.adoc[Error Handling Reference]
 
@@ -28,7 +28,7 @@
  ** xref:apikit-odatav4-migrating-api.adoc[Transforming a RAML OData v2 API to a CSDL OData v4 API]
  ** xref:creating-an-odatav4-api-with-apikit.adoc[Building, Implementing, and Testing an API]
  ** xref:apikit-odatav4-transform-to-sql-operation.adoc[Transforming an OData Request to a SQL Query]
- ** xref:apikit-odatav4-expand-feature.adoc[Enhancing API Consumption and Minimizing Network Traffic]
+ ** xref:apikit-odatav4-expand-feature.adoc[OData $expand in APIkit for OData v4]
  ** xref:apikit-odatav4-extension-reference.adoc[Module Reference]
  ** xref:apikit-odatav4-error-handling-reference.adoc[Error Handling Reference]
 
@@ -39,7 +39,7 @@
   *** xref:validate-4-task.adoc[Validating Query Parameters and Headers]
   *** xref:configure-headers4-task.adoc[Configuring Response Headers and Status Code]
   *** xref:configure-service-uri-task.adoc[Configuring the Service URI]
- ** xref:apikit-4-scaffolding-reference.adoc[Scaffolding Reference]
+ ** xref:apikit-4-scaffolding-reference.adoc[REST Scaffolding Reference]
  ** xref:apikit-4-xml-reference.adoc[Module Reference]
  ** xref:apikit-error-handling-reference.adoc[Error Handling Reference]
 
@@ -47,9 +47,9 @@
  ** xref:apikit-4-soap-prerequisites-task.adoc[Before You Begin Using APIkit for SOAP]
  ** xref:implementing-apikit-4-for-soap.adoc[Implementing a SOAP Interface]
   *** xref:apikit-4-soap-project-task.adoc[Creating an APIkit for SOAP Project]
-  *** xref:apikit-4-soap-fault-task.adoc[Identifying Operations to Implement]
-  *** xref:apikit-4-prevent-fault-task.adoc[Preventing the SOAP Fault]
-  *** xref:apikit-4-display-fault-task.adoc[Displaying a Typed Fault]
+  *** xref:apikit-4-soap-fault-task.adoc[Finding Unimplemented Operations with a SOAP Fault]
+  *** xref:apikit-4-prevent-fault-task.adoc[Returning a Valid SOAP Response After a Fault]
+  *** xref:apikit-4-display-fault-task.adoc[Displaying a Typed SOAP Fault]
   *** xref:apikit-4-get-header-task.adoc[Getting a SOAP Header]
   *** xref:apikit-4-set-header-task.adoc[Setting a SOAP Header]
  ** xref:apikit-for-soap-module-reference.adoc[Module Reference]

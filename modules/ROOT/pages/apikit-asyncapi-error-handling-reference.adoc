@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for AsyncAPI defines the following error types:
+APIkit for AsyncAPI maps runtime failures to typed errors that cover validation, publishing, routing, and internal faults. Use the table to diagnose which phase failed and adjust your AsyncAPI implementation or flow configuration.
 
 [%header]
 |===
@@ -24,4 +24,4 @@ APIkit for AsyncAPI defines the following error types:
 
 == APIkit for AsyncAPI Error Handling
 
-APIkit for AsyncAPI scaffolder generates no error-handling code.
+The APIkit for AsyncAPI scaffolder does not generate error-handling code. Add `on-error` components and scopes in your Mule application as needed.

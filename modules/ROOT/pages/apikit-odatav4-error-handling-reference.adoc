@@ -3,9 +3,11 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+APIkit for OData v4 maps routing, parsing, serialization, and expansion failures to typed `APIKIT-ODATA` errors you handle in Mule. Use the error catalog and scaffolded handler in this reference to interpret failures and return consistent OData error payloads.
+
 == Error Types
 
-APIkit for OData v4 defines the following error types:
+APIkit for OData v4 defines error types for common OData processing failures:
 
 [%header]
 |===

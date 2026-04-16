@@ -3,15 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Implement gRPC APIs in Mule projects using APIkit for gRPC. Design your API using Protocol Buffers (`.proto` files) and use the APIkit scaffolder to generate a minimal implementation that you can extend with your business logic.
+Implement gRPC APIs in Mule projects with APIkit for gRPC by modeling services in Protocol Buffers (`.proto` files) and extending the scaffolder output with your business logic. Google Remote Procedure Call (gRPC) runs over HTTP/2 and supports unary calls plus server streaming, client streaming, and bidirectional streaming for microservices and backend-to-backend traffic.
 
-Google Remote Procedure Call (gRPC) is an open-source RPC framework that uses HTTP/2 as its transport, making it well-suited for server-to-server communication and microservices. It supports unary (request-response) and streaming patterns:
-
-* Server streaming
-* Client streaming
-* Bidirectional streaming
-
-The APIkit scaffolder generates the structure of a Mule project from your gRPC specification. It creates routing logic and a flow for each method defined in the `.proto` file. Scaffolding is only supported for published specifications. Scaffold your Mule project from Exchange, or create and scaffold a gRPC API project in Anypoint Code Builder. You can publish gRPC specifications and shared Protobuf definitions to Exchange for cataloging and reuse.
+The APIkit scaffolder generates Mule project structure, routing, and a flow per `.proto` method from published specifications. Import from Anypoint Exchange or scaffold a gRPC API project in Anypoint Code Builder, and publish reusable Protobuf assets to Exchange when you share contracts across teams.
 
 [NOTE]
 APIkit for gRPC requires Mule runtime engine 4.11 or later to provide the necessary HTTP/2 support. At this time, deployment is supported on Runtime Fabric and Hybrid Standalone (HSA) infrastructure.

@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To install the APIkit for OData v2 plugin in Anypoint Studio:
+Install the APIkit for OData v2 Studio plugin so you can generate OData APIs from RAML types, edit metadata, and scaffold flows. Add the update site in Anypoint Studio, select the OData extension, and restart when the installer finishes.
 
 . Select *Help* > *Install New Software* > *Add*.
 +

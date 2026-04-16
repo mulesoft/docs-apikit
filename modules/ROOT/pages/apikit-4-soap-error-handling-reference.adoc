@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-When something goes wrong with a part of your flow, you get a message with an error type.
+APIkit for SOAP maps routing failures and SOAP fault conditions to typed errors you handle in Mule. The table in this reference lists each APIKIT-SOAP error type and what it indicates. The scaffolder does not generate default error-handling logic; add `on-error` strategies in your flows as needed.
 
 == APIkit for SOAP Error Types
 

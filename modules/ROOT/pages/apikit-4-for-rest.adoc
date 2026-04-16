@@ -4,9 +4,7 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases: apikit-4-generate-workflow.adoc
 
-Use APIkit for REST to streamline REST API development while ensuring compliance with industry standards. APIkit for REST is a framework designed to simplify the development and integration of RESTful APIs. REST (Representational State Transfer) is an architectural style for building web services. 
-
-APIkit for REST fully supports RAML (RESTful API Modeling Language) and OAS (OpenAPI Specification), which are widely adopted formats for describing RESTful APIs. Define your API contracts using RAML or OAS to benefit from consistent design, enhanced collaboration, and clear documentation.
+APIkit for REST streamlines development and integration of RESTful APIs with RAML or OAS contracts, validation, generated implementation templates, and routing that follows your API design. Representational State Transfer (REST) defines how web services expose resources; APIkit for REST turns those contracts into consistent Mule flows. Define RAML or OpenAPI Specification (OAS) up front to align design, documentation, and runtime behavior across your team.
 
 == Features
 
@@ -20,9 +18,7 @@ The framework provides code generation capabilities that help streamline the imp
 
 * Intelligent Routing
 +
-With APIkit for REST, incoming requests are intelligently routed to the appropriate endpoints based on the defined API contracts. 
-
-APIkit for REST is a tool for efficient REST API development and integration. By leveraging its features and adhering to industry standards, you can accelerate your API development lifecycle, improve collaboration, and deliver high-quality RESTful APIs.
+With APIkit for REST, incoming requests are intelligently routed to the appropriate endpoints based on the defined API contracts.
 
 == See Also
 

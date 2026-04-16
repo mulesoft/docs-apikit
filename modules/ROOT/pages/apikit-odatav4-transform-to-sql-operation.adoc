@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-You can transform the input OData `GET` request to an SQL SELECT query by using the `Transform to SQL Select` operation. This operation is useful when combined with the `select` operation of the Anypoint Connector for Database (Database Connector). 
+The `Transform to SQL Select` operation turns an inbound OData `GET` into an SQL `SELECT` with bound parameters you pass to the Database Connector. Pair it with the connector’s `select` operation to expose relational data through OData v4 without hand-writing SQL for every query. The message payload is the prepared statement text; attributes carry the parameter map the database driver expects.
 
 image::transform-to-sql-transformer.png["*Transform to SQL select* element and *Entity set name* field highlighted"]
 
@@ -15,7 +15,7 @@ You can use this operation with the Database connector to expose databases that 
 
 image::serialize-transform-to-sql.png["*Serialized entity* element and the *Inbound content* field highlighted"]
 
-APIkit supports the following elements:
+APIkit supports these OData request elements:
 
 * System query options:
 ** $filter
@@ -28,7 +28,7 @@ APIkit supports the following elements:
 * Entity relation
 * Server-side pagination
 
-APIkit does not support the following elements:
+APIkit does not support:
 
 * Parameter Aliases
 * Built-in Filter Operations:

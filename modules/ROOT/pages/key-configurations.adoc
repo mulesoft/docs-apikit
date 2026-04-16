@@ -4,7 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :page-aliases: apikit-4-tasks-index.adoc
 
-The following configuration settings determine the behavior of the APIkit for REST module during runtime:
+Tune APIkit for REST at run time by tightening validation, shaping HTTP responses, and keeping base URIs consistent behind proxies. Each linked task covers one concern you can combine in the same project.
+
+== Tasks
 
 * xref:validate-4-task.adoc[]
 * xref:configure-headers4-task.adoc[]

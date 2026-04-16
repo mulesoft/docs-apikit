@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-To install the APIkit for OData v4 plugin in Anypoint Studio:
+Install the APIkit for OData v4 Studio plugin to author CSDL metadata, scaffold OData v4 services, and align tooling with your Mule runtime. Register the update site in Anypoint Studio, install the OData extension, and restart to activate it.
 
 . Select *Help* > *Install New Software* and then click *Add*.
 +

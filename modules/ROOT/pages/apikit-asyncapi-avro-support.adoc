@@ -1,9 +1,9 @@
-= Implementing and Validating Avro Schemas in APIkit for AsyncAPI Module
+= Using Avro Schemas with APIkit for AsyncAPI
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for AsyncAPI supports https://avro.apache.org/[Avro], a data serialization system that helps you define the format for specifying the structure and encoding of messages. This module shows you the structure of messages in the design phase. APIkit for AsyncAPI also supports xref:studio::datasense-concept.adoc[DataSense] of messages with Avro schema.
+APIkit for AsyncAPI accepts https://avro.apache.org/[Avro] in AsyncAPI message definitions so you serialize payloads and validate them in Mule. Declare schemas inline in the spec or reference external Avro documents; Studio can expose message shape during design, and xref:studio::datasense-concept.adoc[DataSense] assists with Avro-backed message metadata.
 
 == Schema Definitions
 

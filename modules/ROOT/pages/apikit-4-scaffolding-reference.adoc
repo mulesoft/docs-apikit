@@ -1,10 +1,10 @@
-= Scaffolding Reference
+= APIkit for REST Scaffolding Reference
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :page-aliases: creating-an-apikit-4-project-with-maven.adoc
 
-Generate the backbone of a REST API implementation based on RESTful API Modeling Language (RAML) or OpenAPI Specifications (OAS) with APIkit for REST scaffolder.
+APIkit for REST scaffolders generate Mule flows and supporting components from RESTful API Modeling Language (RAML) or OpenAPI Specification (OAS) contracts. Use Anypoint Studio to import an API from Anypoint Exchange, Design Center, or local files and produce the implementation backbone automatically. Scaffolding wires the HTTP listener, APIkit Router, API console flow, and per-action flows you replace with business logic.
 
 == API Scaffolding
 

@@ -3,12 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Use APIkit to set headers to your application's response based on the WSDL declarations.
-
-To follow this example, you must download the `tshirt2.wsdl` API definition, and create a Mule application based on it. +
-See xref:apikit-4-soap-prerequisites-task.adoc[prerequisites for Using APIkit for SOAP] and xref:apikit-4-soap-project-task.adoc[create an APIkit for SOAP project] for more information.
-
-In this example, you add the `APIUsageInformation` header to the response of your application:
+Add SOAP headers declared in your WSDL to outbound responses from an APIkit for SOAP application. This walkthrough extends the `OrderTshirt` flow and DataWeave so the response includes header data such as `APIUsageInformation`. Download `tshirt2.wsdl`, complete xref:apikit-4-soap-prerequisites-task.adoc[prerequisites for Using APIkit for SOAP], and xref:apikit-4-soap-project-task.adoc[create an APIkit for SOAP project] before you begin.
 
 . In Anypoint Studio, open `tshirt2.wsdl` in `src/main/resources/api` and scroll to the `APIUsageInformation` element, which is the element expected by the contract.
 . On the canvas, select `Transform Message` in the `OrderTshirt:/soapkit-config` flow.

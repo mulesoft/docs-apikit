@@ -3,14 +3,9 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-If you choose a backend-first design approach for Mule projects and applications that contains business logic, you can convert them into an APIkit project and expose them as REST services. Use one of these approaches:
- 
-* xref:apikit-workflow-convert-existing.adoc#manual-approach[]
-* xref:apikit-workflow-convert-existing.adoc#scaffolding-approach[]
+Convert Mule applications that implement HTTP and database logic into APIkit for REST projects so you expose the same behavior through a RAML or OpenAPI Specification (OAS) contract. Use the xref:apikit-workflow-convert-existing.adoc#manual-approach[manual approach] to wrap APIkit Router around existing flows, or the xref:apikit-workflow-convert-existing.adoc#scaffolding-approach[scaffolding approach] to rebuild flows from the API specification if regenerating structure matches your delivery plan. Balance complexity, risk, and how much of the flow graph you can refactor.
 
-Consider the size and complexity of the application when deciding on the best approach.
-
-The examples for these approaches are based on the following Mule application that retrieves users from a database:
+The walkthrough uses a sample Mule application that retrieves users from a database:
 
 [source,xml,linenums]
 ----

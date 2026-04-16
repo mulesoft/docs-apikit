@@ -1,11 +1,9 @@
-= Prevent the SOAP Fault
+= Return a Valid SOAP Response After a Fault
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-After resolving the generated xref:apikit-4-soap-fault-task.adoc[SOAP fault], add the Transform Message component to the flow and specify a message in DataWeave to respond to the request and implement the operation. In the DataWeave code, use the proper `namespace` to avoid a fault code at the beginning of the response to the request.
-
-The Transform Message component works on the process side after you reach the endpoint defined in the WSDL. This action triggers the execution of the main flow of the Mule application, which calls the backend flow.
+After you resolve the xref:apikit-4-soap-fault-task.adoc[SOAP fault], add Transform Message on the `OrderTshirt:\soapkit-config` flow and author DataWeave that returns a valid payload instead of another fault. Use the correct `namespace` so the response matches the WSDL contract and avoids leading fault codes. Transform Message runs after the WSDL endpoint dispatches into your main flow and any backend calls.
 
 . In Studio, in the *OrderTshirt:\soapkit-config* flow, open the Transform Message component.
 +

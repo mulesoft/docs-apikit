@@ -3,9 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Create a new Mule project based on a SOAP API specification.
-
-Before proceeding, ensure that you meet the xref:apikit-4-soap-prerequisites-task.adoc[prerequisites for using APIkit for SOAP].
+Create a Mule project from a WSDL so Anypoint Studio generates APIkit for SOAP flows and stores the contract under `src/main/resources/api`. Meet the xref:apikit-4-soap-prerequisites-task.adoc[prerequisites for using APIkit for SOAP] first. After you pick the service and port, run the application and retrieve the published WSDL from the HTTP endpoint to verify the service.
 
 . In Anypoint Studio, from *File*, select *New* > *Mule Project*.
 +

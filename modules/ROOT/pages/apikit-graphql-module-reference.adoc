@@ -3,6 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
+Integrate GraphQL APIs in Mule with the APIkit for GraphQL module: reference the GraphQL schema artifact, tune router limits, and wire `Route`, `Serialize`, and data fetcher or loader sources. Later sections document configuration parameters, operations, and sources for the XML you generate or edit after scaffolding.
+
 == Configurations
 
 === Config

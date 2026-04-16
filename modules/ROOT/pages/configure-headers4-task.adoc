@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In the *HTTP Listener* configuration, you can customize the HTTP response body, headers, status code, and reason phrase.
+Map APIkit for REST outbound headers and HTTP status values to variables the HTTP Listener writes into each response. Configure `outboundHeadersMapName` and `httpStatusVarName` on `apikit:config` so flows set `vars.outboundHeaders` and `vars.httpStatus` consistently across success and error paths. The steps align listener response blocks with those variable names.
 
 == Configure Variable Names
 

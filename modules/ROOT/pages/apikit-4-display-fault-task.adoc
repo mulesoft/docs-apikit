@@ -1,20 +1,9 @@
-= Display a Typed Fault
+= Display a Typed SOAP Fault
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Make the `ListInventory` operation display the typed fault. The tshirt2.wsdl file includes the *TshirtFault* typed fault, which is mapped to the WSDL operations:
-
-* `OrderTshirt`
-* `ListInventory`
-* `TrackOrder`
-
-APIkit for SOAP supports the following types of SOAP faults:
-
-* Soap Fault 1.1
-* Soap Fault 1.2
-
-You can select either type by using any WSDL file, even for files that do not contain typed faults.
+Configure the `ListInventory` operation in APIkit for SOAP so responses surface the *TshirtFault* typed fault from `tshirt2.wsdl`, which also maps faults to `OrderTshirt`, `ListInventory`, and `TrackOrder`. Select Soap Fault 1.1 or Soap Fault 1.2 for any WSDL, including services that do not declare typed faults.
 
 . In Anypoint Studio, search for *fault* in the command palette.
 +

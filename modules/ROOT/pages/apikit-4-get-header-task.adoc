@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-In SoapUI, the request window shows the soap envelope header. To retrieve a SOAP header from the request:
+Retrieve a SOAP header value from an incoming request when you exercise APIs with SoapUI and Anypoint Studio. This walkthrough reads the API key from the `OrderTshirt` envelope and surfaces it through DataWeave in the `OrderTshirt:\soapkit-config` flow. You update Transform Message, rerun the app, and confirm the header appears in the response.
 
 image::apikit-for-soap-53dc2.png["Request window showing the SOAP envelope header"]
 
