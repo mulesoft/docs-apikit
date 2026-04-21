@@ -8,11 +8,11 @@ APIkit for SOAP simplifies building and integrating SOAP-based web services by h
 [#choose-the-apikit-for-soap-module-version]
 == Choose the APIkit for SOAP Module Version
 
-APIkit for SOAP now ships on two supported lines so you can align the module with your Mule runtime and JDK without surprise requirement changes. Pick the line that matches the platform you deploy today; use xref:apikit-4-soap-prerequisites-task.adoc[Before You Begin Using APIkit for SOAP] for installation and Exchange steps.
+APIkit for SOAP now has two versions so you can align the module with your Mule runtime and JDK. Choose the version that matches the platform you deploy today. For more information about installation, see xref:apikit-4-soap-prerequisites-task.adoc[].
 
 [NOTE]
 ====
-APIkit for SOAP 1.6.5 through 1.6.10 are deprecated. Move to *1.7.0* (legacy compatibility) or *2.0.0* (modern major) as shown in the table.
+APIkit for SOAP 1.6.5 through 1.6.10 are deprecated. Move to version 1.7.0 (legacy compatibility) or 2.0.0 (modern major).
 ====
 
 include::partial$apikit-soap-rn-version-lines-comparison.adoc[]

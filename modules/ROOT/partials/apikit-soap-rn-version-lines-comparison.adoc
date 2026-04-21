@@ -4,10 +4,10 @@
 // From a page in this apikit component:
 //   include::partial$apikit-soap-rn-version-lines-comparison.adoc[]
 
-.APIkit for SOAP supported version lines
+=== APIkit for SOAP Versions
 [%header,cols="20a,25a,25a,30a"]
 |===
-| Line | Representative Version | Minimum Platform | Use Cases
+| Line | Version | Minimum Platform | Use Cases
 
 | Legacy compatibility
 | 1.7.0
