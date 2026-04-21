@@ -1,0 +1,26 @@
+// Comparison of supported APIkit for SOAP product lines for embedding in the APIkit release notes index or overview.
+// From another Antora component:
+//   include::apikit::partial$apikit-soap-rn-version-lines-comparison.adoc[]
+// From a page in this apikit component:
+//   include::partial$apikit-soap-rn-version-lines-comparison.adoc[]
+
+.APIkit for SOAP supported version lines
+[%header,cols="20a,25a,25a,30a"]
+|===
+| Line | Representative Version | Minimum Platform | Use Cases
+
+| Legacy compatibility
+| 1.7.0
+| JDK 8, 11, or 17; Mule runtime 4.1.x and later
+| You must keep existing deployments on older Mule or Java stacks without adopting the 2.x requirements.
+
+| Modern major
+| 2.0.0 (successor to 1.6.10)
+| JDK 17 only; Mule runtime 4.9.11 and later
+| You standardize on current Mule and Java 17. You choose the version that receives new features.
+
+| Deprecated
+| 1.6.5 – 1.6.10
+| Don't adopt or standardize on these releases.
+| Migrate to 1.7.0 or 2.0.0 using the https://docs.mulesoft.com/apikit/latest/apikit-4-for-soap#choose-the-apikit-for-soap-module-version[version selection guide].
+|===

@@ -5,6 +5,18 @@ endif::[]
 
 APIkit for SOAP simplifies building and integrating SOAP-based web services by handling message formats, headers, and WSDL binding against your existing SOAP endpoints. SOAP (Simple Object Access Protocol) exchanges structured payloads between services; APIkit for SOAP keeps those payloads aligned with your contracts. Ship reliable APIs faster with automated configuration, data transformation, XML 1.0 defaults, and optional XML 1.1 C0 characters through the xref:apikit-4-xml-reference.adoc#apikit-for-soap-system-properties[system property].
 
+[#choose-the-apikit-for-soap-module-version]
+== Choose the APIkit for SOAP Module Version
+
+APIkit for SOAP now ships on two supported lines so you can align the module with your Mule runtime and JDK without surprise requirement changes. Pick the line that matches the platform you deploy today; use xref:apikit-4-soap-prerequisites-task.adoc[Before You Begin Using APIkit for SOAP] for installation and Exchange steps.
+
+[NOTE]
+====
+APIkit for SOAP 1.6.5 through 1.6.10 are deprecated. Move to *1.7.0* (legacy compatibility) or *2.0.0* (modern major) as shown in the table.
+====
+
+include::partial$apikit-soap-rn-version-lines-comparison.adoc[]
+
 == APIkit for SOAP Features
 
 * Streamlines SOAP API development, ensuring seamless integration with your existing SOAP infrastructure.
