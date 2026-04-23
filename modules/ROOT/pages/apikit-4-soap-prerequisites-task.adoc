@@ -9,8 +9,8 @@ Prepare your workstation and assets before you build a WSDL-based API with APIki
 
 Your Mule runtime and JDK determine which APIkit for SOAP dependency to use. Read xref:apikit-4-for-soap.adoc#choose-the-apikit-for-soap-module-version[Choose the APIkit for SOAP module version] first, then align your project dependency with that choice.
 
-* APIkit for SOAP 1.7.0 supports JDK 8, 11, and 17 on Mule runtime 4.1.x and later. Use this version if you must stay on Mule runtime previous to 4.9.11, or if you're not ready for JDK 17-only deployments.
-* APIkit for SOAP 2.0.0 requires JDK 17 and Mule runtime 4.9.11 or later. Use this version for new Mule projects.
+* APIkit for SOAP 1.7.0 supports JDK 8, 11, and 17 on Mule runtime 4.1.x and later. Use APIkit for SOAP 1.7.0 if you must stay on Mule runtime earlier than 4.9.11, or if you're not ready for JDK 17-only deployments.
+* APIkit for SOAP 2.0.0 and later requires JDK 17 and Mule runtime 4.9.11 or later. Use APIkit for SOAP 2.0.0 for new Mule projects.
 
 == Prerequisites
 
