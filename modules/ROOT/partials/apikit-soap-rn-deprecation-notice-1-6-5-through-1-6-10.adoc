@@ -9,5 +9,5 @@
 APIkit for SOAP 1.6.5 through 1.6.10 are deprecated. Select a supported path:
 
 * If your project uses Mule runtime 4.9.11 or later, and JDK 17, upgrade to APIkit for SOAP 2.0.0. 
-* If your project uses older runtimes (for example, Mule 4.1.x through 4.8.x) or JDK 8 or 11, upgrade to APIkit for SOAP 1.7.0.
+* If your project uses earlier runtimes (for example, Mule 4.1.x through 4.8.x) or JDK 8 or 11, upgrade to APIkit for SOAP 1.7.0.
 ====
