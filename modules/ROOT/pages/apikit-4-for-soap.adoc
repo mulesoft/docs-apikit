@@ -3,7 +3,19 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for SOAP simplifies building and integrating SOAP-based web services by handling message formats, headers, and WSDL binding against your existing SOAP endpoints. SOAP (Simple Object Access Protocol) exchanges structured payloads between services; APIkit for SOAP keeps those payloads aligned with your contracts. Ship reliable APIs faster with automated configuration, data transformation, XML 1.0 defaults, and optional XML 1.1 C0 characters through the xref:apikit-4-xml-reference.adoc#apikit-for-soap-system-properties[system property].
+APIkit for SOAP simplifies building and integrating SOAP-based web services by handling message formats, headers, and WSDL binding against your existing SOAP endpoints. SOAP (Simple Object Access Protocol) exchanges structured payloads between services. APIkit for SOAP keeps those payloads aligned with your contracts. To learn more about automated configurations, data transformations, XML 1.0 defaults, and optional XML 1.1 C0 characters, see xref:apikit-for-soap-module-reference.adoc#apikit-for-soap-system-properties[system property].
+
+[[choose-the-apikit-for-soap-module-version]]
+== Choose the APIkit for SOAP Module Version
+
+APIkit for SOAP now has two versions so you can align the module with your Mule runtime and JDK versions. Choose the version that matches the platform you deploy to today. For more information about installation, see xref:apikit-4-soap-prerequisites-task.adoc[].
+
+[NOTE]
+====
+APIkit for SOAP 1.6.5 through 1.6.10 are deprecated. Move to version 1.7.0 (legacy compatibility) or 2.0.0 (modern major).
+====
+
+include::partial$apikit-soap-rn-version-lines-comparison.adoc[]
 
 == APIkit for SOAP Features
 
@@ -12,7 +24,7 @@ APIkit for SOAP simplifies building and integrating SOAP-based web services by h
 * Automates the binding to WSDL (Web Services Description Language), reducing manual configuration efforts and ensuring accuracy.
 * Supports data transformations.
 * Defines and exposes SOAP APIs with ease by emphasizing SOAP/WSDL contracts. 
-* Supports XML 1.0 characters by default. Supports XML 1.1 C0 characters through the xref:apikit-4-xml-reference.adoc#apikit-for-soap-system-properties[system property].
+* Supports XML 1.0 characters by default. Supports XML 1.1 C0 characters through the xref:apikit-for-soap-module-reference.adoc#apikit-for-soap-system-properties[system property].
 
 == See Also
 

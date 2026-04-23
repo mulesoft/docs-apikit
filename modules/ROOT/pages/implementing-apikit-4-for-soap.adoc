@@ -5,6 +5,8 @@ endif::[]
 
 Use Anypoint Studio and APIkit for SOAP to build a Mule integration that calls a remote SOAP service and exposes it as part of your API surface. The walkthrough uses link:{attachmentsdir}/tshirt2.wsdl[tshirt2.wsdl] so you map WSDL operations to flows and connect downstream systems behind the SOAP contract.
 
+Confirm if xref:apikit-4-for-soap.adoc#choose-the-apikit-for-soap-module-version[APIkit for SOAP 1.7.0 or 2.0.0] matches your Mule runtime and JDK versions before you scaffold your project.
+
 Start by xref:apikit-4-soap-project-task.adoc[creating an APIkit for SOAP project].
 
 == See Also

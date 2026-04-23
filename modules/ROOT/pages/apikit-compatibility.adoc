@@ -14,8 +14,16 @@ Compare APIkit module support on Mule 3 and Mule 4 before you choose an implemen
 |APIkit for OData v2 |Yes |Yes 
 |APIkit for OData v4 |No |Yes 
 |APIkit for REST |Yes |Yes 
-|APIkit for SOAP |Yes |Yes 
+|APIkit for SOAP |Yes |Yes
 |===
+
+== APIkit for SOAP Module Versions and Mule Runtime
+
+APIkit for SOAP 1.7.0 provides broad Mule runtime compatibility. APIkit for SOAP 2.0.0 is the major successor to 1.6.10 and requires JDK 17 and Mule runtime 4.9.11 or later. APIkit for SOAP 1.6.5 through 1.6.10 are deprecated.
+
+include::partial$apikit-soap-rn-version-lines-comparison.adoc[]
+
+See xref:apikit-4-for-soap.adoc#choose-the-apikit-for-soap-module-version[Choose the APIkit for SOAP module version] and xref:apikit-4-soap-prerequisites-task.adoc[Before You Begin Using APIkit for SOAP] when you plan upgrades.
 
 == Language and Protocol Support
 

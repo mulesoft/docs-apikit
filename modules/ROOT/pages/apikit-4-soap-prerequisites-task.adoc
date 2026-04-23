@@ -5,12 +5,19 @@ endif::[]
 
 Prepare your workstation and assets before you build a WSDL-based API with APIkit for SOAP. You need supported Anypoint Studio and Mule runtime versions, the APIkit for SOAP component, a SOAP test client, and a WSDL file such as the sample used in the SOAP tutorials.
 
+== Choose Your APIkit for SOAP Module Version
+
+Your Mule runtime and JDK determine which APIkit for SOAP dependency to use. Read xref:apikit-4-for-soap.adoc#choose-the-apikit-for-soap-module-version[Choose the APIkit for SOAP module version] first, then align your project dependency with that choice.
+
+* APIkit for SOAP 1.7.0 supports JDK 8, 11, and 17 on Mule runtime 4.1.x and later. Use APIkit for SOAP 1.7.0 if you must stay on Mule runtime earlier than 4.9.11, or if you're not ready for JDK 17-only deployments.
+* APIkit for SOAP 2.0.0 and later requires JDK 17 and Mule runtime 4.9.11 or later. Use APIkit for SOAP 2.0.0 for new Mule projects.
+
 == Prerequisites
 
 * Install the required software:
 ** Studio 7.1 or later
-** Mule runtime engine 4.1.1 or later
-** APIkit for SOAP 1.1 or 1.2
+** A supported Mule runtime for the APIkit for SOAP (4.1.x or later for 1.7.0; 4.9.11 or later for 2.0.0)
+** The APIkit for SOAP module version that matches your Mule runtime and JDK (1.7.0 or 2.0.0)
 +
 Studio includes the Anypoint APIkit SOAP extension.
 * Download and install a SOAP client. 
