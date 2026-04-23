@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-APIkit for SOAP simplifies building and integrating SOAP-based web services by handling message formats, headers, and WSDL binding against your existing SOAP endpoints. SOAP (Simple Object Access Protocol) exchanges structured payloads between services. APIkit for SOAP keeps those payloads aligned with your contracts. To lear more about automated configurations, data transformations, XML 1.0 defaults, and optional XML 1.1 C0 characters, see xref:apikit-for-soap-module-reference.adoc#apikit-for-soap-system-properties[system property].
+APIkit for SOAP simplifies building and integrating SOAP-based web services by handling message formats, headers, and WSDL binding against your existing SOAP endpoints. SOAP (Simple Object Access Protocol) exchanges structured payloads between services. APIkit for SOAP keeps those payloads aligned with your contracts. To learn more about automated configurations, data transformations, XML 1.0 defaults, and optional XML 1.1 C0 characters, see xref:apikit-for-soap-module-reference.adoc#apikit-for-soap-system-properties[system property].
 
 [[choose-the-apikit-for-soap-module-version]]
 == Choose the APIkit for SOAP Module Version
