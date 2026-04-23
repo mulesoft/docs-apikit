@@ -8,7 +8,7 @@ APIkit for SOAP simplifies building and integrating SOAP-based web services by h
 [[choose-the-apikit-for-soap-module-version]]
 == Choose the APIkit for SOAP Module Version
 
-APIkit for SOAP now has two versions so you can align the module with your Mule runtime and JDK versions. Choose the version that matches the platform you deploy today. For more information about installation, see xref:apikit-4-soap-prerequisites-task.adoc[].
+APIkit for SOAP now has two versions so you can align the module with your Mule runtime and JDK versions. Choose the version that matches the platform you deploy to today. For more information about installation, see xref:apikit-4-soap-prerequisites-task.adoc[].
 
 [NOTE]
 ====
