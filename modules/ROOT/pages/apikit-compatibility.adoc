@@ -3,19 +3,8 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Compare APIkit module support on Mule 3 and Mule 4 before you choose an implementation stack. Review protocol and language coverage in the tables on this page when you plan AsyncAPI, gRPC, GraphQL, OData, REST, or SOAP APIs. For APIkit versions that align with xref:mule-runtime::fips-140-2-compliance-support.adoc[FIPS 140-2] expectations, see xref:apikit-release-notes.adoc[].
+APIkit modules support Mule 4. Review protocol and language coverage in the tables on this page when you plan AsyncAPI, gRPC, GraphQL, OData, REST, or SOAP APIs. For APIkit versions that align with xref:mule-runtime::fips-140-2-compliance-support.adoc[FIPS 140-2] expectations, see xref:apikit-release-notes.adoc[].
 
-[%header]
-|===
-|Module |Mule 3 |Mule 4
-|APIkit for AsyncAPI |No |Yes 
-|APIkit for gRPC |No |Yes 
-|APIkit for GraphQL |No |Yes 
-|APIkit for OData v2 |Yes |Yes 
-|APIkit for OData v4 |No |Yes 
-|APIkit for REST |Yes |Yes 
-|APIkit for SOAP |Yes |Yes
-|===
 
 == APIkit for SOAP Module Versions and Mule Runtime
 
