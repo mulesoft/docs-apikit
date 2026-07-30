@@ -43,8 +43,8 @@ Configures the gRPC server that listens for incoming gRPC requests. This element
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Name | Type | Description | Default Value | Required
-| Name | String | Identifier of this element used to reference it in other components. | None | Yes
-| maxInboundMessageSize | Number | Maximum size in bytes for inbound gRPC messages. Messages exceeding this size are rejected. | 4194304 (4 MB) | No
+| `Name` | String | Identifier of this element used to reference it in other components. | None | Yes
+| `maxInboundMessageSize` | Number | Maximum size in bytes for inbound gRPC messages. Messages exceeding this size are rejected. | 4194304 (4 MB) | No
 |===
 
 ==== Example
@@ -82,7 +82,7 @@ Connection provider for the gRPC server. The gRPC server doesn't independently c
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Parameter | Type | Description | Default Value | Required
-| listenerConfig | ConfigReference to `http:listener-config` | Reference to the HTTP listener configuration that defines host, port, and TLS. The gRPC server uses this listener for transport. | None | Yes
+| `listenerConfig` | ConfigReference to `http:listener-config` | Reference to the HTTP listener configuration that defines host, port, and TLS. The gRPC server uses this listener for transport. | None | Yes
 |===
 
 ==== Child Elements
@@ -98,7 +98,7 @@ Provides the Protocol Buffer descriptor from a binary file (for example, a compi
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Parameter | Type | Description | Default Value | Required
-| protobufDescriptorFile | String | Path or expression (for example, `${grpc.server.descriptor.file}`) that resolves to the binary Protobuf descriptor file. | None | Yes
+| `protobufDescriptorFile` | String | Path or expression (for example, `${grpc.server.descriptor.file}`) that resolves to the binary Protobuf descriptor file. | None | Yes
 |===
 
 == Operations
@@ -113,10 +113,10 @@ Sends a message on an active server streaming response. To push messages to the 
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Parameter | Type | Description | Default Value | Required
-| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| Payload | Any | The message payload to send. It should conform to the message type defined in the Interface Description Language (IDL) for the streaming method. | #[payload] | No
-| Target Variable | String | Name of a variable on which the operation output is placed. | None | No
-| Target Value | String | Expression evaluated against the operation output. The result is stored in the target variable. | #[payload] | No
+| `config-ref` | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| `Payload` | Any | The message payload to send. It should conform to the message type defined in the Interface Description Language (IDL) for the streaming method. | #[payload] | No
+| `Target Variable` | String | Name of a variable on which the operation output is placed. | None | No
+| `Target Value` | String | Expression evaluated against the operation output. The result is stored in the target variable. | #[payload] | No
 |===
 
 ==== Configurations
@@ -133,9 +133,9 @@ Ends the current server stream. Call this operation after sending all messages t
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Parameter | Type | Description | Default Value | Required
-| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| Target Variable | String | Name of a variable on which the operation output is placed. | None | No
-| Target Value | String | Expression evaluated against the operation output. The result is stored in the target variable. | #[payload] | No
+| `config-ref` | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| `Target Variable` | String | Name of a variable on which the operation output is placed. | None | No
+| `Target Value` | String | Expression evaluated against the operation output. The result is stored in the target variable. | #[payload] | No
 |===
 
 ==== Configurations
@@ -156,10 +156,10 @@ Handles unary RPCs: one request from the client and one response from the server
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Parameter | Type | Description | Default Value | Required
-| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
-| Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
-| Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
+| `config-ref` | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| `methodName` | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
+| `Primary Node Only` | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
+| `Redelivery Policy` | Object | Policy for redelivery of the same message. | None | No
 |===
 
 ==== Output
@@ -184,10 +184,10 @@ Handles client streaming RPCs: the client sends a stream of messages and the ser
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Parameter | Type | Description | Default Value | Required
-| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
-| Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
-| Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
+| `config-ref` | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| `methodName` | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
+| `Primary Node Only` | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
+| `Redelivery Policy` | Object | Policy for redelivery of the same message. | None | No
 |===
 
 ==== Child Elements
@@ -199,8 +199,8 @@ Optional nested element that defines the response and stream state for the clien
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Parameter | Type | Description | Default Value | Required
-| response | TypedValue&lt;InputStream&gt; | Response payload. Only effective on the final flow execution when `attributes.streamCompleted` is true. | #[payload] | No
-| streamState | Map&lt;String, Object&gt; | State persisted across messages via `attributes.streamState`. | #[{}] | No
+| `response` | TypedValue&lt;InputStream&gt; | Response payload. Only effective on the final flow execution when `attributes.streamCompleted` is true. | #[payload] | No
+| `streamState` | Map&lt;String, Object&gt; | State persisted across messages via `attributes.streamState`. | #[{}] | No
 |===
 
 Specify stream state in two ways: 
@@ -241,11 +241,11 @@ Handles server streaming RPCs: the client sends one request and the server respo
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Parameter | Type | Description | Default Value | Required
-| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
-| onCapacityOverload | Enum: WAIT, DROP | Backpressure strategy when the flow's `maxConcurrency` is reached. See <<Backpressure Strategy>>. | WAIT | No
-| Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
-| Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
+| `config-ref` | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| `methodName` | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
+| `onCapacityOverload` | Enum: WAIT, DROP | Backpressure strategy when the flow's `maxConcurrency` is reached. See <<Backpressure Strategy>>. | WAIT | No
+| `Primary Node Only` | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
+| `Redelivery Policy` | Object | Policy for redelivery of the same message. | None | No
 |===
 
 ==== Output
@@ -270,10 +270,10 @@ Handles bidirectional streaming RPCs: both client and server send streams of mes
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Parameter | Type | Description | Default Value | Required
-| config-ref | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
-| methodName | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
-| Primary Node Only | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
-| Redelivery Policy | Object | Policy for redelivery of the same message. | None | No
+| `config-ref` | String (Config Reference) | Reference to the <<grpc-server-config,grpc:server-config>> to use. | None | Yes
+| `methodName` | String | Fully qualified method name in the format `ServiceName/MethodName` (for example, `com.example.MyService/MyMethod`). | None | Yes
+| `Primary Node Only` | Boolean | Whether this source runs only on the primary node in a cluster. | false | No
+| `Redelivery Policy` | Object | Policy for redelivery of the same message. | None | No
 |===
 
 ==== Child Elements
@@ -285,8 +285,8 @@ Optional nested element that defines the response and stream state for the bidir
 [cols="1a,2a,3a,4a,5a", options="header"]
 |===
 | Parameter | Type | Description | Default Value | Required
-| response | TypedValue&lt;InputStream&gt; | Response payload sent to the client. | #[payload] | No
-| streamState | Map&lt;String, Object&gt; | State persisted across messages via `attributes.streamState`. | #[{}] | No
+| `response` | TypedValue&lt;InputStream&gt; | Response payload sent to the client. | #[payload] | No
+| `streamState` | Map&lt;String, Object&gt; | State persisted across messages via `attributes.streamState`. | #[{}] | No
 |===
 
 Specify stream state in two ways. *Attribute form*: `streamState="#[vars.state]"`. *Nested element form*: use `grpc:stream-states` with `grpc:stream-state` children (each with `key` and `value` attributes), for example `<grpc:stream-state key="orderId" value="#[vars.orderId]" />`.
