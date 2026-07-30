@@ -379,6 +379,7 @@ Default configuration
 * xref:apikit-odatav4-extension-reference#raw-entity-success-response[RawEntitySuccessResponse]
 * xref:apikit-odatav4-extension-reference#entity-success-response[EntitySuccessResponse]
 
+|  |  | No
 |===
 
 === Output
