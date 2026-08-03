@@ -52,17 +52,94 @@ Default configuration
 [cols=".^20%,.^25%,.^30%,.^25%", options="header"]
 |=== 
 | Message Broker | Description | Supported Protocols | Configuration Details 
-| Anypoint MQ | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports *Message Listener* and *Subscribe* operations. 
-| Kafka | Supports asynchronous messaging with Apache Kafka. | kafka, kafka-secure | Kafka configurations are specified in the server object of the AsyncAPI specification. Supports *Message Listener* and *Subscribe* operations. 
-| Salesforce platform events | Allows implementing an Async API specification using Anypoint Connector for Salesforce Pub/Sub (Salesforce Pub/Sub Connector). | salesforcepubsub* | Connection details are available in the properties file. Supports *Message Listener* and *Subscribe* operations, and *Message Listener* and *Publish* operations. 
+| Anypoint MQ | Supports asynchronous messaging with Anypoint MQ. | anypointmq | Anypoint MQ configurations are specified in the server object of the AsyncAPI specification. Supports *Message Listener* for consuming messages from channels declared in AsyncAPI `subscribe` operations. 
+| Kafka | Supports asynchronous messaging with Apache Kafka. | kafka, kafka-secure | Kafka configurations are specified in the server object of the AsyncAPI specification. Supports *Message Listener* for consuming messages from channels declared in AsyncAPI `subscribe` operations. 
+| Salesforce platform events | Allows implementing an Async API specification using Anypoint Connector for Salesforce Pub/Sub (Salesforce Pub/Sub Connector). | salesforcepubsub* | Connection details are available in the properties file. Supports *Message Listener* for `subscribe` operations and *Publish* for `publish` operations.
 
 In the *Message Listener* operation, the AsyncAPI spec `defaultContentType` must be application/JSON.
 
 In the *Publish* operation, the payload must be JSON. The APIkit for AsyncAPI module transforms the JSON payload to the array-of-objects type.
-| Solace Pub/Sub+ | Supports the implementation of an Async API specification using Solace PubSub+ Connector. | solace | Connection details are available in the properties file. Supports *Message Listener* and *Publish* operations.
+| Solace Pub/Sub+ | Supports the implementation of an Async API specification using Solace PubSub+ Connector. | solace | Connection details are available in the properties file. Supports *Message Listener* for `subscribe` operations and *Publish* for `publish` operations.
 |===
 
 +++*+++ You must use Anypoint Connector for Salesforce Pub/Sub Connector 1.0.15 or later.
+
+=== Configuration Details by Operation
+
+APIkit for AsyncAPI supports two runtime operations in Mule flows: *Message Listener* and *Publish*. In AsyncAPI semantics, `subscribe` channels map to the *Message Listener* source, and `publish` channels map to the *Publish* operation.
+
+==== Message Listener
+
+Use *Message Listener* (`<apikit-asyncapi:message-listener>`) to consume events from AsyncAPI channels, trigger flow execution, and validate incoming payloads against the channel message schema.
+
+These message brokers are available for the *Message Listener* operation:
+
+* Anypoint MQ
+* Kafka
+* Salesforce Pub/Sub
+* Solace PubSub+
+
+===== Configuration Options
+
+Core listener parameters:
+
+[cols=".^30%,.^70%", options="header"]
+|===
+| Parameter | Description
+| `Configuration` (`config-ref`) | Reference to the APIkit for AsyncAPI configuration
+| `Channel Name` | AsyncAPI channel to consume
+| `Servers` | Optional list of server names to listen to
+| `Disable Content Validation` | Disables payload validation against the AsyncAPI schema
+| `Output MIME Type` and `Output Encoding` | Optional output format controls
+| `Primary Node Only` | Runs only on the primary node in a cluster
+| `Streaming Strategy` | `repeatable-in-memory-stream`, `repeatable-file-store-stream`, or `non-repeatable-stream`
+| `Redelivery Policy` | Redelivery behavior for failed processing
+|===
+
+Broker-specific configuration in `Config`:
+
+[cols=".^25%,.^75%", options="header"]
+|===
+| Broker | Configuration details
+| Anypoint MQ | Configure `Anypoint MQ Configs` with `Server Key` and optional `Config Ref`
+| Kafka | Configure `Kafka Configs` with `Server Key`, optional `Producer Config Ref`, and optional `Consumer Config Ref`
+| Salesforce Pub/Sub | Configure `Salesforce Pub/Sub Configs` with `Server Key` and optional `Config Ref`
+| Solace PubSub+ | Configure `Solace Configs` with `Server Key` and optional `Config Ref`
+|===
+
+==== Publish
+
+Use *Publish* (`<apikit-asyncapi:publish>`) to send events to AsyncAPI channels defined for publishing. The operation validates outgoing payloads when validation is enabled.
+
+These message brokers are available for the *Publish* operation:
+
+* Salesforce Pub/Sub
+* Solace PubSub+
+
+===== Configuration Options
+
+Core publish parameters:
+
+[cols=".^30%,.^70%", options="header"]
+|===
+| Parameter | Description
+| `Configuration` (`config-ref`) | Reference to the APIkit for AsyncAPI configuration
+| `Channel Name` | AsyncAPI channel to publish to
+| `Server Name` | Server alias from the AsyncAPI spec
+| `Content` | Payload to publish (`#[payload]` by default)
+| `Disable Content Validation` | Disables payload validation against the AsyncAPI schema
+| `Target Variable` and `Target Value` | Optional output capture
+| `Error Mappings` | Optional mapping of operation errors
+|===
+
+Broker-specific configuration in `Config`:
+
+[cols=".^25%,.^75%", options="header"]
+|===
+| Broker | Configuration details
+| Salesforce Pub/Sub | Configure `Salesforce Pub/Sub Configs` with `Server Key` and optional `Config Ref`
+| Solace PubSub+ | Configure `Solace Configs` with `Server Key` and optional `Config Ref`
+|===
 
 ==== Associated Operations
 * <<Publish>>  
