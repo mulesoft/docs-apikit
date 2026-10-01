@@ -91,6 +91,7 @@ If you use APIkit behind a reverse proxy and set `keepRamlBaseUri` to `true`, us
 |`queryParamsStrictValidation` |No | Validates that request query parameters are defined in the RAML file.
 |===
 
+[[opentelemetry-route-on-the-http-span]]
 === OpenTelemetry Route on the HTTP Span
 
 When `apikit:router` matches a request, APIkit records the matched route on the root HTTP span in OpenTelemetry traces. On Mule runtime 4.13 and later, the `http.route` attribute contains the route template, and the span name combines the HTTP method and that route, for example `GET /orders/{orderId}`. You can identify the specific API operation in each trace. On earlier Mule runtimes, the root HTTP span keeps the HTTP listener path.
