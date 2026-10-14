@@ -9,7 +9,7 @@ Install the APIkit for OData v4 Studio plugin to author CSDL metadata, scaffold 
 +
 image::add-update-site.png["Window for installing new software with the *Add* button highlighted"]
 . In *Name*, type `APIkit for ODATA v4 Update Site`.
-. In *Location*, type the URL of the site: `+https://studio.mulesoft.org/s4/apikit-for-odata4/+`.
+. In *Location*, type the URL of the site: `+https://repository.mulesoft.org/nexus/repository/studio-releases-orbit/org/mule/tooling/apikit-for-odata4/+`.
 . Click *Add*.
 +
 image::add-repository-odatav4.png["Window for adding a repository highlighting the *Add* button, with the name and location fields"]
