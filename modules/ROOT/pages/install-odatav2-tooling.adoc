@@ -9,7 +9,7 @@ Install the APIkit for OData v2 Studio plugin so you can generate OData APIs fro
 +
 image::add-update-site.png["Window for installing new software with the *Add* button highlighted"]
 . In *Name*, type `APIkit for ODATA v2 Update Site`.
-. In *Location*, type the URL of the site: `+https://studio.mulesoft.org/s4/apikit-for-odata/+`.
+. In *Location*, type the URL of the site: `+https://repository.mulesoft.org/nexus/repository/studio-releases-orbit/org/mule/tooling/apikit-for-odata/+`.
 . Select *Add*.
 +
 image::add-repository-odata.png["Window for adding a repository with the *Add* button, with the name the location fields highlighted"]
