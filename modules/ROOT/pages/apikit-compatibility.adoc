@@ -22,7 +22,7 @@ See xref:apikit-4-for-soap.adoc#choose-the-apikit-for-soap-module-version[Choose
 | AsyncAPI spec | 2.6
 | Protocol Buffers (gRPC) | 3
 | OData | 2.0 and 4.0
-| OpenAPI Specification (OAS) | 2.0 and 3.0
+| OpenAPI Specification (OAS) | 2.0, 3.0, and 3.1
 | RESTful API Modeling Language (RAML) | 1.0 and 0.8
 | SOAP | 1.1 and 1.2
 |===
