@@ -16,6 +16,8 @@ Studio offers several ways to scaffold an API:
 
 NOTE: Scaffolding from a local file is not supported for OAS. Scaffolding OAS APIs is available only for published assets in Exchange.
 
+NOTE: Anypoint Studio does not support OAS 3.1. Design OAS 3.1 specifications in xref:anypoint-code-builder::index.adoc[Anypoint Code Builder].
+
 == Implementation Reference
 
 When scaffolding a REST API specification, APIkit generates the following components:
