@@ -28,4 +28,4 @@ The APIkit for AsyncAPI scaffolder does not generate error-handling code. Add `o
 
 == Kafka Limitations
 
-If you've enabled content validation, the Source Message Listener (the component responsible for consuming messages from Kafka topics) doesn't throw an exception for invalid messages. As a result, the DLQ/DLT pattern cannot be implemented for Kafka in this scenario. Instead, the consumer is responsible for routing invalid messages to DLQ/DLT topics.
+If you enable content validation, the Source Message Listener (the component that consumes messages from Kafka topics) doesn't throw an exception for invalid messages. Consequently, you can't implement the DLQ/DLT pattern for Kafka in this scenario. Instead, the consumer must route invalid messages to DLQ/DLT topics.
