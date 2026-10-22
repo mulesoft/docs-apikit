@@ -25,3 +25,7 @@ APIkit for AsyncAPI maps runtime failures to typed errors that cover validation,
 == APIkit for AsyncAPI Error Handling
 
 The APIkit for AsyncAPI scaffolder does not generate error-handling code. Add `on-error` components and scopes in your Mule application as needed.
+
+== Kafka Limitations
+
+If you've enabled content validation, the Source Message Listener (the component responsible for consuming messages from Kafka topics) doesn't throw an exception for invalid messages. As a result, the DLQ/DLT pattern cannot be implemented for Kafka in this scenario. Instead, the consumer is responsible for routing invalid messages to DLQ/DLT topics.
