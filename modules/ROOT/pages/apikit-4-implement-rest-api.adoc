@@ -17,6 +17,8 @@ Ensure you have the following software installed:
 
 Design your API specification with API Designer from Design Center, with the API Specification Project tool from Anypoint Studio, or with a text editor of your choice:
 
+NOTE: Anypoint Studio does not support OAS 3.1. Design OAS 3.1 specifications in xref:anypoint-code-builder::index.adoc[Anypoint Code Builder].
+
 . Create a JSON file including a list of users that serve as an example of what the service returns:
 +
 ----
