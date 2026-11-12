@@ -149,6 +149,9 @@ Broker-specific configuration in `Config`:
 
 == Validation of Messages
 
+[NOTE]
+XML message validation is not supported. Only JSON payloads can be validated against their schemas.
+
 Unless explicitly restricted, the JSON schema validation allows omitting and adding fields. Check the message validation against the schema in the following table: 
 
 [%header%autowidth.spread]
