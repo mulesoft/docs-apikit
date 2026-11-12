@@ -22,7 +22,7 @@ Your Mule runtime and JDK determine which APIkit for SOAP dependency to use. Rea
 Studio includes the Anypoint APIkit SOAP extension.
 * Download and install a SOAP client. 
 +
-For example, https://www.soapui.org/downloads/soapui.html[SoapUI^].
+For example, https://www.soapui.org/downloads/soapui/[SoapUI^].
 * Download or obtain the URL for a WSDL file. 
 +
 For example, link:{attachmentsdir}/tshirt2.wsdl[WSDL tshirt2.wsdl].
