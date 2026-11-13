@@ -8,6 +8,7 @@
 ====
 APIkit for SOAP 1.6.5 through 1.6.10 are deprecated. Select a supported path:
 
-* If your project uses Mule runtime 4.9.11 or later, and JDK 17, upgrade to APIkit for SOAP 2.0.0. 
-* If your project uses earlier runtimes (for example, Mule 4.1.x through 4.8.x) or JDK 8 or 11, upgrade to APIkit for SOAP 1.7.0.
+* Upgrade to APIkit for SOAP 3.0.0 when the project uses Mule runtime 4.9.11 or later and JDK 17. Add Spring 7 as a shared library if the application uses `cxf.xml`.
+* Upgrade to APIkit for SOAP 2.x when the project uses that same platform and must keep Spring bundled with the module.
+* Upgrade to APIkit for SOAP 1.7.0 when the project uses an earlier Mule runtime or JDK 8 or 11.
 ====
