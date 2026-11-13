@@ -5,19 +5,20 @@ endif::[]
 
 Prepare your workstation and assets before you build a WSDL-based API with APIkit for SOAP. You need supported Anypoint Studio and Mule runtime versions, the APIkit for SOAP component, a SOAP test client, and a WSDL file such as the sample used in the SOAP tutorials.
 
-== Choose Your APIkit for SOAP Module Version
+== Select Your APIkit for SOAP Module Version
 
 Your Mule runtime and JDK determine which APIkit for SOAP dependency to use. Read xref:apikit-4-for-soap.adoc#choose-the-apikit-for-soap-module-version[Choose the APIkit for SOAP module version] first, then align your project dependency with that choice.
 
-* APIkit for SOAP 1.7.0 supports JDK 8, 11, and 17 on Mule runtime 4.1.x and later. Use APIkit for SOAP 1.7.0 if you must stay on Mule runtime earlier than 4.9.11, or if you're not ready for JDK 17-only deployments.
-* APIkit for SOAP 2.0.0 and later requires JDK 17 and Mule runtime 4.9.11 or later. Use APIkit for SOAP 2.0.0 for new Mule projects.
+* APIkit for SOAP 1.7.0 supports JDK 8, 11, and 17 on Mule runtime 4.1.x and later. Use 1.7.0 when the project stays on a Mule runtime earlier than 4.9.11, or on JDK 8 or 11.
+* APIkit for SOAP 2.x requires JDK 17 and Mule runtime 4.9.11 or later. Use 2.x when the application relies on Spring bundled with the module to apply `cxf.xml`.
+* APIkit for SOAP 3.0.0 requires JDK 17 and Mule runtime 4.9.11 or later. Use 3.0.0 for new projects. This version supports Spring 7 and does not bundle Spring. Add Spring 7 as a shared library to apply `cxf.xml`. See xref:apikit-4-for-soap.adoc#supply-spring-for-cxf-configuration[Supply Spring to Apply cxf.xml].
 
 == Prerequisites
 
 * Install the required software:
-** Studio 7.1 or later
-** A supported Mule runtime for the APIkit for SOAP (4.1.x or later for 1.7.0; 4.9.11 or later for 2.0.0)
-** The APIkit for SOAP module version that matches your Mule runtime and JDK (1.7.0 or 2.0.0)
+** Studio 7.1 or later for 1.7.0. Studio 7.21 or later for 2.x and 3.0.0.
+** A supported Mule runtime for the APIkit for SOAP version (4.1.x or later for 1.7.0; 4.9.11 or later for 2.x and 3.0.0)
+** The APIkit for SOAP module version that matches your Mule runtime, JDK, and CXF configuration (1.7.0, 2.x, or 3.0.0)
 +
 Studio includes the Anypoint APIkit SOAP extension.
 * Download and install a SOAP client. 
