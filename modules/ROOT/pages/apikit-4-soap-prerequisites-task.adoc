@@ -11,7 +11,7 @@ Your Mule runtime and JDK determine which APIkit for SOAP dependency to use. Rea
 
 * APIkit for SOAP 1.7.0 supports JDK 8, 11, and 17 on Mule runtime 4.1.x and later. Use 1.7.0 when the project stays on a Mule runtime earlier than 4.9.11, or on JDK 8 or 11.
 * APIkit for SOAP 2.x requires JDK 17 and Mule runtime 4.9.11 or later. Use 2.x when the application relies on Spring bundled with the module to apply `cxf.xml`.
-* APIkit for SOAP 3.0.0 requires JDK 17 and Mule runtime 4.9.11 or later. Use 3.0.0 for new projects. This version supports Spring 7 and does not bundle Spring. Add Spring 7 as a shared library to apply `cxf.xml`. See xref:apikit-4-for-soap.adoc#supply-spring-for-cxf-configuration[Supply Spring to Apply cxf.xml].
+* APIkit for SOAP 3.0.0 requires JDK 17 and Mule runtime 4.9.11 or later. Use 3.0.0 for new projects. This version supports Spring 7 and doesn't bundle Spring. Add Spring 7 as a shared library to apply `cxf.xml`. See xref:apikit-4-for-soap.adoc#supply-spring-for-cxf-configuration[Supply Spring to Apply cxf.xml].
 
 == Prerequisites
 
