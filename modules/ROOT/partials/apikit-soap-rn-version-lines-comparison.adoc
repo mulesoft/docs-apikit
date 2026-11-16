@@ -12,7 +12,7 @@
 | Current major
 | 3.0.0
 | JDK 17 only; Mule runtime 4.9.11 and later
-| You start a new SOAP API on current Mule and Java 17. This line supports Spring 7 and does not bundle Spring. Add Spring 7 as a shared library to apply `cxf.xml`.
+| You start a new SOAP API on current Mule and Java 17. This line supports Spring 7 and doesn't bundle Spring. Add Spring 7 as a shared library to apply `cxf.xml`.
 
 | Supported major
 | 2.x (2.0.0 and later)
