@@ -8,7 +8,7 @@ APIkit modules support Mule 4. Review protocol and language coverage in the tabl
 
 == APIkit for SOAP Module Versions and Mule Runtime
 
-APIkit for SOAP 1.7.0 provides broad Mule runtime compatibility. APIkit for SOAP 2.0.0 is the major successor to 1.6.10 and requires JDK 17 and Mule runtime 4.9.11 or later. APIkit for SOAP 1.6.5 through 1.6.10 are deprecated.
+APIkit for SOAP 3.0.0 is the current major. It requires JDK 17 and Mule runtime 4.9.11 or later, supports Spring 7, and doesn't bundle Spring. APIkit for SOAP 2.x uses the same platform and still bundles Spring. APIkit for SOAP 1.7.0 supports earlier Mule runtime and JDK versions. APIkit for SOAP 1.6.5 through 1.6.10 are deprecated.
 
 include::partial$apikit-soap-rn-version-lines-comparison.adoc[]
 

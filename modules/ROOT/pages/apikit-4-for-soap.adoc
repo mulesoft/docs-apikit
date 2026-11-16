@@ -8,14 +8,20 @@ APIkit for SOAP simplifies building and integrating SOAP-based web services by h
 [[choose-the-apikit-for-soap-module-version]]
 == Choose the APIkit for SOAP Module Version
 
-APIkit for SOAP now has two versions so you can align the module with your Mule runtime and JDK versions. Choose the version that matches the platform you deploy to today. For more information about installation, see xref:apikit-4-soap-prerequisites-task.adoc[].
+Choose the APIkit for SOAP line that matches your Mule runtime, JDK, and CXF configuration. For installation requirements, see xref:apikit-4-soap-prerequisites-task.adoc[].
 
-[NOTE]
-====
-APIkit for SOAP 1.6.5 through 1.6.10 are deprecated. Move to version 1.7.0 (legacy compatibility) or 2.0.0 (modern major).
-====
+include::partial$apikit-soap-rn-deprecation-notice-1-6-5-through-1-6-10.adoc[]
 
 include::partial$apikit-soap-rn-version-lines-comparison.adoc[]
+
+[[supply-spring-for-cxf-configuration]]
+== Supply Spring to Apply cxf.xml
+
+APIkit for SOAP 3.0.0 supports Spring 7 and doesn't bundle Spring. The module uses the Spring bus when the application provides Spring 7. Otherwise, it uses the CXF bus, and a `cxf.xml` file in the application isn't applied.
+
+Add Spring Framework 7 (`org.springframework:spring-context`) as a shared library when you upgrade to 3.0.0 and the application relies on `cxf.xml`. For setup steps, see xref:mule-runtime::mmp-concept.adoc#configure-shared-libraries[Configure Shared Libraries].
+
+Applications that don't use `cxf.xml` can run 3.0.0 without Spring. APIkit for SOAP 2.x still bundles Spring, so `cxf.xml` continues to apply on that line without a shared library.
 
 == APIkit for SOAP Features
 
