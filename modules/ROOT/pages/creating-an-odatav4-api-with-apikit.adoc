@@ -14,7 +14,7 @@ Install this software to create and use an OData REST API with APIkit:
 * Mule runtime engine 4.3.0 or later
 * Anypoint Studio 7.9.0 or later
 
-Additionally, you must download the link:{attachmentsdir}/apikit-odata4-example.zip[OData 4 implementation example] and extract the `apikit-odata4-example.jar` file.
+Additionally, you must download the link:https://github.com/mulesoft/docs-apikit/raw/refs/heads/v4.x/examples/apikit-odata4-example.zip[OData 4 implementation example] and extract the `apikit-odata4-example.jar` file.
 
 == Scaffold an OData V4 API Using APIkit for OData
 
@@ -104,7 +104,7 @@ image::odata-query-option-attributes.png["odataRequestAttributes highlighted in 
 
 == APIkit for OData 4 Implementation Example
 
-. Download the full link:{attachmentsdir}/apikit-odata4-example.zip[apikit-odata4-example] and extract the `apikit-odata4-example.jar` file.
+. Download the full link:https://github.com/mulesoft/docs-apikit/raw/refs/heads/v4.x/examples/apikit-odata4-example.zip[apikit-odata4-example] and extract the `apikit-odata4-example.jar` file.
 . Import the downloaded example in Studio.
 . Run the SQL statements in the src/main/resources/example.sql file to create the database, tables, and test data in MySQL database.
 . Run the application in Studio.

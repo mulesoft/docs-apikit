@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-Run sample HTTP POST queries against a packaged APIkit for GraphQL service that keeps an in-memory blog-style dataset for testing. Download link:{attachmentsdir}/apikit-graphql-example.zip[APIkit for GraphQL application example], extract the `apikit-graphql-example.jar` file, and start it before you run the requests. See https://graphql.org/learn/serving-over-http/[GraphQL over HTTP^] for how POST bodies encode queries and variables.
+Run sample HTTP POST queries against a packaged APIkit for GraphQL service that keeps an in-memory blog-style dataset for testing. Download link:https://github.com/mulesoft/docs-apikit/raw/refs/heads/v4.x/examples/apikit-graphql-example.zip[APIkit for GraphQL application example], extract the `apikit-graphql-example.jar` file, and start it before you run the requests. See https://graphql.org/learn/serving-over-http/[GraphQL over HTTP^] for how POST bodies encode queries and variables.
 
 The walkthrough uses this schema:
 
